@@ -24,7 +24,7 @@ tts
 www
 .homekit
 .Trash-0
-appdaemon
+appdaemon.yaml
 
 # Ensure these YAML files are ignored, otherwise your secret data/credentials will leak.
 ip_bans.yaml
