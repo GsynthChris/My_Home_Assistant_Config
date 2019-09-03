@@ -6,7 +6,6 @@
 !*.yaml
 !.gitignore
 !*.md
-!appdaemon
 !automations
 !custom_components
 !scripts
@@ -25,6 +24,7 @@ tts
 www
 .homekit
 .Trash-0
+appdaemon
 
 # Ensure these YAML files are ignored, otherwise your secret data/credentials will leak.
 ip_bans.yaml
