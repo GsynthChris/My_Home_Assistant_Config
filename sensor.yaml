@@ -1,0 +1,328 @@
+##################################################################################################
+########################            Youtube Sensors            ###################################
+##################################################################################################
+  - platform: youtube
+    channel_id: UC7G4tLa4Kt6A9e3hJ-HO8ng #DrZzs
+  - platform: youtube
+    channel_id: UC5ZdPKE2ckcBhljTc2R_qNA #DigiBlur
+  - platform: youtube
+    channel_id: UCQMyhrt92_8XM0KgZH6VnRg #CompanyMan
+  - platform: youtube
+    channel_id: UCy0tKL1T7wFoYcxCe0xjN6Q #TechnologyConnections
+  - platform: youtube
+    channel_id: UCuDv5p8E-evaRSh542hDV5g #Robert Reich
+  - platform: youtube
+    channel_id: UC75HTMhqVZs0sPOMTMQqI9g #SuperHouseTV
+  - platform: youtube
+    channel_id: UC2gyzKcHbYfqoXA5xbyGXtQ #The Hook Up
+  - platform: youtube
+    channel_id: UCLecVrux63S6aYiErxdiy4w #BRUH
+  - platform: youtube
+    channel_id: UCTHsQd-vRXK1bp4vpifl6yA #Trae Crowder
+
+
+##################################################################################################
+########################            Template Sensors           ###################################
+##################################################################################################
+
+  - platform: template
+    sensors:
+      thermostatsetting:
+        friendly_name: "House Thermostat Set Temp"
+        unit_of_measurement: "°F"
+        value_template: "{{ state_attr('climate.air_conditioner', 'temperature') }}"
+      drzzslive:
+        friendly_name: "Is DrZzs Live!?!?!"
+        value_template: "{{ state_attr('sensor.drzzs', 'live') }}"
+      window_ac_temp:
+        friendly_name: "Window AC Temp"
+        unit_of_measurement: "°F"
+        value_template: "{{ state_attr('climate.window_ac', 'current_temperature') }}"
+##################################################################################################
+########################          Temperature Sensors          ###################################
+##################################################################################################
+
+  - platform: moon
+
+  - platform: mqtt
+    state_topic: "tele/bedsidelight/SENSOR"
+    name: "MstBd Temp"
+    unit_of_measurement: "°F"
+    icon: mdi:thermometer
+    value_template: "{{ value_json['DHT11'].Temperature }}"
+  - platform: mqtt
+    state_topic: "tele/bedsidelight/SENSOR"
+    name: "MstBd Humidity"
+    unit_of_measurement: "Humidity"
+    value_template: "{{ value_json['DHT11'].Humidity }}"
+    
+  - platform: mqtt
+    state_topic: "tele/thermozztat/SENSOR"
+    name: "Music Room Temp"
+    unit_of_measurement: "°F"
+    icon: mdi:thermometer
+    value_template: "{{ value_json['DHT11'].Temperature }}"
+  - platform: mqtt
+    state_topic: "tele/thermozztat/SENSOR"
+    name: "Music Room Humidity"
+    unit_of_measurement: "Humidity"
+    value_template: "{{ value_json['DHT11'].Humidity }}"
+    
+  - platform: mqtt
+    state_topic: "tele/kitchensink/SENSOR"
+    name: "Kitchen Temp"
+    unit_of_measurement: "°F"
+    icon: mdi:thermometer
+    value_template: "{{ value_json['DHT11'].Temperature }}"
+  - platform: mqtt
+    state_topic: "tele/kitchensink/SENSOR"
+    name: "Kitchen Humidity"
+    unit_of_measurement: "Humidity"
+    value_template: "{{ value_json['DHT11'].Humidity }}"
+
+  - platform: mqtt
+    state_topic: "tele/livingroomfan/SENSOR"
+    name: "Livingroom Temp"
+    unit_of_measurement: "°F"
+    icon: mdi:thermometer
+    value_template: "{{ value_json['DHT11'].Temperature }}"
+  - platform: mqtt
+    state_topic: "tele/livingroomfan/SENSOR"
+    name: "Livingroom Humidity"
+    unit_of_measurement: "Humidity"
+    value_template: "{{ value_json['DHT11'].Humidity }}"
+
+  - platform: mqtt
+    state_topic: "tele/mstbedmultisensor/SENSOR"
+    name: "Master Bedroom temp"
+    unit_of_measurement: "°F"
+    icon: mdi:thermometer
+    value_template: "{{ value_json['DHT11'].Temperature }}"
+  - platform: mqtt
+    state_topic: "tele/mstbedmultisensor/SENSOR"
+    name: "Master Bedroom Humidity"
+    unit_of_measurement: "Humidity"
+    value_template: "{{ value_json['DHT11'].Humidity }}"
+
+  - platform: mqtt
+    state_topic: "tele/officemultisensor/SENSOR"
+    name: "Office Temp"
+    unit_of_measurement: "°F"
+    icon: mdi:thermometer
+    value_template: "{{ value_json['DHT11'].Temperature }}"
+  - platform: mqtt
+    state_topic: "tele/officemultisensor/SENSOR"
+    name: "Office Humidity"
+    unit_of_measurement: "Humidity"
+    value_template: "{{ value_json['DHT11'].Humidity }}"
+
+  - platform: min_max
+    name: "Average home Temp"
+    type: "mean"
+    round_digits: 1
+    entity_ids:
+      - sensor.kitchen_temp
+      - sensor.office_temp
+      - sensor.livingroom_temp
+  - platform: min_max
+    name: "Average MstBd Temp"
+    type: "mean"
+    round_digits: 1
+    entity_ids:
+      - sensor.mstbd_temp
+      - sensor.master_bedroom_temp
+      - sensor.window_ac_temp
+
+
+##################################################################################################
+###########################          Weather Sensors          ####################################
+##################################################################################################
+  # - platform: openweathermap
+    # name: "Weather"
+    # api_key: !secret openweathermap
+    # forecast: no
+    # monitored_conditions:
+      # - weather
+      # - temperature
+      # - humidity
+      # - wind_speed
+      # - rain
+
+
+  - platform: darksky
+    name: Dark Sky
+    api_key: !secret darksky
+    # forecast:
+      # - 0
+    # hourly_forecast:
+      # - 0
+      # - 4
+    monitored_conditions:
+      - summary
+      - icon
+      - temperature
+      - humidity
+      - wind_bearing
+      - wind_speed
+      - sunrise_time
+      - sunset_time
+      - cloud_cover
+      - pressure
+      - precip_type
+      - precip_intensity
+      - precip_probability
+      - apparent_temperature
+    scan_interval:
+        hours: 0
+        minutes: 10
+        seconds: 0
+
+
+##################################################################################################
+#############################          Energy Sensors          ###################################
+##################################################################################################
+#########################          Washing Machine Sensor          ###############################
+##################################################################################################
+  - platform: mqtt
+    name: "Washer Energy Total"
+    state_topic: "tele/sonoffpow/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Total"] }}'
+    unit_of_measurement: "kWh"
+    icon: mdi:washing-machine
+    availability_topic: "tele/sonoffpow/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+
+  - platform: mqtt
+    name: "Washer Energy Today"
+    state_topic: "tele/sonoffpow/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Today"] }}'
+    unit_of_measurement: "kWh"
+    icon: mdi:flash
+    availability_topic: "tele/sonoffpow/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+
+  - platform: mqtt
+    name: "Washer Energy Yesterday"
+    state_topic: "tele/sonoffpow/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Yesterday"] }}'
+    unit_of_measurement: "kWh"
+    icon: mdi:flash
+    availability_topic: "tele/sonoffpow/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+
+  - platform: mqtt
+    name: "Washer Energy Period"
+    state_topic: "tele/sonoffpow/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Period"] }}'
+    unit_of_measurement: "Wh"
+    icon: mdi:flash
+    availability_topic: "tele/sonoffpow/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+
+  - platform: mqtt
+    name: "Washer Energy Power"
+    state_topic: "tele/sonoffpow/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Power"] }}'
+    unit_of_measurement: "Watts"
+    icon: mdi:flash
+    availability_topic: "tele/sonoffpow/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+
+  - platform: mqtt
+    name: "Washer Energy Current"
+    state_topic: "tele/sonoffpow/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Current"] }}'
+    unit_of_measurement: "Amps"
+    icon: mdi:flash
+    availability_topic: "tele/sonoffpow/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+
+  - platform: mqtt
+    name: "Washer Energy Voltage"
+    state_topic: "tele/sonoffpow/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Voltage"] }}'
+    unit_of_measurement: "Volts"
+    icon: mdi:flash
+    availability_topic: "tele/sonoffpow/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+
+
+##################################################################################################
+#############################          Computer Sensor          ##################################
+##################################################################################################
+  - platform: mqtt
+    name: "Computer Energy Total"
+    state_topic: "tele/s31powersensor/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Total"] }}'
+    unit_of_measurement: "kWh"
+    icon: mdi:flash-circle
+    availability_topic: "tele/s31powersensor/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+
+  - platform: mqtt
+    name: "Computer Energy Today"
+    state_topic: "tele/s31powersensor/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Today"] }}'
+    unit_of_measurement: "kWh"
+    icon: mdi:flash-circle
+    availability_topic: "tele/s31powersensor/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+
+  - platform: mqtt
+    name: "Computer Energy Yesterday"
+    state_topic: "tele/s31powersensor/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Yesterday"] }}'
+    unit_of_measurement: "kWh"
+    icon: mdi:flash-circle
+    availability_topic: "tele/s31powersensor/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+
+  - platform: mqtt
+    name: "Computer Energy Period"
+    state_topic: "tele/s31powersensor/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Period"] }}'
+    unit_of_measurement: "Wh"
+    icon: mdi:flash-circle
+    availability_topic: "tele/s31powersensor/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+
+  - platform: mqtt
+    name: "Computer Energy Power"
+    state_topic: "tele/s31powersensor/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Power"] }}'
+    unit_of_measurement: "Watts"
+    icon: mdi:flash-circle
+    availability_topic: "tele/s31powersensor/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+
+  - platform: mqtt
+    name: "Computer Energy Current"
+    state_topic: "tele/s31powersensor/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Current"] }}'
+    unit_of_measurement: "Amps"
+    icon: mdi:flash-circle
+    availability_topic: "tele/s31powersensor/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+
+  - platform: mqtt
+    name: "Computer Energy Voltage"
+    state_topic: "tele/s31powersensor/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Voltage"] }}'
+    unit_of_measurement: "Volts"
+    icon: mdi:flash-circle
+    availability_topic: "tele/s31powersensor/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"

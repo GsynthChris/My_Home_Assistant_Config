@@ -1,0 +1,129 @@
+  # auto_start: false
+  # name: Brooks Homekit
+  filter:
+    include_domains:
+      - light
+      - switch
+      # - media_player
+      - climate
+    exclude_domains:
+      - automation
+      - input_boolean
+      - script
+      - device_tracker
+      - sensor
+      - binary_sensor
+      - zone
+      - weather
+#    include_entities:
+#      - media_player.roku_12a194131868
+#      - media_player.roku_livingroom
+#      - media_player.xbox_one
+#      - device_tracker.20ee28d7e537 #Skidata iPhone nmap
+#      - device_tracker.2cf0a2af1208 #Brian iPhone nmap
+#      - device_tracker.a8b86e1e7b97 #Daniel Phone nmap
+#      - device_tracker.b844d99bb848 #Chris nmap
+#      - device_tracker.cc20e88e6090 #Lizz iPhone nmap
+#      - sensor.kitchen_temp
+#      - sensor.mstbd_temp
+    exclude_entities:
+      - switch.front_yard_ip_cam
+      - switch.hvac_furnace
+      - switch.hvac_fan
+      - switch.hvac_ac
+#      - media_player.alexa_echo
+#      - media_player.christopher_s_alexa_apps
+#      - media_player.alexa_echo_dot
+#      - media_player.alexa_echosim_beta
+#      - media_player.this_device
+#      - device_tracker.bc838535f1f5
+#      - device_tracker.chris_iphone
+#      - device_tracker.lizzs_iphone_6s
+#      - device_tracker.skidata_iphone
+#      - automation.send_notification_when_sun_rises
+#      - automation.send_notification_when_sun_sets
+#      - sensor.chris_skidata_iphone_battery_level
+#      - sensor.chris_skidata_iphone_battery_level_2
+#      - sensor.chris_skidata_iphone_battery_state
+#      - sensor.chris_skidata_iphone_battery_state_2
+#      - sensor.chriss_iphone_6_plus_battery_level
+#      - sensor.chriss_iphone_6_plus_battery_state
+#      - sensor.moon
+#      - sensor.synthetex
+#      - sensor.weather_symbol
+#      - sensor.sun
+#      - zone.home
+#      - group.all_automations
+#      - group.all_devices
+#      - group.all_zones
+#      - group.all_sensors
+  entity_config:
+    switch.office_computer:
+      name: Computer
+    light.basement_1:
+      name: Theater 1
+    light.basement_2:
+      name: Theater 1
+    light.bedroom_ceiling_light:
+      name: Bedroom Ceiling
+    light.bedside_light:
+      name: Bedside
+    light.closet_light:
+      name: Closet
+    light.dresser_light:
+      name: Dresser
+    light.hallway_light:
+      name: Hallway
+    light.livingroom_lamp:
+      name: Lamp
+    light.livingroom_ceiling_light:
+      name: Livingroom Ceiling
+    light.desk_lamp:
+      name: Desk Lamp
+    light.floor_lamp:
+      name: Floor Lamp
+    light.office_ceiling_light:
+      name: Office Ceiling
+    light.kitchen_ceiling_light:
+      name: Kitchen Ceiling
+    light.kitchen_leds:
+      name: LEDs
+    light.kitchen_sink_light:
+      name: Sink
+    light.laundry_room:
+      name: Laundry
+    light.shop_light:
+      name: Shop
+    light.stairs_light:
+      name: Stairs
+    light.under_cabinet_light:
+      name: Undercabinet
+    fan.bedroom_ceiling_fan:
+      name: Bedroom Ceiling
+    fan.kitchen_ceiling_fan:
+      name: Kitchen Ceiling
+    fan.livingroom_ceiling_fan:
+      name: Livingroom Ceiling
+    fan.box_fan:
+      name: Box Fan
+    climate.air_conditioner:
+      name: AC
+    # climate.heat:
+    #   name: Heater
+    climate.kitchen_ceiling_fan:
+      name: Kitchen Fan
+    # media_player.xbox_one:
+    #   name: Xbox
+    #   feature_list:
+    #     - feature: on_off
+    #     - feature: play_pause
+#     media_player.roku_12a194131868:
+#       name: Basement Roku
+#       feature_list:
+# #        - feature: on_off
+#         - feature: play_pause
+#     media_player.roku_livingroom:
+#       name: Living Room Roku
+#       feature_list:
+# #        - feature: on_off
+#         - feature: play_pause

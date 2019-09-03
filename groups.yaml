@@ -1,0 +1,150 @@
+  default_view:
+    view: yes
+    icon: mdi:home
+    entities:
+      - group.weather
+      - group.people
+      - group.masterbedroom
+      - group.kitchen
+      - group.livingroom
+      - group.basement
+      - group.office
+      - group.iphones
+      - group.mediaplayers
+      - group.automations
+      - group.motionsensors
+      - group.presencedetection
+      - group.powsensors
+  upstairsmotion:
+    entities:
+      - automation.kitchen_led_motion_on
+      - automation.living_room_motion_on
+      - automation.undercabinet_motion_on
+
+  office:
+    entities:
+      - light.office_ceiling_light
+      - light.floor_lamp
+      - light.desk_lamp
+  tonbux:
+    entities:
+      - switch.tonbux_plug1
+      - switch.tonbux_plug2
+      - switch.tonbux_plug3
+      - switch.tonbux_plug4
+      - switch.tonbux_usb
+  masterbedroom:
+    name: Master Bedroom
+    entities:
+      - sensor.mstbd_temp
+#      - sensor.mstbd_humidity
+      - light.bedroom_ceiling_light
+      - switch.bedroom_ceiling_fan
+      - light.dresser_light
+      - light.bedside_light
+      - light.closet_light
+      # - light.bedroom_nightlight
+
+  kitchen:
+    name: Kitchen
+    entities:
+      - sensor.kitchen_temp
+#      - sensor.kitchen_humidity
+      - light.kitchen_sink_light
+      - light.under_cabinet_light
+      - light.kitchen_ceiling_light
+      - switch.kitchen_ceiling_fan
+      - light.kitchen_leds
+      - input_number.animation_speed
+      - input_select.holiday_led_effect
+      
+  basement:
+    name: Basement
+    entities:
+      - light.stairs_light
+      - light.basement_1
+      - light.basement_2
+      - light.shop_light
+      - light.laundry_room
+
+  # motionsensors:
+    # name: Motion Sensors
+    # entities:
+      # - binary_sensor.kitchen_motion
+      # - binary_sensor.laundry_motion
+      # - binary_sensor.shop_motion
+      # - binary_sensor.shop_motion2
+
+  weather:
+    name: Weather
+    entities:
+      - weather.openweathermap
+
+  livingroom:
+    name: Living Room
+    entities:
+      - light.livingroom_lamp
+      - light.hallway_light
+
+  # office:
+    # name: Office
+    # entities:
+      # - switch.office_computer
+      
+  # iphones:
+    # name: iPhones
+    # entities:
+      # - device_tracker.chris_iphone #Chris
+      # - device_tracker.lizzs_iphone_6s #Lizz
+      # - device_tracker.skidata_iphone #Skidata
+      # - sensor.chriss_iphone_6_plus_battery_level
+      # - sensor.chriss_iphone_6_plus_battery_state
+      # - sensor.lizzs_iphone_6s_battery_level
+      # - sensor.lizzs_iphone_6s_battery_state
+      # - sensor.chris_skidata_iphone_battery_level
+      # - sensor.chris_skidata_iphone_battery_state
+
+  # people:
+    # name: People
+    # entities:
+      # - device_tracker.b844d99bb848 #Chris
+      # - device_tracker.cc20e88e6090 #Lizz
+      # - device_tracker.2cf0a2af1208 #Daniel
+      # - device_tracker.a8b86e1e7b97 #Brian
+
+  # automations:
+    # name: Automations
+    # entities:
+      # - automation.chris_home_turn_on_lights
+      # - automation.laundry_light_on
+      # - automation.laundry_light_off
+      # - automation.shop_light_on
+      # - automation.shop_light_off
+      # - automation.shop_light_on2
+      # - automation.shop_light_off2
+      # - automation.undercabinet_motion_on
+      # - automation.undercabinet_motion_off
+  # presencedetection:
+    # name: Presence Automations
+    # entities:
+      # - automation.brian_is_home
+      # - automation.brian_left
+      # - automation.dan_is_home
+      # - automation.dan_left_home
+  # mediaplayers:
+    # name: Roku Box Controls
+    # entities:
+      # - media_player.roku_12a194131868
+      # - media_player.roku_12c28e033518
+      # - media_player.chris_xbox_one
+      # - media_player.christophers_echo_dot
+  # powsensors:
+    # name: Power Sensor
+    # entities:
+      # - sensor.washer_energy_power
+      # - sensor.washer_energy_voltage
+      # - sensor.washer_energy_current
+      # - sensor.washer_energy_today
+      # - sensor.washer_energy_yesterday
+      # - sensor.washer_energy_total
+

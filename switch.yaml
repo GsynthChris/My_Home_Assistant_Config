@@ -1,0 +1,114 @@
+#################################################################################################################
+#################################                  Wake on LAN                   ################################
+#################################################################################################################
+  - platform: wake_on_lan
+    name: "Office Computer"
+    mac_address: "40-2C-F4-E9-EB-0B" #LENOVO INTEGRATED NIC
+    host: "192.168.29.4"
+    turn_off:
+      service: shell_command.shutdownkububeast
+
+#################################################################################################################
+#################################                 Master Bedroom                 ################################
+#################################################################################################################
+
+  - platform: template
+    switches:
+      bedroom_ac:
+        friendly_name: Bedroom AC
+        value_template: "{{ is_state('climate.window_ac', 'cool') }}"
+        turn_on:
+          service: climate.set_hvac_mode
+          data:
+            entity_id: climate.window_ac
+            hvac_mode: 'cool'
+        turn_off:
+          service: climate.set_hvac_mode
+          data:
+            entity_id: climate.window_ac
+            hvac_mode: 'off'
+
+#################################################################################################################
+#################################                Tonbux Powerstrip               ################################
+#################################################################################################################
+  - platform: mqtt
+    name: "Tonbux Plug1"
+    command_topic: "cmnd/tonbux/POWER1"
+    state_topic: "stat/tonbux/POWER1"
+    qos: 1
+    payload_on: "ON"
+    payload_off: "OFF"
+    retain: no
+    icon: mdi:power-socket-us
+  - platform: mqtt
+    name: "Tonbux Plug2"
+    command_topic: "cmnd/tonbux/POWER2"
+    state_topic: "stat/tonbux/POWER2"
+    qos: 1
+    payload_on: "ON"
+    payload_off: "OFF"
+    retain: no
+    icon: mdi:power-socket-us
+  - platform: mqtt
+    name: "Tonbux Plug3"
+    command_topic: "cmnd/tonbux/POWER3"
+    state_topic: "stat/tonbux/POWER3"
+    qos: 1
+    payload_on: "ON"
+    payload_off: "OFF"
+    retain: no
+    icon: mdi:power-socket-us
+  - platform: mqtt
+    name: "Tonbux Plug4"
+    command_topic: "cmnd/tonbux/POWER4"
+    state_topic: "stat/tonbux/POWER4"
+    qos: 1
+    payload_on: "ON"
+    payload_off: "OFF"
+    retain: no
+    icon: mdi:power-socket-us
+  - platform: mqtt
+    name: "Tonbux USB"
+    command_topic: "cmnd/tonbux/POWER5"
+    state_topic: "stat/tonbux/POWER5"
+    qos: 1
+    payload_on: "ON"
+    payload_off: "OFF"
+    retain: no
+    icon: fa:usb
+
+#################################################################################################################
+#################################                   HVAC Relays                  ################################
+#################################################################################################################
+  # - platform: mqtt
+  #   name: "HVAC Fan"
+  #   command_topic: "cmnd/thermozztat/POWER1"
+  #   state_topic: "stat/thermozztat/POWER1"
+  #   qos: 1
+  #   payload_on: "ON"
+  #   payload_off: "OFF"
+  #   retain: no
+  - platform: mqtt
+    name: "HVAC AC"
+    command_topic: "cmnd/thermozztat/POWER2"
+    state_topic: "stat/thermozztat/POWER2"
+    qos: 1
+    payload_on: "ON"
+    payload_off: "OFF"
+    retain: no
+  # - platform: mqtt
+  #   name: "HVAC Furnace"
+  #   command_topic: "cmnd/thermozztat/POWER3"
+  #   state_topic: "stat/thermozztat/POWER3"
+  #   qos: 1
+  #   payload_on: "ON"
+  #   payload_off: "OFF"
+  #   retain: no
+  - platform: mqtt
+    name: "HVAC FilterLED"
+    command_topic: "cmnd/thermozztat/POWER4"
+    state_topic: "stat/thermozztat/POWER4"
+    qos: 1
+    payload_on: "ON"
+    payload_off: "OFF"
+    retain: no

@@ -1,0 +1,47 @@
+  binary_sensor.shop_motion:
+    device_class: motion
+  binary_sensor.shop_motion2:
+    device_class: motion
+  binary_sensor.master_bedroom_motion:
+    device_class: motion
+  binary_sensor.kitchen_motion:
+    device_class: motion
+  binary_sensor.laundry_motion:
+    device_class: motion
+
+  # remote.roku_12a194131868:
+    # friendly_name: Basement Roku Remote
+  remote.roku_livingroom:
+    friendly_name: Living Room Roku Remote
+
+  # media_player.roku_12a194131868:
+    # friendly_name: Basement Roku
+  media_player.roku_livingroom:
+    friendly_name: Living Room Roku
+
+
+  script.zach_iphone_message:
+    icon: mdi:cellphone-iphone
+  script.skidata_iphone_message:
+    icon: mdi:cellphone-iphone
+  script.lizz_iphone_message:
+    icon: mdi:cellphone-iphone
+  script.office_alexa_speak:
+    icon: mdi:amazon-alexa
+  script.livingroom_alexa_speak:
+    icon: mdi:amazon-alexa
+  script.group_alexa_speak:
+    icon: mdi:amazon
+  script.bedroom_alexa_speak:
+    icon: mdi:amazon-alexa
+  script.zach_alexa_speak:
+    icon: mdi:amazon-alexa
+  script.basement_alexa_speak:
+    icon: mdi:amazon-alexa
+
+
+
+  sensor.average_home_temp:
+    icon: fa:fa-thermometer-three-quarters
+  sensor.average_mstbd_temp:
+    icon: mdi:thermometer

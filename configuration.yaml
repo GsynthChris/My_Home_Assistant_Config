@@ -1,0 +1,486 @@
+####################################################################################################################
+###############    ###############               Christopher Brooks               ###############    ###############
+#####        ########        ##########################################################        ########        #####
+###############    ###############                 Smart Ass Home                 ###############    ###############
+####################################################################################################################
+
+homeassistant:
+  name: "Smart Ass Home"
+  latitude: !secret homelatitude
+  longitude: !secret homelongitude
+  elevation: 836
+  unit_system: "imperial"
+  time_zone: "America/Chicago"
+  customize: !include customize.yaml
+  auth_providers:
+    - type: legacy_api_password
+      api_password: !secret http_password
+
+map:
+sun:
+stream:
+config:
+history:
+logbook:
+zeroconf:
+conversation:
+system_health:
+zone: !include zones.yaml
+cloud: !include cloud.yaml
+light: !include lights.yaml
+group: !include groups.yaml
+switch: !include switch.yaml
+sensor: !include sensor.yaml
+homekit: !include homekit.yaml
+script: !include_dir_merge_named scripts/
+binary_sensor: !include binary_sensor.yaml
+shell_command: !include shell_command.yaml
+automation: !include_dir_merge_list automations/
+updater:
+  include_used_components: yes
+frontend:
+   themes: !include themes.yaml
+discovery:
+  enable:
+    - homekit
+
+hacs:
+ token: !secret hacs_token
+#breaking_changes:
+
+mqtt:
+  broker: 192.168.29.5
+  port: 1883
+  client_id: hassos
+  keepalive: 60
+  protocol: 3.1.1
+  username: !secret my_username
+  password: !secret my_password
+
+#ifttt:
+#  key:
+#    ifttt1: !secret ifttt_api
+
+device_tracker:
+
+panel_iframe:
+  tasmoadmin:
+    title: 'TasmoAdmin'
+    icon: 'mdi:router-wireless'
+    url: 'http://192.168.29.5:9541'
+  appdaemon:
+    title: 'HADashboard'
+    icon: 'mdi:apps'
+    url: 'http://192.168.29.5:5050'
+
+#################################################################################################################
+#################################                  Notifications                 ################################
+#################################################################################################################
+
+alexa_media:
+    accounts:
+      - email: !secret amazon_login
+        password: !secret amazon_password
+        url: "amazon.com"
+
+notify:
+  - platform: alexa_media
+    name: alexa_media
+
+ios:
+  push:
+    categories:
+      - name: Test
+        identifier: 'noderedtest'
+        actions:
+          - identifier: 'TEST'
+            title: 'Dont Forget to take your medicine'  #This is what will be on the button
+            activationMode: 'background'
+            authenticationRequired: no
+            destructive: no
+            behavior: 'default'
+      - name: Take Medicine
+        identifier: 'chrismedicine'
+        actions: 
+          - identifier: 'ALREADY_TAKEN'
+            title: 'Already Taken'
+            activationMode: 'background'
+            authenticationRequired: no
+            destructive: no
+            behavior: 'default'
+          - identifier: 'SNOOZE'
+            title: 'Snooze 5 Minutes'
+            activationMode: 'background'
+            authenticationRequired: no
+            destructive: no
+            behavior: 'default'
+          - identifier: 'REMIND_HOME'
+            title: 'Remind me when I get home'
+            activationMode: 'background'
+            authenticationRequired: no
+            destructive: no
+            behavior: 'default'
+      - name: Doorbell Send Video
+        identifier: 'frontvideo'
+        actions:
+          - identifier: 'FRONTVIDEO'
+            title: 'Send Live Video Stream'
+            activationMode: 'background'
+            authenticationRequired: no
+            destructive: yes
+            behavior: 'default'
+      # - name: WelcomeHome
+      #   identifier: 'welcomehome'
+      #   actions: 
+      #   - identifier: 'LIVROOM'
+      #     title: 'Living Room Lights'
+      #     activationMode: 'background'
+      #     authenticationRequired: no
+      #     destructive: no
+      #     behavior: 'default'
+      #   - identifier: 'BEDROOM'
+      #     title: 'Bedroom Lights'
+      #     activationMode: 'background'
+      #     authenticationRequired: no
+      #     destructive: no
+      #     behavior: 'default'
+      #   - identifier: 'OUTSIDE'
+      #     title: 'Outside Lights'
+      #     activationMode: 'background'
+      #     authenticationRequired: no
+      #     destructive: no
+      #     behavior: 'default'
+
+
+#################################################################################################################
+#################################                  Media Player                  ################################
+#################################################################################################################
+
+# browser_mod:
+#   devices:
+#     3a05fc35_9caa0925:
+#       name: Kitchen Tablet
+#     40747163_ddc33611:
+#       name: Office Computer
+
+
+rest_command:
+  xbox_control:
+    url: !secret xboxrestcommand
+#"http://IPOFYOURHASSIOSERVER:5557/device/YOURDEVICEID/{{ command }}"
+
+roku:
+  - host: 192.168.29.13 #Livingroom
+  - host: 192.168.29.14 #Theater
+
+camera:
+  - platform: ffmpeg
+    name: Front yard
+    input: !secret frontyardcam
+  - platform: ffmpeg
+    name: Front yard Small
+    input: !secret frontyardcamsmall
+  # - platform: ffmpeg
+  #   name: Basement
+  #   input: !secret basementcam
+  - platform: nwsradar
+    name: NCR
+    station: LSX
+    type: NCR
+    style: Enhanced
+    frames: 30
+
+media_player:
+  - platform: xboxone
+    device: !secret xbox
+    name: Xbox One
+  - platform: universal
+    name: Bedroom TV
+    children:
+      - media_player.xbox_one
+    commands:
+      turn_on:
+        service: script.turn_on
+        data:
+          entity_id: script.bedroomtv
+      turn_off:
+        service: script.turn_off
+        data:
+          entity_id: script.bedroomtv
+      volume_up:
+        service: script.turn_on
+        data:
+          entity_id: script.bedvolup
+      volume_down:
+        service: script.turn_on
+        data:
+          entity_id: script.bedvoldown
+      volume_mute:
+        service: script.turn_on
+        data:
+          entity_id: script.bedvolmute
+  - platform: universal
+    name: Livingroom TV
+    children:
+      - media_player.roku_livingroom
+    commands:
+      turn_on:
+        service: script.turn_on
+        data:
+          entity_id: script.livtvpwr
+      turn_off:
+        service: script.turn_off
+        data:
+          entity_id: script.livtvpwr
+      volume_up:
+        service: script.turn_on
+        data:
+          entity_id: script.kenwoodvolup
+      volume_down:
+        service: script.turn_on
+        data:
+          entity_id: script.kenwoodvoldown
+      volume_mute:
+        service: script.turn_on
+        data:
+          entity_id: script.kenwoodvolmute
+
+#################################################################################################################
+##########################           Input Boolean, Select, Number, and Text            #########################
+#################################################################################################################
+
+input_select: !include input_select.yaml
+
+input_boolean:
+  chrislizz_home:
+    name: Is Chris or Lizz Home
+    icon: mdi:account-group
+  chrismedicinereminder:
+    name: Chris Medicine Reminder
+    icon: mdi:pill
+  music_time:
+    name: Music Time
+    icon: mdi:music
+  office_toggle:
+    name: Office Toggle
+    icon: mdi:desktop-classic
+  tonbux_toggle:
+    name: Tonbux Toggle
+    icon: mdi:format-line-style
+  drzzs_video:
+    name: DrZzs Posted a Video
+
+input_number:
+  new_leds_speed:
+    name: Animation Speed
+    initial: 150
+    min: 1
+    max: 150
+    step: 10
+  animation_speed:
+    name: Animation Speed
+    initial: 150
+    min: 1
+    max: 150
+    step: 10
+  alexa_volume:
+    name: Alexa Volume
+    initial: 0.7
+    min: 0.1
+    max: 1.0
+    step: 0.1
+
+input_text:
+  livingroom_alexa:
+    name: Alexa Living Room
+    initial: Hello World
+  bedroom_alexa:
+    name: Alexa Bedroom
+    initial: Hello World
+  office_alexa:
+    name: Alexa Office
+    initial: Hello World
+  zach_alexa:
+    name: Alexa Zach
+    initial: Hello World
+  basement_alexa:
+    name: Alexa Basement
+    initial: Hello World
+  # office_mycroft:
+  #   name: Office Mycroft
+  #   initial: Hello World
+  group_alexa:
+    name: 'What do you want to say?'
+    initial: Hello World
+
+
+#################################################################################################################
+#################################              Weather and Climate               ################################
+#################################################################################################################
+
+weather:
+  - platform: darksky
+    api_key: !secret darksky
+    name: Dark Sky Weather
+
+
+climate:
+  - platform: generic_thermostat                         #House Air Conditioner
+    name: Air Conditioner
+    heater: switch.hvac_ac
+    target_sensor: sensor.average_home_temp
+    min_temp: 60
+    max_temp: 80
+    initial_hvac_mode: "cool"
+    min_cycle_duration:
+      minutes: 10
+    target_temp: 72
+    away_temp: 78
+    cold_tolerance: 0.5
+    hot_tolerance: 0.5
+    ac_mode: yes
+    keep_alive:
+      minutes: 3
+  - platform: generic_thermostat                         #Kitchen Ceiling Fan
+    name: Kitchen Ceiling Fan
+    heater: fan.kitchen_ceiling_fan
+    target_sensor: sensor.kitchen_temp
+    min_temp: 60
+    max_temp: 80
+    initial_hvac_mode: "cool"
+    min_cycle_duration:
+      minutes: 10
+    target_temp: 70
+    away_temp: 78
+    cold_tolerance: 0.5
+    hot_tolerance: 0.5
+    ac_mode: yes
+    keep_alive:
+      minutes: 3
+  - platform: generic_thermostat                         #Bedroom Ceiling Fan
+    name: Bedroom Ceiling Fan
+    heater: fan.bedroom_ceiling_fan
+    target_sensor: sensor.mstbd_temp
+    min_temp: 60
+    max_temp: 80
+    initial_hvac_mode: "cool"
+    min_cycle_duration:
+      minutes: 10
+    target_temp: 70
+    away_temp: 78
+    cold_tolerance: 0.5
+    hot_tolerance: 0.5
+    ac_mode: yes
+    keep_alive:
+      minutes: 3
+  - platform: generic_thermostat                         #Livingroom Ceiling Fan
+    name: Livingroom Ceiling Fan
+    heater: fan.livingroom_ceiling_fan
+    target_sensor: sensor.livingroom_temp
+    min_temp: 60
+    max_temp: 80
+    initial_hvac_mode: "cool"
+    min_cycle_duration:
+      minutes: 10
+    target_temp: 70
+    away_temp: 78
+    cold_tolerance: 0.5
+    hot_tolerance: 0.5
+    ac_mode: yes
+    keep_alive:
+      minutes: 3
+  - platform: generic_thermostat                         #Office Box Fan
+    name: Box Fan
+    heater: fan.box_fan
+    target_sensor: sensor.office_temp_2
+    min_temp: 60
+    max_temp: 80
+    initial_hvac_mode: "cool"
+    min_cycle_duration:
+      minutes: 10
+    target_temp: 70
+    away_temp: 78
+    cold_tolerance: 0.5
+    hot_tolerance: 0.5
+    ac_mode: yes
+    keep_alive:
+      minutes: 3
+
+fan:
+  - platform: mqtt
+    name: "Kitchen Ceiling Fan"
+    command_topic: "cmnd/kitchenceiling/power1"
+    state_topic: "stat/kitchenceiling/POWER1"
+    qos: 2
+    payload_on: "ON"
+    payload_off: "OFF"
+    retain: yes
+  - platform: mqtt
+    name: "Bedroom Ceiling Fan"
+    command_topic: "cmnd/masterbedceiling/power2"
+    state_topic: "stat/masterbedceiling/POWER2"
+    qos: 2
+    payload_on: "ON"
+    payload_off: "OFF"
+    retain: yes
+  - platform: mqtt
+    name: "Livingroom Ceiling Fan"
+    command_topic: "cmnd/livingroomfan/power1"
+    state_topic: "stat/livingroomfan/POWER1"
+    qos: 2
+    payload_on: "ON"
+    payload_off: "OFF"
+    retain: yes
+  - platform: mqtt
+    name: "Box Fan"
+    command_topic: "cmnd/boxfan/power"
+    state_topic: "stat/boxfan/POWER"
+    qos: 2
+    payload_on: "ON"
+    payload_off: "OFF"
+    retain: yes
+
+#################################################################################################################
+###########################                Saving This Stuff for Later                 ##########################
+#################################################################################################################
+
+# utility_meter:
+#   computer_monthly_watts:
+#     source: sensor.computer_energy_power
+#     cycle: monthly
+#   computer_monthly_kwh:
+#     source: sensor.computer_energy_power
+#     cycle: monthly
+
+# alert:
+  # ac_on_too_long:
+  #   name: HVAC AC on too long
+  #   entity_id: switch.hvac_ac
+  #   state: 'on'   # Optional, 'on' is the default value
+  #   repeat:
+  #     - 120
+  #     - 30
+  #     - 10
+  #     - 5
+  #   can_acknowledge: True  # Optional, default is True
+  #   skip_first: True  # Optional, false is the default
+  #   title: HVAC ALERT
+  #   message: The AC has been on for too long!    
+  #   done_message: AC has turned off
+  #   notifiers:
+  #     - ios_skidata_iphone_7_plus
+  # heat_on_too_long:
+  #   name: HVAC HEAT on too long
+  #   entity_id: switch.hvac_furnace
+  #   state: 'on'   # Optional, 'on' is the default value
+  #   repeat:
+  #     - 30
+  #     - 10
+  #     - 5
+  #   can_acknowledge: True  # Optional, default is True
+  #   skip_first: True  # Optional, false is the default
+  #   title: HVAC ALERT
+  #   message: The HEAT has been on for too long!    
+  #   done_message: HEAT has turned off
+  #   notifiers:
+  #     - ios_skidata_iphone_7_plus

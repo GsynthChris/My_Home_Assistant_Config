@@ -1,0 +1,141 @@
+alexa: 
+  filter:
+    exclude_domains:
+      - sensor
+      - group
+      - input_boolean
+      - automation
+      - binary_sensor
+      - device_tracker
+      - zone
+      - weather
+      - script
+    exclude_entities:
+      - switch.bedroomac
+      - switch.hvac_ac
+      - switch.hvac_fan
+      - switch.hvac_filterled
+      - switch.hvac_furnace
+      - switch.temp_down
+      - switch.temp_up
+    include_entities:
+      - script.kenwoodpwr
+      - script.livtvpwr
+      - script.bedtvpower
+  entity_config:
+    light.basement_1:
+      name: Theater 1
+      description: Light in Theater
+      display_categories: LIGHT
+    light.basement_2:
+      name: Theater 2
+      description: Light in Theater
+      display_categories: LIGHT
+    light.bedroom_ceiling_light:
+      name: Bedroom Ceiling
+      description: Ceiling light in Master Bedroom
+      display_categories: LIGHT
+    light.bedroom_nightlight:
+      name: Bedroom Nightlight
+      description: Light strip underneath bed
+      display_categories: LIGHT
+    light.bedside_light:
+      name: Bedside table
+      description: Lamp on bedside table
+      display_categories: LIGHT
+    light.closet_light:
+      name: Closet
+      description: Light in bedroom closet
+      display_categories: LIGHT
+    light.dresser_light:
+      name: Dresser
+      description: Light on bedroom dresser
+      display_categories: LIGHT
+    light.hallway_light:
+      name: Hallway
+      description: Light in Hallway
+      display_categories: LIGHT
+    light.kitchen_ceiling_light:
+      name: Kitchen Ceiling
+      description: Light on kitchen ceiling fan
+      display_categories: LIGHT
+    light.kitchen_leds:
+      name:  Kitchen LEDs
+      description: Led strip on kitchen counter
+      display_categories: LIGHT
+    light.kitchen_sink_light:
+      name: Kitchen sink
+      description: Light above kitchen sink
+      display_categories: LIGHT
+    light.laundry_room:
+      name: Laundry room
+      description: Light in basement laundry room
+      display_categories: LIGHT
+    light.livingroom_lamp:
+      name: Living room lamp
+      description: Lamp in living room
+      display_categories: LIGHT
+    light.shop_light:
+      name: Shop
+      description: Lights in basement shop
+      display_categories: LIGHT
+    light.stairs_light:
+      name: Stairs
+      description: Light above basement stairs
+      display_categories: LIGHT
+    light.under_cabinet_light:
+      name: Under cabinet
+      description: Lights under kitchen cabinet
+      display_categories: LIGHT
+    light.floor_lamp:
+      name: Shop
+      description: Office Floor Lamp
+      display_categories: LIGHT
+    light.livingroom_ceiling_light:
+      name: Livingroom Ceiling Light
+      description: Livingroom Ceiling Light
+      display_categories: LIGHT
+    light.office_ceiling_light:
+      name: Office  Ceiling Light
+      description: Office  Ceiling Light
+      display_categories: LIGHT
+    switch.office_computer:
+      name: Office computer
+      description: Office Computer
+      display_categories: SWITCH
+    switch.tonbux_plug1:
+      name: Tonbux Plug 1
+      description: Plug 1 on Tonbux Powerstrip
+      display_categories: SWITCH
+    switch.tonbux_plug2:
+      name: Tonbux Plug 2
+      description: Plug 2 on Tonbux Powerstrip
+      display_categories: SWITCH
+    switch.tonbux_plug3:
+      name: Tonbux Plug 3
+      description: Plug 3 on Tonbux Powerstrip
+      display_categories: SWITCH
+    switch.tonbux_plug4:
+      name: Tonbux Plug 4
+      description: Plug 4 on Tonbux Powerstrip
+      display_categories: SWITCH
+    switch.tonbux_usb:
+      name: Tonbux USB Port
+      description: USB Port on Tonbux Powerstrip
+      display_categories: SWITCH+
+    fan.box_fan:
+      name: Box fan
+      description: Box fan
+      display_categories: SWITCH
+    fan.livingroom_ceiling_fan:
+      name: Livingroom Ceiling fan
+      description: Livingroom Ceiling fan
+      display_categories: SWITCH
+    fan.bedroom_ceiling_fan:
+      name: Bedroom Ceiling fan
+      description: Bedroom Ceiling fan
+      display_categories: SWITCH
+    fan.kitchen_ceiling_fan:
+      name: Kitchen ceiling fan
+      description: Kitchen ceiling fan
+      display_categories: SWITCH
