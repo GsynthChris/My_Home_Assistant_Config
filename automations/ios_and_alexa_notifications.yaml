@@ -1,0 +1,220 @@
+#################################################################################################################
+#################################              Youtube Notifications             ################################
+#################################################################################################################
+##########################              WARNING: Strong language ahead!!!!             ##########################
+##########################             My Alexa and Siri cuss like sailors!            ##########################
+#################################################################################################################
+
+  - alias: 'DrZzs Posted a Video IFTTT'
+    initial_state: yes
+    hide_entity: yes
+    trigger:
+      - platform: state
+        entity_id: input_boolean.drzzs_video
+        from: 'off'
+        to: 'on'
+    action:
+      - service: notify.ios_skidata_iphone_7_plus
+        data:
+          title: "DrZzs!"
+          message: "Doctor zees has Posted a video!... Go watch that Shitt!"
+          data:
+            push:
+              sound: "US-EN-Morgan-Freeman-Turning-On-The-TV.wav"
+      - service: notify.alexa_media
+        data:
+          target:
+            - media_player.livingroom_alexa
+            - media_player.bedroom_alexa
+            - media_player.office_alexa
+            # - media_player.zach_alexa
+            - media_player.basement_alexa
+          data:
+            type: announce
+          message: "Doctor zees has Posted a video!... Go watch that Shitt!"
+      - delay: 00:00:15
+      - service: homeassistant.turn_off
+        entity_id: input_boolean.drzzs_video
+
+
+  - alias: 'DrZzs is LIVE!'
+    initial_state: yes
+    hide_entity: yes
+    trigger:
+      - platform: state
+        entity_id: sensor.drzzs
+        from: 'false'
+        to: 'true'
+    action:
+      - service: notify.ios_skidata_iphone_7_plus
+        data:
+          title: "DrZzs!"
+          message: "DrZzs has started a Live stream!!... Go watch that Shitt!"
+          data:
+            push:
+              sound: "US-EN-Morgan-Freeman-Turning-On-The-TV.wav"
+      - service: notify.alexa_media
+        data:
+          target:
+            - media_player.livingroom_alexa
+            - media_player.bedroom_alexa
+            - media_player.office_alexa
+            - media_player.basement_alexa
+          data:
+            type: announce
+          message: "Doctor zees has started a Live stream!!!... Go watch that Shitt!"
+
+#################################################################################################################
+#############################              Office PC on UPS Notification             ############################
+#################################################################################################################
+############################              My Linux PC runs a BASH script              ###########################
+############################              when the power goes out and it              ###########################
+############################              switches to the backup battery              ###########################
+#################################################################################################################
+
+  - alias: 'Office PC on Backup power'
+    initial_state: yes
+    hide_entity: yes
+    trigger:
+      - platform: mqtt
+        topic: officepc/state/battery
+        payload: onbattery
+    action:
+      - service: notify.ios_skidata_iphone_7_plus
+        data:
+          title: 'URGENT ALERT!'
+          message: 'The Office PC is on Backup Power!'
+  - alias: 'Office PC Critical Battery'
+    initial_state: yes
+    hide_entity: yes
+    trigger:
+      - platform: mqtt
+        topic: officepc/state/battery
+        payload: critbat
+    action:
+      - service: notify.ios_skidata_iphone_7_plus
+        data:
+          title: 'URGENT ALERT!'
+          message: 'OFFICE PC BATTERY CRITICALLY LOW!'
+
+#################################################################################################################
+################################              Doorbell Notifications             ################################
+#################################################################################################################
+  - alias: 'Doorbell FRONTVIDEO'
+    initial_state: true
+    hide_entity: true
+    trigger:
+      platform: event
+      event_type: ios.notification_action_fired
+      event_data:
+        actionName: FRONTVIDEO
+    action:
+     - service: script.doorbellfrontchrisvideo
+
+  - alias: 'Doorbell Livingroom'
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.doorbell_livingroom
+        from: 'off'
+        to: 'on'
+    action:
+      - service: notify.alexa_media
+        data:
+          target:
+            - media_player.livingroom_alexa
+            - media_player.bedroom_alexa
+            - media_player.office_alexa
+            - media_player.zach_alexa
+            - media_player.basement_alexa
+          data:
+            type: announce
+          message: "Somebody is at the fukking Livingroom Door!"
+      - service: script.doorbellfrontsnapshot
+      - service: script.doorbellfrontsnapshotarchive
+      - service: script.doorbellfrontchris
+      - service: notify.ios_lizzs_iphone_6s
+        data:
+          title: 'Livingroom Doorbell'
+          message: 'Somebody is at the door!'
+      - service: notify.ios_zach_iphone
+        data:
+          title: 'Livingroom Doorbell'
+          message: 'Somebody is at the door!'
+
+  - alias: 'Doorbell backdoor'
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.doorbell_backdoor
+        from: 'off'
+        to: 'on'
+    action:
+      - service: notify.alexa_media
+        data:
+          target:
+            - media_player.livingroom_alexa
+            - media_player.bedroom_alexa
+            - media_player.office_alexa
+            - media_player.zach_alexa
+            - media_player.basement_alexa
+          data:
+            type: announce
+          message: "Somebody is at the Back fukking Door!"
+
+  - alias: 'Doorbell bedroom'
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.doorbell_bedroom
+        from: 'off'
+        to: 'on'
+    action:
+      - service: script.doorbellfrontsnapshot
+      - service: script.doorbellfrontsnapshotarchive
+      - service: script.doorbellbedroomchris
+      - service: notify.alexa_media
+        data:
+          target:
+            - media_player.livingroom_alexa
+            - media_player.bedroom_alexa
+            - media_player.office_alexa
+            - media_player.zach_alexa
+            - media_player.basement_alexa
+          data:
+            type: announce
+          message: "Somebody is at the fukking bedroom Door!"
+      - service: notify.ios_skidata_iphone_7_plus
+        data:
+          title: 'Bedroom Doorbell'
+          message: 'Somebody is at your bedroom door!'
+      - service: notify.ios_lizzs_iphone_6s
+        data:
+          title: 'Bedroom Doorbell'
+          message: 'Somebody is at your bedroom door!'
+      - service: notify.ios_zach_iphone
+        data:
+          title: 'Bedroom Doorbell'
+          message: 'Somebody is at the door!'
+
+#################################################################################################################
+################################                Test Notifications               ################################
+#################################################################################################################
+
+  - alias: 'Notification Test'
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.rf_test_button1
+        from: 'off'
+        to: 'on'
+    action:
+      # - service: notify.alexa_media
+      #   data:
+      #     target:
+      #       - media_player.office_alexa
+      #     data:
+      #       type: announce
+      #       method: speak
+      #     message: "<amazon:effect name='whispered'>I see dead people!</amazon:effect>"
+      - service: media_player.play_media
+        data: 
+          entity_id: media_player.office_alexa
+          media_content_id: Alexa.Joke.Play
+          media_content_type: sequence

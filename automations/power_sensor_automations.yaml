@@ -1,0 +1,162 @@
+###########################################################################################################
+################################        Washing Machine Notifications         #############################
+########################################################################################################### 
+
+  - alias: Washer load started
+    initial_state: yes
+    hide_entity: no
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.washer_status
+        from: 'off'
+        to: 'on'
+    condition:
+      condition: and 
+      conditions:
+        - condition: time
+          before: '23:00:00'
+          after: '10:00:00'
+    action:
+      - service: notify.ios_skidata_iphone_7_plus
+        data:
+          message: "Washing Machine load started"
+      - service: notify.alexa_media
+        data:
+          target:
+            - media_player.livingroom_alexa
+            - media_player.bedroom_alexa
+            - media_player.office_alexa
+            - media_player.zach_alexa
+            - media_player.basement_alexa
+          data:
+            type: tts
+          message: "Holy fukk!... A load of laundry has been started in the washing machine"
+
+  - alias: Washer load done
+    initial_state: yes
+    hide_entity: yes
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.washer_status
+        from: 'on'
+        to: 'off'
+    condition:
+      condition: and 
+      conditions:
+        - condition: time
+          before: '23:00:00'
+          after: '10:00:00'
+    action:
+      - service: notify.alexa_media
+        data:
+          target:
+            - media_player.livingroom_alexa
+            - media_player.bedroom_alexa
+            - media_player.office_alexa
+            - media_player.zach_alexa
+            - media_player.basement_alexa
+          data:
+            type: announce
+          message: "The fukking washer is finished!"
+      - service: notify.ios_skidata_iphone_7_plus
+        data:
+          message: "Washing Machine load finished"
+      - service: notify.ios_lizzs_iphone_6s
+        data:
+          message: "Washing Machine load finished"
+
+###########################################################################################################
+################################             Dryer Notifications              #############################
+########################################################################################################### 
+
+  - alias: Dryer load started
+    initial_state: yes
+    hide_entity: no
+    trigger:
+      - platform: state
+        entity_id: sensor.dryer
+        from: 'Idle'
+        to: 'Drying'
+    condition:
+      condition: and 
+      conditions:
+        - condition: time
+          before: '23:00:00'
+          after: '10:00:00'
+    action:
+      - service: notify.alexa_media
+        data:
+          target:
+            - media_player.livingroom_alexa
+            - media_player.bedroom_alexa
+            - media_player.office_alexa
+            - media_player.zach_alexa
+            - media_player.basement_alexa
+          data:
+            type: tts
+          message: "A load of laundry is in the dryer"
+      - service: notify.ios_skidata_iphone_7_plus
+        data:
+          message: "Dryer load started"
+
+  - alias: Dryer load done
+    initial_state: yes
+    hide_entity: yes
+    trigger:
+      - platform: state
+        entity_id: sensor.dryer
+        from: 'Drying'
+        to: 'Idle'
+    condition:
+      condition: and 
+      conditions:
+        - condition: time
+          before: '23:00:00'
+          after: '10:00:00'
+    action:
+      - service: notify.alexa_media
+        data:
+          target:
+            - media_player.livingroom_alexa
+            - media_player.bedroom_alexa
+            - media_player.office_alexa
+            - media_player.zach_alexa
+            - media_player.basement_alexa
+          data:
+            type: announce
+          message: "The fukking dryer is finished!... You can now change the laundry over"
+      - service: notify.ios_skidata_iphone_7_plus
+        data:
+          title: "The shit is fucking DRY!"
+          message: "The Fucking Dryer is FINISHED!"
+          data:
+            push:
+              sound: "US-EN-Morgan-Freeman-Liquor-Cabinet-Opened.wav"
+      # - service: notify.ios_lizzs_iphone_6s
+      #   data:
+      #     message: "Dryer load finished"
+  - alias: Dryer load done notification late night
+    initial_state: yes
+    hide_entity: yes
+    trigger:
+      - platform: state
+        entity_id: sensor.dryer
+        from: 'Drying'
+        to: 'Idle'
+    action:
+      - service: notify.alexa_media
+        data:
+          target:
+            - media_player.livingroom_alexa
+            - media_player.office_alexa
+            - media_player.basement_alexa
+          data:
+            type: announce
+          message: "The fukking dryer is finished!... You can now change the laundry over"
+      - service: notify.ios_skidata_iphone_7_plus
+        data:
+          title: "The shit is fucking DRY!"
+          message: "The Fucking Dryer is FINISHED!"
+          data:
+            push:
+              sound: "US-EN-Morgan-Freeman-Liquor-Cabinet-Opened.wav"

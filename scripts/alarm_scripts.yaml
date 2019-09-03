@@ -1,0 +1,106 @@
+#################################################################################################################
+##########################              WARNING: Strong language ahead!!!!             ##########################
+##########################             My Alexa and Siri cuss like sailors!            ##########################
+#################################################################################################################
+alexa_intruder_alert:
+  alias: Group Alexa SPEAK!
+  sequence:
+    - service: mqtt.publish
+      data_template:
+        topic: "bruh/mqttstrip2/setanimationspeed"
+        payload: '80'
+    - service: mqtt.publish
+      data_template:
+        topic: "bruh/mqttstrip2/seteffect"
+        payload: 'Police All'
+    - service: notify.alexa_media
+      data:
+        target:
+            - media_player.livingroom_alexa
+            - media_player.bedroom_alexa
+            - media_player.office_alexa
+            - media_player.zach_alexa
+            - media_player.basement_alexa
+        data:
+          type: tts
+        message: "intruder... alert... intruder... alert... intruder... alert... the police have been notified... intruder... alert... intruder... alert... intruder... alert... wrong house mother fukker... intruder... alert... intruder... alert...  the cops are almost here... intruder... alert... intruder... alert... intruder... alert... intruder... alert... youre gonna die now bitchh... intruder... alert... intruder... alert... you picked the wrong alexa to fukk with today... intruder... alert...intruder... alert"
+    - service: light.turn_on
+      data:
+        entity_id: group.all_lights
+    - delay: 00:00:01
+    - service: light.turn_off
+      data:
+        entity_id: group.all_lights
+    - delay: 00:00:01
+    - service: light.turn_on
+      data:
+        entity_id: group.all_lights
+    - delay: 00:00:01
+    - service: light.turn_off
+      data:
+        entity_id: group.all_lights
+    - delay: 00:00:01
+    - service: light.turn_on
+      data:
+        entity_id: group.all_lights
+    - delay: 00:00:01
+    - service: light.turn_off
+      data:
+        entity_id: group.all_lights
+    - delay: 00:00:01
+    - service: light.turn_on
+      data:
+        entity_id: group.all_lights
+    - delay: 00:00:01
+    - service: light.turn_off
+      data:
+        entity_id: group.all_lights
+    - delay: 00:00:01
+    - service: light.turn_on
+      data:
+        entity_id: group.all_lights
+    - delay: 00:00:01
+    - service: light.turn_off
+      data:
+        entity_id: group.all_lights
+    - delay: 00:00:01
+    - service: light.turn_on
+      data:
+        entity_id: group.all_lights
+    - delay: 00:00:01
+    - service: light.turn_off
+      data:
+        entity_id: group.all_lights
+    - delay: 00:00:01
+    - service: light.turn_on
+      data:
+        entity_id: group.all_lights
+    - delay: 00:00:01
+    - service: light.turn_off
+      data:
+        entity_id: group.all_lights
+    - delay: 00:00:01
+    - service: light.turn_on
+      data:
+        entity_id: group.all_lights
+    - delay: 00:00:01
+    - service: light.turn_off
+      data:
+        entity_id: group.all_lights
+    - delay: 00:00:01
+    - service: light.turn_on
+      data:
+        entity_id: group.all_lights
+    - delay: 00:00:01
+    - service: light.turn_off
+      data:
+        entity_id: group.all_lights
+    - delay: 00:00:01
+    - service: mqtt.publish
+      data_template:
+        topic: "bruh/mqttstrip2/seteffect"
+        payload: 'Easter'
+    - service: mqtt.publish
+      data_template:
+        topic: "bruh/mqttstrip2/setanimationspeed"
+        payload: '150'

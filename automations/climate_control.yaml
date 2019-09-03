@@ -1,0 +1,288 @@
+##################################################################################################
+###################        HVAC Presence Detection Away Mode Activation        ###################
+##################################################################################################
+  - alias: HVAC No one home Away Mode On
+    initial_state: yes
+    hide_entity: no
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.people_home
+        to: 'off'
+        for:
+          minutes: 10
+    action: 
+      - service: climate.set_away_mode
+        data:
+          entity_id: climate.air_conditioner
+          away_mode: 'on'
+      - service: climate.set_away_mode
+        data:
+          entity_id: climate.bedroom_ceiling_fan
+          away_mode: 'on'
+      - service: climate.set_away_mode
+        data:
+          entity_id: climate.kitchen_ceiling_fan
+          away_mode: 'on'
+      - service: climate.set_away_mode
+        data:
+          entity_id: climate.livingroom_ceiling_fan
+          away_mode: 'on'
+      - service: climate.set_temperature
+        data:
+          entity_id: climate.window_ac
+          temperature: '78'
+
+  - alias: HVAC Somebody home CHILL OUT
+    initial_state: yes
+    hide_entity: no
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.people_home
+        to: 'on'
+    action: 
+      - service: climate.set_away_mode
+        data:
+          entity_id: climate.air_conditioner
+          away_mode: 'off'
+      - service: climate.set_away_mode
+        data:
+          entity_id: climate.bedroom_ceiling_fan
+          away_mode: 'off'
+      - service: climate.set_away_mode
+        data:
+          entity_id: climate.kitchen_ceiling_fan
+          away_mode: 'off'
+      - service: climate.set_away_mode
+        data:
+          entity_id: climate.livingroom_ceiling_fan
+          away_mode: 'off'
+      - service: climate.set_temperature
+        data:
+          entity_id: climate.window_ac
+          temperature: '70'
+
+##################################################################################################
+###########################       REMINDER TO CHANGE FILTER      #################################
+##################################################################################################
+#SWITCHTOPIC ON THERMOZZTAT LED IS      cmnd/filterzz/POWER6 = TOGGLE or HOLD
+
+  - alias: HVAC Change Filter Turn On
+    initial_state: yes
+    hide_entity: no
+    trigger:
+      - platform: time
+        at: '08:30:00'
+    condition:
+      condition: and
+      conditions:
+        - condition: template
+          value_template: "{{ now().day == 1 }}" # Change the number here to get whatever day of the month you want.
+        - condition: or
+          conditions:
+            - condition: template
+              value_template: '{{ now().month == 1 }}'
+            - condition: template
+              value_template: '{{ now().month == 3 }}'
+            - condition: template
+              value_template: '{{ now().month == 5 }}'
+            - condition: template
+              value_template: '{{ now().month == 7 }}'
+            - condition: template
+              value_template: '{{ now().month == 9 }}'
+            - condition: template
+              value_template: '{{ now().month == 11 }}'
+    action:
+      - service: automation.turn_on
+        data:
+          entity_id: automation.hvac_change_filter_notify
+
+  - alias: HVAC Change Filter Notify
+    initial_state: no
+    hide_entity: no
+    trigger:
+      - platform: time
+        at: '09:00:00'
+      - platform: time
+        at: '12:00:00'
+      - platform: time
+        at: '15:00:00'
+      - platform: time
+        at: '18:00:00'
+      - platform: time
+        at: '21:00:00'
+    action:
+      - service: notify.alexa_media
+        data:
+          target:
+            - media_player.livingroom_alexa
+            - media_player.bedroom_alexa
+            - media_player.office_alexa
+            - media_player.zach_alexa
+            - media_player.basement_alexa
+          data:
+            type: announce
+          message: "The air conditioner filter is due to be changed. Please Change the filter and press the red button on the control unit to shut off this reminder"
+      - service: switch.turn_on
+        data:
+          entity_id: switch.hvac_filterled
+      - service: notify.ios_skidata_iphone_7_plus
+        data:
+          title: "Change HVAC Filter"
+          message: "Please change the filter and press the button"
+      - service: automation.turn_on
+        data:
+          entity_id: automation.hvac_change_filter_turn_on        
+      - service: notify.ios_zach_iphone
+        data:
+          title: "Change HVAC Filter"
+          message: "If you don't mind, can you please change the air conditioner filter and press the red button on top of the AC next to the blue LED"
+
+  - alias: HVAC Change Filter Turn Off
+    initial_state: no
+    hide_entity: no
+    trigger:
+      - platform: mqtt
+        topic: 'cmnd/filterzz/POWER6'
+        payload: 'TOGGLE'
+    action:
+      - service: automation.turn_off
+        data:
+          entity_id: automation.hvac_change_filter_notify
+      - service: switch.turn_off
+        data:
+          entity_id: switch.hvac_filterled
+      - service: notify.ios_skidata_iphone_7_plus
+        data:
+          title: "HVAC Filter Changed"
+          message: "The HVAC filter has been changed!"
+      - service: notify.ios_zach_iphone
+        data:
+          title: "HVAC Filter Changed"
+          message: "The HVAC filter has been changed!"
+
+  - alias: Emergency HVAC Shutdown #button on my HVAC that will shut it off, handy for when I need to change the filter
+    initial_state: yes
+    hide_entity: no
+    trigger:
+      - platform: mqtt
+        topic: 'cmnd/filterzz/POWER6'
+        payload: 'HOLD'
+    action:
+      - service: switch.turn_off
+        data:
+          entity_id: switch.hvac_fan
+      - service: switch.turn_off
+        data:
+          entity_id: switch.hvac_furnace
+      - service: switch.turn_off
+        data:
+          entity_id: switch.hvac_ac
+      - service: notify.ios_skidata_iphone_7_plus
+        data:
+          title: "HVAC FORCED SHUTDOWN"
+          message: "The HVAC has been shutoff with the emergency off button"
+
+  - alias: 'AC Temp up one' #button is on a D1Mini in my office
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.temp_up
+        from: 'off'
+        to: 'on'
+    action:
+      - service: climate.set_temperature
+        data_template:
+          entity_id: climate.air_conditioner
+          temperature: "{{ (state_attr('climate.air_conditioner', 'temperature')|round(0)) + 1 }}"
+
+  - alias: 'AC Temp down one' #button is on a D1Mini in my office
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.temp_down
+        from: 'off'
+        to: 'on'
+    action:
+      - service: climate.set_temperature
+        data_template:
+          entity_id: climate.air_conditioner
+          temperature: "{{ (state_attr('climate.air_conditioner', 'temperature')|round(0)) - 1 }}"
+
+
+
+##################################################################################################
+###################              HVAC Time temp Adjustments              #########################ThermoZztat
+##################################################################################################
+  # - alias: HVAC Summer Night Temp adjustment
+    # initial_state: yes
+    # hide_entity: no
+    # trigger:
+      # - platform: time
+        # at: '22:30:00'
+    # condition:
+      # condition: or
+      # conditions:
+        # - condition: template
+          # value_template: '{{ now().month == 5 }}'
+        # - condition: template
+          # value_template: '{{ now().month == 6 }}'
+        # - condition: template
+          # value_template: '{{ now().month == 7 }}'
+        # - condition: template
+          # value_template: '{{ now().month == 8 }}'
+        # - condition: template
+          # value_template: '{{ now().month == 9 }}'
+    # action:
+      # - service: climate.set_temperature
+        # data:
+          # entity_id: climate.hvac_ac
+          # temperature: 76
+          # operation_mode: Cool
+
+  # - alias: HVAC Summer Daytime Temp adjustment
+    # initial_state: yes
+    # hide_entity: no
+    # trigger:
+      # - platform: time
+        # at: '09:00:00'
+    # condition:
+      # condition: or
+      # conditions:
+        # - condition: template
+          # value_template: '{{ now().month == 5 }}'
+        # - condition: template
+          # value_template: '{{ now().month == 6 }}'
+        # - condition: template
+          # value_template: '{{ now().month == 7 }}'
+        # - condition: template
+          # value_template: '{{ now().month == 8 }}'
+        # - condition: template
+          # value_template: '{{ now().month == 9 }}'
+    # action:
+      # - service: climate.set_temperature
+        # data:
+          # entity_id: climate.hvac_ac
+          # temperature: 72
+          # operation_mode: Cool
+
+
+  # - alias: "House Thermostat"
+  #   initial_state: yes
+  #   hide_entity: no
+  #   trigger:
+  #     - platform: state
+  #       entity_id: input_number.housethermostat
+  #   action:
+  #     - service: climate.set_temperature
+  #       data_template:
+  #         entity_id: climate.air_conditioner
+  #         payload: '{{ trigger.to_state.state | int }}'
+  # - alias: "Bedroom Thermostat"
+  #   initial_state: yes
+  #   hide_entity: no
+  #   trigger:
+  #     - platform: state
+  #       entity_id: input_number.bedroomthermostat
+  #   action:
+  #     - service: climate.set_temperature
+  #       data_template:
+  #         entity_id: climate.window_ac
+  #         payload: '{{ trigger.to_state.state | int }}'

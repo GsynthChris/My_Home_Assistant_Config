@@ -1,0 +1,231 @@
+###################################################################################################
+###########   #############             Laundry Room motion             #############   ###########
+####   ###########    #######################################################    ###########   ####
+##########     ###############          Mitrated to NodeRed          ###############     ##########
+###################################################################################################
+  # - alias: 'Laundry light ON'
+    # trigger:
+      # - platform: state
+        # entity_id: binary_sensor.laundry_motion
+        # to: 'on'
+    # action:
+      # - service: light.turn_on
+        # data:
+          # entity_id: light.laundry_room
+  # - alias: 'Laundry light OFF'
+    # trigger:
+      # - platform: state
+        # entity_id: binary_sensor.laundry_motion
+        # to: 'off'
+        # for:
+         # minutes: '15'
+    # action:
+      # - service: light.turn_off
+        # data:
+          # entity_id: light.laundry_room
+      # - service: light.turn_off
+        # data:
+          # entity_id: light.basement_2
+      # - service: notify.alexa_media
+        # data:
+          # target:
+            # -  media_player.acer_alexa_app
+          # data:
+            # type: announce
+          # message: "The basement lights will shut off in 5 minutes"
+
+
+###################################################################################################
+###########################                 Shop motion                 ###########################
+###################################################################################################
+  # - alias: 'Shop light ON'
+    # trigger:
+      # - platform: state
+        # entity_id: binary_sensor.shop_motion
+        # to: 'on'
+      # - platform: state
+        # entity_id: binary_sensor.shop_motion2
+        # to: 'on'
+    # action:
+      # - service: light.turn_on
+        # data:
+          # entity_id: light.shop_light
+  # - alias: 'Shop light OFF'
+    # trigger:
+      # - platform: state
+        # entity_id: binary_sensor.shop_motion
+        # to: 'off'
+        # for:
+          # minutes: '20'
+      # - platform: state
+        # entity_id: binary_sensor.shop_motion2
+        # to: 'off'
+        # for:
+          # minutes: '20'
+    # action:
+      # - service: light.turn_off
+        # data:
+          # entity_id: light.shop_light
+      # - service: light.turn_off
+        # data:
+          # entity_id: light.basement_1
+
+
+  # - alias: 'Theater lights ON'
+    # trigger:
+      # - platform: state
+        # entity_id: binary_sensor.theater_motion
+        # to: 'on'
+    # action:
+      # - service: light.turn_on
+        # data:
+          # entity_id: light.basement_1
+      # - service: light.turn_on
+        # data:
+          # entity_id: light.basement_2
+  # - alias: 'Theater lights OFF'
+    # trigger:
+      # - platform: state
+        # entity_id: binary_sensor.theater_motion
+        # to: 'off'
+        # for:
+          # minutes: '20'
+    # action:
+      # - service: light.turn_off
+        # data:
+          # entity_id: light.basement_1
+      # - service: light.turn_off
+        # data:
+          # entity_id: light.basement_2
+
+
+###################################################################################################
+######################             Reactivate Motion Automations             ######################
+###################################################################################################
+  # - alias: 'basement lights turn motion automation back on'
+    # trigger:
+      # - platform: state
+        # entity_id: automation.shop_light_off
+        # to: 'off'
+        # for:
+          # hours: '5'
+      # - platform: state
+        # entity_id: automation.laundry_light_off
+        # to: 'off'
+        # for:
+          # hours: '5'
+    # action:
+      # - service: automation.turn_on
+        # data:
+          # entity_id: automation.shop_light_off
+      # - service: automation.turn_on
+        # data:
+          # entity_id: automation.laundry_light_off
+  # - alias: 'turn upstairs motion automation back on'
+    # trigger:
+      # - platform: state
+        # entity_id: group.upstairsmotion
+        # to: 'off'
+        # for:
+          # hours: '3'
+    # action:
+      # - service: homeassistant.turn_on
+        # data:
+          # entity_id: group.upstairsmotion
+
+
+###################################################################################################
+#############################             Kitchen  motion             #############################
+###################################################################################################
+#  - alias: 'Kitchen sink light ON'
+#    trigger:
+#      - platform: state
+#        entity_id: binary_sensor.kitchen_motion
+#        to: 'on'
+#    action:
+#      - service: light.turn_on
+#        data:
+#          entity_id: light.kitchen_sink_light
+
+  # - alias: 'Undercabinet Motion ON'
+    # trigger:
+      # - platform: state
+        # entity_id: binary_sensor.kitchen_motion
+        # to: 'on'
+    # condition: 
+    # - after: '06:00:00'
+      # before: '23:30:00'
+      # condition: 'time'
+    # action:
+      # - service: light.turn_on
+        # data:
+          # entity_id: light.under_cabinet_light
+
+  # - alias: 'Kitchen LED Motion and Effect ON'
+    # trigger:
+      # - platform: state
+        # entity_id: binary_sensor.kitchen_motion
+        # to: 'on'
+    # condition: 
+    # - after: '21:00:00'
+      # before: '08:30:00'
+      # condition: 'time'
+    # action:
+      # - service: light.turn_on
+        # data:
+          # entity_id: light.kitchen_leds
+      # - service: mqtt.publish
+        # data_template:
+          # topic: "bruh/mqttstrip/seteffect"
+          # payload: 'Easter'
+
+  # - alias: 'Kitchen Motion ALL OFF'
+    # trigger:
+      # - platform: state
+        # entity_id: binary_sensor.kitchen_motion
+        # to: 'off'
+        # for:
+         # minutes: '10'
+    # action:
+      # - service: light.turn_off
+        # data:
+          # entity_id: light.under_cabinet_light
+      # - service: light.turn_off
+        # data:
+          # entity_id: light.kitchen_sink_light
+      # - service: light.turn_off
+        # data:
+          # entity_id: light.kitchen_leds
+
+
+###################################################################################################
+############################             Livingroom motion             ############################
+###################################################################################################
+  # - alias: 'living room Motion ON'
+    # trigger:
+      # - platform: state
+        # entity_id: binary_sensor.kitchen_motion
+        # to: 'on'
+    # condition: 
+    # - after: '23:00:00'
+      # before: '08:00:00'
+      # condition: 'time'
+    # action:
+      # - service: light.turn_on
+        # data:
+          # entity_id: light.livingroom_lamp
+  # - alias: 'Living room Motion OFF'
+    # trigger:
+      # - platform: state
+        # entity_id: binary_sensor.kitchen_motion
+        # to: 'off'
+        # for:
+         # minutes: '10'
+    # condition: 
+    # - after: '23:00:00'
+      # before: '08:00:00'
+      # condition: 'time'
+    # action:
+      # - service: light.turn_off
+        # data:
+          #  entity_id: light.livingroom_lamp

@@ -1,0 +1,129 @@
+#################################################################################################################
+###########################             Livingroom Roku Remote Commands               ###########################
+#################################################################################################################
+rokulivpower:
+  sequence: 
+  - service: remote.send_command
+    data:
+      entity_id: remote.roku_livingroom
+      command:
+        - power
+rokulivup:
+  sequence: 
+  - service: remote.send_command
+    data:
+      entity_id: remote.roku_livingroom
+      command:
+        - up
+rokulivdown:
+  sequence: 
+  - service: remote.send_command
+    data:
+      entity_id: remote.roku_livingroom
+      command:
+        - down
+rokulivleft:
+  sequence: 
+  - service: remote.send_command
+    data:
+      entity_id: remote.roku_livingroom
+      command:
+        - left
+rokulivright:
+  sequence: 
+  - service: remote.send_command
+    data:
+      entity_id: remote.roku_livingroom
+      command:
+        - right
+rokulivselect:
+  sequence: 
+  - service: remote.send_command
+    data:
+      entity_id: remote.roku_livingroom
+      command:
+        - select
+rokulivplay:
+  sequence: 
+  - service: remote.send_command
+    data:
+      entity_id: remote.roku_livingroom
+      command:
+        - play
+rokulivback:
+  sequence: 
+  - service: remote.send_command
+    data:
+      entity_id: remote.roku_livingroom
+      command:
+        - back
+rokulivbackspace:
+  sequence: 
+  - service: remote.send_command
+    data:
+      entity_id: remote.roku_livingroom
+      command:
+        - backspace
+rokuliventer:
+  sequence: 
+  - service: remote.send_command
+    data:
+      entity_id: remote.roku_livingroom
+      command:
+        - enter
+rokulivforward:
+  sequence: 
+  - service: remote.send_command
+    data:
+      entity_id: remote.roku_livingroom
+      command:
+        - forward
+rokulivreverse:
+  sequence: 
+  - service: remote.send_command
+    data:
+      entity_id: remote.roku_livingroom
+      command:
+        - reverse
+rokulivinfo:
+  sequence: 
+  - service: remote.send_command
+    data:
+      entity_id: remote.roku_livingroom
+      command:
+        - info
+rokulivchanup:
+  sequence: 
+  - service: remote.send_command
+    data:
+      entity_id: remote.roku_livingroom
+      command:
+        - channel_up
+rokulivchandown:
+  sequence: 
+  - service: remote.send_command
+    data:
+      entity_id: remote.roku_livingroom
+      command:
+        - channel_down
+rokulivreplay:
+  sequence: 
+  - service: remote.send_command
+    data:
+      entity_id: remote.roku_livingroom
+      command:
+        - replay
+rokulivsearch:
+  sequence: 
+  - service: remote.send_command
+    data:
+      entity_id: remote.roku_livingroom
+      command:
+        - search
+rokulivhome:
+  sequence: 
+  - service: remote.send_command
+    data:
+      entity_id: remote.roku_livingroom
+      command:
+        - home

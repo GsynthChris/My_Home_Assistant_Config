@@ -1,0 +1,237 @@
+###########################################################################################################
+################################           Fun random Automations             #############################
+########################################################################################################### 
+####################     This page is for experimental and small one off automations     ##################
+###########################################################################################################
+############################               Good Morning Messages               ############################
+###########################################################################################################
+  - alias: 'Send notification when sun rises'
+    initial_state: yes
+    hide_entity: yes
+    trigger:
+      platform: sun
+      event: sunrise
+      offset: '+00:00:00'
+    action:
+      - service: notify.ios_skidata_iphone_7_plus
+        data:
+          message: 'The sun is up.'
+  - alias: 'Send notification when sun sets'
+    initial_state: yes
+    hide_entity: yes
+    trigger:
+      platform: sun
+      event: sunset
+      offset: '+00:00:00'
+    action:
+      - service: notify.ios_skidata_iphone_7_plus
+        data:
+          message: 'The sun is down.'
+
+  - alias: Good Morning Lizz
+    initial_state: yes
+    hide_entity: yes
+    trigger:
+      platform: time
+      at: '10:00:00'
+    action:
+      - service: notify.ios_lizzs_iphone_6s
+        data:
+          message: 'Good Morning Lizz, I Love You! -Chris'
+
+
+###########################################################################################################
+########################################      WAKE THE FUCK UP      #######################################
+###########################################################################################################
+  - alias: 'Wake Up On'
+    initial_state: no
+    hide_entity: no
+    trigger:
+      - platform: time
+        at: '06:00:00'
+    action:
+      - service: light.turn_on
+        data:
+          entity_id: light.bedroom_ceiling_light
+      - service: light.turn_on
+        data:
+          entity_id: light.dresser_light
+      - service: light.turn_on
+        data:
+          entity_id: light.bedside_light
+  - alias: 'Wake Up Off'
+    initial_state: no
+    hide_entity: no
+    trigger:
+      - platform: time
+        at: '07:00:00'
+    action:
+      - service: light.turn_off
+        data:
+          entity_id: light.bedroom_ceiling_light
+      - service: light.turn_off
+        data:
+          entity_id: light.dresser_light
+      - service: light.turn_off
+        data:
+          entity_id: light.bedside_light
+
+
+###########################################################################################################
+################################              Tonbux Power Strip              #############################
+########################################################################################################### 
+  - alias: Tonbux Button toggle
+    initial_state: yes
+    hide_entity: yes
+    trigger:
+      - platform: mqtt
+        topic: 'cmnd/tonbuxhold/POWER1'
+        payload: 'HOLD'
+    action:
+      - service: homeassistant.toggle
+        entity_id: input_boolean.tonbux_toggle
+
+
+  - alias: Tonbux Boolean toggle on
+    initial_state: yes
+    hide_entity: yes
+    trigger:
+      - platform: state
+        entity_id: input_boolean.tonbux_toggle
+        from: 'off'
+        to: 'on'
+    action:
+      - service: homeassistant.turn_on
+        entity_id: group.tonbux
+
+  - alias: Tonbux Boolean toggle off
+    initial_state: yes
+    hide_entity: yes
+    trigger:
+      - platform: state
+        entity_id: input_boolean.tonbux_toggle
+        from: 'on'
+        to: 'off'
+    action:
+      - service: homeassistant.turn_off
+        entity_id: group.tonbux
+
+
+###########################################################################################################
+################################             System Automations               #############################
+########################################################################################################### 
+  # - alias: 'office fri 4am backup' This was to make sure my offfice PC was on when it was scheduled to run backups
+    # trigger:
+      # - platform: time
+        # at: '03:45:00'
+    # condition:
+        # condition: time
+        # weekday: 'fri'
+    # action:
+      # - service: switch.turn_on
+        # data:
+         # entity_id: switch.office_computer
+
+  - alias: Start Homekit
+    hide_entity: yes
+    trigger:
+      - platform: homeassistant
+        event: start
+    action:
+      - delay: 00:00:30
+      - service: homekit.start
+
+  - alias: 'Set theme at startup'
+    initial_state: 'on'
+    trigger:
+     - platform: homeassistant
+       event: 'start'
+    action:
+      service: frontend.set_theme
+      data:
+        name: 'DarkGreen'
+
+  - alias: 'theme input select'
+    trigger:
+      - platform: state
+        entity_id: input_select.themeselecter
+    action:
+      - service: frontend.set_theme
+        data_template:
+          name: '{{ trigger.to_state.state | string }}'
+
+  - alias: "Tasmota State on HA Restart" #Thanks Travis!
+    trigger:
+      platform: homeassistant
+      event: start
+    action:
+      - service: mqtt.publish
+        data:
+          topic: "cmnd/sonoffs/backlog"
+          payload: "power1 ;power2 ;power3 ;power4 ;power5; dimmer; state "
+ 
+ 
+  - alias: 'Livingroom Lamp Timer'
+    trigger:
+      - platform: sun
+        event: sunset
+    action:
+      - service: light.turn_on
+        data:
+          entity_id: light.livingroom_lamp
+  - alias: 'Livingroom Lamp Timer off'
+    trigger:
+      - platform: time
+        at: '23:00:00'
+    action:
+      - service: light.turn_off
+        data:
+         entity_id: light.livingroom_lamp
+
+###########################################################################################################
+############################               Notification Testing                ############################
+###########################################################################################################
+  # - alias: 'Notifications Test'
+  #   initial_state: yes
+  #   hide_entity: no
+  #   trigger:
+  #     - platform: state
+  #       entity_id: light.hallway_light
+  #       from: 'off'
+  #       to: 'on'
+  #   action:
+  #     - service: notify.alexa_media
+  #       data:
+  #         entity_id: media_player.livingroom_alexa
+  #           - media_player.office_alexa
+  #         message: "Hello World"
+  #     - service: notify.alexa_media
+  #       data:
+  #         target:
+  #           - media_player.battlestation_alexa
+  #         data:
+  #           type: tts
+  #         message: "Hello World"
+  #     - service:  notify.alexa_media_livingroom_alexa
+  #       data:
+  #         data:
+  #           type: tts
+  #         message: "Hello World,... turn off that fukking light or i will kill you"
+  #     - service: notify.alexa_media
+  #       data:
+  #         target:
+  #           - media_player.christopher_s_alexa_apps
+  #         data:
+  #           type: push
+  #         title: "I just wanted to say"
+  #         message: "Hello World"
+  #     - service: notify.ios_chris_iphone
+  #       data:
+  #         message: 'Test Notification!!!!'
+  #     - service: notify.ios_skidata_iphone
+  #       data:
+  #         message: 'Test Notification!!!!'
+  #     - service: notify.ios_skidata_iphone_7_plus
+  #       data:
+  #         title: 'This is a'
+  #         message: 'Test Notification!!!!'

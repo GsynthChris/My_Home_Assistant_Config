@@ -6,6 +6,10 @@
 !*.yaml
 !.gitignore
 !*.md
+!appdaemon
+!automations
+!custom_components
+!scripts
 
 # Ignore folders.
 .storage

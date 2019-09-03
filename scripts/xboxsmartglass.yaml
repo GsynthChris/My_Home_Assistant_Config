@@ -1,0 +1,277 @@
+#################################################################################################################
+###########################                         XBox One                           ##########################
+#################################################################################################################
+###########################           All off these commands come from the             ##########################
+###########################           Home assistant Media player component            ##########################
+#################################################################################################################
+xboxplaypause:
+  sequence:
+  - service: media_player.media_play_pause
+    entity_id: media_player.xbox_one
+xboxskipback:
+  sequence:
+  - service: media_player.media_previous_track
+    entity_id: media_player.xbox_one
+xboxskipfwd:
+  sequence:
+  - service: media_player.media_next_track
+    entity_id: media_player.xbox_one
+xboxvolup:
+  sequence:
+  - service: media_player.volume_up
+    entity_id: media_player.bedroom_tv
+xboxvoldown:
+  sequence:
+  - service: media_player.volume_down
+    entity_id: media_player.bedroom_tv
+xboxvolmute:
+  sequence:
+  - service: media_player.volume_mute
+    entity_id: media_player.bedroom_tv
+xboxpower:
+  sequence:
+  - service: media_player.toggle
+    entity_id: media_player.xbox_one
+
+#################################################################################################################
+###########################                      Source Select                         ##########################
+#################################################################################################################
+###########################          I am not sure if these are working yet            ##########################
+###########################           for any source select options to work            ##########################
+###########################          the app must be pinned in you xbox GUI            ##########################
+#################################################################################################################
+
+# xboxnetflix:
+#   sequence:
+#   - service: media_player.select_source
+#     data:
+#       entity_id: media_player.bedroom_tv
+#       source: 'Netflix'
+# xboxhbonow:
+#   sequence:
+#   - service: media_player.select_source
+#     data:
+#       entity_id: media_player.xbox_one
+#       source: 'hbonow'
+# xboxyoutube:
+#   sequence:
+#   - service: media_player.select_source
+#     data:
+#       entity_id: media_player.xbox_one
+#       source: youtube
+xboxnetflix2:
+  sequence: 
+  - service: remote.send_command
+    data:
+      entity_id: media_player.xbox_one
+      command:
+        - Netflix
+xboxnetflix3:
+  sequence: 
+  - service: remote.send_command
+    data:
+      entity_id: media_player.xbox_one
+      command:
+        - 'Netflix'
+xboxnetflix:
+  sequence:
+    - service: media_player.select_source
+      data:
+        entity_id: media_player.xbox_one
+        source: 'Netflix'
+xboxyoutube:
+  sequence:
+    - service: media_player.select_source
+      data:
+        entity_id: media_player.xbox_one
+        source: 'YouTube'
+xboxhulu:
+  sequence:
+    - service: media_player.select_source
+      data:
+        entity_id: media_player.xbox_one
+        source: 'Hulu'
+xboxhbonow:
+  sequence:
+    - service: media_player.select_source
+      data:
+        entity_id: media_player.xbox_one
+        source: 'HBO NOW'
+xboxprime:
+  sequence:
+    - service: media_player.select_source
+      data:
+        entity_id: media_player.xbox_one
+        source: 'Prime Video'
+
+##################################################################################################################
+###########################                  Rest Command Controls                     ###########################
+##################################################################################################################
+########################            Find what commands you can run by going to            ########################
+######################      http://IPOFYOURHASSIOSERVER:5557/device/YOURDEVICEID/media      ######################
+########################                              and                                 ########################
+######################      http://IPOFYOURHASSIOSERVER:5557/device/YOURDEVICEID/input      ######################
+##################################################################################################################
+
+#input controls
+xbox_clear:
+  sequence:
+    service: rest_command.xbox_control
+    data:
+      command: "input/clear"
+xbox_enroll:
+  sequence:
+    service: rest_command.xbox_control
+    data:
+      command: "input/enroll"
+xbox_nexus:
+  sequence:
+    service: rest_command.xbox_control
+    data:
+      command: "input/nexus"
+xbox_menu:
+  sequence:
+    service: rest_command.xbox_control
+    data:
+      command: "input/menu"
+xbox_view:
+  sequence:
+    service: rest_command.xbox_control
+    data:
+      command: "input/view"
+xbox_a:
+  sequence:
+    service: rest_command.xbox_control
+    data:
+      command: "input/a"
+xbox_b:
+  sequence:
+    service: rest_command.xbox_control
+    data:
+      command: "input/b"
+xbox_x:
+  sequence:
+    service: rest_command.xbox_control
+    data:
+      command: "input/x"
+xbox_y:
+  sequence:
+    service: rest_command.xbox_control
+    data:
+      command: "input/y"
+xbox_dpad_up:
+  sequence:
+    service: rest_command.xbox_control
+    data:
+      command: "input/dpad_up"
+xbox_dpad_down:
+  sequence:
+    service: rest_command.xbox_control
+    data:
+      command: "input/dpad_down"
+xbox_dpad_left:
+  sequence:
+    service: rest_command.xbox_control
+    data:
+      command: "input/dpad_left"
+xbox_dpad_right:
+  sequence:
+    service: rest_command.xbox_control
+    data:
+      command: "input/dpad_right"
+xbox_left_shoulder:
+  sequence:
+    service: rest_command.xbox_control
+    data:
+      command: "input/left_shoulder"
+xbox_right_shoulder:
+  sequence:
+    service: rest_command.xbox_control
+    data:
+      command: "input/right_shoulder"
+xbox_left_thumbstick:
+  sequence:
+    service: rest_command.xbox_control
+    data:
+      command: "input/left_thumbstick"
+xbox_right_thumbstick:
+  sequence:
+    service: rest_command.xbox_control
+    data:
+      command: "input/right_thumbstick"
+#media controls
+xbox_play:
+  sequence:
+  - service: rest_command.xbox_control
+    data:
+      command: "media/play"
+xbox_pause:
+  sequence:
+    service: rest_command.xbox_control
+    data:
+      command: "media/pause"
+xbox_play_pause:
+  sequence:
+    service: rest_command.xbox_control
+    data:
+      command: "media/play_pause"
+xbox_stop:
+  sequence:
+    service: rest_command.xbox_control
+    data:
+      command: "media/stop"
+xbox_record:
+  sequence:
+    service: rest_command.xbox_control
+    data:
+      command: "media/record"
+xbox_next_track:
+  sequence:
+    service: rest_command.xbox_control
+    data:
+      command: "media/next_track"
+xbox_prev_track:
+  sequence:
+    service: rest_command.xbox_control
+    data:
+      command: "media/prev_track"
+xbox_fast_forward:
+  sequence:
+    service: rest_command.xbox_control
+    data:
+      command: "media/fast_forward"
+xbox_rewind:
+  sequence:
+    service: rest_command.xbox_control
+    data:
+      command: "media/rewind"
+xbox_channel_up:
+  sequence:
+    service: rest_command.xbox_control
+    data:
+      command: "media/channel_up"
+xbox_channel_down:
+  sequence:
+    service: rest_command.xbox_control
+    data:
+      command: "media/channel_down"
+xbox_back:
+  sequence:
+    service: rest_command.xbox_control
+    data:
+      command: "media/back"
+xbox_view:
+  sequence:
+    service: rest_command.xbox_control
+    data:
+      command: "media/view"
+xbox_menu:
+  sequence:
+    service: rest_command.xbox_control
+    data:
+      command: "media/menu"
+xbox_seek:
+  sequence:
+    service: rest_command.xbox_control
+    data:
+      command: "media/seek"
