@@ -1,0 +1,337 @@
+
+#
+# Main arguments, all optional
+#
+title: Thermostat
+widget_dimensions: [115, 100]
+widget_size: [1, 1]
+widget_margins: [5, 5]
+columns: 10
+global_parameters:
+  use_comma: 0
+  precision: 1
+  use_hass_icon: 1
+  namespace: default
+  devices:
+    media_player:
+      step: 5
+###########################################################################################
+######################                 Custom Widgets                ######################
+###########################################################################################
+# climatecontrolheat:
+#   widget_type: climate
+#   entity: climate.heat
+#   level_style: "font-size: 500%;" # Current Temp Size
+#   level2_style: "font-size: 200%;" # Target Temp Size
+#   unit_style: "font-size: 600%;"
+#   title_style: "font-size: 150%;"
+#   title2_style: "font-size: 100%;"
+#   level_up_style: "font-size: 200%;"
+#   level_down_style: "font-size: 200%;"
+#   title: Heat
+#   title2: House Temp Average
+#   units: 'F'
+#   step: 0.1
+#   precision: 1
+  
+climatecontrolac:
+  widget_type: climate
+  entity: climate.air_conditioner
+  level_style: "font-size: 200%;" # Current Temp Size
+  level2_style: "font-size: 125%;" # Target Temp Size
+  unit_style: "font-size: 600%;"
+  title_style: "font-size: 150%;"
+  title2_style: "font-size: 100%;"
+  level_up_style: "font-size: 150%;"
+  level_down_style: "font-size: 150%;"
+  title: Air Conditioner
+  title2: Current Indoor Temp
+  units: 'F'
+  step: 1
+  precision: 1
+  
+weather:
+  widget_type: weather
+  title: Weather Forecast
+  title_style: "font-size: 150%;"
+  units: "&deg;F"
+  widget_style: "font-size: 90%;" #Whole widget font size
+#  main_style: "font-size: 90%;" # Temp size
+#  unit_style: "font-size: 90%;" # F size
+#  sub_style: "font-size: 90%;" # Other data size
+
+camerafront:
+  widget_type: camera
+  entity_picture: http://192.168.29.5:8123/api/camera_proxy/camera.front_yard?token=3252d702d00f51e4e6413dd252c9d632dfaaf2c5975c3514c01bc271e9fda13a&api_password=F@ck0FFm3Sh!1
+  refresh: 15
+camerafrontsml:
+  widget_type: camera
+  entity_picture: http://192.168.29.5:8123/api/camera_proxy/camera.front_yard_small?token=afb84dabc1c3a532e6ace1d88eb0649fcea5503f1c89d93a379d7d7d2fc2e8d4&api_password=F@ck0FFm3Sh!1
+  refresh: 15
+cameranws:
+  widget_type: camera
+  entity_picture: http://192.168.29.5:8123/api/camera_proxy/camera.ncr?token=f54d7bf53d3b8aaa28acbd2af34a419ff905adf4fef6892d9ad97a89175cb9f5&api_password=F@ck0FFm3Sh!1
+  refresh: 60
+
+# heat:
+#   widget_type: switch
+#   title: Heat
+#   entity: switch.hvac_furnace
+#   icon_on: fire
+    
+# ac:
+#   widget_type: switch
+#   title: AC
+#   entity: switch.hvac_ac
+#   icon_on: snowflake
+
+###########################################################################################
+##################                     Basic Widgets                     ##################
+###########################################################################################
+kitchenleds:
+  widget_type: input_select
+  title: Kitchen LEDs
+  entity: input_select.holiday_led_effect
+    
+kitchenledspeed:
+  widget_type: input_slider
+  title: LED Speed
+  entity: input_number.animation_speed
+
+###########################################################################################
+##################                         Sensors                       ##################
+###########################################################################################
+outsidetemp:
+  widget_type: sensor
+  title: Outside
+  units: "&deg;F"
+  precision: 0
+  entity: sensor.weather_temperature
+
+livrmtemp:
+  widget_type: sensor
+  title: Livingroom
+  units: "&deg;F"
+  precision: 0
+  entity: sensor.livingroom_temp
+
+kitchentemp:
+  widget_type: sensor
+  title: Kitchen
+  units: "&deg;F"
+  precision: 0
+  entity: sensor.kitchen_temp
+
+officetemp:
+  widget_type: sensor
+  title: Office
+  units: "&deg;F"
+  precision: 0
+  entity: sensor.office_temp_2
+
+mstbedtemp:
+  widget_type: sensor
+  title: Master Bedroom
+  units: "&deg;F"
+  precision: 0
+  entity: sensor.average_mstbd_temp
+
+occupied:
+  widget_type: binary_sensor
+  title: Anybody Home?
+  entity: binary_sensor.people_home
+  icon_on: mdi-account-group
+  icon_off: mdi-home-outline
+
+kitmotion:
+  widget_type: binary_sensor
+  title: Kitchen Motion
+  entity: binary_sensor.kitchen_motion
+  icon_on: fa-running
+  icon_off: fa-walking
+
+bedmotion:
+  widget_type: binary_sensor
+  title: Motion Sensor
+  title2: Master Bedroom
+  entity: binary_sensor.master_bed_motion
+  icon_on: fa-running
+  icon_off: fa-walking
+
+offmotion:
+  widget_type: binary_sensor
+  title: Motion Sensor
+  title2: Office
+  entity: binary_sensor.office_motion
+  icon_on: fa-running
+  icon_off: fa-walking
+
+shopmotion:
+  widget_type: binary_sensor
+  title: Motion Sensor
+  title2: Shop
+  entity: binary_sensor.shop_motion
+  icon_on: fa-running
+  icon_off: fa-walking
+
+laumotion:
+  widget_type: binary_sensor
+  title: Motion Sensor
+  title2: Laundry Room
+  entity: binary_sensor.laundry_motion
+  icon_on: fa-running
+  icon_off: fa-walking
+
+motiontoggle:
+  widget_type: switch
+  title: Motion Sensors
+  title2: ON/OFF
+  entity: group.upstairsmotion
+  icon_on: fa-toggle-on
+  icon_off: fa-toggle-off
+###########################################################################################
+##################                     Device Tracker                    ##################
+###########################################################################################
+chris:
+  widget_type: device_tracker
+  title: Chris
+  device: skidata_iphone_7_plus
+  icon_on: fa-robot
+  icon_off: mdi-car-estate
+lizz:
+  widget_type: device_tracker
+  title: Lizz
+  device: lizzs_iphone_6s
+  icon_on: fa-user-graduate
+  icon_off: mdi-car-hatchback
+zach:
+  widget_type: device_tracker
+  title: Zach
+  device: zach_iphone
+  icon_on: fa-child
+  icon_off: mdi-car-sports
+bobby:
+  widget_type: device_tracker
+  title: Bobby
+  device: bobby_iphone
+  icon_on: fa-drum
+  icon_off: fa-truck-pickup
+
+###########################################################################################
+##################                  Lights and Switches                  ##################
+###########################################################################################
+hallway:
+  widget_type: switch
+  title: Hallway
+  entity: light.hallway_light
+  icon_on: mdi-ceiling-light
+  icon_off: mdi-ceiling-light
+
+livrmlamp:
+  widget_type: switch
+  title: Livingroom
+  title2: Floor Lamp
+  entity: light.livingroom_lamp
+  icon_on: mdi-floor-lamp
+  icon_off: mdi-floor-lamp
+
+livingroomceilinglight:
+  widget_type: switch
+  title: Livingroom
+  title2: Ceiling Light
+  entity: light.livingroom_ceiling_light
+  icon_on: mdi-ceiling-light
+  icon_off: mdi-ceiling-light
+
+livingroomfan:
+  widget_type: switch
+  title: Livingroom
+  title2: Ceiling Fan
+  entity: fan.livingroom_ceiling_fan
+  icon_on: mdi-fan mdi-spin
+  icon_off: mdi-fan
+
+stairs:
+  widget_type: switch
+  title: Stairs
+  entity: light.stairs_light
+  icon_on: mdi-stairs
+  icon_off: mdi-stairs
+
+sink:
+  widget_type: switch
+  title: Kitchen Sink
+  entity: light.kitchen_sink_light
+  icon_on: mdi-water-pump
+  icon_off: mdi-water-pump
+
+undercabinet:
+  widget_type: switch
+  title: Undercabinet
+  entity: light.under_cabinet_light
+  icon_on: mdi-file-cabinet
+  icon_off: mdi-file-cabinet
+
+kitchenceilinglight:
+  widget_type: switch
+  title: Kitchen
+  title2: Ceiling Light
+  entity: light.kitchen_ceiling_light
+  icon_on: mdi-ceiling-light
+  icon_off: mdi-ceiling-light
+
+kitchenceilingfan:
+  widget_type: switch
+  title: Kitchen
+  title2: Ceiling Fan
+  entity: fan.kitchen_ceiling_fan
+  icon_on: mdi-fan mdi-spin
+  icon_off: mdi-fan
+
+boxfan:
+  widget_type: switch
+  title: Office
+  title2: Box Fan
+  entity: switch.box_fan
+  icon_on: mdi-fan mdi-spin
+  icon_off: mdi-fan
+
+desklamp:
+  widget_type: switch
+  title: Office
+  title2: Desk Lamp
+  entity: light.desk_lamp
+  icon_on: mdi-desk-lamp
+  icon_off: mdi-desk-lamp
+
+floorlamp:
+  widget_type: switch
+  title: Office
+  title2: Floor Lamp
+  entity: light.floor_lamp
+  icon_on: mdi-floor-lamp
+  icon_off: mdi-floor-lamp
+
+computer:
+  widget_type: switch
+  title: Office
+  title2: Computer
+  entity: switch.office_computer
+  icon_on: mdi-desktop-tower-monitor
+  icon_off: mdi-desktop-tower-monitor
+
+alllightstoggle:
+  widget_type: switch
+  title: All Lights
+  entity: group.all_lights
+  icon_on: mdi-brightness-7 mdi-spin
+  icon_off: fa-cloud-moon
+ 
+
+layout:
+  - clock.clock(2x1), weather(2x2), camerafront(6x4)
+  - climatecontrolac(2x1)
+  - chris, lizz, zach, motiontoggle
+  - cameranws(3x3), alllightstoggle
+  - livingroomceilinglight, hallway, computer, desklamp, sink, kitchenceilinglight, kitchenleds(1x1)
+  - livingroomfan, livrmlamp, floorlamp, undercabinet, stairs, kitchenceilingfan, kitchenledspeed(1x1)

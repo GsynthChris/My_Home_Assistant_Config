@@ -9,6 +9,10 @@
 !automations
 !custom_components
 !scripts
+!*.dash
+!dashboards
+!appdaemon
+!*.png
 
 # Ignore folders.
 .storage
@@ -24,9 +28,11 @@ tts
 www
 .homekit
 .Trash-0
-appdaemon.yaml
+appdaemon/roku_square_logo.png
 
 # Ensure these YAML files are ignored, otherwise your secret data/credentials will leak.
+appdaemon.yaml
+experimenting.yml
 ip_bans.yaml
 secrets.yaml
 known_devices.yaml

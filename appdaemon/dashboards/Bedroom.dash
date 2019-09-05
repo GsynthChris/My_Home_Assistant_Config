@@ -1,0 +1,630 @@
+
+#
+# Main arguments, all optional
+#
+title: Bedroom
+widget_dimensions: [115, 115]
+widget_margins: [6, 6]
+columns: 7
+global_parameters:
+    use_comma: 0
+    precision: 1
+    use_hass_icon: 1
+
+#xboxselectsource:
+#  widget_type: input_select
+#  title: Xbox Source
+#  entity: script.xboxsource
+###########################################################################################################
+#######################################      IR Remote Commands      ######################################
+###########################################################################################################
+#######################################          TV Controls         ######################################
+###########################################################################################################
+bedtvpower:
+    widget_type: script
+    title: TV Power
+    entity: script.bedroomtv
+    title_style: "color: #ff0000"
+    icon_style_inactive: "color: #ff0000"
+    icon_style_active: "color: #ff8080"
+    icon_on: fa-tv
+    icon_off: fa-tv
+
+bedtvmenu:
+    widget_type: script
+    title: Menu
+    entity: script.bedtvmenu
+    title_style: "color: #ff0000"
+    icon_style_inactive: "color: #ff0000"
+    icon_style_active: "color: #ff8080"
+    icon_on: fa-bars
+    icon_off: fa-bars
+
+bedtvinput:
+    widget_type: script
+    title: Input
+    entity: script.bedtvinput
+    title_style: "color: #ff0000"
+    icon_style_inactive: "color: #ff0000"
+    icon_style_active: "color: #ff8080"
+    icon_on: mdi-video-input-component
+    icon_off: mdi-video-input-component
+
+bedtvselect:
+    widget_type: script
+    title: OK/Select
+    entity: script.bedtvselect
+    title_style: "color: #ff0000"
+    icon_style_inactive: "color: #ff0000"
+    icon_style_active: "color: #ff8080"
+    icon_on: mdi-death-star mdi-spin
+    icon_off: mdi-death-star mdi-spin
+
+bedtvup:
+    widget_type: script
+    title: UP
+    entity: script.bedtvup
+    title_style: "color: #ff0000"
+    icon_style_inactive: "color: #ff0000"
+    icon_style_active: "color: #ff8080"
+    icon_on: fa-arrow-up
+    icon_off: fa-arrow-up
+
+bedtvdown:
+    widget_type: script
+    title: DOWN
+    entity: script.bedvoldown
+    title_style: "color: #ff0000"
+    icon_style_inactive: "color: #ff0000"
+    icon_style_active: "color: #ff8080"
+    icon_on: fa-arrow-down
+    icon_off: fa-arrow-down
+
+bedtvleft:
+    widget_type: script
+    title: LEFT
+    entity: script.bedtvleft
+    title_style: "color: #ff0000"
+    icon_style_inactive: "color: #ff0000"
+    icon_style_active: "color: #ff8080"
+    icon_on: fa-arrow-left
+    icon_off: fa-arrow-left
+
+bedtvright:
+    widget_type: script
+    title: RIGHT
+    entity: script.bedtvright
+    title_style: "color: #ff0000"
+    icon_style_inactive: "color: #ff0000"
+    icon_style_active: "color: #ff8080"
+    icon_on: fa-arrow-right
+    icon_off: fa-arrow-right
+
+bedtvaudiofix:
+    widget_type: script
+    title: Fix TV Audio
+    entity: script.bedtvaudiofix
+    title_style: "color: #ff0000"
+    icon_style_inactive: "color: #ff0000"
+    icon_style_active: "color: #ff8080"
+    icon_on: mdi-auto-fix mdi-spin
+    icon_off: mdi-auto-fix
+
+###########################################################################################################
+#######################################           Sound Bar          ######################################
+###########################################################################################################
+
+soundbarpower:
+    widget_type: script
+    title: Soundbar Power
+    entity: script.bedsoundbar
+    title_style: "color: #0000ff"
+    icon_style_inactive: "color: #0000ff"
+    icon_style_active: "color: #6666ff"
+    icon_on: mdi-audio-video
+    icon_off: mdi-audio-video
+
+volup:
+    widget_type: script
+    title: Volume Up
+    entity: script.bedvolup
+    title_style: "color: #0000ff"
+    icon_style_inactive: "color: #0000ff"
+    icon_style_active: "color: #6666ff"
+    icon_on: fa-volume-up
+    icon_off: fa-volume-up
+
+voldown:
+    widget_type: script
+    title: Volume Down
+    entity: script.bedvoldown
+    title_style: "color: #0000ff"
+    icon_style_inactive: "color: #0000ff"
+    icon_style_active: "color: #6666ff"
+    icon_on: fa-volume-down
+    icon_off: fa-volume-down
+
+volupplus:
+    widget_type: script
+    title: Volume Up +8
+    entity: script.bedvolupplus
+    title_style: "color: #0000ff"
+    icon_style_inactive: "color: #0000ff"
+    icon_style_active: "color: #6666ff"
+    icon_on: mdi-volume-plus
+    icon_off: mdi-volume-plus
+
+voldownplus:
+    widget_type: script
+    title: Volume Down -8
+    entity: script.bedvoldownplus
+    title_style: "color: #0000ff"
+    icon_style_inactive: "color: #0000ff"
+    icon_style_active: "color: #6666ff"
+    icon_on: mdi-volume-minus
+    icon_off: mdi-volume-minus
+
+volmute:
+    widget_type: script
+    title: Mute
+    entity: script.bedvolmute
+    title_style: "color: #0000ff"
+    icon_style_inactive: "color: #0000ff"
+    icon_style_active: "color: #6666ff"
+    icon_on: mdi-volume-off
+    icon_off: mdi-volume-off
+
+###########################################################################################################
+######################################          Xbox Controls         #####################################
+###########################################################################################################
+
+# xboxplaypause:
+#     widget_type: script
+#     title: Play/Pause
+#     entity: script.xboxplaypause
+#     title_style: "color: #1aff1a"
+#     icon_style_inactive: "color: #1aff1a"
+#     icon_style_active: "color: #b3ffb3"
+#     icon_on: fa-play
+#     icon_off: fa-play
+
+# xboxback:
+#     widget_type: script
+#     title: Skip Back
+#     entity: script.xboxskipback
+#     title_style: "color: #1aff1a"
+#     icon_style_inactive: "color: #1aff1a"
+#     icon_style_active: "color: #b3ffb3"
+#     icon_on: fa-fast-backward
+#     icon_off: fa-fast-backward
+
+# xboxfwd:
+#     widget_type: script
+#     title: Skip Fwd
+#     entity: script.xboxskipfwd
+#     title_style: "color: #1aff1a"
+#     icon_style_inactive: "color: #1aff1a"
+#     icon_style_active: "color: #b3ffb3"
+#     icon_on: fa-fast-forward
+#     icon_off: fa-fast-forward
+
+xboxpower:
+    widget_type: script
+    title: Xbox Power
+    entity: script.xboxpower
+    title_style: "color: #1aff1a"
+    icon_style_inactive: "color: #1aff1a"
+    icon_style_active: "color: #b3ffb3"
+    icon_on: mdi-xbox
+    icon_off: mdi-xbox
+
+xboxselect:
+    widget_type: script
+    title: OK/Select
+    entity: script.xbox_a
+    title_style: "color: #1aff1a"
+    icon_style_inactive: "color: #1aff1a"
+    icon_style_active: "color: #b3ffb3"
+    icon_on: mdi-xbox-controller mdi-spin
+    icon_off: mdi-xbox-controller mdi-spin
+
+xboxclear:
+    widget_type: script
+    title: Clear
+    entity: script.xbox_clear
+    title_style: "color: #1aff1a"
+    icon_style_inactive: "color: #1aff1a"
+    icon_style_active: "color: #b3ffb3"
+    icon_on: fa-comment-slash
+    icon_off: fa-comment-slash
+xboxenroll:
+    widget_type: script
+    title: Enroll
+    entity: script.xbox_enroll
+    title_style: "color: #1aff1a"
+    icon_style_inactive: "color: #1aff1a"
+    icon_style_active: "color: #b3ffb3"
+    icon_on: mdi-xbox-controller
+    icon_off: mdi-xbox-controller
+xboxnexus:
+    widget_type: script
+    title: Xbox Button
+    entity: script.xbox_nexus
+    title_style: "color: #1aff1a"
+    icon_style_inactive: "color: #1aff1a"
+    icon_style_active: "color: #b3ffb3"
+    icon_on: mdi-xbox
+    icon_off: mdi-xbox
+xboxmenu:
+    widget_type: script
+    title: Xbox Button
+    entity: script.xbox_menu
+    title_style: "color: #1aff1a"
+    icon_style_inactive: "color: #1aff1a"
+    icon_style_active: "color: #b3ffb3"
+    icon_on: mdi-xbox
+    icon_off: mdi-xbox
+xboxview:
+    widget_type: script
+    title: View
+    entity: script.xbox_view
+    title_style: "color: #1aff1a"
+    icon_style_inactive: "color: #1aff1a"
+    icon_style_active: "color: #b3ffb3"
+    icon_on: mdi-view-dashboard-outline
+    icon_off: mdi-view-dashboard-outline
+xboxa:
+    widget_type: script
+    title: A
+    entity: script.xbox_a
+    title_style: "color: #1aff1a"
+    icon_style_inactive: "color: #1aff1a"
+    icon_style_active: "color: #b3ffb3"
+    icon_on: mdi-alpha-a-box
+    icon_off: mdi-alpha-a-box
+xboxb:
+    widget_type: script
+    title: B
+    entity: script.xbox_b
+    title_style: "color: #1aff1a"
+    icon_style_inactive: "color: #1aff1a"
+    icon_style_active: "color: #b3ffb3"
+    icon_on: mdi-alpha-b-box
+    icon_off: mdi-alpha-b-box
+xboxx:
+    widget_type: script
+    title: X
+    entity: script.xbox_x
+    title_style: "color: #1aff1a"
+    icon_style_inactive: "color: #1aff1a"
+    icon_style_active: "color: #b3ffb3"
+    icon_on: mdi-alpha-x-box
+    icon_off: mdi-alpha-x-box
+xboxy:
+    widget_type: script
+    title: Y
+    entity: script.xbox_y
+    title_style: "color: #1aff1a"
+    icon_style_inactive: "color: #1aff1a"
+    icon_style_active: "color: #b3ffb3"
+    icon_on: mdi-alpha-y-box
+    icon_off: mdi-alpha-y-box
+xboxdpadup:
+    widget_type: script
+    title: Dpad Up
+    entity: script.xbox_dpad_up
+    title_style: "color: #1aff1a"
+    icon_style_inactive: "color: #1aff1a"
+    icon_style_active: "color: #b3ffb3"
+    icon_on: fa-chevron-circle-up
+    icon_off: fa-chevron-circle-up
+xboxdpaddown:
+    widget_type: script
+    title: Dpad Down
+    entity: script.xbox_dpad_down
+    title_style: "color: #1aff1a"
+    icon_style_inactive: "color: #1aff1a"
+    icon_style_active: "color: #b3ffb3"
+    icon_on: fa-chevron-circle-down
+    icon_off: fa-chevron-circle-down
+xboxdpadleft:
+    widget_type: script
+    title: Dpad Left
+    entity: script.xbox_dpad_left
+    title_style: "color: #1aff1a"
+    icon_style_inactive: "color: #1aff1a"
+    icon_style_active: "color: #b3ffb3"
+    icon_on: fa-chevron-circle-left
+    icon_off: fa-chevron-circle-left
+xboxdpadright:
+    widget_type: script
+    title: Dpad Right
+    entity: script.xbox_dpad_right
+    title_style: "color: #1aff1a"
+    icon_style_inactive: "color: #1aff1a"
+    icon_style_active: "color: #b3ffb3"
+    icon_on: fa-chevron-circle-right
+    icon_off: fa-chevron-circle-right
+xboxleftshoulder:
+    widget_type: script
+    title: Left Shoulder
+    entity: script.xbox_left_shoulder
+    title_style: "color: #1aff1a"
+    icon_style_inactive: "color: #1aff1a"
+    icon_style_active: "color: #b3ffb3"
+    icon_on: mdi-arrow-top-left-thick
+    icon_off: mdi-arrow-top-left-thick
+xboxrightshoulder:
+    widget_type: script
+    title: Right Shoulder
+    entity: script.xbox_right_shoulder
+    title_style: "color: #1aff1a"
+    icon_style_inactive: "color: #1aff1a"
+    icon_style_active: "color: #b3ffb3"
+    icon_on: mdi-arrow-top-right-thick
+    icon_off: mdi-arrow-top-right-thick
+xboxleftthumbstick:
+    widget_type: script
+    title: Stick Left
+    entity: script.xbox_left_thumbstick
+    title_style: "color: #1aff1a"
+    icon_style_inactive: "color: #1aff1a"
+    icon_style_active: "color: #b3ffb3"
+    icon_on: mdi-arrow-left-drop-circle
+    icon_off: mdi-arrow-left-drop-circle
+xboxrightthumbstick:
+    widget_type: script
+    title: Stick Right
+    entity: script.xbox_right_thumbstick
+    title_style: "color: #1aff1a"
+    icon_style_inactive: "color: #1aff1a"
+    icon_style_active: "color: #b3ffb3"
+    icon_on: mdi-arrow-right-drop-circle
+    icon_off: mdi-arrow-right-drop-circle
+xboxplay:
+    widget_type: script
+    title: Play
+    entity: script.xbox_play
+    title_style: "color: #1aff1a"
+    icon_style_inactive: "color: #1aff1a"
+    icon_style_active: "color: #b3ffb3"
+    icon_on: mdi-play
+    icon_off: mdi-play
+xboxpause:
+    widget_type: script
+    title: Pause
+    entity: script.xbox_pause
+    title_style: "color: #1aff1a"
+    icon_style_inactive: "color: #1aff1a"
+    icon_style_active: "color: #b3ffb3"
+    icon_on: mdi-pause
+    icon_off: mdi-pause
+xboxplaypause:
+    widget_type: script
+    title: PlayPause
+    entity: script.xbox_play_pause
+    title_style: "color: #1aff1a"
+    icon_style_inactive: "color: #1aff1a"
+    icon_style_active: "color: #b3ffb3"
+    icon_on: mdi-play-pause
+    icon_off: mdi-play-pause
+xboxstop:
+    widget_type: script
+    title: Stop
+    entity: script.xbox_stop
+    title_style: "color: #1aff1a"
+    icon_style_inactive: "color: #1aff1a"
+    icon_style_active: "color: #b3ffb3"
+    icon_on: mdi-stop
+    icon_off: mdi-stop
+xboxrecord:
+    widget_type: script
+    title: Record
+    entity: script.xbox_record
+    title_style: "color: #1aff1a"
+    icon_style_inactive: "color: #1aff1a"
+    icon_style_active: "color: #b3ffb3"
+    icon_on: mdi-record
+    icon_off: mdi-record
+xboxnexttrack:
+    widget_type: script
+    title: Next
+    entity: script.xbox_next_track
+    title_style: "color: #1aff1a"
+    icon_style_inactive: "color: #1aff1a"
+    icon_style_active: "color: #b3ffb3"
+    icon_on: mdi-skip-next
+    icon_off: mdi-skip-next
+xboxprevtrack:
+    widget_type: script
+    title: Previous
+    entity: script.xbox_prev_track
+    title_style: "color: #1aff1a"
+    icon_style_inactive: "color: #1aff1a"
+    icon_style_active: "color: #b3ffb3"
+    icon_on: mdi-skip-previous
+    icon_off: mdi-skip-previous
+xboxfastforward:
+    widget_type: script
+    title: Fast Forward
+    entity: script.xbox_fast_forward
+    title_style: "color: #1aff1a"
+    icon_style_inactive: "color: #1aff1a"
+    icon_style_active: "color: #b3ffb3"
+    icon_on: mdi-fast-forward
+    icon_off: mdi-fast-forward
+xboxrewind:
+    widget_type: script
+    title: Rewind
+    entity: script.xbox_rewind
+    title_style: "color: #1aff1a"
+    icon_style_inactive: "color: #1aff1a"
+    icon_style_active: "color: #b3ffb3"
+    icon_on: mdi-rewind
+    icon_off: mdi-rewind
+xboxchannelup:
+    widget_type: script
+    title: Channel Up
+    entity: script.xbox_channel_up
+    title_style: "color: #1aff1a"
+    icon_style_inactive: "color: #1aff1a"
+    icon_style_active: "color: #b3ffb3"
+    icon_on: mdi-chevron-up-circle-outline
+    icon_off: mdi-chevron-up-circle-outline
+xboxchanneldown:
+    widget_type: script
+    title: Channel Down
+    entity: script.xbox_channel_down
+    title_style: "color: #1aff1a"
+    icon_style_inactive: "color: #1aff1a"
+    icon_style_active: "color: #b3ffb3"
+    icon_on: mdi-chevron-down-circle-outline
+    icon_off: mdi-chevron-down-circle-outline
+xboxback:
+    widget_type: script
+    title: Back
+    entity: script.xbox_back
+    title_style: "color: #1aff1a"
+    icon_style_inactive: "color: #1aff1a"
+    icon_style_active: "color: #b3ffb3"
+    icon_on: mdi-undo-variant
+    icon_off: mdi-undo-variant
+xboxview:
+    widget_type: script
+    title: View
+    entity: script.xbox_view
+    title_style: "color: #1aff1a"
+    icon_style_inactive: "color: #1aff1a"
+    icon_style_active: "color: #b3ffb3"
+    icon_on: mdi-xbox-controller-view
+    icon_off: mdi-xbox-controller-view
+xboxmenu:
+    widget_type: script
+    title: Menu
+    entity: script.xbox_menu
+    title_style: "color: #1aff1a"
+    icon_style_inactive: "color: #1aff1a"
+    icon_style_active: "color: #b3ffb3"
+    icon_on: mdi-xbox-controller-menu
+    icon_off: mdi-xbox-controller-menu
+xboxseek:
+    widget_type: script
+    title: Seek
+    entity: script.xbox_seek
+    title_style: "color: #1aff1a"
+    icon_style_inactive: "color: #1aff1a"
+    icon_style_active: "color: #b3ffb3"
+    icon_on: mdi-eye
+    icon_off: mdi-eye
+###########################################################################################################
+######################################           Appliances           #####################################
+###########################################################################################################
+
+bedside:
+    widget_type: switch
+    title: Bedside
+    entity: light.bedside_light
+    title_style: "color: #d580ff"
+    icon_style_inactive: "color: #d580ff"
+    icon_style_active: "color: #aa00ff"
+    icon_on: mdi-lamp
+    icon_off: mdi-lamp
+
+closet:
+    widget_type: switch
+    title: Closet
+    entity: light.closet_light
+    title_style: "color: #d580ff"
+    icon_style_inactive: "color: #d580ff"
+    icon_style_active: "color: #aa00ff"
+    icon_on: mdi-lightbulb-on 
+    icon_off: mdi-lightbulb
+
+dresser:
+    widget_type: switch
+    title: Dresser
+    entity: light.dresser_light
+    title_style: "color: #d580ff"
+    icon_style_inactive: "color: #d580ff"
+    icon_style_active: "color: #aa00ff"
+    icon_on: mdi-track-light
+    icon_off: mdi-track-light
+
+ceilinglight:
+    widget_type: switch
+    title: Ceiling Light
+    entity: light.bedroom_ceiling_light
+    title_style: "color: #d580ff"
+    icon_style_inactive: "color: #d580ff"
+    icon_style_active: "color: #aa00ff"
+    icon_on: mdi-ceiling-light
+    icon_off: mdi-ceiling-light
+
+ceilingfan:
+    widget_type: switch
+    title: Ceiling Fan
+    entity: fan.bedroom_ceiling_fan
+    title_style: "color: #d580ff"
+    icon_style_inactive: "color: #d580ff"
+    icon_style_active: "color: #aa00ff"
+    icon_on: mdi-fan mdi-spin
+    icon_off: mdi-fan
+
+###########################################################################################################
+######################################            Window AC           #####################################
+###########################################################################################################
+
+windowac:
+    widget_type: climate
+    entity: climate.window_ac
+    level_style: "font-size: 250%;" # Current Temp Size
+    level2_style: "font-size: 125%;" # Target Temp Size
+    unit_style: "font-size: 600%;"
+    title_style: "font-size: 150%;"
+    title2_style: "font-size: 100%;"
+    level_up_style: "font-size: 150%;"
+    level_down_style: "font-size: 150%;"
+    title_style: "color: #0000ff"
+    icon_style_inactive: "color: #0000ff"
+    icon_style_active: "color: #6666ff"
+    title: Window AC
+    title2: House Temp Average
+    units: 'F'
+    step: 1
+    precision: 1
+
+roomtemp:
+    widget_type: sensor
+    title: Room Temp
+    units: "&deg;F"
+    title_style: "color: #0000ff"
+    icon_style_inactive: "color: #0000ff"
+    icon_style_active: "color: #6666ff"
+    precision: 0
+    entity: sensor.average_mstbd_temp
+
+outsidetemp:
+    widget_type: sensor
+    title: Oustide Temp
+    title_style: "color: #0000ff"
+    icon_style_inactive: "color: #0000ff"
+    icon_style_active: "color: #6666ff"
+    units: "&deg;F"
+    precision: 0
+    entity: sensor.dark_sky_temperature
+
+###########################################################################################################
+######################################              Layout            #####################################
+###########################################################################################################
+
+layout:
+  - bedtvpower, xboxpower, soundbarpower, bedtvmenu, bedtvup, roomtemp
+  - volmute, voldown, volup, bedtvleft, bedtvselect, bedtvright
+  - bedtvaudiofix, voldownplus, volupplus, bedtvinput, bedtvdown, ceilingfan
+  - xboxnexus, xboxdpadup, xboxview, xboxmenu, xboxy, xboxback
+  - xboxdpadleft, xboxselect, xboxdpadright, xboxx, xboxseek, xboxb
+  - xboxleftshoulder, xboxdpaddown, xboxrightshoulder, xboxleftthumbstick, xboxa, xboxrightthumbstick
+  - xboxrewind, xboxplaypause, xboxfastforward, ceilinglight, windowac(2x1)
+  - xboxprevtrack, xboxstop, xboxnexttrack, closet, bedside, dresser
+#  - xboxselectsource(2x1)
+#  - media_player.bedroom_tv(2x2)
