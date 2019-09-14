@@ -5,6 +5,13 @@ acstatus:
         message: >
           HVAC is set to {{ state_attr('climate.air_conditioner', 'temperature') }}.
 
+frontcamtothinmint:
+  sequence:
+    - service: shell_command.thinmintfrontcamvlc
+
+frontcamtokububeast:
+  sequence:
+    - service: shell_command.kububeastfrontcamvlc
 
 #################################################################################################################
 #################################                  Browser Mod                    ###############################

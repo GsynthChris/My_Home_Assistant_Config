@@ -1,27 +1,301 @@
 alexa: 
   filter:
     exclude_domains:
-      - sensor
-      - group
-      - input_boolean
       - automation
-      - binary_sensor
       - device_tracker
-      - zone
+      - group
+      - input_number
+      - input_select
+      - input_text
       - weather
-      - script
+      - zone
     exclude_entities:
-      - switch.bedroomac
+      - binary_sensor.chrislizz_home
+      - binary_sensor.kitchen_motion
+      - binary_sensor.laundry_motion
+      - binary_sensor.livingroom_motion
+      - binary_sensor.master_bed_motion
+      - binary_sensor.office_multisensor
+      - binary_sensor.office_on_off
+      - binary_sensor.people_home
+      - binary_sensor.remote_ui
+      - binary_sensor.rf_test_button1
+      - binary_sensor.rf_test_button2
+      - binary_sensor.shop_motion
+      - binary_sensor.shop_motion2
+      - binary_sensor.temp_down
+      - binary_sensor.temp_up
+      - binary_sensor.theater_motion
+      - binary_sensor.updater
+      - binary_sensor.workday_sensor
+      - camera.front_yard_small
+      - camera.ncr
+      - climate.bedroom_ceiling_fan
+      - climate.box_fan
+      - climate.kitchen_ceiling_fan
+      - climate.livingroom_ceiling_fan
+      - input_boolean.chrislizz_home
+      - input_boolean.chrismedicinereminder
+      - input_boolean.drzzs_video
+      - input_boolean.office_toggle
+      - input_boolean.tonbux_toggle
+      - input_number.alexa_volume
+      - input_number.animation_speed
+      - input_number.new_leds_speed
+      - input_select.holiday_led_effect
+      - input_select.new_leds
+      - input_select.rokulivsource
+      - input_select.themeselecter
+      - input_select.xboxonesource
+      - input_text.basement_alexa
+      - input_text.bedroom_alexa
+      - input_text.group_alexa
+      - input_text.livingroom_alexa
+      - input_text.office_alexa
+      - input_text.zach_alexa
+      - media_player.basement_alexa
+      - media_player.bedroom_alexa
+      - media_player.christopher_s_alexa_apps
+      - media_player.everywhere
+      - media_player.livingroom_alexa
+      - media_player.office_alexa
+      - media_player.this_device
+      - media_player.xbox_one
+      - media_player.zach_alexa
+      - persistent_notification.4663548
+      - persistent_notification.invalid_config
+      - script.acstatus
+      - script.alexa_intruder_alert
+      - script.alexa_set_volume
+      - script.app_alexa_speak
+      - script.basement_alexa_speak
+      - script.bedroom_alexa_speak
+      - script.bedroomtv
+      - script.bedsoundbar
+      - script.bedtvaudiofix
+      - script.bedtvdown
+      - script.bedtvinput
+      - script.bedtvleft
+      - script.bedtvmenu
+      - script.bedtvpower
+      - script.bedtvright
+      - script.bedtvselect
+      - script.bedtvup
+      - script.bedvoldown
+      - script.bedvoldownplus
+      - script.bedvolmute
+      - script.bedvolup
+      - script.bedvolupplus
+      - script.doorbellbedroomchris
+      - script.doorbellfrontchris
+      - script.doorbellfrontchrisvideo
+      - script.doorbellfrontsnapshot
+      - script.doorbellfrontsnapshotarchive
+      - script.group_alexa_speak
+      - script.kenwoodpwr
+      - script.kenwoodvoldown
+      - script.kenwoodvolmute
+      - script.kenwoodvolup
+      - script.livingroom_alexa_speak
+      - script.livtvdown
+      - script.livtvinput
+      - script.livtvleft
+      - script.livtvmenu
+      - script.livtvpwr
+      - script.livtvright
+      - script.livtvselect
+      - script.livtvup
+      - script.livvoldownplus
+      - script.livvolupplus
+      - script.lizz_iphone_message
+      - script.office_alexa_speak
+      - script.officechandown
+      - script.officechanup
+      - script.officemute
+      - script.officetvdown
+      - script.officetvinput
+      - script.officetvleft
+      - script.officetvmenu
+      - script.officetvpwr
+      - script.officetvright
+      - script.officetvselect
+      - script.officetvup
+      - script.officevoldown
+      - script.officevoldownplus
+      - script.officevolup
+      - script.officevolupplus
+      - script.rokulivback
+      - script.rokulivbackspace
+      - script.rokulivchandown
+      - script.rokulivchanup
+      - script.rokulivdown
+      - script.rokuliventer
+      - script.rokulivforward
+      - script.rokulivhome
+      - script.rokulivinfo
+      - script.rokulivleft
+      - script.rokulivplay
+      - script.rokulivpower
+      - script.rokulivreplay
+      - script.rokulivreverse
+      - script.rokulivright
+      - script.rokulivsearch
+      - script.rokulivselect
+      - script.rokulivup
+      - script.shutdownkububeast
+      - script.skidata_iphone_message
+      - script.this_alexa_speak
+      - script.xbox_a
+      - script.xbox_b
+      - script.xbox_back
+      - script.xbox_channel_down
+      - script.xbox_channel_up
+      - script.xbox_clear
+      - script.xbox_dpad_down
+      - script.xbox_dpad_left
+      - script.xbox_dpad_right
+      - script.xbox_dpad_up
+      - script.xbox_enroll
+      - script.xbox_fast_forward
+      - script.xbox_left_shoulder
+      - script.xbox_left_thumbstick
+      - script.xbox_menu
+      - script.xbox_next_track
+      - script.xbox_nexus
+      - script.xbox_pause
+      - script.xbox_play
+      - script.xbox_play_pause
+      - script.xbox_prev_track
+      - script.xbox_record
+      - script.xbox_rewind
+      - script.xbox_right_shoulder
+      - script.xbox_right_thumbstick
+      - script.xbox_seek
+      - script.xbox_stop
+      - script.xbox_view
+      - script.xbox_x
+      - script.xbox_y
+      - script.xboxhbonow
+      - script.xboxhulu
+      - script.xboxnetflix
+      - script.xboxnetflix2
+      - script.xboxnetflix3
+      - script.xboxplaypause
+      - script.xboxpower
+      - script.xboxprime
+      - script.xboxskipback
+      - script.xboxskipfwd
+      - script.xboxvoldown
+      - script.xboxvolmute
+      - script.xboxvolup
+      - script.xboxyoutube
+      - script.zach_alexa_speak
+      - script.zach_iphone_message
+      - sensor.bruh_automation
+      - sensor.chris_skidata_iphone_battery_level_2
+      - sensor.chris_skidata_iphone_battery_state_2
+      - sensor.chriss_iphone_6_plus_battery_level
+      - sensor.chriss_iphone_6_plus_battery_state
+      - sensor.company_man
+      - sensor.computer_energy_current
+      - sensor.computer_energy_period
+      - sensor.computer_energy_power
+      - sensor.computer_energy_today
+      - sensor.computer_energy_total
+      - sensor.computer_energy_voltage
+      - sensor.computer_energy_yesterday
+      - sensor.dark_sky_apparent_temperature
+      - sensor.dark_sky_cloud_coverage
+      - sensor.dark_sky_humidity
+      - sensor.dark_sky_icon
+      - sensor.dark_sky_precip
+      - sensor.dark_sky_precip_intensity
+      - sensor.dark_sky_precip_probability
+      - sensor.dark_sky_pressure
+      - sensor.dark_sky_summary
+      - sensor.dark_sky_temperature
+      - sensor.dark_sky_wind_bearing
+      - sensor.dark_sky_wind_speed
+      - sensor.digiblurdiy
+      - sensor.dryer_current
+      - sensor.drzzs
+      - sensor.drzzslive
+      - sensor.hacs
+      - sensor.iphone_battery_level
+      - sensor.iphone_battery_level_2
+      - sensor.iphone_battery_state
+      - sensor.iphone_battery_state_2
+      - sensor.kitchen_humidity
+      - sensor.livingroom_humidity
+      - sensor.lizzs_iphone_6s_battery_level
+      - sensor.lizzs_iphone_6s_battery_state
+      - sensor.master_bedroom_humidity
+      - sensor.moon
+      - sensor.mstbd_humidity
+      - sensor.music_room_humidity
+      - sensor.office_humidity
+      - sensor.robert_reich
+      - sensor.superhousetv
+      - sensor.technology_connections
+      - sensor.the_hook_up
+      - sensor.thermostatsetting
+      - sensor.trae_crowder
+      - sensor.washer_energy_current
+      - sensor.washer_energy_period
+      - sensor.washer_energy_power
+      - sensor.washer_energy_today
+      - sensor.washer_energy_total
+      - sensor.washer_energy_voltage
+      - sensor.washer_energy_yesterday
+      - sensor.window_ac_temp
+      - sun.sun
+      - weather.dark_sky_weather
+      - xbox_one.world
+      - switch.basement_alexa_do_not_disturb_switch
+      - switch.basement_alexa_repeat_switch
+      - switch.basement_alexa_shuffle_switch
+      - switch.bedroom_ac
+      - switch.bedroom_alexa_do_not_disturb_switch
+      - switch.bedroom_alexa_repeat_switch
+      - switch.bedroom_alexa_shuffle_switch
+      - switch.christopher_s_alexa_apps_do_not_disturb_switch
+      - switch.christopher_s_alexa_apps_repeat_switch
+      - switch.christopher_s_alexa_apps_shuffle_switch
+      - switch.everywhere_do_not_disturb_switch
+      - switch.everywhere_repeat_switch
+      - switch.everywhere_shuffle_switch
       - switch.hvac_ac
-      - switch.hvac_fan
       - switch.hvac_filterled
-      - switch.hvac_furnace
-      - switch.temp_down
-      - switch.temp_up
+      - switch.livingroom_alexa_do_not_disturb_switch
+      - switch.livingroom_alexa_repeat_switch
+      - switch.livingroom_alexa_shuffle_switch
+      - switch.office_alexa_do_not_disturb_switch
+      - switch.office_alexa_repeat_switch
+      - switch.office_alexa_shuffle_switch
+      - switch.this_device_do_not_disturb_switch
+      - switch.this_device_repeat_switch
+      - switch.this_device_shuffle_switch
+      - switch.zach_alexa_do_not_disturb_switch
+      - switch.zach_alexa_repeat_switch
+      - switch.zach_alexa_shuffle_switch
     include_entities:
       - script.kenwoodpwr
       - script.livtvpwr
       - script.bedtvpower
+      - input_boolean.billy_go_poopy
+      - input_boolean.chewy_go_poopy
+      - climate.air_conditioner
+      - climate.window_ac
+      - input_boolean.music_time
+      - sensor.average_home_temp
+      - sensor.average_mstbd_temp
+      - sensor.kitchen_temp
+      - sensor.livingroom_humidity
+      - sensor.livingroom_temp
+      - sensor.music_room_temp
+      - sensor.office_temp
+      - media_player.bedroom_tv
+      - media_player.livingroom_tv
   entity_config:
     light.basement_1:
       name: Theater 1
@@ -35,10 +309,10 @@ alexa:
       name: Bedroom Ceiling
       description: Ceiling light in Master Bedroom
       display_categories: LIGHT
-    light.bedroom_nightlight:
-      name: Bedroom Nightlight
-      description: Light strip underneath bed
-      display_categories: LIGHT
+    # light.bedroom_nightlight:
+    #   name: Bedroom Nightlight
+    #   description: Light strip underneath bed
+    #   display_categories: LIGHT
     light.bedside_light:
       name: Bedside table
       description: Lamp on bedside table
@@ -50,6 +324,10 @@ alexa:
     light.dresser_light:
       name: Dresser
       description: Light on bedroom dresser
+      display_categories: LIGHT
+    light.floor_lamp:
+      name: Shop
+      description: Office Floor Lamp
       display_categories: LIGHT
     light.hallway_light:
       name: Hallway
@@ -71,9 +349,17 @@ alexa:
       name: Laundry room
       description: Light in basement laundry room
       display_categories: LIGHT
+    light.livingroom_ceiling_light:
+      name: Livingroom Ceiling Light
+      description: Livingroom Ceiling Light
+      display_categories: LIGHT
     light.livingroom_lamp:
       name: Living room lamp
       description: Lamp in living room
+      display_categories: LIGHT
+    light.office_ceiling_light:
+      name: Office  Ceiling Light
+      description: Office  Ceiling Light
       display_categories: LIGHT
     light.shop_light:
       name: Shop
@@ -87,42 +373,30 @@ alexa:
       name: Under cabinet
       description: Lights under kitchen cabinet
       display_categories: LIGHT
-    light.floor_lamp:
-      name: Shop
-      description: Office Floor Lamp
-      display_categories: LIGHT
-    light.livingroom_ceiling_light:
-      name: Livingroom Ceiling Light
-      description: Livingroom Ceiling Light
-      display_categories: LIGHT
-    light.office_ceiling_light:
-      name: Office  Ceiling Light
-      description: Office  Ceiling Light
-      display_categories: LIGHT
     switch.office_computer:
       name: Office computer
       description: Office Computer
-      display_categories: SWITCH
+      display_categories: SMARTPLUG
     switch.tonbux_plug1:
       name: Tonbux Plug 1
       description: Plug 1 on Tonbux Powerstrip
-      display_categories: SWITCH
+      display_categories: SMARTPLUG
     switch.tonbux_plug2:
       name: Tonbux Plug 2
       description: Plug 2 on Tonbux Powerstrip
-      display_categories: SWITCH
+      display_categories: SMARTPLUG
     switch.tonbux_plug3:
       name: Tonbux Plug 3
       description: Plug 3 on Tonbux Powerstrip
-      display_categories: SWITCH
+      display_categories: SMARTPLUG
     switch.tonbux_plug4:
       name: Tonbux Plug 4
       description: Plug 4 on Tonbux Powerstrip
-      display_categories: SWITCH
+      display_categories: SMARTPLUG
     switch.tonbux_usb:
       name: Tonbux USB Port
       description: USB Port on Tonbux Powerstrip
-      display_categories: SWITCH+
+      display_categories: SMARTPLUG
     fan.box_fan:
       name: Box fan
       description: Box fan
@@ -139,3 +413,84 @@ alexa:
       name: Kitchen ceiling fan
       description: Kitchen ceiling fan
       display_categories: SWITCH
+    input_boolean.billy_go_poopy:
+      name: Billy Go Poopy
+      description: Turns on ten minute timer while billy goes poopy!
+      display_categories: SWITCH
+    input_boolean.chewy_go_poopy:
+      name: Chewy Go Poopy
+      description: Turns on ten minute timer while chewy goes poopy!
+      display_categories: SWITCH
+    climate.air_conditioner:
+      name: Air Conditioner
+      description: House Air Conditioner
+      display_categories: THERMOSTAT
+    climate.window_ac:
+      name: Bedroom AC
+      description: Bedroom Window AC
+      display_categories: THERMOSTAT
+    input_boolean.music_time:
+      name: Music Time
+      description: Interupts basement motion sensors
+      display_categories: SWITCH
+    sensor.average_home_temp:
+      name: House Temperature
+      # description: 
+      display_categories: TEMPERATURE_SENSOR
+    sensor.average_mstbd_temp:
+      name: Master Bedroom Temperature
+      # description: 
+      display_categories: TEMPERATURE_SENSOR
+    sensor.kitchen_temp:
+      name: Kitchen Temperature
+      # description: 
+      display_categories: TEMPERATURE_SENSOR
+    sensor.livingroom_temp:
+      name: Livingroom Temperature
+      # description: 
+      display_categories: TEMPERATURE_SENSOR
+    sensor.music_room_temp:
+      name: Music Room Temperature
+      # description: 
+      display_categories: TEMPERATURE_SENSOR
+    sensor.office_temp:
+      name: Office Temperature
+      # description: 
+      display_categories: TEMPERATURE_SENSOR
+    media_player.bedroom_tv:
+      name: Bedroom TV
+      # description: 
+      display_categories: TV
+    media_player.livingroom_tv:
+      name: Livingroom TV
+      # description: 
+      display_categories: TV
+    camera.front_yard:
+      name: Front Yard Camera
+      description: Camera of Front Yard
+      display_categories: CAMERA
+    binary_sensor.doorbell_backdoor:
+      name: Back Doorbell
+      # description:
+      display_categories: DOORBELL
+    binary_sensor.doorbell_bedroom:
+      name: Bedroom Doorbell
+      # description: 
+      display_categories: DOORBELL
+    binary_sensor.doorbell_livingroom:
+      name: Livingroom Doorbell
+      # description: 
+      display_categories: DOORBELL
+    binary_sensor.washer_status:
+      name: Washing Machine Status
+      description: Detects if the Washing Machine is running
+      display_categories: CONTACT_SENSOR
+    binary_sensor.dryer_status:
+      name: Dryer Status
+      description: Binary Sensor that Detects if the Dryer is running
+      display_categories: CONTACT_SENSOR
+    sensor.dryer:
+      name: Dryer Status2
+      description: ESPHome Sensor that Detects if the Dryer is running
+      display_categories: CONTACT_SENSOR
+

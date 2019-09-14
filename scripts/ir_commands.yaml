@@ -130,8 +130,20 @@ bedvolup:
     data:
       topic: cmnd/bedroomremote/irsend
       payload: '{"Protocol":"NEC","Bits":32,"Data":3254448143}'
+  - service: mqtt.publish
+    data:
+      topic: cmnd/bedroomremote/irsend
+      payload: '{"Protocol":"NEC","Bits":32,"Data":3254448143}'
 bedvoldown:
   sequence:
+  - service: mqtt.publish
+    data:
+      topic: cmnd/bedroomremote/irsend
+      payload: '{"Protocol":"NEC","Bits":32,"Data":3254415503}'
+  - service: mqtt.publish
+    data:
+      topic: cmnd/bedroomremote/irsend
+      payload: '{"Protocol":"NEC","Bits":32,"Data":3254415503}'
   - service: mqtt.publish
     data:
       topic: cmnd/bedroomremote/irsend

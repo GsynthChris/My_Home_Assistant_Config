@@ -6,7 +6,14 @@
     mac_address: "40-2C-F4-E9-EB-0B" #LENOVO INTEGRATED NIC
     host: "192.168.29.4"
     turn_off:
-      service: shell_command.shutdownkububeast
+      - service: shell_command.umountkububeast
+      - service: shell_command.shutdownkububeast
+  - platform: wake_on_lan
+    name: "Livingroom Laptop"
+    mac_address: "00-15-C5-4A-A2-95" #Livingroom Laptop
+    host: "192.168.29.10"
+    turn_off:
+      - service: shell_command.shutdownthinmint
 
 #################################################################################################################
 #################################                 Master Bedroom                 ################################

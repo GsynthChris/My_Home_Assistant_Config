@@ -46,7 +46,7 @@ discovery:
 
 hacs:
  token: !secret hacs_token
-#breaking_changes:
+breaking_changes:
 
 mqtt:
   broker: 192.168.29.5
@@ -62,6 +62,8 @@ mqtt:
 #    ifttt1: !secret ifttt_api
 
 device_tracker:
+    - platform: nmap_tracker
+      hosts: 192.168.29.4
 
 panel_iframe:
   tasmoadmin:
@@ -156,12 +158,12 @@ ios:
 #################################                  Media Player                  ################################
 #################################################################################################################
 
-# browser_mod:
-#   devices:
-#     3a05fc35_9caa0925:
-#       name: Kitchen Tablet
-#     40747163_ddc33611:
-#       name: Office Computer
+browser_mod:
+  devices:
+    5650c4f5_ca9379d2:
+      name: Office Firefox
+    77fdb619_ffc6d989:
+      name: Office Chrome
 
 
 rest_command:
@@ -269,7 +271,10 @@ input_boolean:
     icon: mdi:format-line-style
   drzzs_video:
     name: DrZzs Posted a Video
-
+  billy_go_poopy:
+    name: Billy Go Poopy
+  chewy_go_poopy:
+    name: Chewy Go Poopy
 input_number:
   new_leds_speed:
     name: Animation Speed

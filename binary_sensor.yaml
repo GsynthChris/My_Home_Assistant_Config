@@ -106,6 +106,9 @@
           minutes: 3
         value_template: >-
           {{ states('sensor.washer_energy_power')|float > 10 }}
+      dryer_status:
+        value_template: >-
+          {{ is_state('sensor.dryer', 'Drying')}}
       # window_ac_state:
       #   entity_id: climate.window_ac
       #   friendly_name: "Window AC State"

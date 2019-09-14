@@ -73,12 +73,12 @@
     name: "Kitchen Temp"
     unit_of_measurement: "°F"
     icon: mdi:thermometer
-    value_template: "{{ value_json['DHT11'].Temperature }}"
+    value_template: "{{ value_json['AM2301'].Temperature }}"
   - platform: mqtt
     state_topic: "tele/kitchensink/SENSOR"
     name: "Kitchen Humidity"
     unit_of_measurement: "Humidity"
-    value_template: "{{ value_json['DHT11'].Humidity }}"
+    value_template: "{{ value_json['AM2301'].Humidity }}"
 
   - platform: mqtt
     state_topic: "tele/livingroomfan/SENSOR"
@@ -326,3 +326,6 @@
     availability_topic: "tele/s31powersensor/LWT"
     payload_available: "Online"
     payload_not_available: "Offline"
+
+  - platform: weatheralerts
+    sameid: '029099'

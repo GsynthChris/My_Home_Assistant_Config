@@ -19,7 +19,16 @@
   media_player.roku_livingroom:
     friendly_name: Living Room Roku
 
-
+  sensor.average_home_temp:
+    icon: mdi:thermometer
+  sensor.average_mstbd_temp:
+    icon: mdi:thermometer
+  script.frontcamtokububeast:
+    friendly_name: Front Cam on Computer
+    icon: mdi:cctv
+  script.frontcamtothinmint:
+    friendly_name: Front Cam in Livingroom
+    icon: mdi:cctv
   script.zach_iphone_message:
     icon: mdi:cellphone-iphone
   script.skidata_iphone_message:

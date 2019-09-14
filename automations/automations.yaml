@@ -149,7 +149,7 @@
     action:
       service: frontend.set_theme
       data:
-        name: 'DarkGreen'
+        name: 'cleardark'
 
   - alias: 'theme input select'
     trigger:
@@ -158,6 +158,7 @@
     action:
       - service: frontend.set_theme
         data_template:
+          entity_id: input_select.themeselecter
           name: '{{ trigger.to_state.state | string }}'
 
   - alias: "Tasmota State on HA Restart" #Thanks Travis!

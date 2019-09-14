@@ -132,6 +132,7 @@
       - service: script.doorbellfrontsnapshot
       - service: script.doorbellfrontsnapshotarchive
       - service: script.doorbellfrontchris
+      - service: script.frontcamtokububeast
       - service: notify.ios_lizzs_iphone_6s
         data:
           title: 'Livingroom Doorbell'
@@ -170,6 +171,7 @@
       - service: script.doorbellfrontsnapshot
       - service: script.doorbellfrontsnapshotarchive
       - service: script.doorbellbedroomchris
+      - service: script.frontcamtokububeast
       - service: notify.alexa_media
         data:
           target:
@@ -193,6 +195,75 @@
         data:
           title: 'Bedroom Doorbell'
           message: 'Somebody is at the door!'
+#################################################################################################################
+##########################                let the dogs out to go poopy!               ###########################
+#################################################################################################################
+
+  - alias: 'Billy go Poopy'
+    trigger:
+      - platform: state
+        entity_id: input_boolean.billy_go_poopy
+        from: 'off'
+        to: 'on'
+    action:
+      - service: notify.alexa_media
+        data:
+          target:
+            - media_player.livingroom_alexa
+            - media_player.bedroom_alexa
+            - media_player.office_alexa
+            - media_player.zach_alexa
+            - media_player.basement_alexa
+          data:
+            type: tts
+          message: "billy... beelbeel... beelbeel do you gotta poop?... you gotta poop beel?... beelbeel go poopy!"
+      - delay: 00:10:00
+      - service: notify.alexa_media
+        data:
+          target:
+            - media_player.livingroom_alexa
+            - media_player.bedroom_alexa
+            - media_player.office_alexa
+            - media_player.zach_alexa
+            - media_player.basement_alexa
+          data:
+            type: tts
+          message: "beelbeel is done going poopy!... let the beelbeelbeel inside!.. beelbeel want some cheese?... billy get a treat? whos a baby beelbeel?"
+      - service: homeassistant.turn_off
+        entity_id: input_boolean.billy_go_poopy
+
+  - alias: 'Chewy go Poopy'
+    trigger:
+      - platform: state
+        entity_id: input_boolean.chewy_go_poopy
+        from: 'off'
+        to: 'on'
+    action:
+      - service: notify.alexa_media
+        data:
+          target:
+            - media_player.livingroom_alexa
+            - media_player.bedroom_alexa
+            - media_player.office_alexa
+            - media_player.zach_alexa
+            - media_player.basement_alexa
+          data:
+            type: tts
+          message: "Chewy.. Chewsters gotta poopy... do you gotta poop?... you gotta poop chewy?... Chewsters go poopy!"
+      - delay: 00:10:00
+      - service: notify.alexa_media
+        data:
+          target:
+            - media_player.livingroom_alexa
+            - media_player.bedroom_alexa
+            - media_player.office_alexa
+            - media_player.zach_alexa
+            - media_player.basement_alexa
+          data:
+            type: tts
+          message: "Chewsters is done going poopy!... let the chewy Chewsters inside!.. Chewsters want some cheese?... chewy get a treat?.. whos a baby Chewsters?"
+      - service: homeassistant.turn_off
+        entity_id: input_boolean.chewy_go_poopy
 
 #################################################################################################################
 ################################                Test Notifications               ################################

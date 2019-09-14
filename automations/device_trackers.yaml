@@ -211,3 +211,60 @@
    # - service: switch.turn_off
      # entity_id: group.all_switches #dont forget the fridge is on POW!
 
+  - alias: 'Turn on Computer when chris is home'
+    initial_state: yes
+    hide_entity: yes
+    trigger:
+      - platform: state
+        entity_id: device_tracker.skidata_iphone_7_plus
+        from: 'not_home'
+        to: 'home'
+    action:
+      - service: switch.turn_on
+        entity_id: switch.office_computer
+      - service: notify.ios_skidata_iphone_7_plus
+        data:
+          title: 'Battlestation Initialized'
+          message: 'Welcome home! Prepare to dominate the interwebs!'
+
+  - alias: 'Turn off Computer when chris is not home'
+    initial_state: yes
+    hide_entity: yes
+    trigger:
+      - platform: state
+        entity_id: device_tracker.skidata_iphone_7_plus
+        from: 'home'
+        to: 'not_home'
+    action:
+      - service: notify.ios_skidata_iphone_7_plus
+        data:
+          title: 'Battlestation Deactivating'
+          message: 'Have a great day, your battlestation has been shutdown. It patiently awaits your return.'
+      - service: switch.turn_off
+        entity_id: switch.office_computer
+
+  # - alias: 'Battlestation Activated'
+  #   initial_state: yes
+  #   hide_entity: yes
+  #   trigger:
+  #     - platform: state
+  #       entity_id: device_tracker.office_computer
+  #       from: 'off'
+  #       to: 'on'
+  #     - service: notify.ios_skidata_iphone_7_plus
+  #       data:
+  #         title: 'Battlestation Activated'
+  #         message: 'Battlestation is Online!'
+
+  # - alias: 'Battlestation Deactivated'
+  #   initial_state: yes
+  #   hide_entity: yes
+  #   trigger:
+  #     - platform: state
+  #       entity_id: device_tracker.office_computer
+  #       from: 'on'
+  #       to: 'off'
+  #     - service: notify.ios_skidata_iphone_7_plus
+  #       data:
+  #         title: 'Battlestation Deactivated'
+  #         message: 'Battlestation is Offline!'
