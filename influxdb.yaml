@@ -1,0 +1,223 @@
+host: 192.168.29.5
+port: 8086
+database: !secret my_database
+username: !secret my_username
+password: !secret my_password
+ssl: false
+verify_ssl: false
+max_retries: 3
+default_measurement: state
+include:
+  entities:
+#Device Battery Levels
+    - sensor.skidata_iphone_7plus_battery_level
+    - sensor.skidata_iphone_7plus_battery_state
+#Weather Sensors
+    - sensor.dark_sky_apparent_temperature
+    - sensor.dark_sky_cloud_coverage
+    - sensor.dark_sky_humidity
+    - sensor.dark_sky_icon
+    - sensor.dark_sky_precip
+    - sensor.dark_sky_precip_intensity
+    - sensor.dark_sky_precip_probability
+    - sensor.dark_sky_pressure
+    - sensor.dark_sky_summary
+    - sensor.dark_sky_temperature
+    - sensor.dark_sky_wind_bearing
+    - sensor.dark_sky_wind_speed
+#Temp and Humidity Sensors
+    - sensor.average_home_temp
+    - sensor.average_mstbd_temp
+    - sensor.kitchen_humidity
+    - sensor.kitchen_temp
+    - sensor.livingroom_humidity
+    - sensor.livingroom_temp
+    - sensor.music_room_humidity
+    - sensor.music_room_temp
+    - sensor.office_humidity
+    - sensor.office_temp
+    - sensor.master_bedroom_humidity
+    - sensor.master_bedroom_temp
+    - sensor.master_bedroom_humidity2
+    - sensor.master_bedroom_temp2
+    - sensor.thermostatsetting
+#Energy Monitors
+    - sensor.coffee_pot_energy_current
+    - sensor.coffee_pot_energy_period
+    - sensor.coffee_pot_energy_power
+    - sensor.coffee_pot_energy_today
+    - sensor.coffee_pot_energy_total
+    - sensor.coffee_pot_energy_voltage
+    - sensor.coffee_pot_energy_yesterday
+    # - sensor.computer_energy_current
+    # - sensor.computer_energy_period
+    # - sensor.computer_energy_power
+    # - sensor.computer_energy_today
+    # - sensor.computer_energy_total
+    # - sensor.computer_energy_voltage
+    # - sensor.computer_energy_yesterday
+    - sensor.washer_energy_current
+    - sensor.washer_energy_period
+    - sensor.washer_energy_power
+    - sensor.washer_energy_today
+    - sensor.washer_energy_total
+    - sensor.washer_energy_voltage
+    - sensor.washer_energy_yesterday
+    - sensor.dryer
+    - sensor.dryer_current
+  # domains:
+  #   - sensor
+# exclude:
+#   entities:
+#     - sensor.0d13585e_4b81a563
+#     - sensor.49c05f74_83880868
+#     - sensor.9726a57b_a8cd0097
+#     - sensor.basement_alexa_next_alarm
+#     - sensor.basement_alexa_next_reminder
+#     - sensor.basement_alexa_next_timer
+#     - sensor.bedroom_alexa_next_alarm
+#     - sensor.bedroom_alexa_next_reminder
+#     - sensor.bedroom_alexa_next_timer
+#     - sensor.d0a74756_3383afc5
+#     - sensor.dark_sky_apparent_temperature_0h
+#     - sensor.dark_sky_apparent_temperature_12h
+#     - sensor.dark_sky_cloud_coverage_0d
+#     - sensor.dark_sky_cloud_coverage_0h
+#     - sensor.dark_sky_cloud_coverage_12h
+#     - sensor.dark_sky_cloud_coverage_1d
+#     - sensor.dark_sky_cloud_coverage_2d
+#     - sensor.dark_sky_cloud_coverage_3d
+#     - sensor.dark_sky_cloud_Home Assistantcoverage_4d
+#     - sensor.dark_sky_cloud_Home Assistantcoverage_5d
+#     - sensor.dark_sky_cloud_Home Assistantcoverage_6d
+#     - sensor.dark_sky_cloud_coverage_7d
+#     - sensor.dark_sky_humidity_0d
+#     - sensor.dark_sky_humidity_0h
+#     - sensor.dark_sky_humidity_12h
+#     - sensor.dark_sky_humidity_1d
+#     - sensor.dark_sky_humidity_2d
+#     - sensor.dark_sky_humidity_3d
+#     - sensor.dark_sky_humidity_4d
+#     - sensor.dark_sky_humidity_5d
+#     - sensor.dark_sky_humidity_6d
+#     - sensor.dark_sky_humidity_7d
+#     - sensor.dark_sky_icon_0d
+#     - sensor.dark_sky_icon_0h
+#     - sensor.dark_sky_icon_12h
+#     - sensor.dark_sky_icon_1d
+#     - sensor.dark_sky_icon_2d
+#     - sensor.dark_sky_icon_3d
+#     - sensor.dark_sky_icon_4d
+#     - sensor.dark_sky_icon_5d
+#     - sensor.dark_sky_icon_6d
+#     - sensor.dark_sky_icon_7d
+#     - sensor.dark_sky_precip_0d
+#     - sensor.dark_sky_precip_0h
+#     - sensor.dark_sky_precip_12h
+#     - sensor.dark_sky_precip_1d
+#     - sensor.dark_sky_precip_2d
+#     - sensor.dark_sky_precip_3d
+#     - sensor.dark_sky_precip_4d
+#     - sensor.dark_sky_precip_5d
+#     - sensor.dark_sky_precip_6d
+#     - sensor.dark_sky_precip_7d
+#     - sensor.dark_sky_precip_intensity_0d
+#     - sensor.dark_sky_precip_intensity_0h
+#     - sensor.dark_sky_precip_intensity_12h
+#     - sensor.dark_sky_precip_intensity_1d
+#     - sensor.dark_sky_precip_intensity_2d
+#     - sensor.dark_sky_precip_intensity_3d
+#     - sensor.dark_sky_precip_intensity_4d
+#     - sensor.dark_sky_precip_intensity_5d
+#     - sensor.dark_sky_precip_intensity_6d
+#     - sensor.dark_sky_precip_intensity_7d
+#     - sensor.dark_sky_precip_probability_0d
+#     - sensor.dark_sky_precip_probability_0h
+#     - sensor.dark_sky_precip_probability_12h
+#     - sensor.dark_sky_precip_probability_1d
+#     - sensor.dark_sky_precip_probability_2d
+#     - sensor.dark_sky_precip_probability_3d
+#     - sensor.dark_sky_precip_probability_4d
+#     - sensor.dark_sky_precip_probability_5d
+#     - sensor.dark_sky_precip_probability_6d
+#     - sensor.dark_sky_precip_probability_7d
+#     - sensor.dark_sky_pressure_0d
+#     - sensor.dark_sky_pressure_0h
+#     - sensor.dark_sky_pressure_12h
+#     - sensor.dark_sky_pressure_1d
+#     - sensor.dark_sky_pressure_2d
+#     - sensor.dark_sky_pressure_3d
+#     - sensor.dark_sky_pressure_4d
+#     - sensor.dark_sky_pressure_5d
+#     - sensor.dark_sky_pressure_6d
+#     - sensor.dark_sky_pressure_7d
+#     - sensor.dark_sky_summary_0d
+#     - sensor.dark_sky_summary_0h
+#     - sensor.dark_sky_summary_12h
+#     - sensor.dark_sky_summary_1d
+#     - sensor.dark_sky_summary_2d
+#     - sensor.dark_sky_summary_3d
+#     - sensor.dark_sky_summary_4d
+#     - sensor.dark_sky_summary_5d
+#     - sensor.dark_sky_summary_6d
+#     - sensor.dark_sky_summary_7d
+#     - sensor.dark_sky_sunrise_0d
+#     - sensor.dark_sky_sunrise_1d
+#     - sensor.dark_sky_sunrise_2d
+#     - sensor.dark_sky_sunrise_3d
+#     - sensor.dark_sky_sunrise_4d
+#     - sensor.dark_sky_sunrise_5d
+#     - sensor.dark_sky_sunrise_6d
+#     - sensor.dark_sky_sunrise_7d
+#     - sensor.dark_sky_sunset_0d
+#     - sensor.dark_sky_sunset_1d
+#     - sensor.dark_sky_sunset_2d
+#     - sensor.dark_sky_sunset_3d
+#     - sensor.dark_sky_sunset_4d
+#     - sensor.dark_sky_sunset_5d
+#     - sensor.dark_sky_sunset_6d
+#     - sensor.dark_sky_sunset_7d
+#     - sensor.dark_sky_temperature_0h
+#     - sensor.dark_sky_temperature_12h
+#     - sensor.dark_sky_wind_bearing_0d
+#     - sensor.dark_sky_wind_bearing_0h
+#     - sensor.dark_sky_wind_bearing_12h
+#     - sensor.dark_sky_wind_bearing_1d
+#     - sensor.dark_sky_wind_bearing_2d
+#     - sensor.dark_sky_wind_bearing_3d
+#     - sensor.dark_sky_wind_bearing_4d
+#     - sensor.dark_sky_wind_bearing_5d
+#     - sensor.dark_sky_wind_bearing_6d
+#     - sensor.dark_sky_wind_bearing_7d
+#     - sensor.dark_sky_wind_speed_0d
+#     - sensor.dark_sky_wind_speed_0h
+#     - sensor.dark_sky_wind_speed_12h
+#     - sensor.dark_sky_wind_speed_1d
+#     - sensor.dark_sky_wind_speed_2d
+#     - sensor.dark_sky_wind_speed_3d
+#     - sensor.dark_sky_wind_speed_4d
+#     - sensor.dark_sky_wind_speed_5d
+#     - sensor.dark_sky_wind_speed_6d
+#     - sensor.dark_sky_wind_speed_7d
+#     - sensor.drzzslive
+#     - sensor.hacs
+#     - sensor.livingroom_alexa_next_alarm
+#     - sensor.livingroom_alexa_next_reminder
+#     - sensor.livingroom_alexa_next_timer
+#     - sensor.lizzs_iphone_6s_battery_level
+#     - sensor.lizzs_iphone_6s_battery_level_2
+#     - sensor.lizzs_iphone_6s_battery_state
+#     - sensor.lizzs_iphone_6s_battery_state_2
+#     - sensor.moon
+#     - sensor.office_alexa_next_alarm
+#     - sensor.office_alexa_next_reminder
+#     - sensor.office_alexa_next_timer
+#     - sensor.this_device_next_reminder_2
+#     - sensor.weatheralerts
+#     - sensor.window_ac_temp
+#     - sensor.zach_alexa_next_alarm
+#     - sensor.zach_alexa_next_reminder
+#     - sensor.zach_alexa_next_timer
+tags:
+  instance: prod
+  source: hass

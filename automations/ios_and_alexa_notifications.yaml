@@ -30,7 +30,7 @@
             # - media_player.zach_alexa
             - media_player.basement_alexa
           data:
-            type: announce
+            type: tts
           message: "Doctor zees has Posted a video!... Go watch that Shitt!"
       - delay: 00:00:15
       - service: homeassistant.turn_off
@@ -61,7 +61,7 @@
             - media_player.office_alexa
             - media_player.basement_alexa
           data:
-            type: announce
+            type: tts
           message: "Doctor zees has started a Live stream!!!... Go watch that Shitt!"
 
 #################################################################################################################
@@ -127,7 +127,7 @@
             - media_player.zach_alexa
             - media_player.basement_alexa
           data:
-            type: announce
+            type: tts
           message: "Somebody is at the fukking Livingroom Door!"
       - service: script.doorbellfrontsnapshot
       - service: script.doorbellfrontsnapshotarchive
@@ -158,7 +158,7 @@
             - media_player.zach_alexa
             - media_player.basement_alexa
           data:
-            type: announce
+            type: tts
           message: "Somebody is at the Back fukking Door!"
 
   - alias: 'Doorbell bedroom'
@@ -181,7 +181,7 @@
             - media_player.zach_alexa
             - media_player.basement_alexa
           data:
-            type: announce
+            type: tts
           message: "Somebody is at the fukking bedroom Door!"
       - service: notify.ios_skidata_iphone_7_plus
         data:
@@ -195,6 +195,17 @@
         data:
           title: 'Bedroom Doorbell'
           message: 'Somebody is at the door!'
+
+  - alias: 'Doorbell backdoor'
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.doorbell_backdoor_button_2
+        from: 'off'
+        to: 'on'
+    action:
+      - service: light.toggle
+        entity_id: light.back_door
+
 #################################################################################################################
 ##########################                let the dogs out to go poopy!               ###########################
 #################################################################################################################
@@ -281,7 +292,7 @@
       #     target:
       #       - media_player.office_alexa
       #     data:
-      #       type: announce
+      #       type: tts
       #       method: speak
       #     message: "<amazon:effect name='whispered'>I see dead people!</amazon:effect>"
       - service: media_player.play_media

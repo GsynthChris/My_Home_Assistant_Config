@@ -27,7 +27,7 @@
             # - media_player.zach_alexa
             - media_player.basement_alexa
           data:
-            type: announce
+            type: tts
           message: "Happy Birthday to you,... Happy Birthday to you,... Happy Birthday to elizabeth,...  Happy Birthday to you"
       - service: notify.lizzs_iphone_6s
         data:
@@ -210,6 +210,48 @@
           message: 'Nobody is home! Lights out!'
    # - service: switch.turn_off
      # entity_id: group.all_switches #dont forget the fridge is on POW!
+  - alias: "Sombody almost home"
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.people_home
+        from: 'off'
+        to: 'on'
+    action:
+      - service: light.turn_on
+        data:
+          entity_id: light.bedroom_door
+      - delay: 00:00:04
+      - service: light.turn_on
+        data:
+          entity_id: light.kitchen_ceiling_light
+      - delay: 00:00:02
+      - service: light.turn_on
+        data:
+          entity_id: light.kitchen_sink_light
+      - delay: 00:00:03
+      - service: light.turn_on
+        data:
+          entity_id: light.stairs_light
+      - delay: 00:00:04
+      - service: light.turn_on
+        data:
+          entity_id: light.livingroom_ceiling_light
+      - delay: 00:00:02
+      - service: light.turn_on
+        data:
+          entity_id: light.livingroom_lamp
+      - delay: 00:00:02
+      - service: light.turn_on
+        data:
+          entity_id: light.livingroom_door_1
+      - delay: 00:00:01
+      - service: light.turn_on
+        data:
+          entity_id: light.livingroom_door_2
+      - service: notify.ios_skidata_iphone_7_plus
+        data:
+          title: "Flipping on the lights!"
+          message: "Somebody is almost home and since nobody else is home and its dark out I'll turn on the lights for you."
 
   - alias: 'Turn on Computer when chris is home'
     initial_state: yes
@@ -220,8 +262,22 @@
         from: 'not_home'
         to: 'home'
     action:
-      - service: switch.turn_on
+      - service: homeassistant.turn_on
         entity_id: switch.office_computer
+      - service: media_player.alexa_tts
+        data:
+          entity_id: media_player.office_alexa
+          message: "Activating battle station... please stand clear... weapons systems initializing... run for your lives!"
+      - delay: 00:00:05
+      - service: homeassistant.turn_on
+        entity_id: switch.office_speakers
+      - delay: 00:00:05
+      - service: homeassistant.turn_on
+        entity_id: switch.tonbux_usb
+      - delay: 00:00:05
+      - service: homeassistant.turn_on
+        entity_id: switch.office_monitors
+      - delay: 00:00:05
       - service: notify.ios_skidata_iphone_7_plus
         data:
           title: 'Battlestation Initialized'
@@ -236,12 +292,30 @@
         from: 'home'
         to: 'not_home'
     action:
+      - service: homeassistant.turn_off
+        entity_id: switch.office_computer
+      - service: media_player.alexa_tts
+        data:
+          entity_id: media_player.office_alexa
+          message: "Deactivating battle station... powering down weapons systems... your life has been spared... for now"
+      - service: switch.turn_off
+        entity_id: switch.office_speakers
+      - delay: 00:00:05
+      - service: homeassistant.turn_off
+        entity_id: group.office
+      - delay: 00:00:05
+      - service: homeassistant.turn_off
+        entity_id: switch.tonbux_usb
+      - delay: 00:00:05
+      - service: homeassistant.turn_off
+        entity_id: switch.printer
+      - delay: 00:00:05
+      - service: homeassistant.turn_off
+        entity_id: switch.office_monitors
       - service: notify.ios_skidata_iphone_7_plus
         data:
           title: 'Battlestation Deactivating'
           message: 'Have a great day, your battlestation has been shutdown. It patiently awaits your return.'
-      - service: switch.turn_off
-        entity_id: switch.office_computer
 
   # - alias: 'Battlestation Activated'
   #   initial_state: yes

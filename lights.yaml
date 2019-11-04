@@ -11,9 +11,9 @@
     retain: no
   - platform: mqtt
     name: "Desk Lamp"
-    command_topic: "cmnd/desklamp/power"
-    state_topic: "stat/desklamp/POWER"
-    qos: 2
+    command_topic: "cmnd/tonbux/POWER3"
+    state_topic: "stat/tonbux/POWER3"
+    qos: 1
     payload_on: "ON"
     payload_off: "OFF"
     retain: no
@@ -25,7 +25,6 @@
     payload_on: "ON"
     payload_off: "OFF"
     retain: no
-
 ###########################################################################################################
 ############################################      Kitchen      ############################################
 ###########################################################################################################    
@@ -65,6 +64,7 @@
     payload_on: "ON"
     payload_off: "OFF"
     retain: no
+
   - platform: mqtt
     name: "Dresser Light"
     command_topic: "cmnd/dresserlight/power"
@@ -162,6 +162,16 @@
     payload_off: "OFF"
     retain: no
 
+  - platform: mqtt
+    name: "Aquarium Light"
+    command_topic: "cmnd/aquarium/POWER"
+    state_topic: "stat/aquarium/POWER"
+    qos: 1
+    payload_on: "ON"
+    payload_off: "OFF"
+    retain: no
+    optimistic: "false"
+
 #################################################################################################################
 #################################                 Master Bedroom                 ################################
 #################################################################################################################
@@ -203,11 +213,11 @@
   #   optimistic: no
   - platform: mqtt
     name: "Kitchen WLEDs"
-    command_topic: "wled/all"
-    brightness_command_topic: "wled/all"
-    rgb_command_topic: "wled/all/col"
+    command_topic: "wled/kitchen"
+    brightness_command_topic: "wled/kitchen"
+    rgb_command_topic: "wled/kitchen/col"
     rgb_command_template: "{{ '#%02x%02x%02x' | format(blue, green, red)}}"
-    effect_command_topic : "wled/all/api"
+    effect_command_topic : "wled/kitchen/api"
     effect_list:
     - "FX=0"
     - "FX=1"
@@ -250,3 +260,43 @@
     - "FX=38"
     - "FX=39"
     - "FX=40"
+    - "FX=41"
+    - "FX=42"
+    - "FX=43"
+    - "FX=44"
+    - "FX=45"
+    - "FX=46"
+    - "FX=47"
+    - "FX=48"
+    - "FX=49"
+    - "FX=50"
+    - "FX=51"
+    - "FX=52"
+    - "FX=53"
+    - "FX=54"
+    - "FX=55"
+    - "FX=56"
+    - "FX=57"
+    - "FX=58"
+    - "FX=59"
+    - "FX=60"
+    - "FX=61"
+    - "FX=62"
+    - "FX=63"
+    - "FX=64"
+    - "FX=65"
+    - "FX=66"
+    - "FX=67"
+    - "FX=68"
+    - "FX=69"
+    - "FX=70"
+    - "FX=71"
+    - "FX=72"
+    - "FX=73"
+    - "FX=74"
+    - "FX=75"
+    - "FX=76"
+    - "FX=77"
+    - "FX=78"
+    - "FX=79"
+    - "FX=80"

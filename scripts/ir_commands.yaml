@@ -573,3 +573,16 @@ officevoldownplus:
     data:
       topic: cmnd/officemultisensor/irsend
       payload: '{"Protocol":"SAMSUNG","Bits":32,"Data":3772829743}'
+
+
+
+#################################################################################################################
+#################################                  LIVINGROOM                    ################################
+#################################################################################################################
+
+studiotvpower:
+  sequence:
+  - service: mqtt.publish
+    data:
+      topic: cmnd/studiomultisensor/irsend
+      payload: '{"Protocol":"NEC","Bits":32,"Data":547160319}'

@@ -158,14 +158,14 @@
 #         target:
 #           - media_player.livingroom_alexa
 #         data:
-#           type: announce
+#           type: tts
 #         message: "Hello World"
 #        - service: notify.alexa_media
 #          data:
 #            target:
 #              - media_player.livingroom_alexa
 #            data:
-#              type: announce
+#              type: tts
 #            message: "Hello World"
 
   - alias: 'Alexa all of them text input'

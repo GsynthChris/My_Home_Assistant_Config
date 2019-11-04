@@ -1,0 +1,377 @@
+#################################################################################################################
+#################################                    Theater                     ################################
+#################################################################################################################
+
+ariustekpwr:
+  sequence:
+  - service: mqtt.publish
+    data:
+      topic: cmnd/theatercontrol/irsend
+      payload: '{"Protocol":"NEC","Bits":32,"Data":1641478151}'
+ariustekmute:
+  sequence:
+  - service: mqtt.publish
+    data:
+      topic: cmnd/theatercontrol/irsend
+      payload: '{"Protocol":"NEC","Bits":32,"Data":1641441941}'
+ariustektv:
+  sequence:
+  - service: mqtt.publish
+    data:
+      topic: cmnd/theatercontrol/irsend
+      payload: '{"Protocol":"NEC","Bits":32,"Data":1641452141}'
+ariustekav:
+  sequence:
+  - service: mqtt.publish
+    data:
+      topic: cmnd/theatercontrol/irsend
+      payload: '{"Protocol":"NEC","Bits":32,"Data":1641460301}'
+ariustekusb:
+  sequence:
+  - service: mqtt.publish
+    data:
+      topic: cmnd/theatercontrol/irsend
+      payload: '{"Protocol":"NEC","Bits":32,"Data":1641454181}'
+ariusteksv:
+  sequence:
+  - service: mqtt.publish
+    data:
+      topic: cmnd/theatercontrol/irsend
+      payload: '{"Protocol":"NEC","Bits":32,"Data":1641470501}'
+ariustekhdmi:
+  sequence:
+  - service: mqtt.publish
+    data:
+      topic: cmnd/theatercontrol/irsend
+      payload: '{"Protocol":"NEC","Bits":32,"Data":1641472541}'
+ariustekypbpr:
+  sequence:
+  - service: mqtt.publish
+    data:
+      topic: cmnd/theatercontrol/irsend
+      payload: '{"Protocol":"NEC","Bits":32,"Data":1641427661}'
+ariustekvga:
+  sequence:
+  - service: mqtt.publish
+    data:
+      topic: cmnd/theatercontrol/irsend
+      payload: '{"Protocol":"NEC","Bits":32,"Data":1641421541}'
+ariustekauto:
+  sequence:
+  - service: mqtt.publish
+    data:
+      topic: cmnd/theatercontrol/irsend
+      payload: '{"Protocol":"NEC","Bits":32,"Data":1641437861}'
+ariustek1:
+  sequence:
+  - service: mqtt.publish
+    data:
+      topic: cmnd/theatercontrol/irsend
+      payload: '{"Protocol":"NEC","Bits":32,"Data":1641421031}'
+ariustek2:
+  sequence:
+  - service: mqtt.publish
+    data:
+      topic: cmnd/theatercontrol/irsend
+      payload: '{"Protocol":"NEC","Bits":32,"Data":1641437351}'
+ariustek3:
+  sequence:
+  - service: mqtt.publish
+    data:
+      topic: cmnd/theatercontrol/irsend
+      payload: '{"Protocol":"NEC","Bits":32,"Data":1641469991}'
+ariustek4:
+  sequence:
+  - service: mqtt.publish
+    data:
+      topic: cmnd/theatercontrol/irsend
+      payload: '{"Protocol":"NEC","Bits":32,"Data":1641425111}'
+ariustek5:
+  sequence:
+  - service: mqtt.publish
+    data:
+      topic: cmnd/theatercontrol/irsend
+      payload: '{"Protocol":"NEC","Bits":32,"Data":1641441431}'
+ariustek6:
+  sequence:
+  - service: mqtt.publish
+    data:
+      topic: cmnd/theatercontrol/irsend
+      payload: '{"Protocol":"NEC","Bits":32,"Data":1641474071}'
+ariustek7:
+  sequence:
+  - service: mqtt.publish
+    data:
+      topic: cmnd/theatercontrol/irsend
+      payload: '{"Protocol":"NEC","Bits":32,"Data":1641416951}'
+ariustek8:
+  sequence:
+  - service: mqtt.publish
+    data:
+      topic: cmnd/theatercontrol/irsend
+      payload: '{"Protocol":"NEC","Bits":32,"Data":1641433271}'
+ariustek9:
+  sequence:
+  - service: mqtt.publish
+    data:
+      topic: cmnd/theatercontrol/irsend
+      payload: '{"Protocol":"NEC","Bits":32,"Data":1641465911}'
+ariustek0:
+  sequence:
+  - service: mqtt.publish
+    data:
+      topic: cmnd/theatercontrol/irsend
+      payload: '{"Protocol":"NEC","Bits":32,"Data":1641476111}'
+ariustekback:
+  sequence:
+  - service: mqtt.publish
+    data:
+      topic: cmnd/theatercontrol/irsend
+      payload: '{"Protocol":"NEC","Bits":32,"Data":1641427151}'
+ariustekfav:
+  sequence:
+  - service: mqtt.publish
+    data:
+      topic: cmnd/theatercontrol/irsend
+      payload: '{"Protocol":"NEC","Bits":32,"Data":1641418991}'
+ariusteksource:
+  sequence:
+  - service: mqtt.publish
+    data:
+      topic: cmnd/theatercontrol/irsend
+      payload: '{"Protocol":"NEC","Bits":32,"Data":1641455711}'
+ariustekmenu:
+  sequence:
+  - service: mqtt.publish
+    data:
+      topic: cmnd/theatercontrol/irsend
+      payload: '{"Protocol":"NEC","Bits":32,"Data":1641463871}'
+ariustekchup:
+  sequence:
+  - service: mqtt.publish
+    data:
+      topic: cmnd/theatercontrol/irsend
+      payload: '+up{"Protocol":"NEC","Bits":32,"Data":1641431231}'
+ariustekvoldownleft:
+  sequence:
+  - service: mqtt.publish
+    data:
+      topic: cmnd/theatercontrol/irsend
+      payload: '-left{"Protocol":"NEC","Bits":32,"Data":1641423071}'
+ariustekok:
+  sequence:
+  - service: mqtt.publish
+    data:
+      topic: cmnd/theatercontrol/irsend
+      payload: '{"Protocol":"NEC","Bits":32,"Data":1641447551}'
+ariustekvolupright:
+  sequence:
+  - service: mqtt.publish
+    data:
+      topic: cmnd/theatercontrol/irsend
+      payload: '+right{"Protocol":"NEC","Bits":32,"Data":1641472031}'
+ariustekchdown:
+  sequence:
+  - service: mqtt.publish
+    data:
+      topic: cmnd/theatercontrol/irsend
+      payload: '-down{"Protocol":"NEC","Bits":32,"Data":1641439391}'
+ariustekmenu2:
+  sequence:
+  - service: mqtt.publish
+    data:
+      topic: cmnd/theatercontrol/irsend
+      payload: '{"Protocol":"NEC","Bits":32,"Data":1641457751}'
+ariustekexit:
+  sequence:
+  - service: mqtt.publish
+    data:
+      topic: cmnd/theatercontrol/irsend
+      payload: '{"Protocol":"NEC","Bits":32,"Data":1641415421}'
+ariustekrewind:
+  sequence:
+  - service: mqtt.publish
+    data:
+      topic: cmnd/theatercontrol/irsend
+      payload: '{"Protocol":"NEC","Bits":32,"Data":1641429701}'
+ariustekplaypause:
+  sequence:
+  - service: mqtt.publish
+    data:
+      topic: cmnd/theatercontrol/irsend
+      payload: '{"Protocol":"NEC","Bits":32,"Data":1641435821}'
+ariusteknext:
+  sequence:
+  - service: mqtt.publish
+    data:
+      topic: cmnd/theatercontrol/irsend
+      payload: '{"Protocol":"NEC","Bits":32,"Data":1641462341}'
+ariustekffwd:
+  sequence:
+  - service: mqtt.publish
+    data:
+      topic: cmnd/theatercontrol/irsend
+      payload: '{"Protocol":"NEC","Bits":32,"Data":1641478661}'
+ariustekstop:
+  sequence:
+  - service: mqtt.publish
+    data:
+      topic: cmnd/theatercontrol/irsend
+      payload: '{"Protocol":"NEC","Bits":32,"Data":1641468461}'
+ariustekprev:
+  sequence:
+  - service: mqtt.publish
+    data:
+      topic: cmnd/theatercontrol/irsend
+      payload: '{"Protocol":"NEC","Bits":32,"Data":1641446021}'
+ariusteksoundup:
+  sequence:
+  - service: mqtt.publish
+    data:
+      topic: cmnd/theatercontrol/irsend
+      payload: '{"Protocol":"NEC","Bits":32,"Data":1641435311}'
+ariustekpgupok:
+  sequence:
+  - service: mqtt.publish
+    data:
+      topic: cmnd/theatercontrol/irsend
+      payload: '{"Protocol":"NEC","Bits":32,"Data":1641443471}'
+ariustekpgdownexit:
+  sequence:
+  - service: mqtt.publish
+    data:
+      topic: cmnd/theatercontrol/irsend
+      payload: '{"Protocol":"NEC","Bits":32,"Data":1641458261}'
+ariustekchannelup:
+  sequence:
+  - service: mqtt.publish
+    data:
+      topic: cmnd/theatercontrol/irsend
+      payload: '{"Protocol":"NEC","Bits":32,"Data":1641429191}'
+ariusteksubtitledown:
+  sequence:
+  - service: mqtt.publish
+    data:
+      topic: cmnd/theatercontrol/irsend
+      payload: '{"Protocol":"NEC","Bits":32,"Data":1641450101}'
+ariustektxt:
+  sequence:
+  - service: mqtt.publish
+    data:
+      topic: cmnd/theatercontrol/irsend
+      payload: '{"Protocol":"NEC","Bits":32,"Data":1641433781}'
+ariustekaudio:
+  sequence:
+  - service: mqtt.publish
+    data:
+      topic: cmnd/theatercontrol/irsend
+      payload: '{"Protocol":"NEC","Bits":32,"Data":1641425621}'
+ariustekfastscan:
+  sequence:
+  - service: mqtt.publish
+    data:
+      topic: cmnd/theatercontrol/irsend
+      payload: '{"Protocol":"NEC","Bits":32,"Data":1641417461}'
+ariustektvradio:
+  sequence:
+  - service: mqtt.publish
+    data:
+      topic: cmnd/theatercontrol/irsend
+      payload: '{"Protocol":"NEC","Bits":32,"Data":1641456221}'
+ariustekinfo:
+  sequence:
+  - service: mqtt.publish
+    data:
+      topic: cmnd/theatercontrol/irsend
+      payload: '{"Protocol":"NEC","Bits":32,"Data":1641464381}'
+ariustekepg:
+  sequence:
+  - service: mqtt.publish
+    data:
+      topic: cmnd/theatercontrol/irsend
+      payload: '{"Protocol":"NEC","Bits":32,"Data":1641466421}'
+ariustekpause:
+  sequence:
+  - service: mqtt.publish
+    data:
+      topic: cmnd/theatercontrol/irsend
+      payload: '{"Protocol":"NEC","Bits":32,"Data":1641414911}'
+ariustekred:
+  sequence:
+  - service: mqtt.publish
+    data:
+      topic: cmnd/theatercontrol/irsend
+      payload: '{"Protocol":"NEC","Bits":32,"Data":1641423581}'
+ariustekgreen:
+  sequence:
+  - service: mqtt.publish
+    data:
+      topic: cmnd/theatercontrol/irsend
+      payload: '{"Protocol":"NEC","Bits":32,"Data":1641459791}'
+ariustekyellow:
+  sequence:
+  - service: mqtt.publish
+    data:
+      topic: cmnd/theatercontrol/irsend
+      payload: '{"Protocol":"NEC","Bits":32,"Data":1641449591}'
+ariustekblue:
+  sequence:
+  - service: mqtt.publish
+    data:
+      topic: cmnd/theatercontrol/irsend
+      payload: '{"Protocol":"NEC","Bits":32,"Data":1641453671}'
+
+
+# ariustekpwr
+# ariustekmute
+# ariustektv
+# ariustekav
+# ariustekusb
+# ariusteksv
+# ariustekhdmi
+# ariustekypbpr
+# ariustekvga
+# ariustekauto
+# ariustek1
+# ariustek2
+# ariustek3
+# ariustek4
+# ariustek5
+# ariustek6
+# ariustek7
+# ariustek8
+# ariustek9
+# ariustek0
+# ariustekback
+# ariustekfav
+# ariusteksource
+# ariustekmenu
+# ariustekch
+# ariustekvol
+# ariustekok
+# ariustekvol
+# ariustekch
+# ariustekmenu2
+# ariustekexit
+# ariustekrewind
+# ariustekplaypause
+# ariusteknext
+# ariustekffwd
+# ariustekstop
+# ariustekprev
+# ariusteksoundup
+# ariustekpgupok
+# ariustekpgdownexit
+# ariustekchannelup
+# ariusteksubtitledown
+# ariustektxt
+# ariustekaudio
+# ariustekfastscan
+# ariustektvradio
+# ariustekinfo
+# ariustekepg
+# ariustekpause
+# ariustekred
+# ariustekgreen
+# ariustekyellow
+# ariustekblue

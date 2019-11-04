@@ -13,7 +13,7 @@
     action: 
       - service: climate.set_away_mode
         data:
-          entity_id: climate.air_conditioner
+          entity_id: climate.heater
           away_mode: 'on'
       - service: climate.set_away_mode
         data:
@@ -29,7 +29,7 @@
           away_mode: 'on'
       - service: climate.set_temperature
         data:
-          entity_id: climate.window_ac
+          entity_id: climate.box_fan
           temperature: '78'
 
   - alias: HVAC Somebody home CHILL OUT
@@ -42,7 +42,7 @@
     action: 
       - service: climate.set_away_mode
         data:
-          entity_id: climate.air_conditioner
+          entity_id: climate.heater
           away_mode: 'off'
       - service: climate.set_away_mode
         data:
@@ -58,7 +58,7 @@
           away_mode: 'off'
       - service: climate.set_temperature
         data:
-          entity_id: climate.window_ac
+          entity_id: climate.box_fan
           temperature: '70'
 
 ##################################################################################################
@@ -191,8 +191,8 @@
     action:
       - service: climate.set_temperature
         data_template:
-          entity_id: climate.air_conditioner
-          temperature: "{{ (state_attr('climate.air_conditioner', 'temperature')|round(0)) + 1 }}"
+          entity_id: climate.heater
+          temperature: "{{ (state_attr('climate.heater', 'temperature')|round(0)) + 1 }}"
 
   - alias: 'AC Temp down one' #button is on a D1Mini in my office
     trigger:
@@ -203,8 +203,8 @@
     action:
       - service: climate.set_temperature
         data_template:
-          entity_id: climate.air_conditioner
-          temperature: "{{ (state_attr('climate.air_conditioner', 'temperature')|round(0)) - 1 }}"
+          entity_id: climate.heater
+          temperature: "{{ (state_attr('climate.heater', 'temperature')|round(0)) - 1 }}"
 
 
 

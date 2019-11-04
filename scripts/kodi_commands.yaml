@@ -1,0 +1,80 @@
+# Kodi Remote
+kodi_remote_up:
+  sequence:
+      data:
+        entity_id: media_player.kodi
+        method: Input.Up
+      service: media_player.kodi_call_method
+
+kodi_remote_down:
+  sequence:
+      data:
+        entity_id: media_player.kodi
+        method: Input.Down
+      service: media_player.kodi_call_method
+
+kodi_remote_left:
+  sequence:
+      data:
+        entity_id: media_player.kodi
+        method: Input.Left
+      service: media_player.kodi_call_method
+
+kodi_remote_right:
+  sequence:
+      data:
+        entity_id: media_player.kodi
+        method: Input.Right
+      service: media_player.kodi_call_method
+
+kodi_remote_select:
+  sequence:
+      data:
+        entity_id: media_player.kodi
+        method: Input.Select
+      service: media_player.kodi_call_method
+
+kodi_remote_home:
+  sequence:
+      data:
+        entity_id: media_player.kodi
+        method: Input.Home
+      service: media_player.kodi_call_method
+
+kodi_remote_back:
+  sequence:
+      data:
+        entity_id: media_player.kodi
+        method: Input.Back
+      service: media_player.kodi_call_method
+
+kodi_remote_next:
+  sequence:
+      data:
+        entity_id: media_player.kodi
+      service: media_player.media_next_track
+
+kodi_remote_prev:
+  sequence:
+      data:
+        entity_id: media_player.kodi
+      service: media_player.media_previous_track
+
+kodi_remote_play_pause:
+  sequence:
+      data:
+        entity_id: media_player.kodi
+      service: media_player.media_play_pause
+
+kodi_remote_stop:
+  sequence:
+      data:
+        entity_id: media_player.kodi
+      service: media_player.media_stop
+
+kodi_remote_playlist:
+  sequence:
+      data:
+         entity_id: media_player.kodi
+         method: Audio.Details.Album
+      service: media_player.kodi_call_method

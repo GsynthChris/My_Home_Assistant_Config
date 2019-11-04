@@ -13,6 +13,27 @@ frontcamtokububeast:
   sequence:
     - service: shell_command.kububeastfrontcamvlc
 
+
+browser_popup:
+  sequence:
+    - service: browser_mod.popup
+      data:
+        close_first: true
+        deviceID: "77fdb619-ffc6d989"
+        card:
+          type: entities
+          entities:
+            - light.office_ceiling_light
+
+set_theme:
+  alias: Set Frontend Theme
+  sequence:
+    - service: frontend.set_theme
+      data_template:
+        entity_id: input_select.themeselecter
+        name: '{{states.input_select.themeselecter.state}}'
+
+
 #################################################################################################################
 #################################                  Browser Mod                    ###############################
 ################################# https://github.com/thomasloven/hass-browser_mod ###############################
@@ -158,6 +179,10 @@ shutdownkububeast:
   alias: Shutdown KuBuBeast
   sequence:
     - service: shell_command.shutdownkububeast
+thinmintscreenawake:
+  alias: Stop Thinmint Screensaver
+  sequence:
+    - service: shell_command.thinmintscreensaveroff
 
 # lenovorpc:
 #   sequence:

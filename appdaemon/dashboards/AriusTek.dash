@@ -1,0 +1,555 @@
+#
+# Main arguments, all optional
+#
+title: AriusTek Remote
+widget_dimensions: [115, 115]
+widget_margins: [6, 6]
+columns: 10
+global_parameters:
+    use_comma: 0
+    precision: 1
+    use_hass_icon: 1
+
+remote_label:
+    widget_type: label
+    title: AriusTek
+    title2: XRT-2700
+    widget_style: "background: transparent; vertical-align: top; padding-right: 10px"
+    title_style: "text-align: center; font-size: 42px; vertical-align: top; margin-top: -20px"
+    title2_style: "text-align: center; font-size: 22px; vertical-align: bottom; margin-top: -20px"
+
+ariustek_pwr:
+    widget_type: script
+    title: Power
+    entity: script.ariustekpwr
+    title_style: "color: #ff0000"
+    icon_style_inactive: "color: #ff0000"
+    icon_style_active: "color: #ff8080"
+    icon_off: mdi-power
+
+ariustek_mute:
+    widget_type: script
+    title: Mute
+    entity: script.ariustekmute
+    title_style: "color: #ff0000"
+    icon_style_inactive: "color: #ff0000"
+    icon_style_active: "color: #ff8080"
+    icon_off: mdi-volume-mute
+
+ariustek_tv:
+    widget_type: script
+    title: TV
+    entity: script.ariustektv
+    title_style: "color: #ff0000"
+    icon_style_inactive: "color: #ff0000"
+    icon_style_active: "color: #ff8080"
+    icon_off: mdi-television-classic
+
+ariustek_av:
+    widget_type: script
+    title: AV
+    entity: script.ariustekav
+    title_style: "color: #ff0000"
+    icon_style_inactive: "color: #ff0000"
+    icon_style_active: "color: #ff8080"
+    icon_off: mdi-strava
+
+ariustek_usb:
+    widget_type: script
+    title: USB
+    entity: script.ariustekusb
+    title_style: "color: #ff0000"
+    icon_style_inactive: "color: #ff0000"
+    icon_style_active: "color: #ff8080"
+    icon_off: mdi-usb
+
+ariustek_sv:
+    widget_type: script
+    title: SV
+    entity: script.ariusteksv
+    title_style: "color: #ff0000"
+    icon_style_inactive: "color: #ff0000"
+    icon_style_active: "color: #ff8080"
+    icon_off: mdi-video-input-svideo
+
+ariustek_hdmi:
+    widget_type: script
+    title: HDMI
+    entity: script.ariustekhdmi
+    title_style: "color: #ff0000"
+    icon_style_inactive: "color: #ff0000"
+    icon_style_active: "color: #ff8080"
+    icon_off: mdi-video-input-hdmi
+
+ariustek_ypbpr:
+    widget_type: script
+    title: YPBPR
+    entity: script.ariustekypbpr
+    title_style: "color: #ff0000"
+    icon_style_inactive: "color: #ff0000"
+    icon_style_active: "color: #ff8080"
+    icon_off: mdi-video-input-component
+
+ariustek_vga:
+    widget_type: script
+    title: VGA
+    entity: script.ariustekvga
+    title_style: "color: #ff0000"
+    icon_style_inactive: "color: #ff0000"
+    icon_style_active: "color: #ff8080"
+    icon_off: mdi-serial-port
+
+ariustek_auto:
+    widget_type: script
+    title: AUTO
+    entity: script.ariustekauto
+    title_style: "color: #ff0000"
+    icon_style_inactive: "color: #ff0000"
+    icon_style_active: "color: #ff8080"
+    icon_off: mdi-arrow-decision-auto
+
+ariustek_1:
+    widget_type: script
+    title: '1'
+    entity: script.ariustek1
+    title_style: "color: #ff0000"
+    icon_style_inactive: "color: #ff0000"
+    icon_style_active: "color: #ff8080"
+    icon_off: mdi-numeric-1-box-outline
+
+ariustek_2:
+    widget_type: script
+    title: '2'
+    entity: script.ariustek2
+    title_style: "color: #ff0000"
+    icon_style_inactive: "color: #ff0000"
+    icon_style_active: "color: #ff8080"
+    icon_off: mdi-numeric-2-box-outline
+
+ariustek_3:
+    widget_type: script
+    title: '3'
+    entity: script.ariustek3
+    title_style: "color: #ff0000"
+    icon_style_inactive: "color: #ff0000"
+    icon_style_active: "color: #ff8080"
+    icon_off: mdi-numeric-3-box-outline
+
+
+ariustek_4:
+    widget_type: script
+    title: '4'
+    entity: script.ariustek4
+    title_style: "color: #ff0000"
+    icon_style_inactive: "color: #ff0000"
+    icon_style_active: "color: #ff8080"
+    icon_off: mdi-numeric-4-box-outline
+
+
+ariustek_5:
+    widget_type: script
+    title: '5'
+    entity: script.ariustek5
+    title_style: "color: #ff0000"
+    icon_style_inactive: "color: #ff0000"
+    icon_style_active: "color: #ff8080"
+    icon_off: mdi-numeric-5-box-outline
+
+
+ariustek_6:
+    widget_type: script
+    title: '6'
+    entity: script.ariustek6
+    title_style: "color: #ff0000"
+    icon_style_inactive: "color: #ff0000"
+    icon_style_active: "color: #ff8080"
+    icon_off: mdi-numeric-6-box-outline
+
+
+ariustek_7:
+    widget_type: script
+    title: '7'
+    entity: script.ariustek7
+    title_style: "color: #ff0000"
+    icon_style_inactive: "color: #ff0000"
+    icon_style_active: "color: #ff8080"
+    icon_off: mdi-numeric-7-box-outline
+
+
+ariustek_8:
+    widget_type: script
+    title: '8'
+    entity: script.ariustek8
+    title_style: "color: #ff0000"
+    icon_style_inactive: "color: #ff0000"
+    icon_style_active: "color: #ff8080"
+    icon_off: mdi-numeric-8-box-outline
+
+
+ariustek_9:
+    widget_type: script
+    title: '9'
+    entity: script.ariustek9
+    title_style: "color: #ff0000"
+    icon_style_inactive: "color: #ff0000"
+    icon_style_active: "color: #ff8080"
+    icon_off: mdi-numeric-9-box-outline
+
+
+ariustek_0:
+    widget_type: script
+    title: '0'
+    entity: script.ariustek0
+    title_style: "color: #ff0000"
+    icon_style_inactive: "color: #ff0000"
+    icon_style_active: "color: #ff8080"
+    icon_off: mdi-numeric-0-box-outline
+
+
+ariustek_back:
+    widget_type: script
+    title: Back
+    entity: script.ariustekback
+    title_style: "color: #ff0000"
+    icon_style_inactive: "color: #ff0000"
+    icon_style_active: "color: #ff8080"
+    icon_off: mdi-backup-restore
+
+
+ariustek_fav:
+    widget_type: script
+    title: Fav
+    entity: script.ariustekfav
+    title_style: "color: #ff0000"
+    icon_style_inactive: "color: #ff0000"
+    icon_style_active: "color: #ff8080"
+    icon_off: mdi-heart
+
+
+ariustek_source:
+    widget_type: script
+    title: Source
+    entity: script.ariusteksource
+    title_style: "color: #ff0000"
+    icon_style_inactive: "color: #ff0000"
+    icon_style_active: "color: #ff8080"
+    icon_off: mdi-source-branch
+
+
+ariustek_menu:
+    widget_type: script
+    title: MENU
+    entity: script.ariustekmenu
+    title_style: "color: #ff0000"
+    icon_style_inactive: "color: #ff0000"
+    icon_style_active: "color: #ff8080"
+    icon_off: mdi-menu
+
+
+ariustek_chup:
+    widget_type: script
+    title: Ch+
+    entity: script.ariustekchup
+    title_style: "color: #ff0000"
+    icon_style_inactive: "color: #ff0000"
+    icon_style_active: "color: #ff8080"
+    icon_off: mdi-chevron-triple-up
+
+
+ariustek_voldownleft:
+    widget_type: script
+    title: Vol-
+    entity: script.ariustekvoldownleft
+    title_style: "color: #ff0000"
+    icon_style_inactive: "color: #ff0000"
+    icon_style_active: "color: #ff8080"
+    icon_off: mdi-chevron-triple-left
+
+
+ariustek_ok:
+    widget_type: script
+    title: OK
+    entity: script.ariustekok
+    title_style: "color: #ff0000"
+    icon_style_inactive: "color: #ff0000"
+    icon_style_active: "color: #ff8080"
+    icon_off: fa-old-republic
+
+
+ariustek_volupright:
+    widget_type: script
+    title: Vol+
+    entity: script.ariustekvolupright
+    title_style: "color: #ff0000"
+    icon_style_inactive: "color: #ff0000"
+    icon_style_active: "color: #ff8080"
+    icon_off: mdi-chevron-triple-right
+
+
+ariustek_chdown:
+    widget_type: script
+    title: Ch-
+    entity: script.ariustekchdown
+    title_style: "color: #ff0000"
+    icon_style_inactive: "color: #ff0000"
+    icon_style_active: "color: #ff8080"
+    icon_off: mdi-chevron-triple-down
+
+
+ariustek_menu2:
+    widget_type: script
+    title: MENU2
+    entity: script.ariustekmenu2
+    title_style: "color: #ff0000"
+    icon_style_inactive: "color: #ff0000"
+    icon_style_active: "color: #ff8080"
+    icon_off: mdi-menu
+
+
+ariustek_exit:
+    widget_type: script
+    title: EXIT
+    entity: script.ariustekexit
+    title_style: "color: #ff0000"
+    icon_style_inactive: "color: #ff0000"
+    icon_style_active: "color: #ff8080"
+    icon_off: mdi-exit-run
+
+
+ariustek_rewind:
+    widget_type: script
+    title: RWD
+    entity: script.ariustekrewind
+    title_style: "color: #ff0000"
+    icon_style_inactive: "color: #ff0000"
+    icon_style_active: "color: #ff8080"
+    icon_off: mdi-rewind
+
+
+ariustek_playpause:
+    widget_type: script
+    title: PLAY/PAUSE
+    entity: script.ariustekplaypause
+    title_style: "color: #ff0000"
+    icon_style_inactive: "color: #ff0000"
+    icon_style_active: "color: #ff8080"
+    icon_off: mdi-play-pause
+
+
+ariustek_next:
+    widget_type: script
+    title: NEXT
+    entity: script.ariusteknext
+    title_style: "color: #ff0000"
+    icon_style_inactive: "color: #ff0000"
+    icon_style_active: "color: #ff8080"
+    icon_off: mdi-skip-next
+
+
+ariustek_ffwd:
+    widget_type: script
+    title: FFWD
+    entity: script.ariustekffwd
+    title_style: "color: #ff0000"
+    icon_style_inactive: "color: #ff0000"
+    icon_style_active: "color: #ff8080"
+    icon_off: mdi-fast-forward
+
+
+ariustek_stop:
+    widget_type: script
+    title: STOP
+    entity: script.ariustekstop
+    title_style: "color: #ff0000"
+    icon_style_inactive: "color: #ff0000"
+    icon_style_active: "color: #ff8080"
+    icon_off: mdi-stop
+
+
+ariustek_prev:
+    widget_type: script
+    title: PREV
+    entity: script.ariustekprev
+    title_style: "color: #ff0000"
+    icon_style_inactive: "color: #ff0000"
+    icon_style_active: "color: #ff8080"
+    icon_off: mdi-skip-previous
+
+
+ariustek_soundup:
+    widget_type: script
+    title: SOUND
+    entity: script.ariusteksoundup
+    title_style: "color: #ff0000"
+    icon_style_inactive: "color: #ff0000"
+    icon_style_active: "color: #ff8080"
+    icon_off: mdi-menu-up
+
+
+ariustek_pgupok:
+    widget_type: script
+    title: PG UP
+    entity: script.ariustekpgupok
+    title_style: "color: #ff0000"
+    icon_style_inactive: "color: #ff0000"
+    icon_style_active: "color: #ff8080"
+    icon_off: mdi-thumb-up
+
+
+ariustek_pgdownexit:
+    widget_type: script
+    title: PG DOWN
+    entity: script.ariustekpgdownexit
+    title_style: "color: #ff0000"
+    icon_style_inactive: "color: #ff0000"
+    icon_style_active: "color: #ff8080"
+    icon_off: mdi-exit-run
+
+
+ariustek_channelup:
+    widget_type: script
+    title: CHANNEL
+    entity: script.ariustekchannelup
+    title_style: "color: #ff0000"
+    icon_style_inactive: "color: #ff0000"
+    icon_style_active: "color: #ff8080"
+    icon_off: mdi-menu-up
+
+
+ariustek_subtitledown:
+    widget_type: script
+    title: SUBTITLE
+    entity: script.ariusteksubtitledown
+    title_style: "color: #ff0000"
+    icon_style_inactive: "color: #ff0000"
+    icon_style_active: "color: #ff8080"
+    icon_off: mdi-menu-down
+
+
+ariustek_txt:
+    widget_type: script
+    title: TXT
+    entity: script.ariustektxt
+    title_style: "color: #ff0000"
+    icon_style_inactive: "color: #ff0000"
+    icon_style_active: "color: #ff8080"
+    icon_off: mdi-format-text
+
+
+ariustek_audio:
+    widget_type: script
+    title: AUDIO
+    entity: script.ariustekaudio
+    title_style: "color: #ff0000"
+    icon_style_inactive: "color: #ff0000"
+    icon_style_active: "color: #ff8080"
+    icon_off: mdi-volume-high
+
+
+ariustek_fastscan:
+    widget_type: script
+    title: FASTSCAN
+    entity: script.ariustekfastscan
+    title_style: "color: #ff0000"
+    icon_style_inactive: "color: #ff0000"
+    icon_style_active: "color: #ff8080"
+    icon_off: mdi-menu-down
+
+
+ariustek_tvradio:
+    widget_type: script
+    title: TV/RADIO
+    entity: script.ariustektvradio
+    title_style: "color: #ff0000"
+    icon_style_inactive: "color: #ff0000"
+    icon_style_active: "color: #ff8080"
+    icon_off: mdi-radio-tower
+
+
+ariustek_info:
+    widget_type: script
+    title: INFO
+    entity: script.ariustekinfo
+    title_style: "color: #ff0000"
+    icon_style_inactive: "color: #ff0000"
+    icon_style_active: "color: #ff8080"
+    icon_off: mdi-information-variant
+
+
+ariustek_epg:
+    widget_type: script
+    title: EPG
+    entity: script.ariustekepg
+    title_style: "color: #ff0000"
+    icon_style_inactive: "color: #ff0000"
+    icon_style_active: "color: #ff8080"
+    icon_off: mdi-xbox-controller-battery-unknown
+
+
+ariustek_pause:
+    widget_type: script
+    title: PAUSE
+    entity: script.ariustekpause
+    title_style: "color: #ff0000"
+    icon_style_inactive: "color: #ff0000"
+    icon_style_active: "color: #ff8080"
+    icon_off: mdi-television-pause
+
+
+ariustek_red:
+    widget_type: script
+    title: RED
+    entity: script.ariustekred
+    title_style: "color: #ff0000"
+    icon_style_inactive: "color: #ff0000"
+    icon_style_active: "color: #ff8080"
+    icon_off: fa-redhat
+
+
+ariustek_green:
+    widget_type: script
+    title: GREEN
+    entity: script.ariustekgreen
+    title_style: "color: #ff0000"
+    icon_style_inactive: "color: #ff0000"
+    icon_style_active: "color: #ff8080"
+    icon_off: fa-cannabis
+
+
+ariustek_yellow:
+    widget_type: script
+    title: YELLOW
+    entity: script.ariustekyellow
+    title_style: "color: #ff0000"
+    icon_style_inactive: "color: #ff0000"
+    icon_style_active: "color: #ff8080"
+    icon_off: mdi-umbrella
+
+
+ariustek_blue:
+    widget_type: script
+    title: BLUE
+    entity: script.ariustekblue
+    title_style: "color: #ff0000"
+    icon_style_inactive: "color: #ff0000"
+    icon_style_active: "color: #ff8080"
+    icon_off: mdi-bluetooth
+
+
+
+layout:
+  - ariustek_pwr, remote_label(2x1), ariustek_mute
+  - ariustek_tv, ariustek_av, ariustek_usb, ariustek_sv,,ariustek_rewind, ariustek_playpause, ariustek_next
+  - ariustek_hdmi, ariustek_ypbpr, ariustek_vga, ariustek_auto, , ariustek_ffwd, ariustek_stop, ariustek_prev
+  - ariustek_1, ariustek_2, ariustek_3, , ariustek_soundup, ariustek_pgupok, ariustek_pgdownexit, ariustek_channelup
+  - ariustek_4, ariustek_5, ariustek_6, , ariustek_subtitledown, ariustek_txt, ariustek_audio, ariustek_fastscan
+  - ariustek_7, ariustek_8, ariustek_9, , ariustek_tvradio, ariustek_info, ariustek_epg, ariustek_pause
+  - ariustek_0, ariustek_back, ariustek_fav, , ariustek_red, ariustek_green, ariustek_yellow, ariustek_blue
+  - ariustek_source, ariustek_chup, ariustek_menu
+  - ariustek_voldownleft, ariustek_ok, ariustek_volupright
+  - ariustek_menu2, ariustek_chdown, ariustek_exit
+
+
+
+
+

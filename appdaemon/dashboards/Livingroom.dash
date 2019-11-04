@@ -229,7 +229,7 @@ alllightstoggle:
 
 climatecontrolac:
   widget_type: climate
-  entity: climate.air_conditioner
+  entity: climate.heater
   level_style: "font-size: 200%;" # Current Temp Size
   level2_style: "font-size: 125%;" # Target Temp Size
   unit_style: "font-size: 600%;"
@@ -237,7 +237,7 @@ climatecontrolac:
   title2_style: "font-size: 100%;"
   level_up_style: "font-size: 150%;"
   level_down_style: "font-size: 150%;"
-  title: Air Conditioner
+  title: Heater
   title2: Current Indoor Temp
   units: 'F'
   step: 1

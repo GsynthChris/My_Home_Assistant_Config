@@ -19,7 +19,7 @@
             # - media_player.zach_alexa
             - media_player.basement_alexa
           data:
-            type: announce
+            type: tts
           message: "Doctor zees just posted a video called '{{ states.sensor.drzzs.state }}'"
       - service: notify.ios_skidata_iphone_7_plus
         data_template:
@@ -40,7 +40,7 @@
             # - media_player.zach_alexa
             - media_player.basement_alexa
           data:
-            type: announce
+            type: tts
           message: "Company Man just posted a video called '{{ states.sensor.company_man.state }}'"
       - service: notify.ios_skidata_iphone_7_plus
         data_template:
@@ -61,7 +61,7 @@
             # - media_player.zach_alexa
             - media_player.basement_alexa
           data:
-            type: announce
+            type: tts
           message: "Bruh Automations just posted a video called '{{ states.sensor.bruh_automation.state }}'"
       - service: notify.ios_skidata_iphone_7_plus
         data_template:
@@ -82,7 +82,7 @@
             # - media_player.zach_alexa
             - media_player.basement_alexa
           data:
-            type: announce
+            type: tts
           message: "Digeeblur DIY just posted a video called '{{ states.sensor.digiblurdiystate }}'"
       - service: notify.ios_skidata_iphone_7_plus
         data_template:
@@ -103,7 +103,7 @@
             # - media_player.zach_alexa
             - media_player.basement_alexa
           data:
-            type: announce
+            type: tts
           message: "Robert Reich just posted a video called '{{ states.sensor.robert_reich.state }}'"
       - service: notify.ios_skidata_iphone_7_plus
         data_template:
@@ -124,7 +124,7 @@
             # - media_player.zach_alexa
             - media_player.basement_alexa
           data:
-            type: announce
+            type: tts
           message: "SuperHouse TV just posted a video called '{{ states.sensor.superhousetv.state }}'"
       - service: notify.ios_skidata_iphone_7_plus
         data_template:
@@ -145,7 +145,7 @@
             # - media_player.zach_alexa
             - media_player.basement_alexa
           data:
-            type: announce
+            type: tts
           message: "Technology Connections just posted a video called '{{ states.sensor.technology_connections.state }}'"
       - service: notify.ios_skidata_iphone_7_plus
         data_template:
@@ -166,7 +166,7 @@
             # - media_player.zach_alexa
             - media_player.basement_alexa
           data:
-            type: announce
+            type: tts
           message: "The Hook Up just posted a video called '{{ states.sensor.the_hook_up.state }}'"
       - service: notify.ios_skidata_iphone_7_plus
         data_template:
@@ -187,7 +187,7 @@
             # - media_player.zach_alexa
             - media_player.basement_alexa
           data:
-            type: announce
+            type: tts
           message: "Trae Crowder just posted a video called '{{ states.sensor.trae_crowder.state }}'"
       - service: notify.ios_skidata_iphone_7_plus
         data_template:

@@ -256,6 +256,8 @@
       - "Carbon-Green"
       - "Midnight"
       - "Halloween"
+      - "Halloween2"
+      - "Christmas"
       - "Vintage"
       - "Default"
       - "synthwave"
@@ -263,5 +265,6 @@
       - "slate"
       - "darkcyan"
       - "cleardark"
-    initial: "synthwave"
+    initial: "Halloween2"
     icon: mdi:theme-light-dark
+    

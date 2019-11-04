@@ -260,12 +260,12 @@ xbox_back:
     service: rest_command.xbox_control
     data:
       command: "media/back"
-xbox_view:
+xbox_view_media:
   sequence:
     service: rest_command.xbox_control
     data:
       command: "media/view"
-xbox_menu:
+xbox_menu_media:
   sequence:
     service: rest_command.xbox_control
     data:

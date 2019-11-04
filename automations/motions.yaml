@@ -31,7 +31,7 @@
           # target:
             # -  media_player.acer_alexa_app
           # data:
-            # type: announce
+            # type: tts
           # message: "The basement lights will shut off in 5 minutes"
 
 

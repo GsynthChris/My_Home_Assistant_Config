@@ -9,71 +9,131 @@
       - service: shell_command.umountkububeast
       - service: shell_command.shutdownkububeast
   - platform: wake_on_lan
-    name: "Livingroom Laptop"
-    mac_address: "00-15-C5-4A-A2-95" #Livingroom Laptop
+    name: "Bedroom Laptop"
+    mac_address: "F0-76-1C-86-71-89" #Bedroom Laptop
     host: "192.168.29.10"
     turn_off:
       - service: shell_command.shutdownthinmint
+  - platform: wake_on_lan
+    name: "Cinnabon Laptop"
+    mac_address: "F0-1F-AF-12-63-B2" #Cinnabon
+    host: "192.168.29.11"
+    turn_off:
+      - service: shell_command.shutdowncinnabon
 
+
+  # - platform: wake_on_lan
+  #   name: "Livingroom Laptop"
+  #   mac_address: "00-15-C5-4A-A2-95" #Livingroom Laptop
+  #   host: "192.168.29.10"
+  #   turn_off:
+  #     - service: shell_command.shutdownthinmint
 #################################################################################################################
 #################################                 Master Bedroom                 ################################
 #################################################################################################################
 
-  - platform: template
-    switches:
-      bedroom_ac:
-        friendly_name: Bedroom AC
-        value_template: "{{ is_state('climate.window_ac', 'cool') }}"
-        turn_on:
-          service: climate.set_hvac_mode
-          data:
-            entity_id: climate.window_ac
-            hvac_mode: 'cool'
-        turn_off:
-          service: climate.set_hvac_mode
-          data:
-            entity_id: climate.window_ac
-            hvac_mode: 'off'
+  # - platform: template
+  #   switches:
+  #     bedroom_ac:
+  #       friendly_name: Bedroom AC
+  #       value_template: "{{ is_state('climate.window_ac', 'cool') }}"
+  #       turn_on:
+  #         service: climate.set_hvac_mode
+  #         data:
+  #           entity_id: climate.window_ac
+  #           hvac_mode: 'cool'
+  #       turn_off:
+  #         service: climate.set_hvac_mode
+  #         data:
+  #           entity_id: climate.window_ac
+  #           hvac_mode: 'off'
+
+  - platform: mqtt
+    name: "Bedroom Radiator"
+    command_topic: "cmnd/bedroomheater/POWER"
+    state_topic: "stat/bedroomheater/POWER"
+    qos: 1
+    payload_on: "ON"
+    payload_off: "OFF"
+    retain: no
+    optimistic: "false"
+    icon: mdi:radiator
+#################################################################################################################
+#################################                    Kitchen                     ################################
+#################################################################################################################
+  - platform: mqtt
+    name: "Yankee Candle" #Wax Melter
+    command_topic: "cmnd/yankee/POWER"
+    state_topic: "stat/yankee/POWER"
+    qos: 1
+    payload_on: "ON"
+    payload_off: "OFF"
+    retain: no
+    optimistic: "false"
+    icon: mdi:candle
+
+  - platform: mqtt
+    name: "Keurig" #Keurig Coffeemaker
+    command_topic: "cmnd/keurig/POWER"
+    state_topic: "stat/keurig/POWER"
+    qos: 1
+    payload_on: "Blink"
+    payload_off: "Blink"
+    state_on: "Blink ON"
+    state_off: "OFF"
+    retain: no
+    optimistic: "false"
+    icon: mdi:coffee
+
+  - platform: mqtt
+    name: "Coffee Pot" #Coffee maker
+    command_topic: "cmnd/coffeepot/POWER"
+    state_topic: "stat/coffeepot/POWER"
+    qos: 1
+    payload_on: "ON"
+    payload_off: "OFF"
+    retain: no
+    icon: mdi:coffee-maker
 
 #################################################################################################################
 #################################                Tonbux Powerstrip               ################################
 #################################################################################################################
   - platform: mqtt
-    name: "Tonbux Plug1"
+    name: "Office Speakers"
     command_topic: "cmnd/tonbux/POWER1"
     state_topic: "stat/tonbux/POWER1"
     qos: 1
     payload_on: "ON"
     payload_off: "OFF"
     retain: no
-    icon: mdi:power-socket-us
+    icon: mdi:speaker-multiple
   - platform: mqtt
-    name: "Tonbux Plug2"
+    name: "Office Monitors"
     command_topic: "cmnd/tonbux/POWER2"
     state_topic: "stat/tonbux/POWER2"
     qos: 1
     payload_on: "ON"
     payload_off: "OFF"
     retain: no
-    icon: mdi:power-socket-us
+    icon: mdi:monitor-dashboard
+  # - platform: mqtt
+  #   name: "Office Desk Lamp"
+  #   command_topic: "cmnd/tonbux/POWER3" # IS IN LIGHTS.YAML
+  #   state_topic: "stat/tonbux/POWER3"
+  #   qos: 1
+  #   payload_on: "ON"
+  #   payload_off: "OFF"
+  #   retain: no
+  #   icon: mdi:desk-lamp
   - platform: mqtt
-    name: "Tonbux Plug3"
-    command_topic: "cmnd/tonbux/POWER3"
-    state_topic: "stat/tonbux/POWER3"
-    qos: 1
-    payload_on: "ON"
-    payload_off: "OFF"
-    retain: no
-    icon: mdi:power-socket-us
-  - platform: mqtt
-    name: "Tonbux Plug4"
+    name: "Printer"
     command_topic: "cmnd/tonbux/POWER4"
     state_topic: "stat/tonbux/POWER4"
     qos: 1
     payload_on: "ON"
     payload_off: "OFF"
     retain: no
-    icon: mdi:power-socket-us
+    icon: mdi:printer
   - platform: mqtt
     name: "Tonbux USB"
     command_topic: "cmnd/tonbux/POWER5"
@@ -82,7 +142,7 @@
     payload_on: "ON"
     payload_off: "OFF"
     retain: no
-    icon: fa:usb
+    icon: mdi:usb
 
 #################################################################################################################
 #################################                   HVAC Relays                  ################################
@@ -103,14 +163,16 @@
     payload_on: "ON"
     payload_off: "OFF"
     retain: no
-  # - platform: mqtt
-  #   name: "HVAC Furnace"
-  #   command_topic: "cmnd/thermozztat/POWER3"
-  #   state_topic: "stat/thermozztat/POWER3"
-  #   qos: 1
-  #   payload_on: "ON"
-  #   payload_off: "OFF"
-  #   retain: no
+    icon: mdi:air-conditioner
+  - platform: mqtt
+    name: "HVAC Furnace"
+    command_topic: "cmnd/thermozztat/POWER3"
+    state_topic: "stat/thermozztat/POWER3"
+    qos: 1
+    payload_on: "ON"
+    payload_off: "OFF"
+    retain: no
+    icon: mdi:fireplace
   - platform: mqtt
     name: "HVAC FilterLED"
     command_topic: "cmnd/thermozztat/POWER4"
@@ -119,3 +181,19 @@
     payload_on: "ON"
     payload_off: "OFF"
     retain: no
+    icon: mdi:air-filter
+
+#################################################################################################################
+#################################                   Music Studio                 ################################
+#################################################################################################################
+
+  - platform: mqtt
+    name: "Studio Equipment" #All Music Studio Equipment
+    command_topic: "cmnd/studioequipment/POWER"
+    state_topic: "stat/studioequipment/POWER"
+    qos: 1
+    payload_on: "ON"
+    payload_off: "OFF"
+    retain: no
+    optimistic: "false"
+    icon: mdi:guitar-electric

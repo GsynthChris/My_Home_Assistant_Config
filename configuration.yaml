@@ -12,10 +12,15 @@ homeassistant:
   unit_system: "imperial"
   time_zone: "America/Chicago"
   customize: !include customize.yaml
+  # customize_domain: !include customize_domain.yaml
   auth_providers:
+    - type: homeassistant
     - type: legacy_api_password
       api_password: !secret http_password
-
+    - type: trusted_networks
+      trusted_networks:
+        - 192.168.29.0/24
+api:
 map:
 sun:
 stream:
@@ -32,6 +37,7 @@ group: !include groups.yaml
 switch: !include switch.yaml
 sensor: !include sensor.yaml
 homekit: !include homekit.yaml
+influxdb: !include influxdb.yaml
 script: !include_dir_merge_named scripts/
 binary_sensor: !include binary_sensor.yaml
 shell_command: !include shell_command.yaml
@@ -39,14 +45,18 @@ automation: !include_dir_merge_list automations/
 updater:
   include_used_components: yes
 frontend:
-   themes: !include themes.yaml
+  themes: !include themes.yaml
+  extra_html_url:
+    - /local/hass-fontawesome-solid.html
+    - /local/hass-fontawesome-regular.html
+    - /local/hass-fontawesome-brands.html
 discovery:
-  enable:
-    - homekit
+  # enable:
+  #   - homekit
 
 hacs:
- token: !secret hacs_token
-breaking_changes:
+  token: !secret hacs_token
+# breaking_changes:
 
 mqtt:
   broker: 192.168.29.5
@@ -158,22 +168,22 @@ ios:
 #################################                  Media Player                  ################################
 #################################################################################################################
 
-browser_mod:
-  devices:
-    5650c4f5_ca9379d2:
-      name: Office Firefox
-    77fdb619_ffc6d989:
-      name: Office Chrome
+# browser_mod:
+#   devices:
+#     5650c4f5_ca9379d2:
+#       name: Office Firefox
+#     77fdb619_ffc6d989:
+#       name: Office Chrome
 
 
 rest_command:
   xbox_control:
     url: !secret xboxrestcommand
-#"http://IPOFYOURHASSIOSERVER:5557/device/YOURDEVICEID/{{ command }}"
+#   url: "http://IPOFYOURHASSIOSERVER:5557/device/YOURDEVICEID/{{ command }}"
 
 roku:
-  - host: 192.168.29.13 #Livingroom
-  - host: 192.168.29.14 #Theater
+  - host: 192.168.29.77 #Livingroom
+  # - host: 192.168.29.14 #Theater
 
 camera:
   - platform: ffmpeg
@@ -196,6 +206,13 @@ media_player:
   - platform: xboxone
     device: !secret xbox
     name: Xbox One
+    ip_address: 192.168.29.99
+  - platform: kodi
+    host: 192.168.29.11
+    port: 8080
+    name: Cinnabon Kodi
+    username: !secret my_username
+    password: !secret my_password
   - platform: universal
     name: Bedroom TV
     children:
@@ -221,6 +238,11 @@ media_player:
         service: script.turn_on
         data:
           entity_id: script.bedvolmute
+    select_source:
+      service: media_player.select_source
+      data_template:
+        entity_id: media_player.xbox_one
+        source: '{{ source }}'
   - platform: universal
     name: Livingroom TV
     children:
@@ -246,6 +268,11 @@ media_player:
         service: script.turn_on
         data:
           entity_id: script.kenwoodvolmute
+    select_source:
+      service: media_player.select_source
+      data_template:
+        entity_id: media_player.roku_livingroom
+        source: '{{ source }}'
 
 #################################################################################################################
 ##########################           Input Boolean, Select, Number, and Text            #########################
@@ -266,15 +293,30 @@ input_boolean:
   office_toggle:
     name: Office Toggle
     icon: mdi:desktop-classic
-  tonbux_toggle:
-    name: Tonbux Toggle
-    icon: mdi:format-line-style
+  # tonbux_toggle:
+  #   name: Tonbux Toggle
+  #   icon: mdi:format-line-style
   drzzs_video:
     name: DrZzs Posted a Video
   billy_go_poopy:
     name: Billy Go Poopy
   chewy_go_poopy:
     name: Chewy Go Poopy
+  computer:
+    name: Office Computer
+    icon: mdi:monitor-dashboard
+  livingroom_guest:
+    name: Livingroom Guest
+  brew_tea:
+    name: Brew Some Tea
+    icon: mdi:tea
+  brew_coffee:
+    name: Brew Some Coffee
+    icon: mdi:coffee
+  bedroom_lights:
+    name: Mstbdlghts
+
+
 input_number:
   new_leds_speed:
     name: Animation Speed
@@ -336,14 +378,30 @@ climate:
     target_sensor: sensor.average_home_temp
     min_temp: 60
     max_temp: 80
-    initial_hvac_mode: "cool"
+    initial_hvac_mode: "off"
     min_cycle_duration:
       minutes: 10
-    target_temp: 72
-    away_temp: 78
+    target_temp: 74
+    away_temp: 80
     cold_tolerance: 0.5
     hot_tolerance: 0.5
     ac_mode: yes
+    keep_alive:
+      minutes: 3
+  - platform: generic_thermostat                         #House Furnace
+    name: Heater
+    heater: switch.hvac_furnace
+    target_sensor: sensor.average_home_temp
+    min_temp: 50
+    max_temp: 75
+    initial_hvac_mode: "heat"
+    min_cycle_duration:
+      minutes: 10
+    target_temp: 68
+    away_temp: 58
+    cold_tolerance: 0.5
+    hot_tolerance: 0.5
+    ac_mode: false
     keep_alive:
       minutes: 3
   - platform: generic_thermostat                         #Kitchen Ceiling Fan
@@ -378,6 +436,22 @@ climate:
     ac_mode: yes
     keep_alive:
       minutes: 3
+  # - platform: generic_thermostat                         #Bedroom Radiator
+  #   name: Bedroom Heater
+  #   heater: switch.bedroom_radiator
+  #   target_sensor: sensor.average_mstbd_temp
+  #   min_temp: 50
+  #   max_temp: 75
+  #   initial_hvac_mode: "heat"
+  #   min_cycle_duration:
+  #     minutes: 10
+  #   target_temp: 66
+  #   away_temp: 59
+  #   cold_tolerance: 0.5
+  #   hot_tolerance: 0.5
+  #   ac_mode: false
+  #   keep_alive:
+  #     minutes: 3
   - platform: generic_thermostat                         #Livingroom Ceiling Fan
     name: Livingroom Ceiling Fan
     heater: fan.livingroom_ceiling_fan
@@ -394,16 +468,16 @@ climate:
     ac_mode: yes
     keep_alive:
       minutes: 3
-  - platform: generic_thermostat                         #Office Box Fan
+  - platform: generic_thermostat                         #Bedroom Box Fan
     name: Box Fan
     heater: fan.box_fan
-    target_sensor: sensor.office_temp_2
+    target_sensor: sensor.average_mstbd_temp
     min_temp: 60
     max_temp: 80
     initial_hvac_mode: "cool"
     min_cycle_duration:
       minutes: 10
-    target_temp: 70
+    target_temp: 68
     away_temp: 78
     cold_tolerance: 0.5
     hot_tolerance: 0.5
@@ -449,14 +523,78 @@ fan:
 ###########################                Saving This Stuff for Later                 ##########################
 #################################################################################################################
 
-# utility_meter:
-#   computer_monthly_watts:
-#     source: sensor.computer_energy_power
-#     cycle: monthly
-#   computer_monthly_kwh:
-#     source: sensor.computer_energy_power
-#     cycle: monthly
+utility_meter:
+  computer_daily_kwh:
+    source: sensor.computer_energy_today
+    cycle: daily
+  computer_monthly_kwh:
+    source: sensor.computer_energy_today
+    cycle: monthly
+  computer_yearly_kwh:
+    source: sensor.computer_energy_today
+    cycle: yearly
+  washer_daily_kwh:
+    source: sensor.washer_energy_today
+    cycle: daily
+  washer_monthly_kwh:
+    source: sensor.washer_energy_today
+    cycle: monthly
+  washer_yearly_kwh:
+    source: sensor.washer_energy_today
+    cycle: yearly
+  bedroom_heater_daily_kwh:
+    source: sensor.bedroom_heater_energy_today
+    cycle: daily
+  bedroom_heater_monthly_kwh:
+    source: sensor.bedroom_heater_energy_today
+    cycle: monthly
+  bedroom_heater_yearly_kwh:
+    source: sensor.bedroom_heater_energy_today
+    cycle: yearly
+  refrigerator_daily_kwh:
+    source: sensor.refrigerator_energy_today
+    cycle: daily
+  refrigerator_monthly_kwh:
+    source: sensor.refrigerator_energy_today
+    cycle: monthly
+  refrigerator_yearly_kwh:
+    source: sensor.refrigerator_energy_today
+    cycle: yearly
+  livrmenergysensor_daily_kwh:
+    source: sensor.livrmenergysensor_energy_today
+    cycle: daily
+  livrmenergysensor_monthly_kwh:
+    source: sensor.livrmenergysensor_energy_today
+    cycle: monthly
+  livrmenergysensor_yearly_kwh:
+    source: sensor.livrmenergysensor_energy_today
+    cycle: yearly
 
+# utility_meter:
+#   dryer_daily_energy:
+#     source: sensor.dryer_energy_today
+#     cycle: daily
+#     tariffs:
+#     - peak
+#     - offpeak
+#   dryer_monthly_energy:
+#     source: sensor.dryer_energy_today
+#     cycle: monthly
+#     tariffs:
+#     - peak
+#     - offpeak
+  # automation:
+  # alias: dryer_tariff
+  # trigger:
+  #   - platform: time
+  #     at: '06:30:00'
+  #   - platform: time
+  #     at: '23:30:00'
+  # action:
+  #   - service: utility_meter.next_tariff
+  #     entity_id: utility_meter.dryer_daily_energy
+  #   - service: utility_meter.next_tariff
+  #     entity_id: utility_meter.dryer_monthly_energy
 # alert:
   # ac_on_too_long:
   #   name: HVAC AC on too long

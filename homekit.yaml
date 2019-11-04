@@ -1,12 +1,11 @@
   # auto_start: false
-  # name: Brooks Homekit
+  name: SmartAssHomekit
   filter:
-    include_domains:
+    exclude_domains:
       - light
       - switch
-      # - media_player
+      - media_player
       - climate
-    exclude_domains:
       - automation
       - input_boolean
       - script
@@ -15,7 +14,58 @@
       - binary_sensor
       - zone
       - weather
-#    include_entities:
+    include_entities:
+      - light.basement_1
+      - light.basement_2
+      - light.bedroom_ceiling_light
+      - light.bedside_light
+      - light.closet_light
+      - light.dresser_light
+      - light.desk_lamp
+      - light.floor_lamp
+      - light.hallway_light
+      - light.kitchen_ceiling_light
+      - light.kitchen_wleds
+      - light.kitchen_sink_light
+      - light.laundry_room
+      - light.livingroom_ceiling_light
+      - light.livingroom_lamp
+      - light.office_ceiling_light
+      - light.shop_light
+      - light.stairs_light
+      - light.under_cabinet_light
+#SWITCH
+      - switch.keurig
+      - switch.livingroom_laptop
+      - switch.yankee_candle
+      - switch.office_computer
+      - switch.tonbux_plug1
+      - switch.tonbux_plug2
+      - switch.tonbux_plug3
+      - switch.tonbux_plug4
+      - switch.tonbux_usb
+#FAN
+      - fan.box_fan
+      - fan.livingroom_ceiling_fan
+      - fan.bedroom_ceiling_fan
+      - fan.kitchen_ceiling_fan
+#INPUT_BOOLEAN
+      - input_boolean.billy_go_poopy
+      - input_boolean.chewy_go_poopy
+      - input_boolean.music_time
+#CLIMATE
+      - climate.air_conditioner
+      - climate.box_fan
+      - climate.heater
+#MEDIA_PLAYER
+      - media_player.bedroom_tv
+      - media_player.livingroom_tv
+#BINARY_SENSOR
+      - binary_sensor.doorbell_backdoor
+      - binary_sensor.doorbell_bedroom
+      - binary_sensor.doorbell_livingroom
+      - binary_sensor.washer_status
+      - binary_sensor.dryer_status
 #      - media_player.roku_12a194131868
 #      - media_player.roku_livingroom
 #      - media_player.xbox_one
@@ -26,11 +76,10 @@
 #      - device_tracker.cc20e88e6090 #Lizz iPhone nmap
 #      - sensor.kitchen_temp
 #      - sensor.mstbd_temp
-    exclude_entities:
-      - switch.front_yard_ip_cam
-      - switch.hvac_furnace
-      - switch.hvac_fan
-      - switch.hvac_ac
+    # exclude_entities:
+      # - switch.hvac_furnace
+      # - switch.hvac_fan
+      # - switch.hvac_ac
 #      - media_player.alexa_echo
 #      - media_player.christopher_s_alexa_apps
 #      - media_player.alexa_echo_dot
@@ -58,72 +107,115 @@
 #      - group.all_zones
 #      - group.all_sensors
   entity_config:
-    switch.office_computer:
-      name: Computer
+#LIGHT
     light.basement_1:
       name: Theater 1
     light.basement_2:
-      name: Theater 1
+      name: Theater 2
     light.bedroom_ceiling_light:
       name: Bedroom Ceiling
     light.bedside_light:
-      name: Bedside
+      name: Bedside table
     light.closet_light:
       name: Closet
     light.dresser_light:
       name: Dresser
-    light.hallway_light:
-      name: Hallway
-    light.livingroom_lamp:
-      name: Lamp
-    light.livingroom_ceiling_light:
-      name: Livingroom Ceiling
     light.desk_lamp:
       name: Desk Lamp
     light.floor_lamp:
-      name: Floor Lamp
-    light.office_ceiling_light:
-      name: Office Ceiling
+      name: Shop
+    light.hallway_light:
+      name: Hallway
     light.kitchen_ceiling_light:
       name: Kitchen Ceiling
-    light.kitchen_leds:
-      name: LEDs
+    light.kitchen_wleds:
+      name:  Kitchen WLEDs
     light.kitchen_sink_light:
-      name: Sink
+      name: Kitchen sink
     light.laundry_room:
-      name: Laundry
+      name: Laundry room
+    light.livingroom_ceiling_light:
+      name: Livingroom Ceiling Light
+    light.livingroom_lamp:
+      name: Living room lamp
+    light.office_ceiling_light:
+      name: Office  Ceiling Light
     light.shop_light:
-      name: Shop
+      name: Studio
     light.stairs_light:
       name: Stairs
     light.under_cabinet_light:
-      name: Undercabinet
-    fan.bedroom_ceiling_fan:
-      name: Bedroom Ceiling
-    fan.kitchen_ceiling_fan:
-      name: Kitchen Ceiling
-    fan.livingroom_ceiling_fan:
-      name: Livingroom Ceiling
+      name: Under cabinet
+#SWITCH
+    switch.keurig:
+      name: Keurig
+    switch.livingroom_laptop:
+      name: Livingroom Laptop
+    switch.yankee_candle:
+      name: Yankee Candle
+    switch.office_computer:
+      name: Office computer
+    switch.tonbux_plug1:
+      name: Tonbux Plug 1
+      type: outlet
+    switch.tonbux_plug2:
+      name: Tonbux Plug 2
+      type: outlet
+    switch.tonbux_plug3:
+      name: Tonbux Plug 3
+      type: outlet
+    switch.tonbux_plug4:
+      name: Tonbux Plug 4
+      type: outlet
+    switch.tonbux_usb:
+      name: Tonbux USB Port
+      type: outlet
+#FAN
     fan.box_fan:
-      name: Box Fan
+      name: Box fan
+    fan.livingroom_ceiling_fan:
+      name: Livingroom Ceiling fan
+    fan.bedroom_ceiling_fan:
+      name: Bedroom Ceiling fan
+    fan.kitchen_ceiling_fan:
+      name: Kitchen ceiling fan
+#INPUT_BOOLEAN
+    input_boolean.billy_go_poopy:
+      name: Billy Go Poopy
+    input_boolean.chewy_go_poopy:
+      name: Chewy Go Poopy
+    input_boolean.music_time:
+      name: Music Time
+#CLIMATE
     climate.air_conditioner:
-      name: AC
-    # climate.heat:
-    #   name: Heater
-    climate.kitchen_ceiling_fan:
-      name: Kitchen Fan
-    # media_player.xbox_one:
-    #   name: Xbox
-    #   feature_list:
-    #     - feature: on_off
-    #     - feature: play_pause
-#     media_player.roku_12a194131868:
-#       name: Basement Roku
-#       feature_list:
-# #        - feature: on_off
-#         - feature: play_pause
-#     media_player.roku_livingroom:
-#       name: Living Room Roku
-#       feature_list:
-# #        - feature: on_off
-#         - feature: play_pause
+      name: Air Conditioner
+    climate.heater:
+      name: Heater
+    climate.box_fan:
+      name: Box Fan
+#MEDIA_PLAYER
+    media_player.bedroom_tv:
+      name: Bedroom TV
+      feature_list:
+        - feature: on_off
+        - feature: play_pause
+        - feature: play_stop
+        - feature: toggle_mute
+    media_player.livingroom_tv:
+      name: Livingroom TV
+      feature_list:
+        - feature: on_off
+        - feature: play_pause
+        - feature: play_stop
+        - feature: toggle_mute
+#BINARY_SENSOR
+    binary_sensor.doorbell_backdoor:
+      name: Back Doorbell
+    binary_sensor.doorbell_bedroom:
+      name: Bedroom Doorbell
+    binary_sensor.doorbell_livingroom:
+      name: Livingroom Doorbell
+    binary_sensor.washer_status:
+      name: Washing Machine Status
+    binary_sensor.dryer_status:
+      name: Dryer Status

@@ -1,7 +1,7 @@
 #
 # Main arguments, all optional
 #
-title: Livingroom
+title: Livingroom Basic
 widget_dimensions: [115, 115]
 widget_margins: [6, 6]
 columns: 6
@@ -172,6 +172,8 @@ hallway:
   icon_on: mdi-ceiling-light
   icon_off: mdi-ceiling-light
   style: "color: green"
+  icon_style_inactive: "color: #004409"
+  icon_style_active: "color: #00FF22"
 
 livrmlamp:
   widget_type: switch
@@ -179,6 +181,8 @@ livrmlamp:
   entity: light.livingroom_lamp
   icon_on: mdi-floor-lamp
   icon_off: mdi-floor-lamp
+  icon_style_inactive: "color: #004409"
+  icon_style_active: "color: #00FF22"
 
 undercabinet:
   widget_type: switch
@@ -186,20 +190,35 @@ undercabinet:
   entity: light.under_cabinet_light
   icon_on: mdi-file-cabinet
   icon_off: mdi-file-cabinet
+  icon_style_inactive: "color: #004409"
+  icon_style_active: "color: #00FF22"
 
 kitchenceilinglight:
   widget_type: switch
   title: Kitchen Ceiling
-  entity: light.bedroom_ceiling_light
+  entity: light.kitchen_ceiling_light
   icon_on: mdi-ceiling-light
   icon_off: mdi-ceiling-light
+  icon_style_inactive: "color: #004409"
+  icon_style_active: "color: #00FF22"
+
+livingroomceilinglight:
+  widget_type: switch
+  title: Livingroom Ceiling
+  entity: light.livingroom_ceiling_light
+  icon_on: mdi-ceiling-light
+  icon_off: mdi-ceiling-light
+  icon_style_inactive: "color: #004409"
+  icon_style_active: "color: #00FF22"
 
 ceilingfan:
   widget_type: switch
-  title: Kitchen Ceiling Fan
-  entity: fan.kitchen_ceiling_fan
+  title: Livingroom Ceiling Fan
+  entity: fan.livingroom_ceiling_fan
   icon_on: mdi-fan mdi-spin
   icon_off: mdi-fan
+  icon_style_inactive: "color: #004409"
+  icon_style_active: "color: #00FF22"
 
 sink:
   widget_type: switch
@@ -207,6 +226,8 @@ sink:
   entity: light.kitchen_sink_light
   icon_on: mdi-ceiling-light
   icon_off: mdi-ceiling-light
+  icon_style_inactive: "color: #004409"
+  icon_style_active: "color: #00FF22"
 
 motiontoggle:
   widget_type: switch
@@ -214,6 +235,8 @@ motiontoggle:
   entity: group.upstairsmotion
   icon_on: mdi-motion-sensor
   icon_off: mdi-walk
+  icon_style_inactive: "color: #004409"
+  icon_style_active: "color: #00FF22"
 
 alllightstoggle:
   widget_type: switch
@@ -221,6 +244,8 @@ alllightstoggle:
   entity: group.all_lights
   icon_on: mdi-brightness-7 mdi-spin
   icon_off: mdi-brightness-3
+  icon_style_inactive: "color: #004409"
+  icon_style_active: "color: #00FF22"
 
 climatecontrolac:
   widget_type: climate
@@ -435,11 +460,11 @@ rokulvselectsource:
     entity: input_select.rokulivsource
 
 layout:
-  - livtvpower, rokulvpower, kenwoodpower, livtvmenu, livtvup, outsidetemp
-  - volmute, voldown, volup, livtvleft, livtvselect, livtvright
-  - rokulvselectsource, voldownplus, volupplus, livtvinput, livtvdown, roomtemp
-  - rokulvreverse, rokulvplay, rokulvforward, rokulvchanup, climatecontrolac(2x1)
-  - rokulvsearch, rokulvup, rokulvback, rokulvchandown, rokulvreplay
+  - livtvpower, rokulvpower, kenwoodpower, ceilingfan
+  - volmute, voldown, volup, livingroomceilinglight
+  - rokulvselectsource, voldownplus, volupplus, livrmlamp
+  - rokulvreverse, rokulvplay, rokulvforward, rokulvchanup
+  - rokulvhome, rokulvup, rokulvback, rokulvchandown
   - rokulvleft, rokulvselect, rokulvright, rokulvbackspace
-  - rokulvhome, rokulvdown, rokulvinfo, rokulventer, ceilingfan, alllightstoggle
-  - hallway, livrmlamp, undercabinet, sink, kitchenceilinglight,  motiontoggle
+  - rokulvsearch, rokulvdown, outsidetemp, roomtemp
+  - hallway, undercabinet, sink, kitchenceilinglight

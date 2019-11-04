@@ -75,8 +75,42 @@
       - service: light.turn_off
         data:
           entity_id: light.bedside_light
+###########################################################################################################
+################################           Yankee Candle Wax Melter           #############################
+########################################################################################################### 
 
+  - alias: 'Yankee Candle 9 Hour Timer'
+    initial_state: yes
+    hide_entity: no
+    trigger:
+      - platform: state
+        entity_id: switch.yankee_candle
+        to: 'on'
+        for:
+          hours: '9'
+    action:
+      - service: switch.turn_off
+        data:
+          entity_id: switch.yankee_candle
 
+  - alias: 'Yankee Candle Safety Shutdown'
+    initial_state: yes
+    hide_entity: no
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.people_home
+        from: 'on'
+        to: 'off'
+        for:
+          minutes: 5
+    action:
+      - service: switch.turn_off
+        data:
+          entity_id: switch.yankee_candle
+      - service: notify.ios_skidata_iphone_7_plus
+        data:
+          title: 'Yankee Candle Safety'
+          message: 'Nobody is home, Wax Melter turned off!'
 ###########################################################################################################
 ################################              Tonbux Power Strip              #############################
 ########################################################################################################### 
@@ -130,7 +164,7 @@
     # action:
       # - service: switch.turn_on
         # data:
-         # entity_id: switch.office_computer
+          # entity_id: switch.office_computer
 
   - alias: Start Homekit
     hide_entity: yes
@@ -144,12 +178,12 @@
   - alias: 'Set theme at startup'
     initial_state: 'on'
     trigger:
-     - platform: homeassistant
-       event: 'start'
+      - platform: homeassistant
+        event: 'start'
     action:
       service: frontend.set_theme
       data:
-        name: 'cleardark'
+        name: 'Halloween'
 
   - alias: 'theme input select'
     trigger:
@@ -169,9 +203,8 @@
       - service: mqtt.publish
         data:
           topic: "cmnd/sonoffs/backlog"
-          payload: "power1 ;power2 ;power3 ;power4 ;power5; dimmer; state "
- 
- 
+          payload: "power1 ;power2 ;power3 ;power4 ;power5; dimmer; state " 
+
   - alias: 'Livingroom Lamp Timer'
     trigger:
       - platform: sun
@@ -187,7 +220,225 @@
     action:
       - service: light.turn_off
         data:
-         entity_id: light.livingroom_lamp
+          entity_id: light.livingroom_lamp
+
+###########################################################################################################
+############################                  Music Studio                     ############################
+###########################################################################################################
+
+  - alias: 'Time to make some Fuckin MUSIC!'
+    trigger:
+      - platform: state
+        entity_id: input_boolean.music_time
+        from: 'off'
+        to: 'on'
+    action:
+      - service: light.turn_on
+        data:
+          entity_id: light.shop_light
+      - service: homeassistant.turn_on
+        data:
+          entity_id: switch.studio_equipment
+      - delay: 00:00:20
+      - service: script.studiotvpower
+
+  - alias: 'Finished makin some Fuckin MUSIC!'
+    trigger:
+      - platform: state
+        entity_id: input_boolean.music_time
+        from: 'on'
+        to: 'off'
+    action:
+      - service: light.turn_off
+        data:
+          entity_id: light.shop_light
+      - service: homeassistant.turn_off
+        data:
+          entity_id: switch.studio_equipment
+
+  - alias: 'Music time Button ON'
+    trigger:
+      platform: mqtt
+      topic: "cmnd/studiomultisensor/POWER1"
+      payload: "ON"
+    action:
+      - service: homeassistant.turn_on
+        data:
+          entity_id: input_boolean.music_time
+
+  - alias: 'Music time Button OFF'
+    trigger:
+      platform: mqtt
+      topic: "cmnd/studiomultisensor/POWER1"
+      payload: "OFF"
+    action:
+      - service: homeassistant.turn_off
+        data:
+          entity_id: input_boolean.music_time
+
+###########################################################################################################
+############################                Office Computer                    ############################
+###########################################################################################################
+
+  - alias: 'Office Battlestation Turn ON'
+    trigger:
+      - platform: state
+        entity_id: input_boolean.computer
+        from: 'off'
+        to: 'on'
+    action:
+      - service: homeassistant.turn_on
+        entity_id: switch.office_computer
+      - service: media_player.alexa_tts
+        data:
+          entity_id: media_player.office_alexa
+          message: "Activating battle station... please stand clear... weapons systems initializing... run for your lives!"
+      - delay: 00:00:05
+      - service: homeassistant.turn_on
+        entity_id: switch.office_speakers
+      - delay: 00:00:05
+      - service: homeassistant.turn_on
+        entity_id: switch.tonbux_usb
+      - delay: 00:00:05
+      - service: homeassistant.turn_on
+        entity_id: switch.office_monitors
+      - delay: 00:00:05
+      - service: notify.ios_skidata_iphone_7_plus
+        data:
+          title: 'Battlestation Initialized'
+          message: 'Welcome home! Prepare to dominate the interwebs!'
+
+  - alias: 'Office Battlestation Turn OFF'
+    trigger:
+      - platform: state
+        entity_id: input_boolean.computer
+        from: 'on'
+        to: 'off'
+    action:
+      - service: homeassistant.turn_off
+        entity_id: switch.office_computer
+      - service: media_player.alexa_tts
+        data:
+          entity_id: media_player.office_alexa
+          message: "Deactivating battle station... powering down weapons systems... your life has been spared... for now"
+      - service: switch.turn_off
+        entity_id: switch.office_speakers
+      - delay: 00:00:05
+      - service: homeassistant.turn_off
+        entity_id: group.office
+      - delay: 00:00:05
+      - service: homeassistant.turn_off
+        entity_id: switch.tonbux_usb
+      - delay: 00:00:05
+      - service: homeassistant.turn_off
+        entity_id: switch.printer
+      - delay: 00:00:05
+      - service: homeassistant.turn_off
+        entity_id: switch.office_monitors
+      - service: notify.ios_skidata_iphone_7_plus
+        data:
+          title: 'Battlestation Deactivating'
+          message: 'Have a great day, your battlestation has been shutdown. It patiently awaits your return.'
+
+###########################################################################################################
+############################            Tea and Coffee Automations             ############################
+###########################################################################################################
+  - alias: Brew Tea
+    initial_state: yes
+    hide_entity: no
+    trigger:
+      - platform: state
+        entity_id: input_boolean.brew_tea
+        from: 'off'
+        to: 'on'
+    action:
+      - service: switch.turn_on
+        entity_id: switch.coffee_pot
+      - service: notify.alexa_media
+        data:
+          target:
+            - media_player.livingroom_alexa
+            - media_player.office_alexa
+            - media_player.basement_alexa
+          data:
+            type: tts
+          message: "oh my goodness, tea gives me life"
+      - service: notify.ios_skidata_iphone_7_plus
+        data:
+          message: "Tea is brewing"
+
+  - alias: Brew tea complete
+    initial_state: yes
+    hide_entity: yes
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.coffee_pot_status
+        from: 'on'
+        to: 'off'
+    action:
+      - service: switch.turn_off
+        entity_id: switch.coffee_pot
+      - service: switch.turn_off
+        entity_id: input_select.brew_tea
+      - service: notify.alexa_media
+        data:
+          target:
+            - media_player.livingroom_alexa
+            - media_player.office_alexa
+            - media_player.basement_alexa
+          data:
+            type: tts
+          message: "The tea is done brewing... turning off coffee machine"
+      - service: notify.ios_skidata_iphone_7_plus
+        data:
+          message: "Tea is finished brewing"
+
+  - alias: Brew Coffee
+    initial_state: yes
+    hide_entity: no
+    trigger:
+      - platform: state
+        entity_id: input_boolean.brew_coffee
+        from: 'off'
+        to: 'on'
+    action:
+      - service: notify.alexa_media
+        data:
+          target:
+            - media_player.livingroom_alexa
+            - media_player.office_alexa
+            - media_player.basement_alexa
+          data:
+            type: tts
+          message: "yes!... awesome!... nobody fukking talk to me until I have had my mother fukking coffee"
+      - service: notify.ios_skidata_iphone_7_plus
+        data:
+          message: "Coffee is brewing"
+
+  - alias: Coffee brew complete
+    initial_state: yes
+    hide_entity: yes
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.coffee_pot_status
+        from: 'on'
+        to: 'off'
+    action:
+      - service: notify.alexa_media
+        data:
+          target:
+            - media_player.livingroom_alexa
+            - media_player.office_alexa
+            - media_player.basement_alexa
+          data:
+            type: tts
+          message: "The coffee is done brewing... please poor me a cup of that black gold!"
+      - service: notify.ios_skidata_iphone_7_plus
+        data:
+          message: "Coffee is finished brewing"
+      - delay: 02:00:00
+      - service: switch.turn_off
+        entity_id: switch.coffee_pot
 
 ###########################################################################################################
 ############################               Notification Testing                ############################
