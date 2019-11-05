@@ -22,6 +22,7 @@
       - service: shell_command.shutdowncinnabon
 
 
+
   # - platform: wake_on_lan
   #   name: "Livingroom Laptop"
   #   mac_address: "00-15-C5-4A-A2-95" #Livingroom Laptop
