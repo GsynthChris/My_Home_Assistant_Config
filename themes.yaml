@@ -1,4 +1,79 @@
 #################################################################################################################
+###########################             Christmas   - Made By Chris Brooks             ##########################
+#################################################################################################################
+Christmas:
+  ### Color List ###
+  make-lightgreen: "#00FF00"
+  make-green: "#007700"
+  make-darkgreen: "#005500"
+  make-lightred: "#FF0000"
+  make-red: "#CC0000"
+  make-darkred: "#880000"
+  make-lightblue: "#0000FF"
+  make-blue: "#0000BB"
+  make-darkblue: "#000088"
+  make-gold: "#D4AF37"
+  make-silver: "#BEC2CB"
+  make-orange: "#FF8800"
+  make-white: "#FFFFFF"
+  make-black: "#000000"
+  make-purple: "#8800FF"
+  make-pink: "#FF00FF"
+  ### Main Colors ###
+  primary-color: "var(--make-darkred)"                                  #### Header, selected text, off lighting bolt, execute
+  dark-primary-color: "var(--make-black)"                               #### Devices in off state
+  light-primary-color: "var(--make-lightgreen)"                         #### Bottom left user initials icon
+  divider-color: "var(--make-lightred)"                                 #### Divider Linies
+  background-color: "var(--make-pink)"                                  ####
+  primary-background-color: "var(--make-darkgreen)"                     #### Background behind cards and home assistant logo
+  secondary-background-color: "var(--make-red)"                         #### Home Assitant on top left oooorrrrr   behind the cards on state
+  accent-color: "var(--make-silver)"                                    #### Add Card Button
+  scrollbar-thumb-color: "var(--make-orange)"                           ####
+  error-color: "var(--make-orange)"                                     ####
+  error-state-color: "var(--make-orange)"                               ####
+  ### Sidebar Menu ###
+  sidebar-background-color: "var(--make-green)"                         #### Background of bottom section of sidebar
+  sidebar-selected-background-color: "var(--make-lightgreen)"           ####
+  sidebar-icon-color: "var(--make-lightgreen)"                          #### Sidebar icons
+  sidebar-text-color: "var(--make-red)"                                 #### Sidebar text
+  sidebar-selected-icon-color: "var(--make-red)"                        #### Sidebar icons selected
+  sidebar-selected-text-color: "var(--make-lightgreen)"                 #### Sidebar text selected
+  ### Text ###
+  primary-text-color: "var(--make-gold)"                                ####
+  secondary-text-color: "var(--make-silver)"                            ####
+  text-primary-color: "var(--make-lightgreen)"                          #### header icons and slider ball in OFF state
+  disabled-text-color: "var(--make-lightblue)"                          ####
+  label-badge-text-color: "var(--make-lightred)"                        ####
+#Cards
+  ### On/Off Toggles ###
+  paper-toggle-button-checked-button-color: "var(--make-darkblue)"      #### Toggle ball in ON state
+  paper-toggle-button-unchecked-button-color: "var(--make-blue)"        #### Toggle ball in OFF state
+  paper-toggle-button-checked-bar-color: "var(--make-lightgreen)"       #### Toggle bar in ON state
+  paper-toggle-button-unchecked-bar-color: "var(--make-darkred)"        #### Toggle bar in OFF state
+  paper-toggle-button-checked-ink-color: "var(--make-lightgreen)"       #### Toggle ink in ON state
+  paper-toggle-button-unchecked-ink-color: "var(--make-darkred)"        #### Toggle ink in OFF state
+  ### Icon Colors ###
+  paper-item-icon-active-color: "var(--make-gold)"                      #### Icon color in ON state
+  paper-item-icon-color: "var(--make-darkred)"                          #### Icon color in OFF state
+  ### Input Sliders ###
+  paper-slider-knob-start-color: "var(--make-darkblue)"                 #### Slider knob inactive
+  paper-slider-knob-color: "var(--make-blue)"                           #### Slider knob
+  paper-slider-secondary-color: "var(--make-lightgreen)"                      ####
+  paper-slider-pin-color: "var(--make-red)"                             #### Slider pin that pops up when you grab the knob
+  paper-slider-active-color: "var(--make-lightgreen)"                   #### Slider line active
+  paper-slider-container-color: "var(--make-darkred)"                   #### Slider line inactive
+  ### sumthin ###
+  paper-card-background-color: "var(--make-green)"                      #### Card backgroud color
+  paper-grey-200: "var(--make-orange)"                                  #### Zones on map??????????????????????????????????
+  paper-item-icon-active-color: "var(--make-gold)"                      ####
+  paper-item-icon-color: "var(--make-red)"                              #### Icon color in OFF state
+  paper-listbox-background-color: "var(--make-darkred)"                 #### Dropdown list background color
+  paper-listbox-color: "var(--make-green)"                              #### Dropdown list text color
+
+  data-table-background-color: "var(--make-lightgreen)"                       ####
+
+
+#################################################################################################################
 ###########################                        Halloween 2                         ##########################
 #################################################################################################################
 Halloween2:
@@ -33,29 +108,6 @@ Halloween2:
   paper-item-icon-active-color: "#ff0000" #var(--primary-color)
   paper-item-icon_-_color: "var(--primary-text-color)"
   paper-toggle-button-unchecked-bar-color: "var(--primary-text-color)"
-#################################################################################################################
-###########################                         Christmas                          ##########################
-#################################################################################################################
-Christmas:
-  primary-color: "#B71515"
-  disabled-text-color: "#1e7d1e"
-  divider-color: "#1e7d1e"
-  paper-card-background-color: "#B71515"
-  paper-grey-200: "#1e7d1e"
-  paper-item-icon-color: "#1e7d1e"
-  paper-listbox-background-color: "#B71515"
-  paper-listbox-color: "#1e7d1e"
-  primary-background-color: "#1e7d1e"
-  primary-text-color: "#FFFFFF"
-  secondary-background-color: "#1e7d1e"
-  secondary-text-color: "#000000"
-  text-primary-color: "#FFFFFF"
-  dark-primary-color: "#000000"
-  light-primary-color: "#B71515"
-  paper-toggle-button-checked-button-color: "#dcd736"
-  paper-toggle-button-checked-bar-color: "#DCD736"
-  paper-slider-knob-color: "#DCD736"
-  paper-slider-active-color: "#DCD736"
 
 #################################################################################################################
 ###########################                         DarkPurple                         ##########################

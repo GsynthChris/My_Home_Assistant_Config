@@ -1,63 +1,48 @@
-camera:
-  icon: fas:crow
-input_select:
-  icon: fas:mask
-input_text:
-  icon: fas:mask
-input_boolean:
-  icon: fas:skull-crossbones
-input_number:
-  icon: fas:mask
-sensor:
-  icon: fas:flask
-device_tracker:
-  icon: fas:cloud-moon
-script:
-  icon: fas:book-dead
-switch:
-  icon: fas:skull-crossbones
-automation:
-  icon: fas:hat-wizard
+#################################################################################################################
+###########################                       Christmas Icons                      ##########################
+#################################################################################################################
+
 fan:
-  icon: fas:broom
+  icon: fas:snowflake
 light:
-  icon: fas:skull
-group:
-  icon: fas:spider
-media_player:
-  icon: fas:cat
-climate:
-  icon: fas:ghost
+  icon: fas:snowman
+script:
+  icon: fas:sleigh
+automation.:
+  icon: fas:gifts
 
-# 'camera.*':
-#   icon: mdi:knife
-# 'input_*.*':
-#   icon: mdi:knife
 
-# 'sensor.*':
-#   icon: mdi:test-tube
+#################################################################################################################
+###########################                       Halloween Icons                      ##########################
+#################################################################################################################
 
-# 'device_tracker.*':
-#   icon: mdi:spider-web
-# 'script.*':
-#   icon: mdi:biohazard
-
-# 'switch.*':
-#   icon: mdi:halloween
-
-# 'automation.*':
-#   icon: fa:fa-book-dead
-
-# 'fan.*':
-#   icon: mdi:star-three-points-outline
-
-# 'light.*':
-#   icon: mdi:skull
-# 'group.*':
-#   icon: mdi:skull
-
-# 'media_player.*':
-#   icon: mdi:ghost
-
-# 'climate.*':
-#   icon: mdi:ghost
+# camera:
+#   icon: fas:crow
+# input_select:
+#   icon: fas:mask
+# input_text:
+#   icon: fas:mask
+# input_boolean:
+#   icon: fas:skull-crossbones
+# input_number:
+#   icon: fas:mask
+# sensor:
+#   icon: fas:flask
+# device_tracker:
+#   icon: fas:cloud-moon
+# script:
+#   icon: fas:book-dead
+# switch:
+#   icon: fas:skull-crossbones
+# automation:
+#   icon: fas:hat-wizard
+# fan:
+#   icon: fas:broom
+# light:
+#   icon: fas:skull
+# group:
+#   icon: fas:spider
+# media_player:
+#   icon: fas:cat
+# climate:
+#   icon: fas:ghost

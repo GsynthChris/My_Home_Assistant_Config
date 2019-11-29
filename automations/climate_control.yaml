@@ -13,24 +13,20 @@
     action: 
       - service: climate.set_away_mode
         data:
-          entity_id: climate.heater
+          entity_id: climate.house_thermostat
           away_mode: 'on'
       - service: climate.set_away_mode
         data:
-          entity_id: climate.bedroom_ceiling_fan
+          entity_id: climate.bedroom_thermostat
           away_mode: 'on'
       - service: climate.set_away_mode
         data:
-          entity_id: climate.kitchen_ceiling_fan
+          entity_id: climate.kitchen_thermostat
           away_mode: 'on'
-      - service: climate.set_away_mode
-        data:
-          entity_id: climate.livingroom_ceiling_fan
-          away_mode: 'on'
-      - service: climate.set_temperature
-        data:
-          entity_id: climate.box_fan
-          temperature: '78'
+      # - service: climate.set_temperature
+      #   data:
+      #     entity_id: climate.window_ac
+      #     temperature: '78'
 
   - alias: HVAC Somebody home CHILL OUT
     initial_state: yes
@@ -42,24 +38,20 @@
     action: 
       - service: climate.set_away_mode
         data:
-          entity_id: climate.heater
+          entity_id: climate.house_thermostat
           away_mode: 'off'
       - service: climate.set_away_mode
         data:
-          entity_id: climate.bedroom_ceiling_fan
+          entity_id: climate.bedroom_thermostat
           away_mode: 'off'
       - service: climate.set_away_mode
         data:
-          entity_id: climate.kitchen_ceiling_fan
+          entity_id: climate.kitchen_thermostat
           away_mode: 'off'
-      - service: climate.set_away_mode
-        data:
-          entity_id: climate.livingroom_ceiling_fan
-          away_mode: 'off'
-      - service: climate.set_temperature
-        data:
-          entity_id: climate.box_fan
-          temperature: '70'
+      # - service: climate.set_temperature
+      #   data:
+      #     entity_id: climate.window_ac
+      #     temperature: '70'
 
 ##################################################################################################
 ###########################       REMINDER TO CHANGE FILTER      #################################
@@ -191,8 +183,8 @@
     action:
       - service: climate.set_temperature
         data_template:
-          entity_id: climate.heater
-          temperature: "{{ (state_attr('climate.heater', 'temperature')|round(0)) + 1 }}"
+          entity_id: climate.house_thermostat
+          temperature: "{{ (state_attr('climate.house_thermostat', 'temperature')|round(0)) + 1 }}"
 
   - alias: 'AC Temp down one' #button is on a D1Mini in my office
     trigger:
@@ -203,10 +195,121 @@
     action:
       - service: climate.set_temperature
         data_template:
-          entity_id: climate.heater
-          temperature: "{{ (state_attr('climate.heater', 'temperature')|round(0)) - 1 }}"
+          entity_id: climate.house_thermostat
+          temperature: "{{ (state_attr('climate.house_thermostat', 'temperature')|round(0)) - 1 }}"
 
 
+
+
+  - alias: 'Bedroom heater spacer' #sets bedroom radiator lower than bedroom fans to keep from heating while trying to cool
+    trigger:
+      - platform: state
+        entity_id: sensor.bedroomthermostatsetting
+    action:
+      - service: climate.set_temperature
+        data_template:
+          entity_id: climate.bedroom_heater
+          temperature: "{{ (state_attr('climate.bedroom_thermostat', 'temperature')|round(0)) - 4 }}"
+  - alias: 'Bedroom thermostat spacer' #sets bedroom thermostat higher than bedroom heater to keep from cooling while trying to heat
+    trigger:
+      - platform: state
+        entity_id: sensor.bedroomheatersetting
+    action:
+      - service: climate.set_temperature
+        data_template:
+          entity_id: climate.bedroom_thermostat
+          temperature: "{{ (state_attr('climate.bedroom_heater', 'temperature')|round(0)) + 4 }}"
+
+  - alias: 'Bedroom Fans Thermostat ON' 
+    trigger:
+      - platform: state
+        entity_id: input_boolean.mstbdfans
+        from: 'off'
+        to: 'on'
+    action:
+      - service: fan.turn_on
+        entity_id: fan.bedroom_ceiling_fan
+      - service: fan.turn_on
+        entity_id: fan.box_fan
+  - alias: 'Bedroom Fans Thermostat OFF' 
+    trigger:
+      - platform: state
+        entity_id: input_boolean.mstbdfans
+        from: 'on'
+        to: 'off'
+    action:
+      - service: fan.turn_off
+        entity_id: fan.bedroom_ceiling_fan
+      - service: fan.turn_off
+        entity_id: fan.box_fan
+
+
+  - alias: 'Bedroom Radiator assist ON' 
+    trigger:
+      - platform: state
+        entity_id: switch.bedroom_radiator
+        from: 'off'
+        to: 'on'
+    action:
+      - service: home_assistant.turn_on
+        entity_id: fan.bedroom_ceiling_fan
+  - alias: 'Bedroom Fans Thermostat OFF' 
+    trigger:
+      - platform: state
+        entity_id: switch.bedroom_radiator
+        from: 'on'
+        to: 'off'
+    action:
+      - service: home_assistant.turn_off
+        entity_id: fan.bedroom_ceiling_fan
+
+
+  - alias: 'House Fans Thermostat ON' 
+    trigger:
+      - platform: state
+        entity_id: input_boolean.kichnfans
+        from: 'off'
+        to: 'on'
+    action:
+      - service: fan.turn_on
+        entity_id: fan.kitchen_ceiling_fan
+      - service: fan.turn_on
+        entity_id: fan.livingroom_ceiling_fan
+  - alias: 'House Fan Thermostat OFF' 
+    trigger:
+      - platform: state
+        entity_id: input_boolean.kichnfans
+        from: 'on'
+        to: 'off'
+    action:
+      - service: fan.turn_off
+        entity_id: fan.kitchen_ceiling_fan
+      - service: fan.turn_off
+        entity_id: fan.livingroom_ceiling_fan
+
+
+  - alias: 'Ceiling fan furnace assist ON' 
+    trigger:
+      - platform: state
+        entity_id: switch.hvac_furnace
+        from: 'off'
+        to: 'on'
+    action:
+      - service: fan.turn_on
+        entity_id: fan.kitchen_ceiling_fan
+      - service: fan.turn_on
+        entity_id: fan.livingroom_ceiling_fan
+  - alias: 'Ceiling fan furnace assist OFF' 
+    trigger:
+      - platform: state
+        entity_id: switch.hvac_furnace
+        from: 'on'
+        to: 'off'
+    action:
+      - service: fan.turn_off
+        entity_id: fan.kitchen_ceiling_fan
+      - service: fan.turn_off
+        entity_id: fan.livingroom_ceiling_fan
 
 ##################################################################################################
 ###################              HVAC Time temp Adjustments              #########################ThermoZztat

@@ -183,7 +183,7 @@
     action:
       service: frontend.set_theme
       data:
-        name: 'Halloween'
+        name: 'Christmas'
 
   - alias: 'theme input select'
     trigger:

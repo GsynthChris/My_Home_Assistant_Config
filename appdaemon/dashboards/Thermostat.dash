@@ -18,25 +18,11 @@ global_parameters:
 ###########################################################################################
 ######################                 Custom Widgets                ######################
 ###########################################################################################
-# climatecontrolheat:
-#   widget_type: climate
-#   entity: climate.heat
-#   level_style: "font-size: 500%;" # Current Temp Size
-#   level2_style: "font-size: 200%;" # Target Temp Size
-#   unit_style: "font-size: 600%;"
-#   title_style: "font-size: 150%;"
-#   title2_style: "font-size: 100%;"
-#   level_up_style: "font-size: 200%;"
-#   level_down_style: "font-size: 200%;"
-#   title: Heat
-#   title2: House Temp Average
-#   units: 'F'
-#   step: 0.1
-#   precision: 1
+
   
 climatecontrolac:
   widget_type: climate
-  entity: climate.heater
+  entity: climate.house_thermostat
   level_style: "font-size: 200%;" # Current Temp Size
   level2_style: "font-size: 125%;" # Target Temp Size
   unit_style: "font-size: 600%;"
@@ -44,7 +30,7 @@ climatecontrolac:
   title2_style: "font-size: 100%;"
   level_up_style: "font-size: 150%;"
   level_down_style: "font-size: 150%;"
-  title: Heater
+  title: House Thermostat
   title2: Current Indoor Temp
   units: 'F'
   step: 1

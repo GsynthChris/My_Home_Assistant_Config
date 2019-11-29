@@ -59,11 +59,15 @@
       thermostatsetting:
         friendly_name: "House Thermostat Set Temp"
         unit_of_measurement: "°F"
-        value_template: "{{ state_attr('climate.heater', 'temperature') }}"
+        value_template: "{{ state_attr('climate.house_thermostat', 'temperature') }}"
       bedroomthermostatsetting:
-        friendly_name: "House Thermostat Set Temp"
+        friendly_name: "Bedroom Thermostat Set Temp"
         unit_of_measurement: "°F"
-        value_template: "{{ state_attr('climate.bedroom_ceiling_fan', 'temperature') }}"
+        value_template: "{{ state_attr('climate.bedroom_thermostat', 'temperature') }}"
+      bedroomheatersetting:
+        friendly_name: "Bedroom Heater Set Temp"
+        unit_of_measurement: "°F"
+        value_template: "{{ state_attr('climate.bedroom_heater', 'temperature') }}"
       drzzslive:
         friendly_name: "Is DrZzs Live!?!?!"
         value_template: "{{ state_attr('sensor.drzzs', 'live') }}"

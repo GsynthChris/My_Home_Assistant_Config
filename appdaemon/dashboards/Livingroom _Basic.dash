@@ -247,21 +247,22 @@ alllightstoggle:
   icon_style_inactive: "color: #004409"
   icon_style_active: "color: #00FF22"
 
-climatecontrolac:
-  widget_type: climate
-  entity: climate.heater
-  level_style: "font-size: 200%;" # Current Temp Size
-  level2_style: "font-size: 125%;" # Target Temp Size
-  unit_style: "font-size: 600%;"
-  title_style: "font-size: 150%;"
-  title2_style: "font-size: 100%;"
-  level_up_style: "font-size: 150%;"
-  level_down_style: "font-size: 150%;"
-  title: Heater
-  title2: Current Indoor Temp
-  units: 'F'
-  step: 1
-  precision: 1
+  
+  climatecontrolac:
+    widget_type: climate
+    entity: climate.house_thermostat
+    level_style: "font-size: 200%;" # Current Temp Size
+    level2_style: "font-size: 125%;" # Target Temp Size
+    unit_style: "font-size: 600%;"
+    title_style: "font-size: 150%;"
+    title2_style: "font-size: 100%;"
+    level_up_style: "font-size: 150%;"
+    level_down_style: "font-size: 150%;"
+    title: House Thermostat
+    title2: Current Indoor Temp
+    units: 'F'
+    step: 1
+    precision: 1
 
 roomtemp:
   widget_type: sensor

@@ -119,10 +119,10 @@
     retain: no
 
 ###########################################################################################################
-#############################################      Basement      ############################################
+############################################      Basement      ###########################################
 ###########################################################################################################
   - platform: mqtt
-    name: "Basement 1"
+    name: "Bsmnt 1"
     command_topic: "cmnd/theater1/power"
     state_topic: "stat/theater1/POWER"
     qos: 2
@@ -130,13 +130,20 @@
     payload_off: "OFF"
     retain: no
   - platform: mqtt
-    name: "Basement 2"
+    name: "Bsmnt 2"
     command_topic: "cmnd/theater2/power"
     state_topic: "stat/theater2/POWER"
     qos: 2
     payload_on: "ON"
     payload_off: "OFF"
     retain: no
+#Combines the above 2 theater lights into one
+  - platform: group
+    name: Theater
+    entities:
+      - light.bsmnt_1
+      - light.bsmnt_2
+
   - platform: mqtt
     name: "Shop Light"
     command_topic: "cmnd/shoplight/power"
@@ -173,44 +180,40 @@
     optimistic: "false"
 
 #################################################################################################################
-#################################                 Master Bedroom                 ################################
+#################################                 Outside Lights                 ################################
+#################################################################################################################
+#Lights are ESPHome smart bulbs
+  - platform: group
+    name: Outside Lights
+    entities:
+      - light.livingroom_door_1
+      - light.livingroom_door_2
+      - light.bedroom_door
+      - light.back_door
+
+#################################################################################################################
+#################################                      WLED                      ################################
 #################################################################################################################
   # - platform: mqtt
-  #   name: "Kitchen WLEDs"
-  #   command_topic: "wled/kitchen/setpower"
-  #   state_topic: "wled/kitchen/setpowerpub"
-  #   rgb_state_topic: "wled/kitchen/setcolorpub"
-  #   rgb_command_topic: "wled/kitchen/setcolor"
-  #   brightness_state_topic: "wled/kitchen/setbrightnesspub"
-  #   brightness_command_topic: "wled/kitchen/setbrightness"
+  #   name: "Kitchen LEDs"
+  #   command_topic: "bruh/mqttstrip/setpower"
+  #   state_topic: "bruh/mqttstrip/setpowerpub"
+  #   rgb_state_topic: "bruh/mqttstrip/setcolorpub"
+  #   rgb_command_topic: "bruh/mqttstrip/setcolor"
+  #   brightness_state_topic: "bruh/mqttstrip/setbrightnesspub"
+  #   brightness_command_topic: "bruh/mqttstrip/setbrightness"
   #   optimistic: no
+
   - platform: mqtt
-    name: "Kitchen LEDs"
-    command_topic: "bruh/mqttstrip/setpower"
-    state_topic: "bruh/mqttstrip/setpowerpub"
-    rgb_state_topic: "bruh/mqttstrip/setcolorpub"
-    rgb_command_topic: "bruh/mqttstrip/setcolor"
-    brightness_state_topic: "bruh/mqttstrip/setbrightnesspub"
-    brightness_command_topic: "bruh/mqttstrip/setbrightness"
-    optimistic: no
-  # - platform: mqtt
-  #   name: "LEDs 2"
-  #   command_topic: "bruh/mqttstrip2/setpower"
-  #   state_topic: "bruh/mqttstrip2/setpowerpub"
-  #   rgb_state_topic: "bruh/mqttstrip2/setcolorpub"
-  #   rgb_command_topic: "bruh/mqttstrip2/setcolor"
-  #   brightness_state_topic: "bruh/mqttstrip2/setbrightnesspub"
-  #   brightness_command_topic: "bruh/mqttstrip2/setbrightness"
-  #   optimistic: no
-  # - platform: mqtt
-  #   name: "LED EZ Test"
-  #   command_topic: "LEDstrip-25A369/setpower"
-  #   state_topic: "LEDstrip-25A369/setpowerpub"
-  #   rgb_state_topic: "LEDstrip-25A369/setcolorpub"
-  #   rgb_command_topic: "LEDstrip-25A369/setcolor"
-  #   brightness_state_topic: "LEDstrip-25A369/setbrightnesspub"
-  #   brightness_command_topic: "LEDstrip-25A369/setbrightness"
-  #   optimistic: no
+    name: "Zachs LEDs"
+    command_topic: "cmnd/zachleds/POWER"
+    state_topic: "stat/zachleds/POWER"
+    qos: 1
+    payload_on: "ON"
+    payload_off: "OFF"
+    retain: no
+    optimistic: "false"
+
   - platform: mqtt
     name: "Kitchen WLEDs"
     command_topic: "wled/kitchen"

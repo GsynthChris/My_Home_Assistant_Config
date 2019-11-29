@@ -576,7 +576,7 @@ ceilingfan:
 
 windowac:
     widget_type: climate
-    entity: climate.window_ac
+    entity: climate.bedroom_thermostat
     level_style: "font-size: 250%;" # Current Temp Size
     level2_style: "font-size: 125%;" # Target Temp Size
     unit_style: "font-size: 600%;"
@@ -587,12 +587,30 @@ windowac:
     title_style: "color: #0000ff"
     icon_style_inactive: "color: #0000ff"
     icon_style_active: "color: #6666ff"
-    title: Window AC
-    title2: House Temp Average
+    title: Bedroom Thermostat
+    title2: Current Temp
     units: 'F'
     step: 1
     precision: 1
 
+bedroomheat:
+    widget_type: climate
+    entity: climate.bedroom_heater
+    level_style: "font-size: 250%;" # Current Temp Size
+    level2_style: "font-size: 125%;" # Target Temp Size
+    unit_style: "font-size: 600%;"
+    title_style: "font-size: 150%;"
+    title2_style: "font-size: 100%;"
+    level_up_style: "font-size: 150%;"
+    level_down_style: "font-size: 150%;"
+    title_style: "color: #ff0000"
+    icon_style_inactive: "color: #ff0000"
+    icon_style_active: "color: #ff0000"
+    title: Bedroom Heater
+    title2: Current Temp
+    units: 'F'
+    step: 1
+    precision: 1
 roomtemp:
     widget_type: sensor
     title: Room Temp
@@ -614,17 +632,17 @@ outsidetemp:
     entity: sensor.dark_sky_temperature
 
 ###########################################################################################################
-######################################              Layout            #####################################
+###################################### xboxmenu   xboxback    XXXXXXX      Layout            #####################################
 ###########################################################################################################
 
 layout:
   - bedtvpower, xboxpower, soundbarpower, bedtvmenu, bedtvup, roomtemp
   - volmute, voldown, volup, bedtvleft, bedtvselect, bedtvright
   - bedtvaudiofix, voldownplus, volupplus, bedtvinput, bedtvdown, ceilingfan
-  - xboxnexus, xboxdpadup, xboxview, xboxmenu, xboxy, xboxback
+  - xboxnexus, xboxdpadup, xboxback, xboxleftthumbstick, xboxy, xboxrightthumbstick
   - xboxdpadleft, xboxselect, xboxdpadright, xboxx, xboxseek, xboxb
-  - xboxleftshoulder, xboxdpaddown, xboxrightshoulder, xboxleftthumbstick, xboxa, xboxrightthumbstick
-  - xboxrewind, xboxplaypause, xboxfastforward, ceilinglight, windowac(2x1)
-  - xboxprevtrack, xboxstop, xboxnexttrack, closet, bedside, dresser
+  - xboxleftshoulder, xboxdpaddown, xboxrightshoulder, ceilinglight, xboxa, dresser
+  - xboxrewind, xboxplaypause, xboxfastforward, closet, windowac(2x1)
+  - xboxprevtrack, xboxstop, xboxnexttrack, bedside, bedroomheat(2x1)
 #  - xboxselectsource(2x1)
 #  - media_player.bedroom_tv(2x2)

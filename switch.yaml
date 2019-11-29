@@ -100,7 +100,7 @@
 #################################                Tonbux Powerstrip               ################################
 #################################################################################################################
   - platform: mqtt
-    name: "Office Speakers"
+    name: "Computer Speakers"
     command_topic: "cmnd/tonbux/POWER1"
     state_topic: "stat/tonbux/POWER1"
     qos: 1
@@ -109,7 +109,7 @@
     retain: no
     icon: mdi:speaker-multiple
   - platform: mqtt
-    name: "Office Monitors"
+    name: "Computer Monitors"
     command_topic: "cmnd/tonbux/POWER2"
     state_topic: "stat/tonbux/POWER2"
     qos: 1

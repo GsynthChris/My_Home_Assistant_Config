@@ -13,17 +13,17 @@
           topic: "wled/kitchen"
           payload: '{{ trigger.to_state.state | string }}'
 
-  - alias: "WLED Palette"
-    initial_state: yes
-    hide_entity: no
-    trigger:
-      - platform: state
-        entity_id: input_select.wled_palette_kitchen
-    action:
-      - service: mqtt.publish
-        data_template:
-          topic: "wled/kitchen"
-          payload: '{{ trigger.to_state.state | string }}'
+  # - alias: "WLED Palette"
+  #   initial_state: yes
+  #   hide_entity: no
+  #   trigger:
+  #     - platform: state
+  #       entity_id: input_select.wled_palette_kitchen
+  #   action:
+  #     - service: mqtt.publish
+  #       data_template:
+  #         topic: "wled/kitchen"
+  #         payload: '{{ trigger.to_state.state | string }}'
 
 
   # - alias: "Holiday Input Effect"
@@ -50,29 +50,7 @@
   #         topic: "bruh/mqttstrip/setanimationspeed"
   #         payload: '{{ trigger.to_state.state | int }}'
 
-  # - alias: "New LEDs Effect"
-  #   initial_state: yes
-  #   hide_entity: no
-  #   trigger:
-  #     - platform: state
-  #       entity_id: input_select.new_leds
-  #   action:
-  #     - service: mqtt.publish
-  #       data_template:
-  #         topic: "bruh/mqttstrip2/seteffect"
-  #         payload: '{{ trigger.to_state.state | string }}'
 
-  # - alias: "New LEDs Animation Speed"
-  #   initial_state: yes
-  #   hide_entity: no
-  #   trigger:
-  #     - platform: state
-  #       entity_id: input_number.new_leds_speed
-  #   action:
-  #     - service: mqtt.publish
-  #       data_template:
-  #         topic: "bruh/mqttstrip2/setanimationspeed"
-  #         payload: '{{ trigger.to_state.state | int }}'
 ###########################################################################################################
 ############################                 Alexa TTS Text Input              ############################
 ###########################################################################################################
