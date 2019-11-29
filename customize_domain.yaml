@@ -10,7 +10,12 @@ script:
   icon: fas:sleigh
 automation.:
   icon: fas:gifts
-
+input_select:
+  icon: fas:holly-berry
+input_text:
+  icon: fas:tree
+input_number:
+  icon: fas:candy-cane
 
 #################################################################################################################
 ###########################                       Halloween Icons                      ##########################
