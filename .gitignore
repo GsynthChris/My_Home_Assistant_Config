@@ -29,11 +29,15 @@ www
 .homekit
 .Trash-0
 appdaemon/roku_square_logo.png
+android
+custom_icons
+themes
+
 
 # Ensure these YAML files are ignored, otherwise your secret data/credentials will leak.
 appdaemon.yaml
-Thermostat.dash
-thermostat.dash
+appdaemon3.0.yaml
+appdaemon 4.0.yaml
 experimenting.yml
 ip_bans.yaml
 secrets.yaml

@@ -7,7 +7,6 @@
 
   - alias: 'DrZzs Posted a Video IFTTT'
     initial_state: yes
-    hide_entity: yes
     trigger:
       - platform: state
         entity_id: input_boolean.drzzs_video
@@ -39,7 +38,6 @@
 
   - alias: 'DrZzs is LIVE!'
     initial_state: yes
-    hide_entity: yes
     trigger:
       - platform: state
         entity_id: sensor.drzzs
@@ -74,7 +72,6 @@
 
   - alias: 'Office PC on Backup power'
     initial_state: yes
-    hide_entity: yes
     trigger:
       - platform: mqtt
         topic: officepc/state/battery
@@ -86,7 +83,6 @@
           message: 'The Office PC is on Backup Power!'
   - alias: 'Office PC Critical Battery'
     initial_state: yes
-    hide_entity: yes
     trigger:
       - platform: mqtt
         topic: officepc/state/battery

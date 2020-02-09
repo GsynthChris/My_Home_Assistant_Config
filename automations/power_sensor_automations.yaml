@@ -4,7 +4,6 @@
 
   - alias: Washer load started
     initial_state: yes
-    hide_entity: no
     trigger:
       - platform: state
         entity_id: binary_sensor.washer_status
@@ -34,7 +33,6 @@
 
   - alias: Washer load done
     initial_state: yes
-    hide_entity: yes
     trigger:
       - platform: state
         entity_id: binary_sensor.washer_status
@@ -71,7 +69,6 @@
 
   - alias: Dryer load started
     initial_state: yes
-    hide_entity: no
     trigger:
       - platform: state
         entity_id: sensor.dryer
@@ -101,7 +98,6 @@
 
   - alias: Dryer load done
     initial_state: yes
-    hide_entity: yes
     trigger:
       - platform: state
         entity_id: sensor.dryer
@@ -137,7 +133,6 @@
       #     message: "Dryer load finished"
   - alias: Dryer load done notification late night
     initial_state: yes
-    hide_entity: yes
     trigger:
       - platform: state
         entity_id: sensor.dryer

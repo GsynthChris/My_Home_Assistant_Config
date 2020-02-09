@@ -7,7 +7,6 @@
 ###########################################################################################################
   - alias: 'Send notification when sun rises'
     initial_state: yes
-    hide_entity: yes
     trigger:
       platform: sun
       event: sunrise
@@ -20,7 +19,6 @@
         entity_id: light.outside_lights
   - alias: 'Send notification when sun sets'
     initial_state: yes
-    hide_entity: yes
     trigger:
       platform: sun
       event: sunset
@@ -32,7 +30,6 @@
 
   - alias: Good Morning Lizz
     initial_state: yes
-    hide_entity: yes
     trigger:
       platform: time
       at: '10:00:00'
@@ -47,7 +44,6 @@
 ###########################################################################################################
   - alias: 'Wake Up On'
     initial_state: no
-    hide_entity: no
     trigger:
       - platform: time
         at: '06:00:00'
@@ -63,7 +59,6 @@
           entity_id: light.bedside_light
   - alias: 'Wake Up Off'
     initial_state: no
-    hide_entity: no
     trigger:
       - platform: time
         at: '07:00:00'
@@ -83,7 +78,6 @@
 
   - alias: 'Yankee Candle 9 Hour Timer'
     initial_state: yes
-    hide_entity: no
     trigger:
       - platform: state
         entity_id: switch.yankee_candle
@@ -97,7 +91,6 @@
 
   - alias: 'Yankee Candle Safety Shutdown'
     initial_state: yes
-    hide_entity: no
     trigger:
       - platform: state
         entity_id: binary_sensor.people_home
@@ -118,7 +111,6 @@
 ########################################################################################################### 
   - alias: Tonbux Button toggle
     initial_state: yes
-    hide_entity: yes
     trigger:
       - platform: mqtt
         topic: 'cmnd/tonbuxhold/POWER1'
@@ -130,7 +122,6 @@
 
   - alias: Tonbux Boolean toggle on
     initial_state: yes
-    hide_entity: yes
     trigger:
       - platform: state
         entity_id: input_boolean.tonbux_toggle
@@ -142,7 +133,6 @@
 
   - alias: Tonbux Boolean toggle off
     initial_state: yes
-    hide_entity: yes
     trigger:
       - platform: state
         entity_id: input_boolean.tonbux_toggle
@@ -348,7 +338,6 @@
 ###########################################################################################################
   - alias: Brew Tea
     initial_state: yes
-    hide_entity: no
     trigger:
       - platform: state
         entity_id: input_boolean.brew_tea
@@ -372,7 +361,6 @@
 
   - alias: Brew tea complete
     initial_state: yes
-    hide_entity: yes
     trigger:
       - platform: state
         entity_id: binary_sensor.coffee_pot_status
@@ -398,7 +386,6 @@
 
   - alias: Brew Coffee
     initial_state: yes
-    hide_entity: no
     trigger:
       - platform: state
         entity_id: input_boolean.brew_coffee
@@ -420,7 +407,6 @@
 
   - alias: Coffee brew complete
     initial_state: yes
-    hide_entity: yes
     trigger:
       - platform: state
         entity_id: binary_sensor.coffee_pot_status

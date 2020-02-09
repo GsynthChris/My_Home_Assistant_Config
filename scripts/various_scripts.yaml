@@ -6,17 +6,16 @@ acstatus:
           HVAC is set to {{ state_attr('climate.air_conditioner', 'temperature') }}.
 
 
-
-browser_popup:
-  sequence:
-    - service: browser_mod.popup
-      data:
-        close_first: true
-        deviceID: "77fdb619-ffc6d989"
-        card:
-          type: entities
-          entities:
-            - light.office_ceiling_light
+# browser_popup:
+#   sequence:
+#     - service: browser_mod.popup
+#       data:
+#         close_first: true
+#         deviceID: "77fdb619-ffc6d989"
+#         card:
+#           type: entities
+#           entities:
+#             - light.office_ceiling_light
 
 set_theme:
   alias: Set Frontend Theme

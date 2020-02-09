@@ -58,7 +58,6 @@
       - climate.box_fan
       - climate.heater
 #MEDIA_PLAYER
-      - media_player.bedroom_tv
       - media_player.livingroom_tv
 #BINARY_SENSOR
       - binary_sensor.doorbell_backdoor

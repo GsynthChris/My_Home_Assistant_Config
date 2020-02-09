@@ -46,30 +46,23 @@ weather:
 #  unit_style: "font-size: 90%;" # F size
 #  sub_style: "font-size: 90%;" # Other data size
 
+
 camerafront:
   widget_type: camera
-  entity_picture: http://192.168.29.5:8123/api/camera_proxy/camera.front_yard?token=3252d702d00f51e4e6413dd252c9d632dfaaf2c5975c3514c01bc271e9fda13a&api_password=F@ck0FFm3Sh!1
-  refresh: 20
-camerafrontsml:
-  widget_type: camera
-  entity_picture: http://192.168.29.5:8123/api/camera_proxy/camera.front_yard_small?token=afb84dabc1c3a532e6ace1d88eb0649fcea5503f1c89d93a379d7d7d2fc2e8d4&api_password=F@ck0FFm3Sh!1
-  refresh: 15
-cameranws:
-  widget_type: camera
-  entity_picture: http://192.168.29.5:8123/api/camera_proxy/camera.ncr?token=f54d7bf53d3b8aaa28acbd2af34a419ff905adf4fef6892d9ad97a89175cb9f5&api_password=F@ck0FFm3Sh!1
-  refresh: 20
-# camerafront:
-#   widget_type: camera
-#   entity_picture: camera.front_yard
-#   stream: on
+  entity: camera.front_yard
+  base_url: http://192.168.29.5:8123
+  # refresh: 1
+  stream: 'on'
 # camerafrontsml:
 #   widget_type: camera
-#   entity_picture: http://192.168.29.5:8123/api/camera_proxy/camera.front_yard_small?token=afb84dabc1c3a532e6ace1d88eb0649fcea5503f1c89d93a379d7d7d2fc2e8d4&api_password=F@ck0FFm3Sh!1
-#   refresh: 15
-# cameranws:
-#   widget_type: camera
-#   entity_picture: camera.ncr
+#   entity: camera.front_yard_sml
+#   base_url: http://192.168.29.5:8123
 #   stream: on
+cameranws:
+  widget_type: camera
+  entity: camera.ncr
+  base_url: http://192.168.29.5:8123
+  stream: 'on'
 # heat:
 #   widget_type: switch
 #   title: Heat

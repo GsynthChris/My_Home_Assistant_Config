@@ -5,7 +5,6 @@
 #################################################################################################################
   - alias: 'Doorbell FRONTVIDEO Chris'
     initial_state: true
-    hide_entity: true
     trigger:
       platform: event
       event_type: ios.notification_action_fired
@@ -22,7 +21,6 @@
           entity_id: camera.front_yard
   - alias: 'Doorbell FRONTVIDEO Skidata'
     initial_state: true
-    hide_entity: true
     trigger:
       platform: event
       event_type: ios.notification_action_fired
@@ -160,7 +158,6 @@
 
   - alias: 'Doorbell DRIVEWAYVIDEO Chris'
     initial_state: true
-    hide_entity: true
     trigger:
       platform: event
       event_type: ios.notification_action_fired
@@ -170,7 +167,6 @@
       - service: script.doorbelldrivewaychrisvideo
   - alias: 'Doorbell DRIVEWAYVIDEO Skidata'
     initial_state: true
-    hide_entity: true
     trigger:
       platform: event
       event_type: ios.notification_action_fired

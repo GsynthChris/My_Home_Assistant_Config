@@ -23,6 +23,8 @@ homeassistant:
 api:
 map:
 sun:
+# logger:
+#   default: debug
 stream:
 config:
 history:
@@ -221,9 +223,22 @@ ios:
 
 rest_command:
   xbox_control:
-    # url: !secret xboxrestcommand
+    url: !secret xboxrestcommand
 #   url: "http://IPOFYOURHASSIOSERVER:5557/device/YOURDEVICEID/{{ command }}"
-    url: "http://192.168.29.5:5557/device/FD00CFA257157C78/{{ command }}"
+  # wled_effects:
+  #   url: "http://192.168.29.31/win&{{ states('input_select.wled_effects') }}"
+  # wled_palettes:
+  #   url: "http://192.168.29.31/win&{{ states('input_select.wled_palettes') }}"
+  wled_speed:
+    url: "http://192.168.29.31/win&SX={{ states('input_number.wled_speed') }}"
+  wled_intensity:
+    url: "http://192.168.29.31/win&IX={{ states('input_number.wled_intensity') }}"
+  wled_brightness:
+    url: "http://192.168.29.31/win&A={{ states('input_number.wled_brightness') }}"
+  wled_effect_name:
+    url: "http://192.168.29.31/win&{{ effect_name }}"
+  wled_palette_name:
+    url: "http://192.168.29.31/win&{{ palette_name }}"
 # roku:
   # - host: 192.168.29.77 #Livingroom
   # - host: 192.168.29.14 #Theater
@@ -264,36 +279,36 @@ media_player:
     name: Cinnabon Kodi
     username: !secret my_username
     password: !secret my_password
-  - platform: universal
-    name: Bedroom TV
-    children:
-      - media_player.xbox_one
-    commands:
-      turn_on:
-        service: script.turn_on
-        data:
-          entity_id: script.bedroomtv
-      turn_off:
-        service: script.turn_off
-        data:
-          entity_id: script.bedroomtv
-      volume_up:
-        service: script.turn_on
-        data:
-          entity_id: script.bedvolup
-      volume_down:
-        service: script.turn_on
-        data:
-          entity_id: script.bedvoldown
-      volume_mute:
-        service: script.turn_on
-        data:
-          entity_id: script.bedvolmute
-    select_source:
-      service: media_player.select_source
-      data_template:
-        entity_id: media_player.xbox_one
-        source: '{{ source }}'
+  # - platform: universal
+  #   name: Bedroom TV
+  #   children:
+  #     - media_player.xbox_one
+  #   commands:
+  #     turn_on:
+  #       service: script.turn_on
+  #       data:
+  #         entity_id: script.bedroomtv
+  #     turn_off:
+  #       service: script.turn_off
+  #       data:
+  #         entity_id: script.bedroomtv
+  #     volume_up:
+  #       service: script.turn_on
+  #       data:
+  #         entity_id: script.bedvolup
+  #     volume_down:
+  #       service: script.turn_on
+  #       data:
+  #         entity_id: script.bedvoldown
+  #     volume_mute:
+  #       service: script.turn_on
+  #       data:
+  #         entity_id: script.bedvolmute
+  #   select_source:
+  #     service: media_player.select_source
+  #     data_template:
+  #       entity_id: media_player.xbox_one
+  #       source: '{{ source }}'
   # - platform: universal
   #   name: Livingroom TV
   #   children:
@@ -379,24 +394,30 @@ input_boolean:
   kichnfans:
 
 input_number:
-  new_leds_speed:
-    name: Animation Speed
-    initial: 150
-    min: 1
-    max: 150
-    step: 10
-  animation_speed:
-    name: Animation Speed
-    initial: 150
-    min: 1
-    max: 150
-    step: 10
   alexa_volume:
     name: Alexa Volume
     initial: 0.7
     min: 0.1
     max: 1.0
     step: 0.1
+  wled_speed:
+    name: WLED Speed
+    min: 1
+    max: 255
+    step: 20
+    mode: slider
+  wled_intensity:
+    name: WLED Intensity
+    min: 1
+    max: 255
+    step: 20
+    mode: slider
+  wled_brightness:
+    name: WLED Brightness
+    min: 1
+    max: 255
+    step: 20
+    mode: slider
 
 input_text:
   livingroom_alexa:

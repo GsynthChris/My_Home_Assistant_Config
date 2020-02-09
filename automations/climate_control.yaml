@@ -3,7 +3,6 @@
 ##################################################################################################
   - alias: HVAC No one home Away Mode On
     initial_state: yes
-    hide_entity: no
     trigger:
       - platform: state
         entity_id: binary_sensor.people_home
@@ -26,7 +25,6 @@
 
   - alias: HVAC Somebody home CHILL OUT
     initial_state: yes
-    hide_entity: no
     trigger:
       - platform: state
         entity_id: binary_sensor.people_home
@@ -52,7 +50,6 @@
 
   - alias: HVAC Change Filter Turn On
     initial_state: yes
-    hide_entity: no
     trigger:
       - platform: time
         at: '08:30:00'
@@ -82,7 +79,6 @@
 
   - alias: HVAC Change Filter Notify
     initial_state: no
-    hide_entity: no
     trigger:
       - platform: time
         at: '09:00:00'
@@ -123,7 +119,6 @@
 
   - alias: HVAC Change Filter Turn Off
     initial_state: no
-    hide_entity: no
     trigger:
       - platform: mqtt
         topic: 'cmnd/filterzz/POWER6'
@@ -146,7 +141,6 @@
 
   - alias: Emergency HVAC Shutdown #button on my HVAC that will shut it off, handy for when I need to change the filter
     initial_state: yes
-    hide_entity: no
     trigger:
       - platform: mqtt
         topic: 'cmnd/filterzz/POWER6'

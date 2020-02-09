@@ -1,0 +1,324 @@
+###########################################################################################################
+##############                              WLED Strip Effects                              ###############
+##########         Takes the name from the input selector and turns it into the FX number        ##########
+###########################################################################################################
+
+  - alias: "WLED Effect REST"
+    trigger:
+      platform: state
+      entity_id: input_select.wled_effects_names
+    action:
+      - service: script.turn_on
+        data_template:
+          entity_id: >
+            {%if trigger.to_state.state == 'Solid' %}
+              script.wled_effect_solid
+            {%-elif trigger.to_state.state == 'Blink' %}
+              script.wled_effect_blink
+            {%-elif trigger.to_state.state == 'Breathe' %}
+              script.wled_effect_breath
+            {%-elif trigger.to_state.state == 'Wipe' %}
+              script.wled_effect_wipe
+            {%-elif trigger.to_state.state == 'Wipe Random' %}
+              script.wled_effect_wipe_random
+            {%-elif trigger.to_state.state == 'Random Colors' %}
+              script.wled_effect_random_colors
+            {%-elif trigger.to_state.state == 'Sweep' %}
+              script.wled_effect_sweep
+            {%-elif trigger.to_state.state == 'Dynamic' %}
+              script.wled_effect_dynamic
+            {%-elif trigger.to_state.state == 'Colorloop' %}
+              script.wled_effect_colorloop
+            {%-elif trigger.to_state.state == 'Rainbow' %}
+              script.wled_effect_rainbow
+            {%-elif trigger.to_state.state == 'Scan' %}
+              script.wled_effect_scan
+            {%-elif trigger.to_state.state == 'Scan Dual' %}
+              script.wled_effect_scan_dual
+            {%-elif trigger.to_state.state == 'Fade' %}
+              script.wled_effect_fade
+            {%-elif trigger.to_state.state == 'Theater' %}
+              script.wled_effect_theater
+            {%-elif trigger.to_state.state == 'Theater Rainbow' %}
+              script.wled_effect_theater_rainbow
+            {%-elif trigger.to_state.state == 'Running' %}
+              script.wled_effect_running
+            {%-elif trigger.to_state.state == 'Saw' %}
+              script.wled_effect_saw
+            {%-elif trigger.to_state.state == 'Twinkle' %}
+              script.wled_effect_twinkle
+            {%-elif trigger.to_state.state == 'Dissolve' %}
+              script.wled_effect_dissolve
+            {%-elif trigger.to_state.state == 'Dissolve Rnd' %}
+              script.wled_effect_dissolve_rnd
+            {%-elif trigger.to_state.state == 'Sparkle' %}
+              script.wled_effect_sparkle
+            {%-elif trigger.to_state.state == 'Sparkle Dark' %}
+              script.wled_effect_sparkle_dark
+            {%-elif trigger.to_state.state == 'Sparkle+' %}
+              script.wled_effect_sparkle_plus
+            {%-elif trigger.to_state.state == 'Strobe' %}
+              script.wled_effect_strobe
+            {%-elif trigger.to_state.state == 'Strobe Rainbow' %}
+              script.wled_effect_strobe_rainbow
+            {%-elif trigger.to_state.state == 'Strobe Mega' %}
+              script.wled_effect_strobe_mega
+            {%-elif trigger.to_state.state == 'Blink Rainbow' %}
+              script.wled_effect_blink_rainbow
+            {%-elif trigger.to_state.state == 'Android' %}
+              script.wled_effect_android
+            {%-elif trigger.to_state.state == 'Chase' %}
+              script.wled_effect_chase
+            {%-elif trigger.to_state.state == 'Chase Random' %}
+              script.wled_effect_chase_random
+            {%-elif trigger.to_state.state == 'Chase Rainbow' %}
+              script.wled_effect_chase_rainbow
+            {%-elif trigger.to_state.state == 'Chase Flash' %}
+              script.wled_effect_chase_flash
+            {%-elif trigger.to_state.state == 'Chase Flash Rnd' %}
+              script.wled_effect_chase_flash_rnd
+            {%-elif trigger.to_state.state == 'Rainbow Runner' %}
+              script.wled_effect_rainbow_runner
+            {%-elif trigger.to_state.state == 'Colorful' %}
+              script.wled_effect_colorful
+            {%-elif trigger.to_state.state == 'Traffic Light' %}
+              script.wled_effect_traffic_light
+            {%-elif trigger.to_state.state == 'Sweep Random' %}
+              script.wled_effect_sweep_random
+            {%-elif trigger.to_state.state == 'Running 2' %}
+              script.wled_effect_running_2
+            {%-elif trigger.to_state.state == 'Red & Blue' %}
+              script.wled_effect_red_and_blue
+            {%-elif trigger.to_state.state == 'Stream' %}
+              script.wled_effect_stream
+            {%-elif trigger.to_state.state == 'Scanner' %}
+              script.wled_effect_scanner
+            {%-elif trigger.to_state.state == 'Lighthouse' %}
+              script.wled_effect_lighthouse
+            {%-elif trigger.to_state.state == 'Fireworks' %}
+              script.wled_effect_fireworks
+            {%-elif trigger.to_state.state == 'Rain' %}
+              script.wled_effect_rain
+            {%-elif trigger.to_state.state == 'Merry Christmas' %}
+              script.wled_effect_merry_christmas
+            {%-elif trigger.to_state.state == 'Fire Flicker' %}
+              script.wled_effect_fire_flicker
+            {%-elif trigger.to_state.state == 'Gradient' %}
+              script.wled_effect_gradient
+            {%-elif trigger.to_state.state == 'Loading' %}
+              script.wled_effect_loading
+            {%-elif trigger.to_state.state == 'Police' %}
+              script.wled_effect_police
+            {%-elif trigger.to_state.state == 'Police All' %}
+              script.wled_effect_police_all
+            {%-elif trigger.to_state.state == 'Two Dots' %}
+              script.wled_effect_two_dots
+            {%-elif trigger.to_state.state == 'Two Areas' %}
+              script.wled_effect_two_areas
+            {%-elif trigger.to_state.state == 'Circus' %}
+              script.wled_effect_circus
+            {%-elif trigger.to_state.state == 'Halloween' %}
+              script.wled_effect_halloween
+            {%-elif trigger.to_state.state == 'Tri Chase' %}
+              script.wled_effect_tri_chase
+            {%-elif trigger.to_state.state == 'Tri Wipe' %}
+              script.wled_effect_tri_wipe
+            {%-elif trigger.to_state.state == 'Tri Fade' %}
+              script.wled_effect_tri_fade
+            {%-elif trigger.to_state.state == 'Lightning' %}
+              script.wled_effect_lightning
+            {%-elif trigger.to_state.state == 'ICU' %}
+              script.wled_effect_icu
+            {%-elif trigger.to_state.state == 'Multi Comet' %}
+              script.wled_effect_multi_comet
+            {%-elif trigger.to_state.state == 'Scanner Dual' %}
+              script.wled_effect_scanner_dual
+            {%-elif trigger.to_state.state == 'Stream 2' %}
+              script.wled_effect_stream_2
+            {%-elif trigger.to_state.state == 'Oscillate' %}
+              script.wled_effect_oscillate
+            {%-elif trigger.to_state.state == 'Pride 2015' %}
+              script.wled_effect_pride_2015
+            {%-elif trigger.to_state.state == 'Juggle' %}
+              script.wled_effect_juggle
+            {%-elif trigger.to_state.state == 'Palette' %}
+              script.wled_effect_palette
+            {%-elif trigger.to_state.state == 'Fire 2012' %}
+              script.wled_effect_fire_2012
+            {%-elif trigger.to_state.state == 'Colorwaves' %}
+              script.wled_effect_colorwaves
+            {%-elif trigger.to_state.state == 'Bpm' %}
+              script.wled_effect_bpm
+            {%-elif trigger.to_state.state == 'Fill Noise' %}
+              script.wled_effect_fill_noise
+            {%-elif trigger.to_state.state == 'Noise 1' %}
+              script.wled_effect_noise_1
+            {%-elif trigger.to_state.state == 'Noise 2' %}
+              script.wled_effect_noise_2
+            {%-elif trigger.to_state.state == 'Noise 3' %}
+              script.wled_effect_noise_3
+            {%-elif trigger.to_state.state == 'Noise 4' %}
+              script.wled_effect_noise_4
+            {%-elif trigger.to_state.state == 'Colortwinkles' %}
+              script.wled_effect_colortwinkles
+            {%-elif trigger.to_state.state == 'Lake' %}
+              script.wled_effect_lake
+            {%-elif trigger.to_state.state == 'Meteor' %}
+              script.wled_effect_meteor
+            {%-elif trigger.to_state.state == 'Meteor Smooth' %}
+              script.wled_effect_meteor_smooth
+            {%-elif trigger.to_state.state == 'Railway' %}
+              script.wled_effect_railway
+            {%-elif trigger.to_state.state == 'Ripple' %}
+              script.wled_effect_ripple
+            {%-elif trigger.to_state.state == 'Twinklefox' %}
+              script.wled_effect_twinklefox
+            {%-elif trigger.to_state.state == 'Twinklecat' %}
+              script.wled_effect_twinklecat
+            {%-elif trigger.to_state.state == 'Halloween Eyes' %}
+              script.wled_effect_halloween_eyes
+            {%-elif trigger.to_state.state == 'Solid Pattern' %}
+              script.wled_effect_solid_pattern
+            {%-elif trigger.to_state.state == 'Solid Pattern Tri' %}
+              script.wled_effect_solid_pattern_tri
+            {%-elif trigger.to_state.state == 'Spots' %}
+              script.wled_effect_spots
+            {%-elif trigger.to_state.state == 'Spots Fade' %}
+              script.wled_effect_spots_fade
+            {%-elif trigger.to_state.state == 'Glitter' %}
+              script.wled_effect_glitter
+            {%-elif trigger.to_state.state == 'Candle' %}
+              script.wled_effect_candle
+            {%-elif trigger.to_state.state == 'Fireworks Starburst' %}
+              script.wled_effect_fireworks_starburst
+            {%-elif trigger.to_state.state == 'Fireworks 1D' %}
+              script.wled_effect_fireworks_1d
+            {%-elif trigger.to_state.state == 'Bouncing Balls' %}
+              script.wled_effect_bouncing_balls
+            {%-elif trigger.to_state.state == 'Sinelon' %}
+              script.wled_effect_sinelon
+            {%-elif trigger.to_state.state == 'Sinelon Dual' %}
+              script.wled_effect_sinelon_dual
+            {%-elif trigger.to_state.state == 'Sinelon Rainbow' %}
+              script.wled_effect_sinelon_rainbow
+            {%-elif trigger.to_state.state == 'Popcorn' %}
+              script.wled_effect_popcorn
+            {%-elif trigger.to_state.state == 'Drip' %}
+              script.wled_effect_drip
+            {%-elif trigger.to_state.state == 'Plasma' %}
+              script.wled_effect_plasma
+            {%-elif trigger.to_state.state == 'Percent' %}
+              script.wled_effect_percent
+            {% endif %}
+  - alias: "WLED Palette REST"
+    initial_state: yes
+    trigger:
+      - platform: state
+        entity_id: input_select.wled_palettes
+    action:
+      - service: script.turn_on
+        data_template:
+          entity_id: >
+            {%if trigger.to_state.state == 'Default' %}
+              script.wled_palette_default
+            {%-elif trigger.to_state.state == 'Random Cycle' %}
+              script.wled_palette_random_cycle
+            {%-elif trigger.to_state.state == 'Primary Color' %}
+              script.wled_palette_primary_color
+            {%-elif trigger.to_state.state == 'Based on Primary' %}
+              script.wled_palette_based_on_primary
+            {%-elif trigger.to_state.state == 'Set Colors' %}
+              script.wled_palette_set_colors
+            {%-elif trigger.to_state.state == 'Based on Set' %}
+              script.wled_palette_based_on_set
+            {%-elif trigger.to_state.state == 'Party' %}
+              script.wled_palette_party
+            {%-elif trigger.to_state.state == 'Cloud' %}
+              script.wled_palette_cloud
+            {%-elif trigger.to_state.state == 'Lava' %}
+              script.wled_palette_lava
+            {%-elif trigger.to_state.state == 'Ocean' %}
+              script.wled_palette_ocean
+            {%-elif trigger.to_state.state == 'Forest' %}
+              script.wled_palette_forest
+            {%-elif trigger.to_state.state == 'Rainbow' %}
+              script.wled_palette_rainbow
+            {%-elif trigger.to_state.state == 'Rainbow Bands' %}
+              script.wled_palette_rainbow_bands
+            {%-elif trigger.to_state.state == 'Sunset' %}
+              script.wled_palette_sunset
+            {%-elif trigger.to_state.state == 'Rivendell' %}
+              script.wled_palette_rivendell
+            {%-elif trigger.to_state.state == 'Breeze' %}
+              script.wled_palette_breeze
+            {%-elif trigger.to_state.state == 'Red & Blue' %}
+              script.wled_palette_red_and_blue
+            {%-elif trigger.to_state.state == 'Yellowout' %}
+              script.wled_palette_yellowout
+            {%-elif trigger.to_state.state == 'Analogous' %}
+              script.wled_palette_analogous
+            {%-elif trigger.to_state.state == 'Splash' %}
+              script.wled_palette_splash
+            {%-elif trigger.to_state.state == 'Pastel' %}
+              script.wled_palette_pastel
+            {%-elif trigger.to_state.state == 'Sunset 2' %}
+              script.wled_palette_sunset_2
+            {%-elif trigger.to_state.state == 'Beech' %}
+              script.wled_palette_beech
+            {%-elif trigger.to_state.state == 'Vintage' %}
+              script.wled_palette_vintage
+            {%-elif trigger.to_state.state == 'Departure' %}
+              script.wled_palette_departure
+            {%-elif trigger.to_state.state == 'Landscape' %}
+              script.wled_palette_landscaping
+            {%-elif trigger.to_state.state == 'Beach' %}
+              script.wled_palette_beach
+            {%-elif trigger.to_state.state == 'Sherbet' %}
+              script.wled_palette_sherbet
+            {%-elif trigger.to_state.state == 'Hult' %}
+              script.wled_palette_hult
+            {%-elif trigger.to_state.state == 'Hult 64' %}
+              script.wled_palette_hult_64
+            {%-elif trigger.to_state.state == 'Drywet' %}
+              script.wled_palette_drywet
+            {%-elif trigger.to_state.state == 'Jul' %}
+              script.wled_palette_jul
+            {%-elif trigger.to_state.state == 'Grintage' %}
+              script.wled_palette_grintage
+            {%-elif trigger.to_state.state == 'Rewhi' %}
+              script.wled_palette_rewhi
+            {%-elif trigger.to_state.state == 'Tertiary' %}
+              script.wled_palette_tertiary
+            {%-elif trigger.to_state.state == 'Fire' %}
+              script.wled_palette_fire
+            {%-elif trigger.to_state.state == 'Icefire' %}
+              script.wled_palette_icefire
+            {%-elif trigger.to_state.state == 'Cyane' %}
+              script.wled_palette_cyne
+            {%-elif trigger.to_state.state == 'Light Pink' %}
+              script.wled_palette_light_pink
+            {%-elif trigger.to_state.state == 'Autumn' %}
+              script.wled_palette_autumn
+            {%-elif trigger.to_state.state == 'Magenta' %}
+              script.wled_palette_magenta
+            {%-elif trigger.to_state.state == 'Magred' %}
+              script.wled_palette_magred
+            {%-elif trigger.to_state.state == 'Yelmag' %}
+              script.wled_palette_yelmag
+            {%-elif trigger.to_state.state == 'Yelblu' %}
+              script.wled_palette_yelblu
+            {%-elif trigger.to_state.state == 'Orange & Teal' %}
+              script.wled_palette_orange_and_teal
+            {%-elif trigger.to_state.state == 'Tiamat' %}
+              script.wled_palette_tiamat
+            {%-elif trigger.to_state.state == 'April Night' %}
+              script.wled_palette_april_night
+            {%-elif trigger.to_state.state == 'Orangery' %}
+              script.wled_palette_orangery
+            {%-elif trigger.to_state.state == 'C9' %}
+              script.wled_palette_c9
+            {%-elif trigger.to_state.state == 'Sakura' %}
+              script.wled_palette_sakura
+            {%-elif trigger.to_state.state == 'Aurora' %}
+              script.wled_palette_aurora
+            {% endif %}

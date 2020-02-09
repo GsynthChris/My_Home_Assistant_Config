@@ -8,7 +8,6 @@
 # Power1 HOLD
   - alias: Bedroom Buttons Hold1 BEDROOM TOGGLE
     initial_state: yes
-    hide_entity: yes
     trigger:
     - platform: mqtt
       topic: 'cmnd/bedroomremote/POWER1'
@@ -19,7 +18,6 @@
 
   - alias: Bedroom Boolean Toggle ON
     initial_state: yes
-    hide_entity: yes
     trigger:
       - platform: state
         entity_id: input_boolean.bedroom_toggle
@@ -39,7 +37,6 @@
 
   - alias: Bedroom Boolean Toggle OFF
     initial_state: yes
-    hide_entity: yes
     trigger:
       - platform: state
         entity_id: input_boolean.bedroom_toggle
@@ -60,7 +57,6 @@
 # Power2 HOLD
   - alias: Bedroom Buttons Hold2 KITCHEN TOGGLE
     initial_state: yes
-    hide_entity: yes
     trigger:
     - platform: mqtt
       topic: 'cmnd/bedroomremote/POWER2'
@@ -71,7 +67,6 @@
 
   - alias: Kitchen Boolean toggle on
     initial_state: yes
-    hide_entity: yes
     trigger:
       - platform: state
         entity_id: input_boolean.kitchen_toggle
@@ -89,7 +84,6 @@
 
   - alias: Kitchen Boolean toggle off
     initial_state: yes
-    hide_entity: yes
     trigger:
       - platform: state
         entity_id: input_boolean.kitchen_toggle
@@ -110,7 +104,6 @@
 # Power4 HOLD
   - alias: Bedroom Buttons Hold4 NIGHT LIGHT ON
     initial_state: yes
-    hide_entity: yes
     trigger:
     - platform: mqtt
       topic: 'cmnd/bedroomremote/POWER4'
@@ -124,7 +117,6 @@
 # Power1
   - alias: Bedroom Buttons Ceiling Light
     initial_state: yes
-    hide_entity: yes
     trigger:
     - platform: mqtt
       topic: 'cmnd/bedroomremote/POWER1'
@@ -136,7 +128,6 @@
 # Power2
   - alias: Bedroom Buttons Ceiling Fan
     initial_state: yes
-    hide_entity: yes
     trigger:
     - platform: mqtt
       topic: 'cmnd/bedroomremote/POWER2'
@@ -148,7 +139,6 @@
 # Power3
   - alias: Bedroom Buttons Dresser light
     initial_state: yes
-    hide_entity: yes
     trigger:
     - platform: mqtt
       topic: 'cmnd/bedroomremote/POWER3'
@@ -160,7 +150,6 @@
 # Power4
   - alias: Bedroom Buttons Bedside table
     initial_state: yes
-    hide_entity: yes
     trigger:
     - platform: mqtt
       topic: 'cmnd/bedroomremote/POWER4'
@@ -174,7 +163,6 @@
 ###########################################################################################################
   - alias: Kitchen sink button
     initial_state: yes
-    hide_entity: yes
     trigger:
     - platform: mqtt
       topic: 'cmnd/undercabinet/POWER2'
@@ -187,7 +175,6 @@
 ###########################################################################################################
   - alias: Bedroom Buttons Ceiling Light
     initial_state: yes
-    hide_entity: yes
     trigger:
       - platform: mqtt
         topic: 'cmnd/office/POWER2'
@@ -198,7 +185,6 @@
 
   - alias: Office Button toggle
     initial_state: yes
-    hide_entity: yes
     trigger:
       - platform: mqtt
         topic: 'cmnd/office/POWER2'
@@ -209,7 +195,6 @@
 
   - alias: Office Boolean toggle on
     initial_state: yes
-    hide_entity: yes
     trigger:
       - platform: state
         entity_id: input_boolean.office_toggle
@@ -221,7 +206,6 @@
 
   - alias: Office Boolean toggle off
     initial_state: yes
-    hide_entity: yes
     trigger:
       - platform: state
         entity_id: input_boolean.office_toggle
@@ -233,7 +217,6 @@
 
   - alias: Office Boolean Desk Button on
     initial_state: yes
-    hide_entity: yes
     trigger:
       - platform: state
         entity_id: binary_sensor.office_on_off
@@ -245,7 +228,6 @@
 
   - alias: Office Boolean Desk Button off
     initial_state: yes
-    hide_entity: yes
     trigger:
       - platform: state
         entity_id: binary_sensor.office_on_off
@@ -260,7 +242,6 @@
 ###########################################################################################################
   - alias: Studio Multisensor Button ON
     initial_state: yes
-    hide_entity: yes
     trigger:
     - platform: mqtt
       topic: 'cmnd/studiomultisensor/POWER1'
@@ -271,7 +252,6 @@
 
   - alias: Studio Multisensor Button OFF
     initial_state: yes
-    hide_entity: yes
     trigger:
     - platform: mqtt
       topic: 'cmnd/studiomultisensor/POWER1'

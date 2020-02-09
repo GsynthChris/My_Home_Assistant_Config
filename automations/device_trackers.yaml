@@ -6,7 +6,6 @@
 
   - alias: Lizz's Birthday # A once a year boost to the WAF factor
     initial_state: yes
-    hide_entity: yes
     trigger:
       - platform: time
         at: '11:00:00'
@@ -52,7 +51,6 @@
 
   - alias: 'Lizz Near Home!!!'
     initial_state: yes
-    hide_entity: yes
     trigger:
       - platform: zone
         event: enter
@@ -73,7 +71,6 @@
 
   - alias: 'Welcome Home Lizz!!!'
     initial_state: yes
-    hide_entity: yes
     trigger:
       - platform: zone
         event: enter
@@ -110,7 +107,6 @@
 
   - alias: 'Welcome Home Zach'
     initial_state: yes
-    hide_entity: yes
     trigger:
       - platform: state
         entity_id: device_tracker.zach_iphone
@@ -128,7 +124,6 @@
 
   - alias: 'Zach Near Home!!!'
     initial_state: yes
-    hide_entity: yes
     trigger:
       - platform: zone
         event: enter
@@ -142,7 +137,6 @@
 
   - alias: 'Goodbye Zach'
     initial_state: yes
-    hide_entity: yes
     trigger:
       - platform: state
         entity_id: device_tracker.zach_iphone
@@ -255,7 +249,6 @@
 
   - alias: 'Turn on Computer when chris is home'
     initial_state: yes
-    hide_entity: yes
     trigger:
       - platform: state
         entity_id: device_tracker.skidata_iphone
@@ -285,7 +278,6 @@
 
   - alias: 'Turn off Computer when chris is not home'
     initial_state: yes
-    hide_entity: yes
     trigger:
       - platform: state
         entity_id: device_tracker.skidata_iphone

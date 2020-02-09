@@ -1,0 +1,758 @@
+################################################################################################################
+#######################                    WLED Effects REST Commands                    #######################
+##################                    Translates Effect names to FX numbers                    #################
+################################################################################################################
+wled_effect_solid:
+  sequence:
+    service: rest_command.wled_effect_name
+    data:
+      effect_name: "FX=1"
+wled_effect_blink:
+  sequence:
+    service: rest_command.wled_effect_name
+    data:
+      effect_name: "FX=2"
+wled_effect_breath:
+  sequence:
+    service: rest_command.wled_effect_name
+    data:
+      effect_name: "FX=3"
+wled_effect_wipe:
+  sequence:
+    service: rest_command.wled_effect_name
+    data:
+      effect_name: "FX=4"
+wled_effect_wipe_random:
+  sequence:
+    service: rest_command.wled_effect_name
+    data:
+      effect_name: "FX=5"
+wled_effect_random_colors:
+  sequence:
+    service: rest_command.wled_effect_name
+    data:
+      effect_name: "FX=6"
+wled_effect_sweep:
+  sequence:
+    service: rest_command.wled_effect_name
+    data:
+      effect_name: "FX=7"
+wled_effect_dynamic:
+  sequence:
+    service: rest_command.wled_effect_name
+    data:
+      effect_name: "FX=8"
+wled_effect_colorloop:
+  sequence:
+    service: rest_command.wled_effect_name
+    data:
+      effect_name: "FX=9"
+wled_effect_rainbow:
+  sequence:
+    service: rest_command.wled_effect_name
+    data:
+      effect_name: "FX=10"
+wled_effect_scan:
+  sequence:
+    service: rest_command.wled_effect_name
+    data:
+      effect_name: "FX=11"
+wled_effect_scan_dual:
+  sequence:
+    service: rest_command.wled_effect_name
+    data:
+      effect_name: "FX=12"
+wled_effect_fade:
+  sequence:
+    service: rest_command.wled_effect_name
+    data:
+      effect_name: "FX=13"
+wled_effect_theater:
+  sequence:
+    service: rest_command.wled_effect_name
+    data:
+      effect_name: "FX=14"
+wled_effect_theater_rainbow:
+  sequence:
+    service: rest_command.wled_effect_name
+    data:
+      effect_name: "FX=15"
+wled_effect_running:
+  sequence:
+    service: rest_command.wled_effect_name
+    data:
+      effect_name: "FX=16"
+wled_effect_saw:
+  sequence:
+    service: rest_command.wled_effect_name
+    data:
+      effect_name: "FX=17"
+wled_effect_twinkle:
+  sequence:
+    service: rest_command.wled_effect_name
+    data:
+      effect_name: "FX=18"
+wled_effect_dissolve:
+  sequence:
+    service: rest_command.wled_effect_name
+    data:
+      effect_name: "FX=19"
+wled_effect_dissolve_rnd:
+  sequence:
+    service: rest_command.wled_effect_name
+    data:
+      effect_name: "FX=20"
+wled_effect_sparkle:
+  sequence:
+    service: rest_command.wled_effect_name
+    data:
+      effect_name: "FX=21"
+wled_effect_sparkle_dark:
+  sequence:
+    service: rest_command.wled_effect_name
+    data:
+      effect_name: "FX=22"
+wled_effect_sparkle_plus:
+  sequence:
+    service: rest_command.wled_effect_name
+    data:
+      effect_name: "FX=23"
+wled_effect_strobe:
+  sequence:
+    service: rest_command.wled_effect_name
+    data:
+      effect_name: "FX=24"
+wled_effect_strobe_rainbow:
+  sequence:
+    service: rest_command.wled_effect_name
+    data:
+      effect_name: "FX=25"
+wled_effect_strobe_mega:
+  sequence:
+    service: rest_command.wled_effect_name
+    data:
+      effect_name: "FX=26"
+wled_effect_blink_rainbow:
+  sequence:
+    service: rest_command.wled_effect_name
+    data:
+      effect_name: "FX=27"
+wled_effect_android:
+  sequence:
+    service: rest_command.wled_effect_name
+    data:
+      effect_name: "FX=28"
+wled_effect_chase:
+  sequence:
+    service: rest_command.wled_effect_name
+    data:
+      effect_name: "FX=29"
+wled_effect_chase_random:
+  sequence:
+    service: rest_command.wled_effect_name
+    data:
+      effect_name: "FX=30"
+wled_effect_chase_rainbow:
+  sequence:
+    service: rest_command.wled_effect_name
+    data:
+      effect_name: "FX=31"
+wled_effect_chase_flash:
+  sequence:
+    service: rest_command.wled_effect_name
+    data:
+      effect_name: "FX=32"
+wled_effect_chase_flash_rnd:
+  sequence:
+    service: rest_command.wled_effect_name
+    data:
+      effect_name: "FX=33"
+wled_effect_rainbow_runner:
+  sequence:
+    service: rest_command.wled_effect_name
+    data:
+      effect_name: "FX=34"
+wled_effect_colorful:
+  sequence:
+    service: rest_command.wled_effect_name
+    data:
+      effect_name: "FX=35"
+wled_effect_traffic_light:
+  sequence:
+    service: rest_command.wled_effect_name
+    data:
+      effect_name: "FX=36"
+wled_effect_sweep_random:
+  sequence:
+    service: rest_command.wled_effect_name
+    data:
+      effect_name: "FX=37"
+wled_effect_running_2:
+  sequence:
+    service: rest_command.wled_effect_name
+    data:
+      effect_name: "FX=38"
+wled_effect_red_and_blue:
+  sequence:
+    service: rest_command.wled_effect_name
+    data:
+      effect_name: "FX=39"
+wled_effect_stream:
+  sequence:
+    service: rest_command.wled_effect_name
+    data:
+      effect_name: "FX=40"
+wled_effect_scanner:
+  sequence:
+    service: rest_command.wled_effect_name
+    data:
+      effect_name: "FX=41"
+wled_effect_lighthouse:
+  sequence:
+    service: rest_command.wled_effect_name
+    data:
+      effect_name: "FX=42"
+wled_effect_fireworks:
+  sequence:
+    service: rest_command.wled_effect_name
+    data:
+      effect_name: "FX=43"
+wled_effect_rain:
+  sequence:
+    service: rest_command.wled_effect_name
+    data:
+      effect_name: "FX=44"
+wled_effect_merry_christmas:
+  sequence:
+    service: rest_command.wled_effect_name
+    data:
+      effect_name: "FX=45"
+wled_effect_fire_flicker:
+  sequence:
+    service: rest_command.wled_effect_name
+    data:
+      effect_name: "FX=46"
+wled_effect_gradient:
+  sequence:
+    service: rest_command.wled_effect_name
+    data:
+      effect_name: "FX=47"
+wled_effect_loading:
+  sequence:
+    service: rest_command.wled_effect_name
+    data:
+      effect_name: "FX=48"
+wled_effect_police:
+  sequence:
+    service: rest_command.wled_effect_name
+    data:
+      effect_name: "FX=49"
+wled_effect_police_all:
+  sequence:
+    service: rest_command.wled_effect_name
+    data:
+      effect_name: "FX=50"
+wled_effect_two_dots:
+  sequence:
+    service: rest_command.wled_effect_name
+    data:
+      effect_name: "FX=51"
+wled_effect_two_areas:
+  sequence:
+    service: rest_command.wled_effect_name
+    data:
+      effect_name: "FX=52"
+wled_effect_circus:
+  sequence:
+    service: rest_command.wled_effect_name
+    data:
+      effect_name: "FX=53"
+wled_effect_halloween:
+  sequence:
+    service: rest_command.wled_effect_name
+    data:
+      effect_name: "FX=54"
+wled_effect_tri_chase:
+  sequence:
+    service: rest_command.wled_effect_name
+    data:
+      effect_name: "FX=55"
+wled_effect_tri_wipe:
+  sequence:
+    service: rest_command.wled_effect_name
+    data:
+      effect_name: "FX=56"
+wled_effect_tri_fade:
+  sequence:
+    service: rest_command.wled_effect_name
+    data:
+      effect_name: "FX=57"
+wled_effect_lightning:
+  sequence:
+    service: rest_command.wled_effect_name
+    data:
+      effect_name: "FX=58"
+wled_effect_icu:
+  sequence:
+    service: rest_command.wled_effect_name
+    data:
+      effect_name: "FX=59"
+wled_effect_multi_comet:
+  sequence:
+    service: rest_command.wled_effect_name
+    data:
+      effect_name: "FX=60"
+wled_effect_scanner_dual:
+  sequence:
+    service: rest_command.wled_effect_name
+    data:
+      effect_name: "FX=61"
+wled_effect_stream_2:
+  sequence:
+    service: rest_command.wled_effect_name
+    data:
+      effect_name: "FX=62"
+wled_effect_oscillate:
+  sequence:
+    service: rest_command.wled_effect_name
+    data:
+      effect_name: "FX=63"
+wled_effect_pride_2015:
+  sequence:
+    service: rest_command.wled_effect_name
+    data:
+      effect_name: "FX=64"
+wled_effect_juggle:
+  sequence:
+    service: rest_command.wled_effect_name
+    data:
+      effect_name: "FX=65"
+wled_effect_palette:
+  sequence:
+    service: rest_command.wled_effect_name
+    data:
+      effect_name: "FX=66"
+wled_effect_fire_2012:
+  sequence:
+    service: rest_command.wled_effect_name
+    data:
+      effect_name: "FX=67"
+wled_effect_colorwaves:
+  sequence:
+    service: rest_command.wled_effect_name
+    data:
+      effect_name: "FX=68"
+wled_effect_bpm:
+  sequence:
+    service: rest_command.wled_effect_name
+    data:
+      effect_name: "FX=69"
+wled_effect_fill_noise:
+  sequence:
+    service: rest_command.wled_effect_name
+    data:
+      effect_name: "FX=70"
+wled_effect_noise_1:
+  sequence:
+    service: rest_command.wled_effect_name
+    data:
+      effect_name: "FX=71"
+wled_effect_noise_2:
+  sequence:
+    service: rest_command.wled_effect_name
+    data:
+      effect_name: "FX=72"
+wled_effect_noise_3:
+  sequence:
+    service: rest_command.wled_effect_name
+    data:
+      effect_name: "FX=73"
+wled_effect_noise_4:
+  sequence:
+    service: rest_command.wled_effect_name
+    data:
+      effect_name: "FX=74"
+wled_effect_colortwinkles:
+  sequence:
+    service: rest_command.wled_effect_name
+    data:
+      effect_name: "FX=75"
+wled_effect_lake:
+  sequence:
+    service: rest_command.wled_effect_name
+    data:
+      effect_name: "FX=76"
+wled_effect_meteor:
+  sequence:
+    service: rest_command.wled_effect_name
+    data:
+      effect_name: "FX=77"
+wled_effect_meteor_smooth:
+  sequence:
+    service: rest_command.wled_effect_name
+    data:
+      effect_name: "FX=78"
+wled_effect_railway:
+  sequence:
+    service: rest_command.wled_effect_name
+    data:
+      effect_name: "FX=79"
+wled_effect_ripple:
+  sequence:
+    service: rest_command.wled_effect_name
+    data:
+      effect_name: "FX=80"
+wled_effect_twinklefox:
+  sequence:
+    service: rest_command.wled_effect_name
+    data:
+      effect_name: "FX=81"
+wled_effect_twinklecat:
+  sequence:
+    service: rest_command.wled_effect_name
+    data:
+      effect_name: "FX=82"
+wled_effect_halloween_eyes:
+  sequence:
+    service: rest_command.wled_effect_name
+    data:
+      effect_name: "FX=83"
+wled_effect_solid_pattern:
+  sequence:
+    service: rest_command.wled_effect_name
+    data:
+      effect_name: "FX=84"
+wled_effect_solid_pattern_tri:
+  sequence:
+    service: rest_command.wled_effect_name
+    data:
+      effect_name: "FX=85"
+wled_effect_spots:
+  sequence:
+    service: rest_command.wled_effect_name
+    data:
+      effect_name: "FX=86"
+wled_effect_spots_fade:
+  sequence:
+    service: rest_command.wled_effect_name
+    data:
+      effect_name: "FX=87"
+wled_effect_glitter:
+  sequence:
+    service: rest_command.wled_effect_name
+    data:
+      effect_name: "FX=88"
+wled_effect_candle:
+  sequence:
+    service: rest_command.wled_effect_name
+    data:
+      effect_name: "FX=89"
+wled_effect_fireworks_starburst:
+  sequence:
+    service: rest_command.wled_effect_name
+    data:
+      effect_name: "FX=90"
+wled_effect_fireworks_1d:
+  sequence:
+    service: rest_command.wled_effect_name
+    data:
+      effect_name: "FX=91"
+wled_effect_bouncing_balls:
+  sequence:
+    service: rest_command.wled_effect_name
+    data:
+      effect_name: "FX=92"
+wled_effect_sinelon:
+  sequence:
+    service: rest_command.wled_effect_name
+    data:
+      effect_name: "FX=93"
+wled_effect_sinelon_dual:
+  sequence:
+    service: rest_command.wled_effect_name
+    data:
+      effect_name: "FX=94"
+wled_effect_sinelon_rainbow:
+  sequence:
+    service: rest_command.wled_effect_name
+    data:
+      effect_name: "FX=95"
+wled_effect_popcorn:
+  sequence:
+    service: rest_command.wled_effect_name
+    data:
+      effect_name: "FX=96"
+wled_effect_drip:
+  sequence:
+    service: rest_command.wled_effect_name
+    data:
+      effect_name: "FX=97"
+wled_effect_plasma:
+  sequence:
+    service: rest_command.wled_effect_name
+    data:
+      effect_name: "FX=98"
+wled_effect_percent:
+  sequence:
+    service: rest_command.wled_effect_name
+    data:
+      effect_name: "FX=99"
+################################################################################################################
+#######################                    WLED Palette REST Commands                    #######################
+#################                    Translates Palette names to FP numbers                    #################
+################################################################################################################
+wled_palette_default:
+  sequence:
+    service: rest_command.wled_palette_name
+    data:
+      palette_name: "FP=1"
+wled_palette_random_cycle:
+  sequence:
+    service: rest_command.wled_palette_name
+    data:
+      palette_name: "FP=2"
+wled_palette_primary_color:
+  sequence:
+    service: rest_command.wled_palette_name
+    data:
+      palette_name: "FP=3"
+wled_palette_based_on_primary:
+  sequence:
+    service: rest_command.wled_palette_name
+    data:
+      palette_name: "FP=4"
+wled_palette_set_colors:
+  sequence:
+    service: rest_command.wled_palette_name
+    data:
+      palette_name: "FP=5"
+wled_palette_based_on_set:
+  sequence:
+    service: rest_command.wled_palette_name
+    data:
+      palette_name: "FP=6"
+wled_palette_party:
+  sequence:
+    service: rest_command.wled_palette_name
+    data:
+      palette_name: "FP=7"
+wled_palette_cloud:
+  sequence:
+    service: rest_command.wled_palette_name
+    data:
+      palette_name: "FP=8"
+wled_palette_lava:
+  sequence:
+    service: rest_command.wled_palette_name
+    data:
+      palette_name: "FP=9"
+wled_palette_ocean:
+  sequence:
+    service: rest_command.wled_palette_name
+    data:
+      palette_name: "FP=10"
+wled_palette_forest:
+  sequence:
+    service: rest_command.wled_palette_name
+    data:
+      palette_name: "FP=11"
+wled_palette_rainbow:
+  sequence:
+    service: rest_command.wled_palette_name
+    data:
+      palette_name: "FP=12"
+wled_palette_rainbow_bands:
+  sequence:
+    service: rest_command.wled_palette_name
+    data:
+      palette_name: "FP=13"
+wled_palette_sunset:
+  sequence:
+    service: rest_command.wled_palette_name
+    data:
+      palette_name: "FP=14"
+wled_palette_rivendell:
+  sequence:
+    service: rest_command.wled_palette_name
+    data:
+      palette_name: "FP=15"
+wled_palette_breeze:
+  sequence:
+    service: rest_command.wled_palette_name
+    data:
+      palette_name: "FP=16"
+wled_palette_red_and_blue:
+  sequence:
+    service: rest_command.wled_palette_name
+    data:
+      palette_name: "FP=17"
+wled_palette_yellowout:
+  sequence:
+    service: rest_command.wled_palette_name
+    data:
+      palette_name: "FP=18"
+wled_palette_analogous:
+  sequence:
+    service: rest_command.wled_palette_name
+    data:
+      palette_name: "FP=19"
+wled_palette_splash:
+  sequence:
+    service: rest_command.wled_palette_name
+    data:
+      palette_name: "FP=20"
+wled_palette_pastel:
+  sequence:
+    service: rest_command.wled_palette_name
+    data:
+      palette_name: "FP=21"
+wled_palette_sunset_2:
+  sequence:
+    service: rest_command.wled_palette_name
+    data:
+      palette_name: "FP=22"
+wled_palette_beech:
+  sequence:
+    service: rest_command.wled_palette_name
+    data:
+      palette_name: "FP=23"
+wled_palette_vintage:
+  sequence:
+    service: rest_command.wled_palette_name
+    data:
+      palette_name: "FP=24"
+wled_palette_departure:
+  sequence:
+    service: rest_command.wled_palette_name
+    data:
+      palette_name: "FP=25"
+wled_palette_landscaping:
+  sequence:
+    service: rest_command.wled_palette_name
+    data:
+      palette_name: "FP=26"
+wled_palette_beach:
+  sequence:
+    service: rest_command.wled_palette_name
+    data:
+      palette_name: "FP=27"
+wled_palette_sherbet:
+  sequence:
+    service: rest_command.wled_palette_name
+    data:
+      palette_name: "FP=28"
+wled_palette_hult:
+  sequence:
+    service: rest_command.wled_palette_name
+    data:
+      palette_name: "FP=29"
+wled_palette_hult_64:
+  sequence:
+    service: rest_command.wled_palette_name
+    data:
+      palette_name: "FP=30"
+wled_palette_drywet:
+  sequence:
+    service: rest_command.wled_palette_name
+    data:
+      palette_name: "FP=31"
+wled_palette_jul:
+  sequence:
+    service: rest_command.wled_palette_name
+    data:
+      palette_name: "FP=32"
+wled_palette_grintage:
+  sequence:
+    service: rest_command.wled_palette_name
+    data:
+      palette_name: "FP=33"
+wled_palette_rewhi:
+  sequence:
+    service: rest_command.wled_palette_name
+    data:
+      palette_name: "FP=34"
+wled_palette_tertiary:
+  sequence:
+    service: rest_command.wled_palette_name
+    data:
+      palette_name: "FP=35"
+wled_palette_fire:
+  sequence:
+    service: rest_command.wled_palette_name
+    data:
+      palette_name: "FP=36"
+wled_palette_icefire:
+  sequence:
+    service: rest_command.wled_palette_name
+    data:
+      palette_name: "FP=37"
+wled_palette_cyne:
+  sequence:
+    service: rest_command.wled_palette_name
+    data:
+      palette_name: "FP=38"
+wled_palette_light_pink:
+  sequence:
+    service: rest_command.wled_palette_name
+    data:
+      palette_name: "FP=39"
+wled_palette_autumn:
+  sequence:
+    service: rest_command.wled_palette_name
+    data:
+      palette_name: "FP=40"
+wled_palette_magenta:
+  sequence:
+    service: rest_command.wled_palette_name
+    data:
+      palette_name: "FP=41"
+wled_palette_magred:
+  sequence:
+    service: rest_command.wled_palette_name
+    data:
+      palette_name: "FP=42"
+wled_palette_yelmag:
+  sequence:
+    service: rest_command.wled_palette_name
+    data:
+      palette_name: "FP=43"
+wled_palette_yelblu:
+  sequence:
+    service: rest_command.wled_palette_name
+    data:
+      palette_name: "FP=44"
+wled_palette_orange_and_teal:
+  sequence:
+    service: rest_command.wled_palette_name
+    data:
+      palette_name: "FP=45"
+wled_palette_tiamat:
+  sequence:
+    service: rest_command.wled_palette_name
+    data:
+      palette_name: "FP=46"
+wled_palette_april_night:
+  sequence:
+    service: rest_command.wled_palette_name
+    data:
+      palette_name: "FP=47"
+wled_palette_orangery:
+  sequence:
+    service: rest_command.wled_palette_name
+    data:
+      palette_name: "FP=48"
+wled_palette_c9:
+  sequence:
+    service: rest_command.wled_palette_name
+    data:
+      palette_name: "FP=49"
+wled_palette_sakura:
+  sequence:
+    service: rest_command.wled_palette_name
+    data:
+      palette_name: "FP=50"
+wled_palette_aurora:
+  sequence:
+    service: rest_command.wled_palette_name
+    data:
+      palette_name: "FP=51"
