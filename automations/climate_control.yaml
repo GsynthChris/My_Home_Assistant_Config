@@ -11,18 +11,14 @@
         for:
           minutes: 10
     action: 
-      - service: climate.set_away_mode
+      - service: climate.set_preset_mode
         data:
-          entity_id: climate.house_thermostat
-          away_mode: 'on'
-      - service: climate.set_away_mode
+          entity_id: climate.thermostat
+          preset_mode: 'away'
+      - service: climate.set_preset_mode
         data:
-          entity_id: climate.bedroom_thermostat
-          away_mode: 'on'
-      - service: climate.set_away_mode
-        data:
-          entity_id: climate.kitchen_thermostat
-          away_mode: 'on'
+          entity_id: climate.bedroom_heater
+          preset_mode: 'away'
       # - service: climate.set_temperature
       #   data:
       #     entity_id: climate.window_ac
@@ -36,18 +32,14 @@
         entity_id: binary_sensor.people_home
         to: 'on'
     action: 
-      - service: climate.set_away_mode
+      - service: climate.set_preset_mode
         data:
-          entity_id: climate.house_thermostat
-          away_mode: 'off'
-      - service: climate.set_away_mode
+          entity_id: climate.thermostat
+          preset_mode: 'none'
+      - service: climate.set_preset_mode
         data:
-          entity_id: climate.bedroom_thermostat
-          away_mode: 'off'
-      - service: climate.set_away_mode
-        data:
-          entity_id: climate.kitchen_thermostat
-          away_mode: 'off'
+          entity_id: climate.bedroom_heater
+          preset_mode: 'none'
       # - service: climate.set_temperature
       #   data:
       #     entity_id: climate.window_ac
@@ -117,14 +109,14 @@
       - service: switch.turn_on
         data:
           entity_id: switch.hvac_filterled
-      - service: notify.ios_skidata_iphone_7_plus
+      - service: notify.mobile_app_chris_skidata_iphone
         data:
           title: "Change HVAC Filter"
           message: "Please change the filter and press the button"
       - service: automation.turn_on
         data:
           entity_id: automation.hvac_change_filter_turn_on        
-      - service: notify.ios_zach_iphone
+      - service: notify.mobile_app_zach_iphone
         data:
           title: "Change HVAC Filter"
           message: "If you don't mind, can you please change the air conditioner filter and press the red button on top of the AC next to the blue LED"
@@ -143,11 +135,11 @@
       - service: switch.turn_off
         data:
           entity_id: switch.hvac_filterled
-      - service: notify.ios_skidata_iphone_7_plus
+      - service: notify.mobile_app_chris_skidata_iphone
         data:
           title: "HVAC Filter Changed"
           message: "The HVAC filter has been changed!"
-      - service: notify.ios_zach_iphone
+      - service: notify.mobile_app_zach_iphone
         data:
           title: "HVAC Filter Changed"
           message: "The HVAC filter has been changed!"
@@ -169,7 +161,7 @@
       - service: switch.turn_off
         data:
           entity_id: switch.hvac_ac
-      - service: notify.ios_skidata_iphone_7_plus
+      - service: notify.mobile_app_chris_skidata_iphone
         data:
           title: "HVAC FORCED SHUTDOWN"
           message: "The HVAC has been shutoff with the emergency off button"
@@ -183,8 +175,8 @@
     action:
       - service: climate.set_temperature
         data_template:
-          entity_id: climate.house_thermostat
-          temperature: "{{ (state_attr('climate.house_thermostat', 'temperature')|round(0)) + 1 }}"
+          entity_id: climate.thermostat
+          temperature: "{{ (state_attr('climate.thermostat', 'temperature')|round(0)) + 1 }}"
 
   - alias: 'AC Temp down one' #button is on a D1Mini in my office
     trigger:
@@ -195,30 +187,38 @@
     action:
       - service: climate.set_temperature
         data_template:
-          entity_id: climate.house_thermostat
-          temperature: "{{ (state_attr('climate.house_thermostat', 'temperature')|round(0)) - 1 }}"
+          entity_id: climate.thermostat
+          temperature: "{{ (state_attr('climate.thermostat', 'temperature')|round(0)) - 1 }}"
 
 
 
-
-  - alias: 'Bedroom heater spacer' #sets bedroom radiator lower than bedroom fans to keep from heating while trying to cool
+  - alias: 'Bedroom Thermostat Match House'
     trigger:
       - platform: state
-        entity_id: sensor.bedroomthermostatsetting
+        entity_id: sensor.thermostatsetting
     action:
       - service: climate.set_temperature
         data_template:
           entity_id: climate.bedroom_heater
-          temperature: "{{ (state_attr('climate.bedroom_thermostat', 'temperature')|round(0)) - 4 }}"
-  - alias: 'Bedroom thermostat spacer' #sets bedroom thermostat higher than bedroom heater to keep from cooling while trying to heat
-    trigger:
-      - platform: state
-        entity_id: sensor.bedroomheatersetting
-    action:
-      - service: climate.set_temperature
-        data_template:
-          entity_id: climate.bedroom_thermostat
-          temperature: "{{ (state_attr('climate.bedroom_heater', 'temperature')|round(0)) + 4 }}"
+          temperature: "{{ (state_attr('climate.thermostat', 'temperature')|round(0)) }}"
+  # - alias: 'Bedroom heater spacer' #sets bedroom radiator lower than bedroom fans to keep from heating while trying to cool
+  #   trigger:
+  #     - platform: state
+  #       entity_id: sensor.bedroomthermostatsetting
+  #   action:
+  #     - service: climate.set_temperature
+  #       data_template:
+  #         entity_id: climate.bedroom_heater
+  #         temperature: "{{ (state_attr('climate.bedroom_heater', 'temperature')|round(0)) - 4 }}"
+  # - alias: 'Bedroom thermostat spacer' #sets bedroom thermostat higher than bedroom heater to keep from cooling while trying to heat
+  #   trigger:
+  #     - platform: state
+  #       entity_id: sensor.bedroomheatersetting
+  #   action:
+  #     - service: climate.set_temperature
+  #       data_template:
+  #         entity_id: climate.bedroom_heater
+  #         temperature: "{{ (state_attr('climate.bedroom_heater', 'temperature')|round(0)) + 4 }}"
 
   - alias: 'Bedroom Fans Thermostat ON' 
     trigger:
@@ -251,7 +251,7 @@
         from: 'off'
         to: 'on'
     action:
-      - service: home_assistant.turn_on
+      - service: switch.turn_on
         entity_id: fan.bedroom_ceiling_fan
   - alias: 'Bedroom Fans Thermostat OFF' 
     trigger:
@@ -260,14 +260,14 @@
         from: 'on'
         to: 'off'
     action:
-      - service: home_assistant.turn_off
+      - service: switch.turn_off
         entity_id: fan.bedroom_ceiling_fan
 
 
   - alias: 'House Fans Thermostat ON' 
     trigger:
       - platform: state
-        entity_id: input_boolean.kichnfans
+        entity_id: switch.hvac_ac
         from: 'off'
         to: 'on'
     action:
@@ -278,7 +278,7 @@
   - alias: 'House Fan Thermostat OFF' 
     trigger:
       - platform: state
-        entity_id: input_boolean.kichnfans
+        entity_id: switch.hvac_ac
         from: 'on'
         to: 'off'
     action:

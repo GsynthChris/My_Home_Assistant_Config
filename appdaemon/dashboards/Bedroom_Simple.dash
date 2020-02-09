@@ -2,10 +2,10 @@
 #
 # Main arguments, all optional
 #
-title: Bedroom
+title: Bedroom Remote
 widget_dimensions: [95, 95]
 widget_margins: [6, 6]
-columns: 6
+columns: 4
 global_parameters:
     use_comma: 0
     precision: 1
@@ -650,18 +650,20 @@ outsidetemp:
     units: "&deg;F"
     precision: 0
     entity: sensor.dark_sky_temperature
+
 ###########################################################################################################
 ###################################### xboxmenu   xboxback    XXXXXXX      Layout            #####################################
 ###########################################################################################################
 
 layout:
-  - bedtvpower, xboxpower, soundbarpower, bedtvmenu, bedtvup, roomtemp
-  - volmute, voldown, volup, bedtvleft, bedtvselect, bedtvright
-  - bedtvaudiofix, voldownplus, volupplus, bedtvinput, bedtvdown, ceilingfan
-  - xboxnexus, xboxdpadup, xboxback, xboxleftthumbstick, xboxy, xboxrightthumbstick
-  - xboxdpadleft, xboxselect, xboxdpadright, xboxx, xboxseek, xboxb
-  - xboxleftshoulder, xboxdpaddown, xboxrightshoulder, ceilinglight, xboxa, dresser
-  - xboxrewind, xboxplaypause, xboxfastforward, closet, windowac(2x1)
-  - xboxprevtrack, xboxstop, xboxnexttrack, bedside, bedroomheat(2x1)
+  - bedtvpower, xboxpower, volmute, volup
+  - xboxrewind, xboxplaypause, xboxfastforward, voldown
+  - xboxnexus, xboxy, ceilingfan, ceilinglight
+  - xboxx, xboxdpadup, xboxb, dresser
+  - xboxdpadleft, xboxa, xboxdpadright, nightlight
+  - xboxleftshoulder, xboxdpaddown, xboxrightshoulder, bedside
+  - xboxprevtrack, xboxstop, xboxnexttrack, closet
+  - windowac(2x1), bedroomheat(2x1)
+  - bedtvaudiofix, voldownplus, volupplus, soundbarpower
 #  - xboxselectsource(2x1)
 #  - media_player.bedroom_tv(2x2)

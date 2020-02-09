@@ -28,8 +28,11 @@ config:
 history:
 logbook:
 zeroconf:
+mobile_app:
+wake_on_lan:
 conversation:
 system_health:
+custom_icons:
 zone: !include zones.yaml
 cloud: !include cloud.yaml
 light: !include lights.yaml
@@ -37,7 +40,7 @@ group: !include groups.yaml
 switch: !include switch.yaml
 sensor: !include sensor.yaml
 homekit: !include homekit.yaml
-influxdb: !include influxdb.yaml
+# influxdb: !include influxdb.yaml
 script: !include_dir_merge_named scripts/
 binary_sensor: !include binary_sensor.yaml
 shell_command: !include shell_command.yaml
@@ -54,8 +57,8 @@ discovery:
   # enable:
   #   - homekit
 
-hacs:
-  token: !secret hacs_token
+# hacs:
+#   token: !secret hacs_token
 # breaking_changes:
 
 mqtt:
@@ -72,8 +75,8 @@ mqtt:
 #    ifttt1: !secret ifttt_api
 
 device_tracker:
-    - platform: nmap_tracker
-      hosts: 192.168.29.4
+    # - platform: nmap_tracker
+    #   hosts: 192.168.29.4
 
 panel_iframe:
   tasmoadmin:
@@ -84,6 +87,10 @@ panel_iframe:
     title: 'HADashboard'
     icon: 'mdi:apps'
     url: 'http://192.168.29.5:5050'
+  servercontrol:
+    title: 'Server Control'
+    icon: custom:steam
+    url: 'http://192.168.29.5:8123/config/server_control'
 
 #################################################################################################################
 #################################                  Notifications                 ################################
@@ -132,11 +139,47 @@ ios:
             authenticationRequired: no
             destructive: no
             behavior: 'default'
-      - name: Doorbell Send Video
-        identifier: 'frontvideo'
+      - name: Doorbell Send Chris Video
+        identifier: 'frontvideochris'
         actions:
-          - identifier: 'FRONTVIDEO'
-            title: 'Send Live Video Stream'
+          - identifier: 'FRONTVIDEOCHRIS'
+            title: 'Live Front Yard Video'
+            activationMode: 'background'
+            authenticationRequired: no
+            destructive: yes
+            behavior: 'default'
+          - identifier: 'DRIVEWAYVIDEOCHRIS'
+            title: 'Live Driveway Video'
+            activationMode: 'background'
+            authenticationRequired: no
+            destructive: yes
+            behavior: 'default'
+      - name: Doorbell Send Skidata Video
+        identifier: 'frontvideoskidata'
+        actions:
+          - identifier: 'FRONTVIDEOSKIDATA'
+            title: 'Live Front Yard Video'
+            activationMode: 'background'
+            authenticationRequired: no
+            destructive: yes
+            behavior: 'default'
+          - identifier: 'DRIVEWAYVIDEOSKIDATA'
+            title: 'Live Driveway Video'
+            activationMode: 'background'
+            authenticationRequired: no
+            destructive: yes
+            behavior: 'default'
+      - name: Doorbell Send Lizz Video
+        identifier: 'frontvideolizz'
+        actions:
+          - identifier: 'FRONTVIDEOLIZZ'
+            title: 'Live Front Yard Video'
+            activationMode: 'background'
+            authenticationRequired: no
+            destructive: yes
+            behavior: 'default'
+          - identifier: 'DRIVEWAYVIDEOLIZZ'
+            title: 'Live Driveway Video'
             activationMode: 'background'
             authenticationRequired: no
             destructive: yes
@@ -178,11 +221,11 @@ ios:
 
 rest_command:
   xbox_control:
-    url: !secret xboxrestcommand
+    # url: !secret xboxrestcommand
 #   url: "http://IPOFYOURHASSIOSERVER:5557/device/YOURDEVICEID/{{ command }}"
-
-roku:
-  - host: 192.168.29.77 #Livingroom
+    url: "http://192.168.29.5:5557/device/FD00CFA257157C78/{{ command }}"
+# roku:
+  # - host: 192.168.29.77 #Livingroom
   # - host: 192.168.29.14 #Theater
 
 camera:
@@ -192,9 +235,9 @@ camera:
   - platform: ffmpeg
     name: Front yard Small
     input: !secret frontyardcamsmall
-  # - platform: ffmpeg
-  #   name: Basement
-  #   input: !secret basementcam
+  - platform: ffmpeg
+    name: Driveway
+    input: !secret drivewaycam
   - platform: nwsradar
     name: NCR
     station: LSX
@@ -207,6 +250,14 @@ media_player:
     device: !secret xbox
     name: Xbox One
     ip_address: 192.168.29.99
+  - platform: androidtv
+    name: Livingroom Fire TV
+    host: 192.168.29.79
+    adb_server_ip: 127.0.0.1
+    adb_server_port: 5037
+    device_class: firetv
+    adbkey: "/config/android/adbkey"
+    # get_sources: false
   - platform: kodi
     host: 192.168.29.11
     port: 8080
@@ -243,36 +294,36 @@ media_player:
       data_template:
         entity_id: media_player.xbox_one
         source: '{{ source }}'
-  - platform: universal
-    name: Livingroom TV
-    children:
-      - media_player.roku_livingroom
-    commands:
-      turn_on:
-        service: script.turn_on
-        data:
-          entity_id: script.livtvpwr
-      turn_off:
-        service: script.turn_off
-        data:
-          entity_id: script.livtvpwr
-      volume_up:
-        service: script.turn_on
-        data:
-          entity_id: script.kenwoodvolup
-      volume_down:
-        service: script.turn_on
-        data:
-          entity_id: script.kenwoodvoldown
-      volume_mute:
-        service: script.turn_on
-        data:
-          entity_id: script.kenwoodvolmute
-    select_source:
-      service: media_player.select_source
-      data_template:
-        entity_id: media_player.roku_livingroom
-        source: '{{ source }}'
+  # - platform: universal
+  #   name: Livingroom TV
+  #   children:
+  #     - media_player.roku_livingroom
+  #   commands:
+  #     turn_on:
+  #       service: script.turn_on
+  #       data:
+  #         entity_id: script.livtvpwr
+  #     turn_off:
+  #       service: script.turn_off
+  #       data:
+  #         entity_id: script.livtvpwr
+  #     volume_up:
+  #       service: script.turn_on
+  #       data:
+  #         entity_id: script.kenwoodvolup
+  #     volume_down:
+  #       service: script.turn_on
+  #       data:
+  #         entity_id: script.kenwoodvoldown
+  #     volume_mute:
+  #       service: script.turn_on
+  #       data:
+  #         entity_id: script.kenwoodvolmute
+  #   select_source:
+  #     service: media_player.select_source
+  #     data_template:
+  #       entity_id: media_player.roku_livingroom
+  #       source: '{{ source }}'
 
 #################################################################################################################
 ##########################           Input Boolean, Select, Number, and Text            #########################
@@ -293,15 +344,24 @@ input_boolean:
   office_toggle:
     name: Office Toggle
     icon: mdi:desktop-classic
+  kitchen_toggle:
+    name: Kitchen Toggle
+    icon: mdi:food-fork-drink
+  bedroom_toggle:
+    name: Bedroom Toggle
+    icon: mdi:bed-empty
   # tonbux_toggle:
   #   name: Tonbux Toggle
   #   icon: mdi:format-line-style
   drzzs_video:
     name: DrZzs Posted a Video
+    icon: mdi:hospital-box
   billy_go_poopy:
     name: Billy Go Poopy
+    icon: mdi:emoticon-poop
   chewy_go_poopy:
     name: Chewy Go Poopy
+    icon: mdi:emoticon-poop
   computer:
     name: Office Computer
     icon: mdi:monitor-dashboard
@@ -374,7 +434,7 @@ weather:
 
 climate:
   - platform: generic_thermostat                         #House Thermostat
-    name: House Thermostat
+    name: Thermostat
     heater: switch.hvac_furnace
     target_sensor: sensor.average_home_temp
     min_temp: 55
@@ -382,8 +442,8 @@ climate:
     initial_hvac_mode: "heat"
     min_cycle_duration:
       minutes: 10
-    target_temp: 66
-    away_temp: 58
+    target_temp: 70
+    away_temp: 60
     cold_tolerance: 2
     hot_tolerance: 0.5
     ac_mode: no
@@ -398,45 +458,29 @@ climate:
     initial_hvac_mode: "heat"
     min_cycle_duration:
       minutes: 10
-    target_temp: 66
-    away_temp: 58
+    target_temp: 70
+    away_temp: 60
     cold_tolerance: 2
     hot_tolerance: 2 
     ac_mode: no
     keep_alive:
       minutes: 3
-  - platform: generic_thermostat                         #Kitchen Thermostat
-    name: Kitchen Thermostat
-    heater: input_boolean.kichnfans
-    target_sensor: sensor.average_home_temp
-    min_temp: 60
-    max_temp: 80
-    initial_hvac_mode: "cool"
-    min_cycle_duration:
-      minutes: 10
-    target_temp: 70
-    away_temp: 78
-    cold_tolerance: 0.5
-    hot_tolerance: 0.5
-    ac_mode: yes
-    keep_alive:
-      minutes: 3
-  - platform: generic_thermostat                         #Bedroom Thermostat
-    name: Bedroom Thermostat
-    heater: input_boolean.mstbdfans
-    target_sensor: sensor.average_mstbd_temp
-    min_temp: 60
-    max_temp: 80
-    initial_hvac_mode: "cool"
-    min_cycle_duration:
-      minutes: 10
-    target_temp: 70
-    away_temp: 78
-    cold_tolerance: 0.5
-    hot_tolerance: 0.5
-    ac_mode: yes
-    keep_alive:
-      minutes: 3
+  # - platform: generic_thermostat                         #Bedroom Thermostat
+  #   name: Bedroom Thermostat
+  #   heater: input_boolean.mstbdfans
+  #   target_sensor: sensor.average_mstbd_temp
+  #   min_temp: 60
+  #   max_temp: 80
+  #   initial_hvac_mode: "cool"
+  #   min_cycle_duration:
+  #     minutes: 10
+  #   target_temp: 72
+  #   away_temp: 78
+  #   cold_tolerance: 0.5
+  #   hot_tolerance: 0.5
+  #   ac_mode: yes
+  #   keep_alive:
+  #     minutes: 3
   # - platform: generic_thermostat                         #House Air Conditioner
   #   name: Air Conditioner
   #   heater: switch.hvac_ac

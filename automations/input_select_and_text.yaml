@@ -13,17 +13,17 @@
           topic: "wled/kitchen"
           payload: '{{ trigger.to_state.state | string }}'
 
-  # - alias: "WLED Palette"
-  #   initial_state: yes
-  #   hide_entity: no
-  #   trigger:
-  #     - platform: state
-  #       entity_id: input_select.wled_palette_kitchen
-  #   action:
-  #     - service: mqtt.publish
-  #       data_template:
-  #         topic: "wled/kitchen"
-  #         payload: '{{ trigger.to_state.state | string }}'
+  - alias: "WLED Palette"
+    initial_state: yes
+    hide_entity: no
+    trigger:
+      - platform: state
+        entity_id: input_select.wled_palette_kitchen
+    action:
+      - service: mqtt.publish
+        data_template:
+          topic: "wled/kitchen"
+          payload: '{{ trigger.to_state.state | string }}'
 
 
   # - alias: "Holiday Input Effect"

@@ -67,8 +67,6 @@ Christmas:
   ### sumthin ###
   paper-card-background-color: "var(--make-green)"                      #### Card backgroud color
   paper-grey-200: "var(--make-orange)"                                  #### Zones on map??????????????????????????????????
-  paper-item-icon-active-color: "var(--make-gold)"                      ####
-  paper-item-icon-color: "var(--make-red)"                              #### Icon color in OFF state
   paper-listbox-background-color: "var(--make-darkred)"                 #### Dropdown list background color
   paper-listbox-color: "var(--make-green)"                              #### Dropdown list text color
 

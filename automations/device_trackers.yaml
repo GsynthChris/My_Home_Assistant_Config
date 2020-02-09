@@ -39,15 +39,15 @@
   #   hide_entity: yes
   #   trigger:
   #     - platform: state
-  #       entity_id: device_tracker.lizzs_iphone_6s
+  #       entity_id: device_tracker.lizz_iphone
   #   action:
-  #     - service: notify.ios_skidata_iphone_7_plus
+  #     - service: notify.mobile_app_chris_skidata_iphone
   #       data_template:
   #         message: >
-  #           {% if is_state('device_tracker.lizzs_iphone_6s', 'home') %}
+  #           {% if is_state('device_tracker.lizz_iphone', 'home') %}
   #             Your beautiful Wife is home!!!!!!!!
   #           {% else %}
-  #             Lizz is at {{ states('device_tracker.lizzs_iphone_6s') }}.
+  #             Lizz is at {{ states('device_tracker.lizz_iphone') }}.
   #           {% endif %}
 
   - alias: 'Lizz Near Home!!!'
@@ -57,7 +57,7 @@
       - platform: zone
         event: enter
         zone: zone.near_home
-        entity_id: device_tracker.lizzs_iphone_6s
+        entity_id: device_tracker.lizz_iphone
     action:
       - service: notify.alexa_media
         data:
@@ -78,9 +78,9 @@
       - platform: zone
         event: enter
         zone: zone.home
-        entity_id: device_tracker.lizzs_iphone_6s
+        entity_id: device_tracker.lizz_iphone
     action:
-      - service: notify.ios_skidata_iphone_7_plus
+      - service: notify.mobile_app_chris_skidata_iphone
         data:
           title: 'Hey Chris!'
           message: 'Your beautiful Wife is home!!!!!!!!'
@@ -95,7 +95,7 @@
           data:
             type: tts
           message: "Oh my Goodness Chris!... Your sexy  wife is home!"
-      # - service: notify.ios_lizzs_iphone_6s
+      # - service: notify.mobile_app_lizzs_iphone_6s
         # data:
           # title: "Welcome Home LizzyPoo!"
           # message: "I Love You! Swipe down!"
@@ -117,11 +117,11 @@
         from: 'not_home'
         to: 'home'
     action:
-      - service: notify.ios_skidata_iphone_7_plus
+      - service: notify.mobile_app_chris_skidata_iphone
         data:
           title: 'Hey Chris!'
           message: 'Zach is now home'
-      - service: notify.ios_zach_iphone
+      - service: notify.mobile_app_zach_iphone
         data:
           title: 'Hello Zachary!'
           message: 'WELCOME HOME FUCKER!!!!!'
@@ -135,7 +135,7 @@
         zone: zone.near_home
         entity_id: device_tracker.zach_iphone
     action:
-      - service: notify.ios_skidata_iphone_7_plus
+      - service: notify.mobile_app_chris_skidata_iphone
         data:
           title: 'Hey Chris!'
           message: 'Zach is almost home'
@@ -149,11 +149,11 @@
         from: 'home'
         to: 'not_home'
     action:
-      - service: notify.ios_skidata_iphone_7_plus
+      - service: notify.mobile_app_chris_skidata_iphone
         data:
           title: 'Hey Chris!'
           message: 'Zach has left home'
-      - service: notify.ios_zach_iphone
+      - service: notify.mobile_app_zach_iphone
         data:
           title: 'BYE BYE Zach!'
           message: 'SEE YOU LATER FUCKER!!!!!'
@@ -163,9 +163,9 @@
   #   hide_entity: yes
   #   trigger:
   #     - platform: state
-  #       entity_id: device_tracker.lizzs_iphone_6s
+  #       entity_id: device_tracker.lizz_iphone
   #   action:
-  #     - service: notify.ios_skidata_iphone_7_plus
+  #     - service: notify.mobile_app_chris_skidata_iphone
   #       data_template:
   #         message: >
   #           {% if is_state('device_tracker.zach_iphone', 'home') %}
@@ -205,7 +205,7 @@
       - service: light.turn_off
         data:
           entity_id: group.all_lights
-      - service: notify.ios_skidata_iphone_7_plus
+      - service: notify.mobile_app_chris_skidata_iphone
         data:
           message: 'Nobody is home! Lights out!'
    # - service: switch.turn_off
@@ -248,7 +248,7 @@
       - service: light.turn_on
         data:
           entity_id: light.livingroom_door_2
-      - service: notify.ios_skidata_iphone_7_plus
+      - service: notify.mobile_app_chris_skidata_iphone
         data:
           title: "Flipping on the lights!"
           message: "Somebody is almost home and since nobody else is home and its dark out I'll turn on the lights for you."
@@ -258,7 +258,7 @@
     hide_entity: yes
     trigger:
       - platform: state
-        entity_id: device_tracker.skidata_iphone_7_plus
+        entity_id: device_tracker.skidata_iphone
         from: 'not_home'
         to: 'home'
     action:
@@ -278,7 +278,7 @@
       - service: homeassistant.turn_on
         entity_id: switch.office_monitors
       - delay: 00:00:05
-      - service: notify.ios_skidata_iphone_7_plus
+      - service: notify.mobile_app_chris_skidata_iphone
         data:
           title: 'Battlestation Initialized'
           message: 'Welcome home! Prepare to dominate the interwebs!'
@@ -288,7 +288,7 @@
     hide_entity: yes
     trigger:
       - platform: state
-        entity_id: device_tracker.skidata_iphone_7_plus
+        entity_id: device_tracker.skidata_iphone
         from: 'home'
         to: 'not_home'
     action:
@@ -312,7 +312,7 @@
       - delay: 00:00:05
       - service: homeassistant.turn_off
         entity_id: switch.office_monitors
-      - service: notify.ios_skidata_iphone_7_plus
+      - service: notify.mobile_app_chris_skidata_iphone
         data:
           title: 'Battlestation Deactivating'
           message: 'Have a great day, your battlestation has been shutdown. It patiently awaits your return.'
@@ -325,7 +325,7 @@
   #       entity_id: device_tracker.office_computer
   #       from: 'off'
   #       to: 'on'
-  #     - service: notify.ios_skidata_iphone_7_plus
+  #     - service: notify.mobile_app_chris_skidata_iphone
   #       data:
   #         title: 'Battlestation Activated'
   #         message: 'Battlestation is Online!'
@@ -338,7 +338,7 @@
   #       entity_id: device_tracker.office_computer
   #       from: 'on'
   #       to: 'off'
-  #     - service: notify.ios_skidata_iphone_7_plus
+  #     - service: notify.mobile_app_chris_skidata_iphone
   #       data:
   #         title: 'Battlestation Deactivated'
   #         message: 'Battlestation is Offline!'

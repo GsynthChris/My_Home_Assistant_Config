@@ -72,9 +72,9 @@ kodi_remote_stop:
         entity_id: media_player.kodi
       service: media_player.media_stop
 
-kodi_remote_playlist:
-  sequence:
-      data:
-         entity_id: media_player.kodi
-         method: Audio.Details.Album
-      service: media_player.kodi_call_method
+# kodi_remote_playlist:
+#   sequence:
+#       data:
+#          entity_id: media_player.kodi
+#          method: Audio.Details.Album
+#       service: media_player.kodi_call_method

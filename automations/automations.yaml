@@ -13,9 +13,11 @@
       event: sunrise
       offset: '+00:00:00'
     action:
-      - service: notify.ios_skidata_iphone_7_plus
+      - service: notify.mobile_app_chris_skidata_iphone
         data:
           message: 'The sun is up.'
+      - service: light.turn_off
+        entity_id: light.outside_lights
   - alias: 'Send notification when sun sets'
     initial_state: yes
     hide_entity: yes
@@ -24,7 +26,7 @@
       event: sunset
       offset: '+00:00:00'
     action:
-      - service: notify.ios_skidata_iphone_7_plus
+      - service: notify.mobile_app_chris_skidata_iphone
         data:
           message: 'The sun is down.'
 
@@ -35,7 +37,7 @@
       platform: time
       at: '10:00:00'
     action:
-      - service: notify.ios_lizzs_iphone_6s
+      - service: notify.mobile_app_lizzs_iphone_6s
         data:
           message: 'Good Morning Lizz, I Love You! -Chris'
 
@@ -107,7 +109,7 @@
       - service: switch.turn_off
         data:
           entity_id: switch.yankee_candle
-      - service: notify.ios_skidata_iphone_7_plus
+      - service: notify.mobile_app_chris_skidata_iphone
         data:
           title: 'Yankee Candle Safety'
           message: 'Nobody is home, Wax Melter turned off!'
@@ -135,7 +137,7 @@
         from: 'off'
         to: 'on'
     action:
-      - service: homeassistant.turn_on
+      - service: switch.turn_on
         entity_id: group.tonbux
 
   - alias: Tonbux Boolean toggle off
@@ -147,7 +149,7 @@
         from: 'on'
         to: 'off'
     action:
-      - service: homeassistant.turn_off
+      - service: switch.turn_off
         entity_id: group.tonbux
 
 
@@ -166,14 +168,14 @@
         # data:
           # entity_id: switch.office_computer
 
-  - alias: Start Homekit
-    hide_entity: yes
-    trigger:
-      - platform: homeassistant
-        event: start
-    action:
-      - delay: 00:00:30
-      - service: homekit.start
+  # - alias: Start Homekit
+  #   hide_entity: yes
+  #   trigger:
+  #     - platform: homeassistant
+  #       event: start
+  #   action:
+  #     - delay: 00:00:30
+  #     - service: homekit.start
 
   - alias: 'Set theme at startup'
     initial_state: 'on'
@@ -183,7 +185,7 @@
     action:
       service: frontend.set_theme
       data:
-        name: 'Christmas'
+        name: 'synthwavechris'
 
   - alias: 'theme input select'
     trigger:
@@ -236,10 +238,10 @@
       - service: light.turn_on
         data:
           entity_id: light.shop_light
-      - service: homeassistant.turn_on
+      - service: switch.turn_on
         data:
           entity_id: switch.studio_equipment
-      - delay: 00:00:20
+      - delay: 00:00:10
       - service: script.studiotvpower
 
   - alias: 'Finished makin some Fuckin MUSIC!'
@@ -249,10 +251,7 @@
         from: 'on'
         to: 'off'
     action:
-      - service: light.turn_off
-        data:
-          entity_id: light.shop_light
-      - service: homeassistant.turn_off
+      - service: switch.turn_off
         data:
           entity_id: switch.studio_equipment
 
@@ -262,7 +261,7 @@
       topic: "cmnd/studiomultisensor/POWER1"
       payload: "ON"
     action:
-      - service: homeassistant.turn_on
+      - service: switch.turn_on
         data:
           entity_id: input_boolean.music_time
 
@@ -272,7 +271,7 @@
       topic: "cmnd/studiomultisensor/POWER1"
       payload: "OFF"
     action:
-      - service: homeassistant.turn_off
+      - service: switch.turn_off
         data:
           entity_id: input_boolean.music_time
 
@@ -287,23 +286,25 @@
         from: 'off'
         to: 'on'
     action:
-      - service: homeassistant.turn_on
+      - service: switch.turn_on
         entity_id: switch.office_computer
-      - service: media_player.alexa_tts
+      - service: notify.alexa_media
         data:
-          entity_id: media_player.office_alexa
+          target:
+            - media_player.office_alexa
+          data:
+            type: tts
           message: "Activating battle station... please stand clear... weapons systems initializing... run for your lives!"
-      - delay: 00:00:05
-      - service: homeassistant.turn_on
+      - delay: 00:00:02
+      - service: switch.turn_on
         entity_id: switch.office_speakers
-      - delay: 00:00:05
-      - service: homeassistant.turn_on
+      - service: switch.turn_on
         entity_id: switch.tonbux_usb
-      - delay: 00:00:05
-      - service: homeassistant.turn_on
+      - delay: 00:00:02
+      - service: switch.turn_on
         entity_id: switch.office_monitors
-      - delay: 00:00:05
-      - service: notify.ios_skidata_iphone_7_plus
+      - delay: 00:00:02
+      - service: notify.mobile_app_chris_skidata_iphone
         data:
           title: 'Battlestation Initialized'
           message: 'Welcome home! Prepare to dominate the interwebs!'
@@ -315,27 +316,29 @@
         from: 'on'
         to: 'off'
     action:
-      - service: homeassistant.turn_off
+      - service: switch.turn_off
         entity_id: switch.office_computer
-      - service: media_player.alexa_tts
+      - service: notify.alexa_media
         data:
-          entity_id: media_player.office_alexa
+          target:
+            - media_player.office_alexa
+          data:
+            type: tts
           message: "Deactivating battle station... powering down weapons systems... your life has been spared... for now"
       - service: switch.turn_off
         entity_id: switch.office_speakers
-      - delay: 00:00:05
-      - service: homeassistant.turn_off
+      - delay: 00:00:02
+      - service: switch.turn_off
         entity_id: group.office
-      - delay: 00:00:05
-      - service: homeassistant.turn_off
+      - service: switch.turn_off
         entity_id: switch.tonbux_usb
-      - delay: 00:00:05
-      - service: homeassistant.turn_off
+      - delay: 00:00:02
+      - service: switch.turn_off
         entity_id: switch.printer
-      - delay: 00:00:05
-      - service: homeassistant.turn_off
+      - delay: 00:00:02
+      - service: switch.turn_off
         entity_id: switch.office_monitors
-      - service: notify.ios_skidata_iphone_7_plus
+      - service: notify.mobile_app_chris_skidata_iphone
         data:
           title: 'Battlestation Deactivating'
           message: 'Have a great day, your battlestation has been shutdown. It patiently awaits your return.'
@@ -363,7 +366,7 @@
           data:
             type: tts
           message: "oh my goodness, tea gives me life"
-      - service: notify.ios_skidata_iphone_7_plus
+      - service: notify.mobile_app_chris_skidata_iphone
         data:
           message: "Tea is brewing"
 
@@ -389,7 +392,7 @@
           data:
             type: tts
           message: "The tea is done brewing... turning off coffee machine"
-      - service: notify.ios_skidata_iphone_7_plus
+      - service: notify.mobile_app_chris_skidata_iphone
         data:
           message: "Tea is finished brewing"
 
@@ -411,7 +414,7 @@
           data:
             type: tts
           message: "yes!... awesome!... nobody fukking talk to me until I have had my mother fukking coffee"
-      - service: notify.ios_skidata_iphone_7_plus
+      - service: notify.mobile_app_chris_skidata_iphone
         data:
           message: "Coffee is brewing"
 
@@ -433,7 +436,7 @@
           data:
             type: tts
           message: "The coffee is done brewing... please poor me a cup of that black gold!"
-      - service: notify.ios_skidata_iphone_7_plus
+      - service: notify.mobile_app_chris_skidata_iphone
         data:
           message: "Coffee is finished brewing"
       - delay: 02:00:00
@@ -477,13 +480,13 @@
   #           type: push
   #         title: "I just wanted to say"
   #         message: "Hello World"
-  #     - service: notify.ios_chris_iphone
+  #     - service: notify.mobile_app_chriss_iphone_6_plus
   #       data:
   #         message: 'Test Notification!!!!'
-  #     - service: notify.ios_skidata_iphone
+  #     - service: notify.mobile_app_chris_skidata_iphone
   #       data:
   #         message: 'Test Notification!!!!'
-  #     - service: notify.ios_skidata_iphone_7_plus
+  #     - service: notify.mobile_app_chris_skidata_iphone
   #       data:
   #         title: 'This is a'
   #         message: 'Test Notification!!!!'

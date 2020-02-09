@@ -4,41 +4,9 @@
 ###########################################################################################################
 #############################################      Bedroom      ###########################################
 ###########################################################################################################
-  - alias: Bedroom Buttons Hold2 KITCHEN ON
-    initial_state: yes
-    hide_entity: yes
-    trigger:
-    - platform: mqtt
-      topic: 'cmnd/bedroomremote/POWER2'
-      payload: 'HOLD'
-    action:
-    - service: light.turn_on
-      entity_id: light.kitchen_ceiling_light
-    - service: light.turn_on
-      entity_id: light.under_cabinet_light
-    - service: light.turn_on
-      entity_id: light.kitchen_sink_light
-    - service: light.turn_on
-      entity_id: light.kitchen_leds
 
-  - alias: Bedroom Buttons Hold4 KITCHEN OFF
-    initial_state: yes
-    hide_entity: yes
-    trigger:
-    - platform: mqtt
-      topic: 'cmnd/bedroomremote/POWER4'
-      payload: 'HOLD'
-    action:
-    - service: light.turn_off
-      entity_id: light.kitchen_ceiling_light
-    - service: light.turn_off
-      entity_id: light.under_cabinet_light
-    - service: light.turn_off
-      entity_id: light.kitchen_sink_light
-    - service: light.turn_off
-      entity_id: light.kitchen_leds
-
-  - alias: Bedroom Buttons Hold1 BEDROOM OFF
+# Power1 HOLD
+  - alias: Bedroom Buttons Hold1 BEDROOM TOGGLE
     initial_state: yes
     hide_entity: yes
     trigger:
@@ -46,6 +14,18 @@
       topic: 'cmnd/bedroomremote/POWER1'
       payload: 'HOLD'
     action:
+      - service: homeassistant.toggle
+        entity_id: input_boolean.bedroom_toggle
+
+  - alias: Bedroom Boolean Toggle ON
+    initial_state: yes
+    hide_entity: yes
+    trigger:
+      - platform: state
+        entity_id: input_boolean.bedroom_toggle
+        from: 'off'
+        to: 'on'
+    action:
     - service: light.turn_on
       entity_id: light.bedside_light
     - service: light.turn_on
@@ -54,14 +34,17 @@
       entity_id: light.bedroom_ceiling_light
     - service: light.turn_on
       entity_id: light.closet_light
+    - service: light.turn_on
+      entity_id: light.night_light
 
-  - alias: Bedroom Buttons Hold3 BEDROOM ON
+  - alias: Bedroom Boolean Toggle OFF
     initial_state: yes
     hide_entity: yes
     trigger:
-    - platform: mqtt
-      topic: 'cmnd/bedroomremote/POWER3'
-      payload: 'HOLD'
+      - platform: state
+        entity_id: input_boolean.bedroom_toggle
+        from: 'on'
+        to: 'off'
     action:
     - service: light.turn_off
       entity_id: light.bedside_light
@@ -71,47 +54,117 @@
       entity_id: light.bedroom_ceiling_light
     - service: light.turn_off
       entity_id: light.closet_light
+    - service: light.turn_off
+      entity_id: light.night_light
 
+# Power2 HOLD
+  - alias: Bedroom Buttons Hold2 KITCHEN TOGGLE
+    initial_state: yes
+    hide_entity: yes
+    trigger:
+    - platform: mqtt
+      topic: 'cmnd/bedroomremote/POWER2'
+      payload: 'HOLD'
+    action:
+      - service: homeassistant.toggle
+        entity_id: input_boolean.kitchen_toggle
+
+  - alias: Kitchen Boolean toggle on
+    initial_state: yes
+    hide_entity: yes
+    trigger:
+      - platform: state
+        entity_id: input_boolean.kitchen_toggle
+        from: 'off'
+        to: 'on'
+    action:
+    - service: light.turn_on
+      entity_id: light.kitchen_ceiling_light
+    - service: light.turn_on
+      entity_id: light.under_cabinet_light
+    - service: light.turn_on
+      entity_id: light.kitchen_sink_light
+    - service: light.turn_on
+      entity_id: light.kitchen_leds
+
+  - alias: Kitchen Boolean toggle off
+    initial_state: yes
+    hide_entity: yes
+    trigger:
+      - platform: state
+        entity_id: input_boolean.kitchen_toggle
+        from: 'on'
+        to: 'off'
+    action:
+    - service: light.turn_off
+      entity_id: light.kitchen_ceiling_light
+    - service: light.turn_off
+      entity_id: light.under_cabinet_light
+    - service: light.turn_off
+      entity_id: light.kitchen_sink_light
+    - service: light.turn_off
+      entity_id: light.kitchen_leds
+
+# Power3 HOLD
+
+# Power4 HOLD
+  - alias: Bedroom Buttons Hold4 NIGHT LIGHT ON
+    initial_state: yes
+    hide_entity: yes
+    trigger:
+    - platform: mqtt
+      topic: 'cmnd/bedroomremote/POWER4'
+      payload: 'HOLD'
+    action:
+      - service: light.toggle
+        entity_id: light.night_light
+
+
+
+# Power1
   - alias: Bedroom Buttons Ceiling Light
     initial_state: yes
     hide_entity: yes
     trigger:
     - platform: mqtt
       topic: 'cmnd/bedroomremote/POWER1'
-      payload: 'ON'
+      payload: 'TOGGLE'
     action:
     - service: light.toggle
       entity_id: light.bedroom_ceiling_light
 
-  - alias: Bedroom Buttons Dresser light
-    initial_state: yes
-    hide_entity: yes
-    trigger:
-    - platform: mqtt
-      topic: 'cmnd/bedroomremote/POWER3'
-      payload: 'ON'
-    action:
-    - service: light.toggle
-      entity_id: light.dresser_light
-
+# Power2
   - alias: Bedroom Buttons Ceiling Fan
     initial_state: yes
     hide_entity: yes
     trigger:
     - platform: mqtt
       topic: 'cmnd/bedroomremote/POWER2'
-      payload: 'ON'
+      payload: 'TOGGLE'
     action:
     - service: fan.toggle
       entity_id: fan.bedroom_ceiling_fan
 
+# Power3
+  - alias: Bedroom Buttons Dresser light
+    initial_state: yes
+    hide_entity: yes
+    trigger:
+    - platform: mqtt
+      topic: 'cmnd/bedroomremote/POWER3'
+      payload: 'TOGGLE'
+    action:
+    - service: light.toggle
+      entity_id: light.dresser_light
+
+# Power4
   - alias: Bedroom Buttons Bedside table
     initial_state: yes
     hide_entity: yes
     trigger:
     - platform: mqtt
       topic: 'cmnd/bedroomremote/POWER4'
-      payload: 'ON'
+      payload: 'TOGGLE'
     action:
     - service: light.toggle
       entity_id: light.bedside_light
@@ -205,16 +258,27 @@
 ###########################################################################################################
 #############################################      Basement      ##########################################
 ###########################################################################################################
-  # - alias: Basement Buttons Hold3 Stairs Light
-    # initial_state: yes
-    # hide_entity: yes
-    # trigger:
-    # - platform: mqtt
-      # topic: 'cmnd/theater1/POWER3'
-      # payload: 'HOLD'
-    # action:
-    # - service: light.toggle
-      # entity_id: light.stairs_light
+  - alias: Studio Multisensor Button ON
+    initial_state: yes
+    hide_entity: yes
+    trigger:
+    - platform: mqtt
+      topic: 'cmnd/studiomultisensor/POWER1'
+      payload: 'ON'
+    action:
+    - service: homeassistant.turn_on
+      entity_id: input_boolean.music_time
+
+  - alias: Studio Multisensor Button OFF
+    initial_state: yes
+    hide_entity: yes
+    trigger:
+    - platform: mqtt
+      topic: 'cmnd/studiomultisensor/POWER1'
+      payload: 'OFF'
+    action:
+    - service: homeassistant.turn_off
+      entity_id: input_boolean.music_time
 
   # - alias: Basement Buttons Theater 1
     # initial_state: yes

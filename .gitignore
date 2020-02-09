@@ -32,6 +32,7 @@ appdaemon/roku_square_logo.png
 
 # Ensure these YAML files are ignored, otherwise your secret data/credentials will leak.
 appdaemon.yaml
+Thermostat.dash
 experimenting.yml
 ip_bans.yaml
 secrets.yaml

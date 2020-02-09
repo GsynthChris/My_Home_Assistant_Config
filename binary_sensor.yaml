@@ -95,14 +95,13 @@
       people_home:
         friendly_name: "Is Anyone Home"
         value_template: >-
-          {{ is_state('device_tracker.lizzs_iphone_6s', 'home')
-             or is_state('device_tracker.skidata_iphone_7_plus', 'home')
-             or is_state('device_tracker.zach_iphone', 'home')
-             or is_state('device_tracker.bobby', 'home') }}
+          {{ is_state('device_tracker.lizz_iphone', 'home')
+             or is_state('device_tracker.skidata_iphone', 'home')
+             or is_state('device_tracker.zach_iphone', 'home') }}
       chrislizz_home:
         friendly_name: "Is Chris and Lizz Home"
         value_template: >-
-          {{ is_state('device_tracker.lizzs_iphone_6s', 'home') or is_state('device_tracker.skidata_iphone_7_plus', 'home')}}
+          {{ is_state('device_tracker.lizz_iphone', 'home') or is_state('device_tracker.skidata_iphone', 'home')}}
       washer_status:
         friendly_name: "Washing Machine Status"
         delay_on:

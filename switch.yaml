@@ -1,22 +1,22 @@
-#################################################################################################################
+###############################################################################################################
 #################################                  Wake on LAN                   ################################
 #################################################################################################################
   - platform: wake_on_lan
     name: "Office Computer"
-    mac_address: "40-2C-F4-E9-EB-0B" #LENOVO INTEGRATED NIC
+    mac: 40:2C:F4:E9:EB:0B #LENOVO INTEGRATED NIC
     host: "192.168.29.4"
     turn_off:
       - service: shell_command.umountkububeast
       - service: shell_command.shutdownkububeast
   - platform: wake_on_lan
     name: "Bedroom Laptop"
-    mac_address: "F0-76-1C-86-71-89" #Bedroom Laptop
+    mac: F0:76:1C:86:71:89 #Bedroom Laptop
     host: "192.168.29.10"
     turn_off:
       - service: shell_command.shutdownthinmint
   - platform: wake_on_lan
     name: "Cinnabon Laptop"
-    mac_address: "F0-1F-AF-12-63-B2" #Cinnabon
+    mac: F0:1F:AF:12:63:B2 #Cinnabon
     host: "192.168.29.11"
     turn_off:
       - service: shell_command.shutdowncinnabon
@@ -25,7 +25,7 @@
 
   # - platform: wake_on_lan
   #   name: "Livingroom Laptop"
-  #   mac_address: "00-15-C5-4A-A2-95" #Livingroom Laptop
+  #   mac_address: "00:15:C5:4A:A2:95" #Livingroom Laptop
   #   host: "192.168.29.10"
   #   turn_off:
   #     - service: shell_command.shutdownthinmint

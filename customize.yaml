@@ -10,7 +10,7 @@ binary_sensor.laundry_motion:
   device_class: motion
 
 switch.office_computer:
-  icon: mdi:monitor-dashboard
+  icon: custom:chrome
 switch.livingroom_laptop:
   icon: mdi:monitor-dashboard
 switch.bedroom_laptop:

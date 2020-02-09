@@ -90,6 +90,16 @@
     payload_off: "OFF"
     retain: no
 
+  - platform: mqtt
+    name: "Night Light"
+    command_topic: "cmnd/bednightlight/power"
+    state_topic: "stat/bednightlight/POWER"
+    qos: 2
+    payload_on: "ON"
+    payload_off: "OFF"
+    retain: no
+
+
 ###########################################################################################################
 #############################################      Livingroom      ########################################
 ###########################################################################################################    

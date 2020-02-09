@@ -14,7 +14,7 @@
         from: 'off'
         to: 'on'
     action:
-      - service: notify.ios_skidata_iphone_7_plus
+      - service: notify.mobile_app_chris_skidata_iphone
         data:
           title: "DrZzs!"
           message: "Doctor zees has Posted a video!... Go watch that Shitt!"
@@ -46,7 +46,7 @@
         from: 'false'
         to: 'true'
     action:
-      - service: notify.ios_skidata_iphone_7_plus
+      - service: notify.mobile_app_chris_skidata_iphone
         data:
           title: "DrZzs!"
           message: "DrZzs has started a Live stream!!... Go watch that Shitt!"
@@ -80,7 +80,7 @@
         topic: officepc/state/battery
         payload: onbattery
     action:
-      - service: notify.ios_skidata_iphone_7_plus
+      - service: notify.mobile_app_chris_skidata_iphone
         data:
           title: 'URGENT ALERT!'
           message: 'The Office PC is on Backup Power!'
@@ -92,119 +92,12 @@
         topic: officepc/state/battery
         payload: critbat
     action:
-      - service: notify.ios_skidata_iphone_7_plus
+      - service: notify.mobile_app_chris_skidata_iphone
         data:
           title: 'URGENT ALERT!'
           message: 'OFFICE PC BATTERY CRITICALLY LOW!'
 
-#################################################################################################################
-################################              Doorbell Notifications             ################################
-#################################################################################################################
-  - alias: 'Doorbell FRONTVIDEO'
-    initial_state: true
-    hide_entity: true
-    trigger:
-      platform: event
-      event_type: ios.notification_action_fired
-      event_data:
-        actionName: FRONTVIDEO
-    action:
-     - service: script.doorbellfrontchrisvideo
 
-  - alias: 'Doorbell Livingroom'
-    trigger:
-      - platform: state
-        entity_id: binary_sensor.doorbell_livingroom
-        from: 'off'
-        to: 'on'
-    action:
-      - service: notify.alexa_media
-        data:
-          target:
-            - media_player.livingroom_alexa
-            - media_player.bedroom_alexa
-            - media_player.office_alexa
-            - media_player.zach_alexa
-            - media_player.basement_alexa
-          data:
-            type: tts
-          message: "Somebody is at the fukking Livingroom Door!"
-      - service: script.doorbellfrontsnapshot
-      - service: script.doorbellfrontsnapshotarchive
-      - service: script.doorbellfrontchris
-      - service: script.frontcamtokububeast
-      - service: notify.ios_lizzs_iphone_6s
-        data:
-          title: 'Livingroom Doorbell'
-          message: 'Somebody is at the door!'
-      - service: notify.ios_zach_iphone
-        data:
-          title: 'Livingroom Doorbell'
-          message: 'Somebody is at the door!'
-
-  - alias: 'Doorbell backdoor'
-    trigger:
-      - platform: state
-        entity_id: binary_sensor.doorbell_backdoor
-        from: 'off'
-        to: 'on'
-    action:
-      - service: notify.alexa_media
-        data:
-          target:
-            - media_player.livingroom_alexa
-            - media_player.bedroom_alexa
-            - media_player.office_alexa
-            - media_player.zach_alexa
-            - media_player.basement_alexa
-          data:
-            type: tts
-          message: "Somebody is at the Back fukking Door!"
-
-  - alias: 'Doorbell bedroom'
-    trigger:
-      - platform: state
-        entity_id: binary_sensor.doorbell_bedroom
-        from: 'off'
-        to: 'on'
-    action:
-      - service: script.doorbellfrontsnapshot
-      - service: script.doorbellfrontsnapshotarchive
-      - service: script.doorbellbedroomchris
-      - service: script.frontcamtokububeast
-      - service: notify.alexa_media
-        data:
-          target:
-            - media_player.livingroom_alexa
-            - media_player.bedroom_alexa
-            - media_player.office_alexa
-            - media_player.zach_alexa
-            - media_player.basement_alexa
-          data:
-            type: tts
-          message: "Somebody is at the fukking bedroom Door!"
-      - service: notify.ios_skidata_iphone_7_plus
-        data:
-          title: 'Bedroom Doorbell'
-          message: 'Somebody is at your bedroom door!'
-      - service: notify.ios_lizzs_iphone_6s
-        data:
-          title: 'Bedroom Doorbell'
-          message: 'Somebody is at your bedroom door!'
-      - service: notify.ios_zach_iphone
-        data:
-          title: 'Bedroom Doorbell'
-          message: 'Somebody is at the door!'
-
-  - alias: 'Doorbell backdoor'
-    trigger:
-      - platform: state
-        entity_id: binary_sensor.doorbell_backdoor_button_2
-        from: 'off'
-        to: 'on'
-    action:
-      - service: light.toggle
-        entity_id: light.back_door
 
 #################################################################################################################
 ##########################                let the dogs out to go poopy!               ###########################
@@ -295,8 +188,16 @@
       #       type: tts
       #       method: speak
       #     message: "<amazon:effect name='whispered'>I see dead people!</amazon:effect>"
-      - service: media_player.play_media
-        data: 
-          entity_id: media_player.office_alexa
-          media_content_id: Alexa.Joke.Play
-          media_content_type: sequence
+      # - service: media_player.play_media
+      #   data: 
+      #     entity_id: media_player.office_alexa
+      #     media_content_id: Alexa.Joke.Play
+      #     media_content_type: sequence
+      - service: notify.mobile_app_chriss_iphone_6_plus
+        data:
+          title: 'Livingroom Doorbell'
+          message: 'Somebody is at the door!'
+      - service: notify.mobile_app_chris_skidata_iphone
+        data:
+          title: 'Livingroom Doorbell'
+          message: 'Somebody is at the door!'

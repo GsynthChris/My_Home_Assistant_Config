@@ -3,103 +3,117 @@ alexa:
     exclude_domains:
       - automation
       - binary_sensor
+      - camera
       - device_tracker
-      - group
       - input_number
       - input_select
       - input_text
-      - persistent_notification
+      - group
       - script
       - sensor
-      - sun
-      - weather
-      - xbox_one
       - zone
     exclude_entities:
-      - input_boolean.chrislizz_home
-      - input_boolean.chrismedicinereminder
-      - input_boolean.drzzs_video
-      - input_boolean.office_toggle
-      - light.49c05f74_83880868
-      - light.kitchen_leds
-      - media_player.49c05f74_83880868
       - media_player.basement_alexa
       - media_player.bedroom_alexa
-      - media_player.bedroom_tv
       - media_player.christopher_s_alexa_apps
+      - media_player.christopher_s_fire_tv_stick
+      - media_player.cinnabon_kodi
       - media_player.everywhere
       - media_player.livingroom_alexa
-      # - media_player.livingroom_tv
       - media_player.office_alexa
-      - media_player.this_device
-      # - media_player.xbox_one
+      - media_player.this_device_2
+      - media_player.xbox_one
       - media_player.zach_alexa
+      - light.bsmnt_1
+      - light.bsmnt_2
       - switch.basement_alexa_do_not_disturb_switch
       - switch.basement_alexa_repeat_switch
       - switch.basement_alexa_shuffle_switch
       - switch.bedroom_alexa_do_not_disturb_switch
       - switch.bedroom_alexa_repeat_switch
       - switch.bedroom_alexa_shuffle_switch
+      - switch.bedroom_laptop
       - switch.christopher_s_alexa_apps_do_not_disturb_switch
       - switch.christopher_s_alexa_apps_repeat_switch
       - switch.christopher_s_alexa_apps_shuffle_switch
+      - switch.christopher_s_fire_tv_stick_do_not_disturb_switch
+      - switch.christopher_s_fire_tv_stick_repeat_switch
+      - switch.christopher_s_fire_tv_stick_shuffle_switch
       - switch.everywhere_do_not_disturb_switch
       - switch.everywhere_repeat_switch
       - switch.everywhere_shuffle_switch
       - switch.hvac_ac
       - switch.hvac_filterled
       - switch.hvac_furnace
-      # - switch.keurig
       - switch.livingroom_alexa_do_not_disturb_switch
       - switch.livingroom_alexa_repeat_switch
       - switch.livingroom_alexa_shuffle_switch
-      # - switch.livingroom_laptop
       - switch.office_alexa_do_not_disturb_switch
       - switch.office_alexa_repeat_switch
       - switch.office_alexa_shuffle_switch
-      - switch.office_computer
-      - switch.office_monitors
-      - switch.office_speakers
-      # - switch.printer
-      - switch.studio_equipment
-      - switch.this_device_do_not_disturb_switch
-      - switch.this_device_repeat_switch
-      - switch.this_device_shuffle_switch
-      - switch.tonbux_usb
-      # - switch.yankee_candle
+      - switch.this_device_do_not_disturb_switch_2
+      - switch.this_device_repeat_switch_2
+      - switch.this_device_shuffle_switch_2
+      - switch.wled_kitchen_nightlight
+      - switch.wled_kitchen_sync_receive
+      - switch.wled_kitchen_sync_send
       - switch.zach_alexa_do_not_disturb_switch
       - switch.zach_alexa_repeat_switch
       - switch.zach_alexa_shuffle_switch
     include_entities:
-      - fan.box_fan
-      - fan.livingroom_ceiling_fan
+      - climate.thermostat
+      - climate.bedroom_thermostat
+      - climate.bedroom_heater
       - fan.bedroom_ceiling_fan
+      - fan.box_fan
       - fan.kitchen_ceiling_fan
+      - fan.livingroom_ceiling_fan
       - input_boolean.billy_go_poopy
+      - input_boolean.brew_coffee
+      - input_boolean.brew_tea
+      - input_boolean.chewy_go_poopy
       - input_boolean.computer
       - input_boolean.music_time
-      - input_boolean.chewy_go_poopy
-      - climate.air_conditioner
-      - climate.heater
-      - climate.bedroom_ceiling_fan
-      - climate.kitchen_ceiling_fan
-      - climate.livingroom_ceiling_fan
-      - sensor.average_home_temp
-      - sensor.average_mstbd_temp
-      - sensor.kitchen_temp
-      - sensor.livingroom_temp
-      - sensor.music_room_temp
-      - sensor.office_temp
+      - light.aquarium_light
+      - light.back_door
+      - light.bedroom_ceiling_light
+      - light.bedroom_door
+      - light.bedside_light
+      - light.closet_light
+      - light.desk_lamp
+      - light.dresser_light
+      - light.floor_lamp
+      - light.hallway_light
+      - light.kitchen_ceiling_light
+      - light.kitchen_sink_light
+      - light.kitchen_wleds
+      - light.laundry_room
+      - light.livingroom_ceiling_light
+      - light.livingroom_door_1
+      - light.livingroom_door_2
+      - light.livingroom_lamp
+      - light.night_light
+      - light.office_ceiling_light
+      - light.outside_lights
+      - light.shop_light
+      - light.stairs_light
+      - light.theater
+      - light.under_cabinet_light
+      - light.wled_kitchen
+      - light.zachs_leds
       - media_player.bedroom_tv
       - media_player.livingroom_tv
-      - camera.front_yard
-      - binary_sensor.doorbell_backdoor
-      - binary_sensor.doorbell_bedroom
-      - binary_sensor.doorbell_livingroom
-      - binary_sensor.washer_status
-      - binary_sensor.dryer_status
-      - script.frontcamtokububeast
-      - script.frontcamtothinmint
+      - switch.bedroom_radiator
+      - switch.cinnabon_laptop
+      - switch.coffee_pot
+      - switch.computer_monitors
+      - switch.computer_speakers
+      - switch.keurig
+      # - switch.office_computer
+      - switch.printer
+      - switch.studio_equipment
+      - switch.tonbux_usb
+      - switch.yankee_candle
       - script.kenwoodpwr
       - script.livtvpwr
       - script.bedtvpower
@@ -186,10 +200,10 @@ alexa:
       description: Lamp on desk in Office
       display_categories: LIGHT
 #Switch
-    switch.office_computer:
-      name: Office computer
-      description: Office Computer
-      display_categories: SMARTPLUG
+    # switch.office_computer:
+    #   name: Office computer
+    #   description: Office Computer
+    #   display_categories: SMARTPLUG
     switch.keurig:
       name: Keurig
       description: The god damn coffee machine
@@ -210,19 +224,15 @@ alexa:
     fan.box_fan:
       name: Box fan
       description: Box fan
-      display_categories: SWITCH
     fan.livingroom_ceiling_fan:
       name: Livingroom Ceiling fan
       description: Livingroom Ceiling fan
-      display_categories: SWITCH
     fan.bedroom_ceiling_fan:
       name: Bedroom Ceiling fan
       description: Bedroom Ceiling fan
-      display_categories: SWITCH
     fan.kitchen_ceiling_fan:
       name: Kitchen ceiling fan
       description: Kitchen ceiling fan
-      display_categories: SWITCH
 #Input Booleans
     # input_boolean.office_toggle:
     #   name: Office Lights
@@ -261,14 +271,14 @@ alexa:
     #   name: Bedroom Thermostat
     #   description: BOX FAN IS CONTROLLED BY THE STATE OF THE CEILING FAN
     #   display_categories: THERMOSTAT
-    climate.kitchen_ceiling_fan:
-      name: Kitchen Thermostat
-      description: Temperature control for the Kitchen
-      display_categories: THERMOSTAT
-    climate.livingroom_ceiling_fan:
-      name: Livingroom Thermostat
-      description: Temperature control for the Livingroom
-      display_categories: THERMOSTAT
+    # climate.kitchen_ceiling_fan:
+    #   name: Kitchen Thermostat
+    #   description: Temperature control for the Kitchen
+    #   display_categories: THERMOSTAT
+    # climate.livingroom_ceiling_fan:
+    #   name: Livingroom Thermostat
+    #   description: Temperature control for the Livingroom
+    #   display_categories: THERMOSTAT
 #Sensors
     sensor.average_home_temp:
       name: House Temperature
@@ -327,3 +337,17 @@ alexa:
       name: Livingroom Camera Feed
       description: Opens VLC and streams Front yard camera on Livingroom Laptop
       display_categories: SWITCH
+    light.zachs_leds:
+      name: Zach LEDs
+    input_boolean.brew_coffee:
+      name: Brew Coffee
+    input_boolean.brew_tea:
+      name: Brew Tea
+    switch.bedroom_radiator:
+      name: Bedroom Heater
+    media_player.christopher_s_fire_tv_stick:
+      name: Livingroom Fire TV
+      display_categories: LIGHT
+    climate.thermostat:
+      name: Thermostat
+      display_categories: THERMOSTAT

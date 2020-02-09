@@ -69,13 +69,22 @@ app_alexa_speak:
       service: notify.alexa_media_christopher_s_alexa_apps
 
 skidata_iphone_message:
+  alias: Skidata iPhone Message!
+  sequence:
+    - data:
+        data:
+          type: push
+        message: '{{states.input_text.group_alexa.state}}'
+      service: notify.mobile_app_chris_skidata_iphone
+
+chris_iphone_message:
   alias: Chris iPhone Message!
   sequence:
     - data:
         data:
           type: push
         message: '{{states.input_text.group_alexa.state}}'
-      service: notify.ios_skidata_iphone_7_plus
+      service: notify.mobile_app_chriss_iphone_6_plus
 
 lizz_iphone_message:
   alias: Lizz iPhone Message!
@@ -84,7 +93,7 @@ lizz_iphone_message:
         data:
           type: push
         message: '{{states.input_text.group_alexa.state}}'
-      service: notify.ios_lizzs_iphone_6s
+      service: notify.mobile_app_lizzs_iphone_6s
 
 zach_iphone_message:
   alias: Zach iPhone Message!
@@ -93,7 +102,7 @@ zach_iphone_message:
         data:
           type: push
         message: '{{states.input_text.group_alexa.state}}'
-      service: notify.ios_zach_iphone
+      service: notify.mobile_app_zach_iphone
 
 group_alexa_speak:
   alias: Group Alexa SPEAK!

@@ -10,7 +10,7 @@ columns: 10
 global_parameters:
   use_comma: 0
   precision: 1
-  use_hass_icon: 1
+  use_hass_icon: 0
   namespace: default
   devices:
     media_player:
@@ -22,7 +22,7 @@ global_parameters:
   
 climatecontrolac:
   widget_type: climate
-  entity: climate.house_thermostat
+  entity: climate.thermostat
   level_style: "font-size: 200%;" # Current Temp Size
   level2_style: "font-size: 125%;" # Target Temp Size
   unit_style: "font-size: 600%;"
@@ -49,7 +49,7 @@ weather:
 camerafront:
   widget_type: camera
   entity_picture: http://192.168.29.5:8123/api/camera_proxy/camera.front_yard?token=3252d702d00f51e4e6413dd252c9d632dfaaf2c5975c3514c01bc271e9fda13a&api_password=F@ck0FFm3Sh!1
-  refresh: 15
+  refresh: 20
 camerafrontsml:
   widget_type: camera
   entity_picture: http://192.168.29.5:8123/api/camera_proxy/camera.front_yard_small?token=afb84dabc1c3a532e6ace1d88eb0649fcea5503f1c89d93a379d7d7d2fc2e8d4&api_password=F@ck0FFm3Sh!1
@@ -57,8 +57,19 @@ camerafrontsml:
 cameranws:
   widget_type: camera
   entity_picture: http://192.168.29.5:8123/api/camera_proxy/camera.ncr?token=f54d7bf53d3b8aaa28acbd2af34a419ff905adf4fef6892d9ad97a89175cb9f5&api_password=F@ck0FFm3Sh!1
-  refresh: 60
-
+  refresh: 20
+# camerafront:
+#   widget_type: camera
+#   entity_picture: camera.front_yard
+#   stream: on
+# camerafrontsml:
+#   widget_type: camera
+#   entity_picture: http://192.168.29.5:8123/api/camera_proxy/camera.front_yard_small?token=afb84dabc1c3a532e6ace1d88eb0649fcea5503f1c89d93a379d7d7d2fc2e8d4&api_password=F@ck0FFm3Sh!1
+#   refresh: 15
+# cameranws:
+#   widget_type: camera
+#   entity_picture: camera.ncr
+#   stream: on
 # heat:
 #   widget_type: switch
 #   title: Heat
@@ -181,13 +192,13 @@ motiontoggle:
 chris:
   widget_type: device_tracker
   title: Chris
-  device: skidata_iphone_7_plus
+  device: skidata_iphone
   icon_on: fa-robot
   icon_off: mdi-car-estate
 lizz:
   widget_type: device_tracker
   title: Lizz
-  device: lizzs_iphone_6s
+  device: lizz_iphone
   icon_on: fa-user-graduate
   icon_off: mdi-car-hatchback
 zach:

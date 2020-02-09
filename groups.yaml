@@ -67,6 +67,54 @@
       - light.shop_light
       - light.laundry_room
 
+  all_lights:
+    name: All Lights
+    entities:
+      - light.bedroom_ceiling_light
+      - light.bedside_light
+      - light.closet_light
+      - light.desk_lamp
+      - light.dresser_light
+      - light.floor_lamp
+      - light.hallway_light
+      - light.kitchen_ceiling_light
+      - light.kitchen_sink_light
+      - light.kitchen_wleds
+      - light.laundry_room
+      - light.livingroom_ceiling_light
+      - light.livingroom_lamp
+      - light.night_light
+      - light.office_ceiling_light
+      - light.shop_light
+      - light.stairs_light
+      - light.theater
+      - light.under_cabinet_light
+      - light.wled_kitchen
+      - light.zachs_leds
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   # motionsensors:
     # name: Motion Sensors
     # entities:

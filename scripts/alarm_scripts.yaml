@@ -3,7 +3,7 @@
 ##########################             My Alexa and Siri cuss like sailors!            ##########################
 #################################################################################################################
 alexa_intruder_alert:
-  alias: Group Alexa SPEAK!
+  alias: Alarm Test
   sequence:
     - service: mqtt.publish
       data_template:

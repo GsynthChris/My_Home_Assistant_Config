@@ -8,7 +8,7 @@ columns: 6
 global_parameters:
     use_comma: 0
     precision: 1
-    use_hass_icon: 1
+    use_hass_icon: 0
 
 
 ##################################################IR Remote Commands
