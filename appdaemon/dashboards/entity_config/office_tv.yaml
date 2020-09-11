@@ -1,0 +1,156 @@
+###########################################################################################################
+#######################################      IR Remote Commands      ######################################
+###########################################################################################################
+#######################################          TV Controls         ######################################
+###########################################################################################################
+officetvpower:
+  widget_type: script
+  title: TV Power
+  entity: script.officetvpwr
+  title_style: "color: #ff0000;text-shadow: 0px 0px 5px #003300;"
+  icon_style_inactive: "margin-top: -10px; font-size: 40px; color: #ff0000;text-shadow: 0px 0px 5px #800000;"
+  icon_style_active: "margin-top: -10px; font-size: 40px; color: #ff8080;text-shadow: 0px 0px 5px #800000;"
+  icon_on: fa-tv
+  icon_off: fa-tv
+
+officechanup:
+  widget_type: script
+  title: UP
+  entity: script.officechanup
+  title_style: "color: #ff0000;text-shadow: 0px 0px 5px #003300;"
+  icon_style_inactive: "margin-top: -10px; font-size: 40px; color: #ff0000;text-shadow: 0px 0px 5px #800000;"
+  icon_style_active: "margin-top: -10px; font-size: 40px; color: #ff8080;text-shadow: 0px 0px 5px #800000;"
+  icon_on: fa-arrow-up
+  icon_off: fa-arrow-up
+
+officechandown:
+  widget_type: script
+  title: DOWN
+  entity: script.officechandown
+  title_style: "color: #ff0000;text-shadow: 0px 0px 5px #003300;"
+  icon_style_inactive: "margin-top: -10px; font-size: 40px; color: #ff0000;text-shadow: 0px 0px 5px #800000;"
+  icon_style_active: "margin-top: -10px; font-size: 40px; color: #ff8080;text-shadow: 0px 0px 5px #800000;"
+  icon_on: fa-arrow-down
+  icon_off: fa-arrow-down
+
+officetvmenu:
+  widget_type: script
+  title: Menu
+  entity: script.officetvmenu
+  title_style: "color: #ff0000;text-shadow: 0px 0px 5px #003300;"
+  icon_style_inactive: "margin-top: -10px; font-size: 40px; color: #ff0000;text-shadow: 0px 0px 5px #800000;"
+  icon_style_active: "margin-top: -10px; font-size: 40px; color: #ff8080;text-shadow: 0px 0px 5px #800000;"
+  icon_on: fa-bars
+  icon_off: fa-bars
+
+officetvinput:
+  widget_type: script
+  title: Input
+  entity: script.officetvinput
+  title_style: "color: #ff0000;text-shadow: 0px 0px 5px #003300;"
+  icon_style_inactive: "margin-top: -10px; font-size: 40px; color: #ff0000;text-shadow: 0px 0px 5px #800000;"
+  icon_style_active: "margin-top: -10px; font-size: 40px; color: #ff8080;text-shadow: 0px 0px 5px #800000;"
+  icon_on: mdi-video-input-component
+  icon_off: mdi-video-input-component
+
+officetvselect:
+  widget_type: script
+  title: OK/Select
+  entity: script.officetvselect
+  title_style: "color: #ff0000;text-shadow: 0px 0px 5px #003300;"
+  icon_style_inactive: "margin-top: -10px; font-size: 40px; color: #ff0000;text-shadow: 0px 0px 5px #800000;"
+  icon_style_active: "margin-top: -10px; font-size: 40px; color: #ff8080;text-shadow: 0px 0px 5px #800000;"
+  icon_on: mdi-death-star mdi-spin
+  icon_off: mdi-death-star mdi-spin
+
+officetvup:
+  widget_type: script
+  title: UP
+  entity: script.officetvup
+  title_style: "color: #ff0000;text-shadow: 0px 0px 5px #003300;"
+  icon_style_inactive: "margin-top: -10px; font-size: 40px; color: #ff0000;text-shadow: 0px 0px 5px #800000;"
+  icon_style_active: "margin-top: -10px; font-size: 40px; color: #ff8080;text-shadow: 0px 0px 5px #800000;"
+  icon_on: fa-arrow-up
+  icon_off: fa-arrow-up
+
+officetvdown:
+  widget_type: script
+  title: DOWN
+  entity: script.officevoldown
+  title_style: "color: #ff0000;text-shadow: 0px 0px 5px #003300;"
+  icon_style_inactive: "margin-top: -10px; font-size: 40px; color: #ff0000;text-shadow: 0px 0px 5px #800000;"
+  icon_style_active: "margin-top: -10px; font-size: 40px; color: #ff8080;text-shadow: 0px 0px 5px #800000;"
+  icon_on: fa-arrow-down
+  icon_off: fa-arrow-down
+
+officetvleft:
+  widget_type: script
+  title: LEFT
+  entity: script.officetvleft
+  title_style: "color: #ff0000;text-shadow: 0px 0px 5px #003300;"
+  icon_style_inactive: "margin-top: -10px; font-size: 40px; color: #ff0000;text-shadow: 0px 0px 5px #800000;"
+  icon_style_active: "margin-top: -10px; font-size: 40px; color: #ff8080;text-shadow: 0px 0px 5px #800000;"
+  icon_on: fa-arrow-left
+  icon_off: fa-arrow-left
+
+officetvright:
+  widget_type: script
+  title: RIGHT
+  entity: script.officetvright
+  title_style: "color: #ff0000;text-shadow: 0px 0px 5px #003300;"
+  icon_style_inactive: "margin-top: -10px; font-size: 40px; color: #ff0000;text-shadow: 0px 0px 5px #800000;"
+  icon_style_active: "margin-top: -10px; font-size: 40px; color: #ff8080;text-shadow: 0px 0px 5px #800000;"
+  icon_on: fa-arrow-right
+  icon_off: fa-arrow-right
+
+
+
+officevolup:
+  widget_type: script
+  title: Volume Up
+  entity: script.officevolup
+  title_style: "color: #0000ff;text-shadow: 0px 0px 5px #000066;"
+  icon_style_inactive: "margin-top: -10px; font-size: 40px; color: #0000ff;text-shadow: 0px 0px 5px #000066;"
+  icon_style_active: "margin-top: -10px; font-size: 40px; color: #6666ff;text-shadow: 0px 0px 5px #000066;"
+  icon_on: fa-volume-up
+  icon_off: fa-volume-up
+
+officevoldown:
+  widget_type: script
+  title: Volume Down
+  entity: script.officevoldown
+  title_style: "color: #0000ff;text-shadow: 0px 0px 5px #000066;"
+  icon_style_inactive: "margin-top: -10px; font-size: 40px; color: #0000ff;text-shadow: 0px 0px 5px #000066;"
+  icon_style_active: "margin-top: -10px; font-size: 40px; color: #6666ff;text-shadow: 0px 0px 5px #000066;"
+  icon_on: fa-volume-down
+  icon_off: fa-volume-down
+
+officevolupplus:
+  widget_type: script
+  title: Volume Up +8
+  entity: script.officevolupplus
+  title_style: "color: #0000ff;text-shadow: 0px 0px 5px #000066;"
+  icon_style_inactive: "margin-top: -10px; font-size: 40px; color: #0000ff;text-shadow: 0px 0px 5px #000066;"
+  icon_style_active: "margin-top: -10px; font-size: 40px; color: #6666ff;text-shadow: 0px 0px 5px #000066;"
+  icon_on: mdi-volume-plus
+  icon_off: mdi-volume-plus
+
+officevoldownplus:
+  widget_type: script
+  title: Volume Down -8
+  entity: script.officevoldownplus
+  title_style: "color: #0000ff;text-shadow: 0px 0px 5px #000066;"
+  icon_style_inactive: "margin-top: -10px; font-size: 40px; color: #0000ff;text-shadow: 0px 0px 5px #000066;"
+  icon_style_active: "margin-top: -10px; font-size: 40px; color: #6666ff;text-shadow: 0px 0px 5px #000066;"
+  icon_on: mdi-volume-minus
+  icon_off: mdi-volume-minus
+
+officevolmute:
+  widget_type: script
+  title: Mute
+  entity: script.officemute
+  title_style: "color: #0000ff;text-shadow: 0px 0px 5px #000066;"
+  icon_style_inactive: "margin-top: -10px; font-size: 40px; color: #0000ff;text-shadow: 0px 0px 5px #000066;"
+  icon_style_active: "margin-top: -10px; font-size: 40px; color: #6666ff;text-shadow: 0px 0px 5px #000066;"
+  icon_on: mdi-volume-off
+  icon_off: mdi-volume-off

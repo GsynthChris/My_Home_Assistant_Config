@@ -1,0 +1,77 @@
+##################################################################################################
+########################          Temperature Sensors          ###################################
+##################################################################################################
+  # - platform: weatheralerts
+  #   sameid: '029099'
+  - platform: moon
+  - platform: mqtt
+    state_topic: "tele/bedsidelight/SENSOR"
+    name: "Master Bedroom Temp"
+    unit_of_measurement: "°F"
+    icon: mdi:thermometer
+    value_template: "{{ value_json['DHT11'].Temperature }}"
+  - platform: mqtt
+    state_topic: "tele/bedsidelight/SENSOR"
+    name: "Master Bedroom Humidity"
+    unit_of_measurement: "Humidity"
+    value_template: "{{ value_json['DHT11'].Humidity }}"
+
+  - platform: mqtt
+    state_topic: "tele/mstbedmultisensor/SENSOR"
+    name: "Master Bedroom Temp2"
+    unit_of_measurement: "°F"
+    icon: mdi:thermometer
+    value_template: "{{ value_json['DHT11'].Temperature }}"
+  - platform: mqtt
+    state_topic: "tele/mstbedmultisensor/SENSOR"
+    name: "Master Bedroom Humidity2"
+    unit_of_measurement: "Humidity"
+    value_template: "{{ value_json['DHT11'].Humidity }}"
+
+  - platform: mqtt
+    state_topic: "tele/thermozztat/SENSOR"
+    name: "Music Room Temp"
+    unit_of_measurement: "°F"
+    icon: mdi:thermometer
+    value_template: "{{ value_json['DHT11'].Temperature }}"
+  - platform: mqtt
+    state_topic: "tele/thermozztat/SENSOR"
+    name: "Music Room Humidity"
+    unit_of_measurement: "Humidity"
+    value_template: "{{ value_json['DHT11'].Humidity }}"
+    
+  - platform: mqtt
+    state_topic: "tele/kitchensink/SENSOR"
+    name: "Kitchen Temp"
+    unit_of_measurement: "°F"
+    icon: mdi:thermometer
+    value_template: "{{ value_json['AM2301'].Temperature }}"
+  - platform: mqtt
+    state_topic: "tele/kitchensink/SENSOR"
+    name: "Kitchen Humidity"
+    unit_of_measurement: "Humidity"
+    value_template: "{{ value_json['AM2301'].Humidity }}"
+
+  - platform: mqtt
+    state_topic: "tele/livingroomfan/SENSOR"
+    name: "Livingroom Temp"
+    unit_of_measurement: "°F"
+    icon: mdi:thermometer
+    value_template: "{{ value_json['DHT11'].Temperature }}"
+  - platform: mqtt
+    state_topic: "tele/livingroomfan/SENSOR"
+    name: "Livingroom Humidity"
+    unit_of_measurement: "Humidity"
+    value_template: "{{ value_json['DHT11'].Humidity }}"
+
+  - platform: mqtt
+    state_topic: "tele/officemultisensor/SENSOR"
+    name: "Office Temp"
+    unit_of_measurement: "°F"
+    icon: mdi:thermometer
+    value_template: "{{ value_json['DHT11'].Temperature }}"
+  - platform: mqtt
+    state_topic: "tele/officemultisensor/SENSOR"
+    name: "Office Humidity"
+    unit_of_measurement: "Humidity"
+    value_template: "{{ value_json['DHT11'].Humidity }}"

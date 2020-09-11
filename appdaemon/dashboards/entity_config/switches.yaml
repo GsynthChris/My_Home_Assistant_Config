@@ -1,0 +1,494 @@
+###########################################################################################################
+###################################                Lights                ##################################
+###########################################################################################################
+
+alllightstoggle:
+  widget_type: switch
+  entity: group.all_lights
+  title: All Lights
+  title_style: "color: #3366ff;text-shadow: 0px 0px 5px #000066;"
+  title2_style: "color: #3366ff;text-shadow: 0px 0px 5px #000066;"
+  icon_style_inactive: "margin-top: -10px; font-size: 40px; color: #000BBB;text-shadow: 0px 0px 5px #000066;"
+  icon_style_active: "margin-top: -10px; font-size: 40px; color: #ffff00;text-shadow: 0px 0px 5px #996600;"
+  icon_on: mdi-brightness-7 mdi-spin
+  icon_off: fa-cloud-moon
+
+##################################################################################
+######################               Bedroom                ######################
+##################################################################################
+
+bedside:
+  widget_type: switch
+  entity: light.bedside_light
+  title: Bedside
+  title_style: "color: #3366ff;text-shadow: 0px 0px 5px #000066;"
+  title2_style: "color: #3366ff;text-shadow: 0px 0px 5px #000066;"
+  icon_style_inactive: "margin-top: -10px; font-size: 40px; color: #000BBB;text-shadow: 0px 0px 5px #000066;"
+  icon_style_active: "margin-top: -10px; font-size: 40px; color: #ffff00;text-shadow: 0px 0px 5px #996600;"
+  icon_on: mdi-lamp
+  icon_off: mdi-lamp
+
+closet:
+  widget_type: switch
+  entity: light.closet_light
+  title: Closet
+  title_style: "color: #3366ff;text-shadow: 0px 0px 5px #000066;"
+  title2_style: "color: #3366ff;text-shadow: 0px 0px 5px #000066;"
+  icon_style_inactive: "margin-top: -10px; font-size: 40px; color: #000BBB;text-shadow: 0px 0px 5px #000066;"
+  icon_style_active: "margin-top: -10px; font-size: 40px; color: #ffff00;text-shadow: 0px 0px 5px #996600;"
+  icon_on: mdi-wardrobe
+  icon_off: mdi-wardrobe
+
+nightlight:
+  widget_type: switch
+  entity: light.night_light
+  title: Bed Nightlight
+  title_style: "color: #3366ff;text-shadow: 0px 0px 5px #000066;"
+  title2_style: "color: #3366ff;text-shadow: 0px 0px 5px #000066;"
+  icon_style_inactive: "margin-top: -10px; font-size: 40px; color: #000BBB;text-shadow: 0px 0px 5px #000066;"
+  icon_style_active: "margin-top: -10px; font-size: 40px; color: #ffff00;text-shadow: 0px 0px 5px #996600;"
+  icon_on: fa-bed
+  icon_off: mdi-bed-empty
+
+bednightlight:
+  widget_type: switch
+  entity: light.chris_undertable_light
+  title: Bedside Nightlight
+  title_style: "color: #3366ff;text-shadow: 0px 0px 5px #000066;"
+  title2_style: "color: #3366ff;text-shadow: 0px 0px 5px #000066;"
+  icon_style_inactive: "margin-top: -10px; font-size: 40px; color: #000BBB;text-shadow: 0px 0px 5px #000066;"
+  icon_style_active: "margin-top: -10px; font-size: 40px; color: #ffff00;text-shadow: 0px 0px 5px #996600;"
+  icon_on: mdi-led-strip
+  icon_off: mdi-led-strip
+
+dresser:
+  widget_type: switch
+  entity: light.dresser_light
+  title: Dresser
+  title_style: "color: #3366ff;text-shadow: 0px 0px 5px #000066;"
+  title2_style: "color: #3366ff;text-shadow: 0px 0px 5px #000066;"
+  icon_style_inactive: "margin-top: -10px; font-size: 40px; color: #000BBB;text-shadow: 0px 0px 5px #000066;"
+  icon_style_active: "margin-top: -10px; font-size: 40px; color: #ffff00;text-shadow: 0px 0px 5px #996600;"
+  icon_on: mdi-wall-sconce
+  icon_off: mdi-wall-sconce
+
+bedceilinglight:
+  widget_type: switch
+  entity: light.bedroom_ceiling_light
+  title: Bedroom
+  title2: Ceiling Light
+  title_style: "color: #3366ff;text-shadow: 0px 0px 5px #000066;"
+  title2_style: "color: #3366ff;text-shadow: 0px 0px 5px #000066;"
+  icon_style_inactive: "margin-top: -10px; font-size: 40px; color: #000BBB;text-shadow: 0px 0px 5px #000066;"
+  icon_style_active: "margin-top: -10px; font-size: 40px; color: #ffff00;text-shadow: 0px 0px 5px #996600;"
+  icon_on: mdi-ceiling-light
+  icon_off: mdi-ceiling-light
+
+##################################################################################
+######################             Livingroom               ######################
+##################################################################################
+
+hallway:
+  widget_type: switch
+  entity: light.hallway_light
+  title: Hallway
+  style: "color: green"
+  title_style: "color: #3366ff;text-shadow: 0px 0px 5px #000066;"
+  title2_style: "color: #3366ff;text-shadow: 0px 0px 5px #000066;"
+  icon_style_inactive: "margin-top: -10px; font-size: 40px; color: #000BBB;text-shadow: 0px 0px 5px #000066;"
+  icon_style_active: "margin-top: -10px; font-size: 40px; color: #ffff00;text-shadow: 0px 0px 5px #996600;"
+  icon_on: mdi-ceiling-light
+  icon_off: mdi-ceiling-light
+
+livrmlamp:
+  widget_type: switch
+  entity: light.livingroom_lamp
+  title: Livingroom
+  title2: Lamp
+  title_style: "color: #3366ff;text-shadow: 0px 0px 5px #000066;"
+  title2_style: "color: #3366ff;text-shadow: 0px 0px 5px #000066;"
+  icon_style_inactive: "margin-top: -10px; font-size: 40px; color: #000BBB;text-shadow: 0px 0px 5px #000066;"
+  icon_style_active: "margin-top: -10px; font-size: 40px; color: #ffff00;text-shadow: 0px 0px 5px #996600;"
+  icon_on: mdi-floor-lamp
+  icon_off: mdi-floor-lamp
+
+livingroomceilinglight:
+  widget_type: switch
+  entity: light.livingroom_ceiling_light
+  title: Livingroom
+  title2: Ceiling Light
+  title_style: "color: #3366ff;text-shadow: 0px 0px 5px #000066;"
+  title2_style: "color: #3366ff;text-shadow: 0px 0px 5px #000066;"
+  icon_style_inactive: "margin-top: -10px; font-size: 40px; color: #000BBB;text-shadow: 0px 0px 5px #000066;"
+  icon_style_active: "margin-top: -10px; font-size: 40px; color: #ffff00;text-shadow: 0px 0px 5px #996600;"
+  icon_on: mdi-ceiling-light
+  icon_off: mdi-ceiling-light
+
+livingroomcomputer:
+  widget_type: switch
+  entity: switch.cinnabon_laptop
+  title: Livingroom
+  title2: Computer
+  title_style: "color: #3366ff;text-shadow: 0px 0px 5px #000066;"
+  title2_style: "color: #3366ff;text-shadow: 0px 0px 5px #000066;"
+  icon_style_inactive: "margin-top: -10px; font-size: 40px; color: #000BBB;text-shadow: 0px 0px 5px #000066;"
+  icon_style_active: "margin-top: -10px; font-size: 40px; color: #ffff00;text-shadow: 0px 0px 5px #996600;"
+  icon_on: mdi-laptop
+  icon_off: mdi-laptop
+
+##################################################################################
+######################              Kitchen                 ######################
+##################################################################################
+
+undercabinet:
+  widget_type: switch
+  entity: light.under_cabinet_light
+  title: Undercabinet
+  title_style: "color: #3366ff;text-shadow: 0px 0px 5px #000066;"
+  title2_style: "color: #3366ff;text-shadow: 0px 0px 5px #000066;"
+  icon_style_inactive: "margin-top: -10px; font-size: 40px; color: #000BBB;text-shadow: 0px 0px 5px #000066;"
+  icon_style_active: "margin-top: -10px; font-size: 40px; color: #ffff00;text-shadow: 0px 0px 5px #996600;"
+  icon_on: mdi-file-cabinet
+  icon_off: mdi-file-cabinet
+
+kitchenceilinglight:
+  widget_type: switch
+  entity: light.kitchen_ceiling_light
+  title: Kitchen
+  title2: Ceiling Light
+  title_style: "color: #3366ff;text-shadow: 0px 0px 5px #000066;"
+  title2_style: "color: #3366ff;text-shadow: 0px 0px 5px #000066;"
+  icon_style_inactive: "margin-top: -10px; font-size: 40px; color: #000BBB;text-shadow: 0px 0px 5px #000066;"
+  icon_style_active: "margin-top: -10px; font-size: 40px; color: #ffff00;text-shadow: 0px 0px 5px #996600;"
+  icon_on: mdi-ceiling-light
+  icon_off: mdi-ceiling-light
+
+sink:
+  widget_type: switch
+  entity: light.kitchen_sink_light
+  title: Kitchen Sink
+  title_style: "color: #3366ff;text-shadow: 0px 0px 5px #000066;"
+  title2_style: "color: #3366ff;text-shadow: 0px 0px 5px #000066;"
+  icon_style_inactive: "margin-top: -10px; font-size: 40px; color: #000BBB;text-shadow: 0px 0px 5px #000066;"
+  icon_style_active: "margin-top: -10px; font-size: 40px; color: #ffff00;text-shadow: 0px 0px 5px #996600;"
+  icon_on: mdi-ceiling-light
+  icon_off: mdi-ceiling-light
+
+brewtea:
+  widget_type: switch
+  entity: input_boolean.brew_tea
+  title: Brew Tea
+  title_style: "color: #3366ff;text-shadow: 0px 0px 5px #000066;"
+  title2_style: "color: #3366ff;text-shadow: 0px 0px 5px #000066;"
+  icon_style_inactive: "margin-top: -10px; font-size: 40px; color: #000BBB;text-shadow: 0px 0px 5px #000066;"
+  icon_style_active: "margin-top: -10px; font-size: 40px; color: #ffff00;text-shadow: 0px 0px 5px #996600;"
+  icon_on: mdi-tea
+  icon_off: mdi-tea
+
+brewcoffee:
+  widget_type: switch
+  entity: input_boolean.brew_coffee
+  title: Brew Coffee
+  title_style: "color: #3366ff;text-shadow: 0px 0px 5px #000066;"
+  title2_style: "color: #3366ff;text-shadow: 0px 0px 5px #000066;"
+  icon_style_inactive: "margin-top: -10px; font-size: 40px; color: #000BBB;text-shadow: 0px 0px 5px #000066;"
+  icon_style_active: "margin-top: -10px; font-size: 40px; color: #ffff00;text-shadow: 0px 0px 5px #996600;"
+  icon_on: mdi-coffee
+  icon_off: mdi-coffee
+
+coffeepot:
+  widget_type: switch
+  entity: switch.coffee_pot
+  title: Coffee Pot
+  title_style: "color: #3366ff;text-shadow: 0px 0px 5px #000066;"
+  title2_style: "color: #3366ff;text-shadow: 0px 0px 5px #000066;"
+  icon_style_inactive: "margin-top: -10px; font-size: 40px; color: #000BBB;text-shadow: 0px 0px 5px #000066;"
+  icon_style_active: "margin-top: -10px; font-size: 40px; color: #ffff00;text-shadow: 0px 0px 5px #996600;"
+  icon_on: mdi-coffee-maker
+  icon_off: mdi-coffee-maker
+
+keurig:
+  widget_type: switch
+  entity: switch.Keurig
+  title: Keurig
+  title_style: "color: #3366ff;text-shadow: 0px 0px 5px #000066;"
+  title2_style: "color: #3366ff;text-shadow: 0px 0px 5px #000066;"
+  icon_style_inactive: "margin-top: -10px; font-size: 40px; color: #000BBB;text-shadow: 0px 0px 5px #000066;"
+  icon_style_active: "margin-top: -10px; font-size: 40px; color: #ffff00;text-shadow: 0px 0px 5px #996600;"
+  icon_on: mdi-coffee
+  icon_off: mdi-coffee
+
+
+###########################################################################################
+##################                      WLED Widgets                     ##################
+###########################################################################################
+wledeffects:
+  widget_type: input_select
+  entity: input_select.wled_effects_names
+  title: WLED Effects
+
+wledpalettes:
+  widget_type: input_select
+  entity: input_select.wled_palettes_names
+  title: WLED Palettes
+    
+wledspeed:
+  widget_type: input_number
+  entity: input_number.wled_speed
+  title: WLED Speed
+  # title2_style:
+  use_comma: no
+  units: "%"
+  minvalue_style: "0"
+  maxvalue_style: "100"
+  # value_style:
+  # slider_style:
+  # slidercontainer_style:
+  # widget_style:
+  widget_style: "background: white"
+  date_style: "color: black"
+  time_style: "color: green"
+
+wledbrightness:
+  widget_type: input_number
+  entity: input_number.wled_brightness
+  title: WLED Brightness
+
+wledintensity:
+  widget_type: input_number
+  entity: input_number.wled_intensity
+  title: WLED Intensity
+
+
+##################################################################################
+######################              Basement                ######################
+##################################################################################
+
+
+stairs:
+  widget_type: switch
+  entity: light.stairs_light
+  title: Stairs
+  title_style: "color: #3366ff;text-shadow: 0px 0px 5px #000066;"
+  title2_style: "color: #3366ff;text-shadow: 0px 0px 5px #000066;"
+  icon_style_inactive: "margin-top: -10px; font-size: 40px; color: #000BBB;text-shadow: 0px 0px 5px #000066;"
+  icon_style_active: "margin-top: -10px; font-size: 40px; color: #ffff00;text-shadow: 0px 0px 5px #996600;"
+  icon_on: mdi-stairs
+  icon_off: mdi-stairs
+
+theater:
+  widget_type: switch
+  entity: light.theater
+  title: Theater Lights
+  title_style: "color: #3366ff;text-shadow: 0px 0px 5px #000066;"
+  title2_style: "color: #3366ff;text-shadow: 0px 0px 5px #000066;"
+  icon_style_inactive: "margin-top: -10px; font-size: 40px; color: #000BBB;text-shadow: 0px 0px 5px #000066;"
+  icon_style_active: "margin-top: -10px; font-size: 40px; color: #ffff00;text-shadow: 0px 0px 5px #996600;"
+  icon_on: mdi-filmstrip
+  icon_off: mdi-filmstrip-off
+
+laundry:
+  widget_type: switch
+  entity: light.laundry_room
+  title: Laundry Room
+  title_style: "color: #3366ff;text-shadow: 0px 0px 5px #000066;"
+  title2_style: "color: #3366ff;text-shadow: 0px 0px 5px #000066;"
+  icon_style_inactive: "margin-top: -10px; font-size: 40px; color: #000BBB;text-shadow: 0px 0px 5px #000066;"
+  icon_style_active: "margin-top: -10px; font-size: 40px; color: #ffff00;text-shadow: 0px 0px 5px #996600;"
+  icon_on: mdi-washing-machine
+  icon_off: mdi-washing-machine
+
+studio:
+  widget_type: switch
+  entity: light.studio_light
+  title: Studio Lights
+  title_style: "color: #3366ff;text-shadow: 0px 0px 5px #000066;"
+  title2_style: "color: #3366ff;text-shadow: 0px 0px 5px #000066;"
+  icon_style_inactive: "margin-top: -10px; font-size: 40px; color: #000BBB;text-shadow: 0px 0px 5px #000066;"
+  icon_style_active: "margin-top: -10px; font-size: 40px; color: #ffff00;text-shadow: 0px 0px 5px #996600;"
+  icon_on: mdi-led-strip
+  icon_off: mdi-led-strip
+
+aquarium:
+  widget_type: switch
+  entity: light.aquarium_light
+  title: Aquarium Light
+  title_style: "color: #3366ff;text-shadow: 0px 0px 5px #000066;"
+  title2_style: "color: #3366ff;text-shadow: 0px 0px 5px #000066;"
+  icon_style_inactive: "margin-top: -10px; font-size: 40px; color: #000BBB;text-shadow: 0px 0px 5px #000066;"
+  icon_style_active: "margin-top: -10px; font-size: 40px; color: #ffff00;text-shadow: 0px 0px 5px #996600;"
+  icon_on: mdi-fishbowl-outline
+  icon_off: mdi-fishbowl
+
+studioequip:
+  widget_type: switch
+  entity: switch.studio_equipment
+  title: Studio Equipment
+  title_style: "color: #3366ff;text-shadow: 0px 0px 5px #000066;"
+  title2_style: "color: #3366ff;text-shadow: 0px 0px 5px #000066;"
+  icon_style_inactive: "margin-top: -10px; font-size: 40px; color: #000BBB;text-shadow: 0px 0px 5px #000066;"
+  icon_style_active: "margin-top: -10px; font-size: 40px; color: #00DDFF;text-shadow: 0px 0px 5px #000066;"
+  icon_on: mdi-guitar-electric
+  icon_off: mdi-guitar-electric
+
+
+##################################################################################
+######################               Office                 ######################
+##################################################################################
+
+
+officecomputer:
+  widget_type: switch
+  entity: switch.office_computer
+  title: Office
+  title2: Computer
+  title_style: "color: #3366ff;text-shadow: 0px 0px 5px #000066;"
+  title2_style: "color: #3366ff;text-shadow: 0px 0px 5px #000066;"
+  icon_style_inactive: "margin-top: -10px; font-size: 40px; color: #000BBB;text-shadow: 0px 0px 5px #000066;"
+  icon_style_active: "margin-top: -10px; font-size: 40px; color: #ffff00;text-shadow: 0px 0px 5px #996600;"
+  icon_on: mdi-desktop-tower-monitor
+  icon_off: mdi-desktop-tower-monitor
+
+
+floorlamp:
+  widget_type: switch
+  entity: light.floor_lamp
+  title: Office
+  title2: Floor Lamp
+  title_style: "color: #3366ff;text-shadow: 0px 0px 5px #000066;"
+  title2_style: "color: #3366ff;text-shadow: 0px 0px 5px #000066;"
+  icon_style_inactive: "margin-top: -10px; font-size: 40px; color: #000BBB;text-shadow: 0px 0px 5px #000066;"
+  icon_style_active: "margin-top: -10px; font-size: 40px; color: #ffff00;text-shadow: 0px 0px 5px #996600;"
+  icon_on: mdi-floor-lamp
+  icon_off: mdi-floor-lamp
+
+desklamp:
+  widget_type: switch
+  entity:  light.desk_lamp
+  title: Office
+  title2: Desk Lamp
+  title_style: "color: #3366ff;text-shadow: 0px 0px 5px #000066;"
+  title2_style: "color: #3366ff;text-shadow: 0px 0px 5px #000066;"
+  icon_style_inactive: "margin-top: -10px; font-size: 40px; color: #000BBB;text-shadow: 0px 0px 5px #000066;"
+  icon_style_active: "margin-top: -10px; font-size: 40px; color: #ffff00;text-shadow: 0px 0px 5px #996600;"
+  icon_on: mdi-desk-lamp
+  icon_off: mdi-desk-lamp
+
+officeceilinglight:
+  widget_type: switch
+  entity: light.office_ceiling_light
+  title: Office
+  title2: Ceiling Light
+  title_style: "color: #3366ff;text-shadow: 0px 0px 5px #000066;"
+  title2_style: "color: #3366ff;text-shadow: 0px 0px 5px #000066;"
+  icon_style_inactive: "margin-top: -10px; font-size: 40px; color: #000BBB;text-shadow: 0px 0px 5px #000066;"
+  icon_style_active: "margin-top: -10px; font-size: 40px; color: #ffff00;text-shadow: 0px 0px 5px #996600;"
+  icon_on: mdi-ceiling-light
+  icon_off: mdi-ceiling-light
+
+computerspeakers:
+  widget_type: switch
+  entity: switch.computer_speakers
+  title_style: "color: #3366ff;text-shadow: 0px 0px 5px #000066;"
+  title2_style: "color: #3366ff;text-shadow: 0px 0px 5px #000066;"
+  icon_style_inactive: "margin-top: -10px; font-size: 40px; color: #000BBB;text-shadow: 0px 0px 5px #000066;"
+  icon_style_active: "margin-top: -10px; font-size: 40px; color: #00DDFF;text-shadow: 0px 0px 5px #000066;"
+  icon_on: mdi-speaker-multiple
+  icon_off: mdi-speaker-multiple
+
+computermonitors:
+  widget_type: switch
+  entity: switch.computer_monitors
+  title: Computer Monitors
+  title_style: "color: #3366ff;text-shadow: 0px 0px 5px #000066;"
+  title2_style: "color: #3366ff;text-shadow: 0px 0px 5px #000066;"
+  icon_style_inactive: "margin-top: -10px; font-size: 40px; color: #000BBB;text-shadow: 0px 0px 5px #000066;"
+  icon_style_active: "margin-top: -10px; font-size: 40px; color: #00DDFF;text-shadow: 0px 0px 5px #000066;"
+  icon_on: mdi-monitor-dashboard
+  icon_off: mdi-monitor-dashboard
+
+printer:
+  widget_type: switch
+  entity: switch.printer
+  title: Printer
+  title_style: "color: #3366ff;text-shadow: 0px 0px 5px #000066;"
+  title2_style: "color: #3366ff;text-shadow: 0px 0px 5px #000066;"
+  icon_style_inactive: "margin-top: -10px; font-size: 40px; color: #000BBB;text-shadow: 0px 0px 5px #000066;"
+  icon_style_active: "margin-top: -10px; font-size: 40px; color: #00DDFF;text-shadow: 0px 0px 5px #000066;"
+  icon_on: mdi-printer
+  icon_off: mdi-printer
+
+yankeecandle:
+  widget_type: switch
+  entity: switch.yankee_candle
+  title: Yankee Candle
+  title_style: "color: #3366ff;text-shadow: 0px 0px 5px #000066;"
+  title2_style: "color: #3366ff;text-shadow: 0px 0px 5px #000066;"
+  icon_style_inactive: "margin-top: -10px; font-size: 40px; color: #000BBB;text-shadow: 0px 0px 5px #000066;"
+  icon_style_active: "margin-top: -10px; font-size: 40px; color: #00DDFF;text-shadow: 0px 0px 5px #000066;"
+  icon_on: mdi-candle
+  icon_off: mdi-candle
+
+
+outsidelights:
+  widget_type: switch
+  entity: light.outside_lights
+  title: Outside Lights
+  title_style: "color: #3366ff;text-shadow: 0px 0px 5px #000066;"
+  title2_style: "color: #3366ff;text-shadow: 0px 0px 5px #000066;"
+  icon_style_inactive: "margin-top: -10px; font-size: 40px; color: #000BBB;text-shadow: 0px 0px 5px #000066;"
+  icon_style_active: "margin-top: -10px; font-size: 40px; color: #00DDFF;text-shadow: 0px 0px 5px #000066;"
+  icon_on: mdi-coach-lamp
+  icon_off: mdi-coach-lamp
+
+###########################################################################################################
+###################################                 Fans                 ##################################
+###########################################################################################################
+
+livceilingfan:
+  widget_type: switch
+  entity: fan.livingroom_ceiling_fan
+  title: Livingroom
+  title2: Ceiling Fan
+  title_style: "color: #3366ff;text-shadow: 0px 0px 5px #000066;"
+  title2_style: "color: #3366ff;text-shadow: 0px 0px 5px #000066;"
+  icon_style_inactive: "margin-top: -10px; font-size: 40px; color: #000BBB;text-shadow: 0px 0px 5px #000066;"
+  icon_style_active: "margin-top: -10px; font-size: 40px; color: #00DDFF;text-shadow: 0px 0px 5px #000066;"
+  icon_on: mdi-fan mdi-spin
+  icon_off: mdi-fan
+
+bedceilingfan:
+  widget_type: switch
+  entity: fan.bedroom_ceiling_fan
+  title: Bedroom
+  title2: Ceiling Fan
+  title_style: "color: #3366ff;text-shadow: 0px 0px 5px #000066;"
+  title2_style: "color: #3366ff;text-shadow: 0px 0px 5px #000066;"
+  icon_style_inactive: "margin-top: -10px; font-size: 40px; color: #000BBB;text-shadow: 0px 0px 5px #000066;"
+  icon_style_active: "margin-top: -10px; font-size: 40px; color: #00DDFF;text-shadow: 0px 0px 5px #000066;"
+  icon_on: mdi-fan mdi-spin
+  icon_off: fas-fan
+
+kitchenceilingfan:
+  widget_type: switch
+  entity: fan.kitchen_ceiling_fan
+  title: Kitchen
+  title2: Ceiling Fan
+  title_style: "color: #3366ff;text-shadow: 0px 0px 5px #000066;"
+  title2_style: "color: #3366ff;text-shadow: 0px 0px 5px #000066;"
+  icon_style_inactive: "margin-top: -10px; font-size: 40px; color: #000BBB;text-shadow: 0px 0px 5px #000066;"
+  icon_style_active: "margin-top: -10px; font-size: 40px; color: #00DDFF;text-shadow: 0px 0px 5px #000066;"
+  icon_on: mdi-fan mdi-spin
+  icon_off: mdi-fan
+
+boxfan:
+  widget_type: switch
+  entity: fan.box_fan
+  title: Bedroom
+  title2: Box Fan
+  title_style: "color: #3366ff;text-shadow: 0px 0px 5px #000066;"
+  title2_style: "color: #3366ff;text-shadow: 0px 0px 5px #000066;"
+  icon_style_inactive: "margin-top: -10px; font-size: 40px; color: #000BBB;text-shadow: 0px 0px 5px #000066;"
+  icon_style_active: "margin-top: -10px; font-size: 40px; color: #00DDFF;text-shadow: 0px 0px 5px #000066;"
+  icon_on: mdi-fan mdi-spin
+  icon_off: mdi-fan

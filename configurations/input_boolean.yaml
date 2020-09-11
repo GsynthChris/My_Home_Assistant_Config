@@ -1,0 +1,45 @@
+  chrislizz_home:
+    name: Is Chris or Lizz Home
+    icon: mdi:account-group
+  chrismedicinereminder:
+    name: Chris Medicine Reminder
+    icon: mdi:pill
+  music_time:
+    name: Music Time
+    icon: mdi:music
+  office_toggle:
+    name: Office Toggle
+    icon: mdi:desktop-classic
+  kitchen_toggle:
+    name: Kitchen Toggle
+    icon: mdi:food-fork-drink
+  bedroom_toggle:
+    name: Bedroom Toggle
+    icon: mdi:bed-empty
+  # tonbux_toggle:
+  #   name: Tonbux Toggle
+  #   icon: mdi:format-line-style
+  drzzs_video:
+    name: DrZzs Posted a Video
+    icon: mdi:hospital-box
+  billy_go_poopy:
+    name: Billy Go Poopy
+    icon: mdi:emoticon-poop
+  chewy_go_poopy:
+    name: Chewy Go Poopy
+    icon: mdi:emoticon-poop
+  computer:
+    name: Office Computer
+    icon: mdi:monitor-dashboard
+  livingroom_guest:
+    name: Livingroom Guest
+  brew_tea:
+    name: Brew Some Tea
+    icon: mdi:tea
+  brew_coffee:
+    name: Brew Some Coffee
+    icon: mdi:coffee
+  bedroom_lights:
+    name: Mstbdlghts
+  mstbdfans:
+  kichnfans:

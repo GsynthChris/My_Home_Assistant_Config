@@ -1,0 +1,98 @@
+push:
+  categories:
+    - name: Test
+      identifier: 'noderedtest'
+      actions:
+        - identifier: 'TEST'
+          title: 'Dont Forget to take your medicine'  #This is what will be on the button
+          activationMode: 'background'
+          authenticationRequired: no
+          destructive: no
+          behavior: 'default'
+    - name: Take Medicine
+      identifier: 'chrismedicine'
+      actions: 
+        - identifier: 'ALREADY_TAKEN'
+          title: 'Already Taken'
+          activationMode: 'background'
+          authenticationRequired: no
+          destructive: no
+          behavior: 'default'
+        - identifier: 'SNOOZE'
+          title: 'Snooze 5 Minutes'
+          activationMode: 'background'
+          authenticationRequired: no
+          destructive: no
+          behavior: 'default'
+        - identifier: 'REMIND_HOME'
+          title: 'Remind me when I get home'
+          activationMode: 'background'
+          authenticationRequired: no
+          destructive: no
+          behavior: 'default'
+    - name: Doorbell Send Chris Video
+      identifier: 'frontvideochris'
+      actions:
+        - identifier: 'FRONTVIDEOCHRIS'
+          title: 'Live Front Yard Video'
+          activationMode: 'background'
+          authenticationRequired: no
+          destructive: yes
+          behavior: 'default'
+        - identifier: 'DRIVEWAYVIDEOCHRIS'
+          title: 'Live Driveway Video'
+          activationMode: 'background'
+          authenticationRequired: no
+          destructive: yes
+          behavior: 'default'
+    - name: Doorbell Send Skidata Video
+      identifier: 'frontvideoskidata'
+      actions:
+        - identifier: 'FRONTVIDEOSKIDATA'
+          title: 'Live Front Yard Video'
+          activationMode: 'background'
+          authenticationRequired: no
+          destructive: yes
+          behavior: 'default'
+        - identifier: 'DRIVEWAYVIDEOSKIDATA'
+          title: 'Live Driveway Video'
+          activationMode: 'background'
+          authenticationRequired: no
+          destructive: yes
+          behavior: 'default'
+    # - name: Doorbell Send Lizz Video
+    #   identifier: 'frontvideolizz'
+    #   actions:
+    #     - identifier: 'FRONTVIDEOLIZZ'
+    #       title: 'Live Front Yard Video'
+    #       activationMode: 'background'
+    #       authenticationRequired: no
+    #       destructive: yes
+    #       behavior: 'default'
+    #     - identifier: 'DRIVEWAYVIDEOLIZZ'
+    #       title: 'Live Driveway Video'
+    #       activationMode: 'background'
+    #       authenticationRequired: no
+    #       destructive: yes
+    #       behavior: 'default'
+    # - name: WelcomeHome
+    #   identifier: 'welcomehome'
+    #   actions: 
+    #   - identifier: 'LIVROOM'
+    #     title: 'Living Room Lights'
+    #     activationMode: 'background'
+    #     authenticationRequired: no
+    #     destructive: no
+    #     behavior: 'default'
+    #   - identifier: 'BEDROOM'
+    #     title: 'Bedroom Lights'
+    #     activationMode: 'background'
+    #     authenticationRequired: no
+    #     destructive: no
+    #     behavior: 'default'
+    #   - identifier: 'OUTSIDE'
+    #     title: 'Outside Lights'
+    #     activationMode: 'background'
+    #     authenticationRequired: no
+    #     destructive: no
+    #     behavior: 'default'

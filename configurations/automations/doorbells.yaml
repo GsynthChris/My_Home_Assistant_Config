@@ -1,0 +1,219 @@
+#################################################################################################################
+################################              Doorbell Notifications             ################################
+#################################################################################################################
+################################               Livingroom Doorbell               ################################
+#################################################################################################################
+  - alias: 'Doorbell FRONTVIDEO Chris'
+    initial_state: true
+    trigger:
+      platform: event
+      event_type: ios.notification_action_fired
+      event_data:
+        actionName: FRONTVIDEOCHRIS
+    action:
+    - service: notify.mobile_app_chriss_iphone_6_plus
+      data:
+        message: Front Door Live Video Stream!
+        data:
+          push:
+            sound: "US-EN-Morgan-Freeman-Motion-Detected.wav"
+            category: camera
+          entity_id: camera.front_yard
+  - alias: 'Doorbell FRONTVIDEO Skidata'
+    initial_state: true
+    trigger:
+      platform: event
+      event_type: ios.notification_action_fired
+      event_data:
+        actionName: FRONTVIDEOSKIDATA
+    action:
+    - service: notify.mobile_app_chris_skidata_iphone
+      data:
+        message: Front Door Live Video Stream!
+        data:
+          push:
+            sound: "US-EN-Morgan-Freeman-Motion-Detected.wav"
+            category: camera
+          entity_id: camera.front_yard
+
+
+  - alias: 'Doorbell Livingroom'
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.doorbell_livingroom
+        from: 'off'
+        to: 'on'
+    action:
+      - service: script.doorbellfrontsnapshotarchive
+      - service: script.doorbellfrontsnapshot
+      - service: notify.alexa_media
+        data:
+          target:
+            - media_player.livingroom_alexa
+            - media_player.bedroom_alexa
+            - media_player.office_alexa
+            - media_player.zach_alexa
+            - media_player.basement_alexa
+          data:
+            type: tts
+          message: "Somebody is at the fukking Livingroom Door!"
+      - delay: 00:00:01
+      - service: script.doorbellfrontchris
+      - service: script.doorbellfrontskidata
+      - service: script.frontcamtokububeast
+      - service: notify.mobile_app_zach_iphone
+        data:
+          title: 'Livingroom Doorbell'
+          message: 'Somebody is at the door!'
+
+
+
+
+
+
+
+
+  # - alias: 'Doorbell Livingroom'
+  #   trigger:
+  #     - platform: state
+  #       entity_id: binary_sensor.doorbell_livingroom
+  #       from: 'off'
+  #       to: 'on'
+  #   action:
+  #   - service: camera.snapshot
+  #     data:
+  #       entity_id: camera.front_yard
+  #       filename: "/config/www/cam_captures/frontyard.jpeg"
+  #   - service: camera.snapshot
+  #     data:
+  #       entity_id: camera.front_yard
+  #       filename: "/config/www/cam_captures/Frontyard_{{ now ().year }}_{{ now ().month }}_{{ now ().day }}_{{ now ().hour }}_{{ now ().minute }}.jpeg"
+  #   - service: notify.mobile_app_chris_skidata_iphone
+  #     data:
+  #       title: "Doorbell: Front Door"
+  #       message: "Somebody is at the Front Door"
+  #       data:
+  #         push:
+  #           badge: 0
+  #           category: 'frontvideochris'
+  #           sound: "US-EN-Alexa-Motion-At-Front-Door.wav"
+  #         attachment:
+  #           content-type: jpeg
+  #           url: !secret frontyardsnapshoturl
+  #   - service: notify.mobile_app_chriss_iphone_6_plus
+  #     data:
+  #       title: "Doorbell: Front Door"
+  #       message: "Somebody is at the Front Door"
+  #       data:
+  #         push:
+  #           badge: 0
+  #           category: 'frontvideoskidata'
+  #           sound: "US-EN-Alexa-Motion-At-Front-Door.wav"
+  #         attachment:
+  #           content-type: jpeg
+  #           url: !secret frontyardsnapshoturl
+  #   - service: shell_command.kububeastfrontcamvlc
+  #   - service: notify.alexa_media
+  #     data:
+  #       target:
+  #         - media_player.livingroom_alexa
+  #         - media_player.bedroom_alexa
+  #         - media_player.office_alexa
+  #         - media_player.zach_alexa
+  #         - media_player.basement_alexa
+  #       data:
+  #         type: tts
+  #       message: "Somebody is at the fukking Livingroom Door!"
+  #   - service: notify.mobile_app_zach_iphone
+  #     data:
+  #       title: 'Livingroom Doorbell'
+  #       message: 'Somebody is at the door!'
+#################################################################################################################
+################################                Bedroom Doorbell                 ################################
+#################################################################################################################
+
+  - alias: 'Doorbell DRIVEWAYVIDEO Chris'
+    initial_state: true
+    trigger:
+      platform: event
+      event_type: ios.notification_action_fired
+      event_data:
+        actionName: DRIVEWAYVIDEOCHRIS
+    action:
+      - service: script.doorbelldrivewaychrisvideo
+  - alias: 'Doorbell DRIVEWAYVIDEO Skidata'
+    initial_state: true
+    trigger:
+      platform: event
+      event_type: ios.notification_action_fired
+      event_data:
+        actionName: DRIVEWAYVIDEOSKIDATA
+    action:
+      - service: script.doorbelldrivewayskidatavideo
+
+
+  - alias: 'Doorbell bedroom'
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.doorbell_bedroom
+        from: 'off'
+        to: 'on'
+    action:
+      - service: script.doorbellbedroomsnapshotarchive
+      - service: notify.alexa_media
+        data:
+          target:
+            - media_player.livingroom_alexa
+            - media_player.bedroom_alexa
+            - media_player.office_alexa
+            - media_player.zach_alexa
+            - media_player.basement_alexa
+          data:
+            type: tts
+          message: "Somebody is at the fukking bedroom Door!"
+      - service: script.doorbellbedroomsnapshot
+      - service: script.doorbellbedroomchris
+      - service: script.doorbellbedroomskidata
+      - service: script.frontcamtokububeast
+      - service: notify.mobile_app_chris_skidata_iphone
+        data:
+          title: 'Bedroom Doorbell'
+          message: 'Somebody is at your bedroom door!'
+      - service: notify.mobile_app_zach_iphone
+        data:
+          title: 'Bedroom Doorbell'
+          message: 'Somebody is at the door!'
+
+
+#################################################################################################################
+################################                Backdoor Doorbell                ################################
+#################################################################################################################
+
+  - alias: 'Doorbell backdoor'
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.doorbell_backdoor
+        from: 'off'
+        to: 'on'
+    action:
+      - service: notify.alexa_media
+        data:
+          target:
+            - media_player.livingroom_alexa
+            - media_player.bedroom_alexa
+            - media_player.office_alexa
+            - media_player.zach_alexa
+            - media_player.basement_alexa
+          data:
+            type: tts
+          message: "Somebody is at the Back fukking Door!"
+
+  - alias: 'Doorbell backdoor'
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.doorbell_backdoor_button_2
+        from: 'off'
+        to: 'on'
+    action:
+      - service: light.toggle
+        entity_id: light.back_door

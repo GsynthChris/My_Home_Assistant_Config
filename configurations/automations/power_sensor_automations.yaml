@@ -1,0 +1,140 @@
+###########################################################################################################
+################################        Washing Machine Notifications         #############################
+########################################################################################################### 
+
+  - alias: Washer load started
+    initial_state: yes
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.washer_status
+        from: 'off'
+        to: 'on'
+    condition:
+      condition: and 
+      conditions:
+        - condition: time
+          before: '23:00:00'
+          after: '10:00:00'
+    action:
+      - service: notify.mobile_app_chris_skidata_iphone
+        data:
+          message: "Washing Machine load started"
+      - service: notify.alexa_media
+        data:
+          target:
+            - media_player.livingroom_alexa
+            - media_player.bedroom_alexa
+          data:
+            type: tts
+          message: "Holy shitt!... washing machine load will be finished in 5 minutes"
+
+  - alias: Washer load done
+    initial_state: yes
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.washer_status
+        from: 'on'
+        to: 'off'
+    condition:
+      condition: and 
+      conditions:
+        - condition: time
+          before: '23:00:00'
+          after: '10:00:00'
+    action:
+      - service: notify.alexa_media
+        data:
+          target:
+            - media_player.livingroom_alexa
+            - media_player.bedroom_alexa
+          data:
+            type: tts
+          message: "Washing machine load is finished!"
+      - service: notify.mobile_app_chris_skidata_iphone
+        data:
+          message: "Washing Machine load finished"
+
+###########################################################################################################
+################################             Dryer Notifications              #############################
+########################################################################################################### 
+
+  - alias: Dryer load started
+    initial_state: yes
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.dryer_status
+        from: 'off'
+        to: 'on'
+        # entity_id: sensor.dryer
+        # from: 'Idle'
+        # to: 'Drying'
+    # condition:
+    #   condition: and 
+    #   conditions:
+    #     - condition: time
+    #       before: '23:00:00'
+    #       after: '10:00:00'
+    action:
+      - service: notify.alexa_media
+        data:
+          target:
+            - media_player.livingroom_alexa
+            - media_player.bedroom_alexa
+          data:
+            type: tts
+          message: "A load of laundry is in the dryer"
+      - service: notify.mobile_app_chris_skidata_iphone
+        data:
+          message: "Dryer load started"
+
+
+
+  - alias: Dryer load done notification late night #goes off after the dryer has 
+    initial_state: yes
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.dryer_status
+        from: 'on'
+        to: 'off'
+        # from: 'Drying'
+        # to: 'Idle'
+    action:
+      - service: notify.alexa_media
+        data:
+          target:
+            - media_player.livingroom_alexa
+            - media_player.bedroom_alexa
+          data:
+            type: tts
+          message: "The fukking dryer is finished!"
+
+  - alias: Dryer load done reminder #goes off each time the anti-wrinkle cycle runs
+    initial_state: yes
+    trigger:
+      - platform: state
+        entity_id: sensor.dryer
+        from: 'Drying'
+        to: 'Idle'
+    condition:
+      condition: and 
+      conditions:
+        - condition: time
+          before: '00:00:00'
+          after: '06:00:00'
+    action:
+      - delay: '00:03:00'
+      - service: notify.alexa_media
+        data:
+          target:
+            - media_player.livingroom_alexa
+            - media_player.bedroom_alexa
+          data:
+            type: tts
+          message: "your laundry is dry,... go get your shitt"
+      - service: notify.mobile_app_chris_skidata_iphone
+        data:
+          title: "The shit is fucking DRY!"
+          message: "The Fucking Dryer is FINISHED!"
+          data:
+            push:
+              sound: "US-EN-Morgan-Freeman-Liquor-Cabinet-Opened.wav"

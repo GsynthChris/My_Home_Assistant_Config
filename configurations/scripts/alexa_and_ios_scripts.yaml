@@ -1,0 +1,151 @@
+#################################################################################################################
+##########################              Alexa and iOS Notification Scripts             ##########################
+#################################################################################################################
+##########################              WARNING: Strong language ahead!!!!             ##########################
+##########################             My Alexa and Siri cuss like sailors!            ##########################
+#################################################################################################################
+
+alexa_speak_travel:
+  alias: Alexa announce Skidata Travel time
+  sequence:
+    - data:
+        data:
+          type: tts
+        message: 'The travel time to Skidata is currently {{states.sensor.chris_to_skidata.state}} minutes'
+      service: notify.alexa_media_livingroom_alexa
+
+livingroom_alexa_speak:
+  alias: Livingroom Alexa SPEAK!
+  sequence:
+    - data:
+        data:
+          type: tts
+        message: '{{states.input_text.group_alexa.state}}'
+      service: notify.alexa_media_livingroom_alexa
+
+bedroom_alexa_speak:
+  alias: Bedroom Alexa SPEAK!
+  sequence:
+    - data:
+        data:
+          type: tts
+        message: '{{states.input_text.group_alexa.state}}'
+      service: notify.alexa_media_bedroom_alexa
+
+office_alexa_speak:
+  alias: Office Alexa SPEAK!
+  sequence:
+    - data:
+        data:
+          type: tts
+        message: '{{states.input_text.group_alexa.state}}'
+      service: notify.alexa_media_office_alexa
+
+this_alexa_speak:
+  alias: This Device Alexa SPEAK!
+  sequence:
+    - data:
+        data:
+          type: tts
+        message: '{{states.input_text.group_alexa.state}}'
+      service: notify.alexa_media_this_device
+
+app_alexa_speak:
+  alias: App Alexa SPEAK!
+  sequence:
+    - data:
+        data:
+          type: push
+        message: 'Testing' #'{{states.input_text.group_alexa.state}}'
+      service: notify.alexa_media_alexa_apps
+
+skidata_iphone_message:
+  alias: Skidata iPhone Message!
+  sequence:
+    - data:
+        data:
+          type: push
+        message: '{{states.input_text.group_alexa.state}}'
+      service: notify.mobile_app_chris_skidata_iphone
+
+chris_iphone_message:
+  alias: Chris iPhone Message!
+  sequence:
+    - data:
+        data:
+          type: push
+        message: '{{states.input_text.group_alexa.state}}'
+      service: notify.mobile_app_chriss_iphone_6_plus
+
+
+
+group_alexa_speak:
+  alias: Group Alexa SPEAK!
+  sequence:
+    - data:
+        target:
+            - media_player.livingroom_alexa
+            - media_player.bedroom_alexa
+        data:
+          type: tts
+        message: '{{states.input_text.group_alexa.state}}'
+      service: notify.alexa_media
+
+
+# group_alexa_speak:
+#   alias: Group Alexa SPEAK!
+#   sequence:
+#     - data:
+#         data:
+#           type: tts
+#         message: '{{states.input_text.group_alexa.state}}'
+#       service: notify.alexa_media_livingroom_alexa
+#     - data:
+#         data:
+#           type: tts
+#         message: '{{states.input_text.group_alexa.state}}'
+#       service: notify.alexa_media_livingroom_alexa
+#     - data:
+#         data:
+#           type: tts
+#         message: '{{states.input_text.group_alexa.state}}'
+#       service: notify.alexa_media_bedroom_alexa
+#     - data:
+#         data:
+#           type: tts
+#         message: '{{states.input_text.group_alexa.state}}'
+#       service: notify.alexa_media_skidata_alexa
+#     - data:
+#         data:
+#           type: tts
+#         message: '{{states.input_text.group_alexa.state}}'
+#       service: notify.alexa_media_battlestation_alexa
+#     - data:
+#         data:
+#           type: tts
+#         message: '{{states.input_text.group_alexa.state}}'
+#       service: notify.alexa_media_office_alexa
+
+alexa_set_volume:
+  alias: All Alexas set Volume!
+  sequence:
+    - service: media_player.volume_set
+      data_template: 
+        entity_id: media_player.livingroom_alexa
+        volume_level: "{{ states('input_number.alexa_volume') | int }}"
+    - service: media_player.volume_set
+      data_template: 
+        entity_id: media_player.bedroom_alexa
+        volume_level: "{{ states('input_number.alexa_volume') | int }}"
+    # - service: media_player.volume_set
+    #   data_template: 
+    #     entity_id: media_player.basement_alexa
+    #     volume_level: "{{ states('input_number.alexa_volume') | int }}"
+    # - service: media_player.volume_set
+    #   data_template: 
+    #     entity_id: media_player.zach_alexa
+    #     volume_level: "{{ states('input_number.alexa_volume') | int }}"
+    - service: media_player.volume_set
+      data_template: 
+        entity_id: media_player.office_alexa
+        volume_level: "{{ states('input_number.alexa_volume') | int }}"

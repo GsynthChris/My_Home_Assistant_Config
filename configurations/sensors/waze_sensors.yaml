@@ -1,0 +1,94 @@
+##################################################################################################
+########################              Waze Sensors             ###################################
+##################################################################################################
+
+
+  # Tracking entity to entity
+  # - platform: waze_travel_time
+  #   name: "Chris to Place"
+  #   origin: device_tracker.skidata_iphone
+  #   destination: sensor.dest_address
+  #   region: 'US'
+
+  # Tracking entity to zone friendly name
+  # - platform: waze_travel_time
+  #   name: Chris to BJC
+  #   origin: device_tracker.skidata_iphone
+  #   destination: Barnes Jewish Hospital    # Friendly name of a zone
+  #   region: 'US'
+  # - platform: waze_travel_time
+  #   name: Chris to BJC
+  #   origin: device_tracker.skidata_iphone
+  #   destination: zone.barnes_jewish_hospital
+  #   region: 'US'
+
+  # - platform: waze_travel_time
+  #   name: Chris to Wash U
+  #   origin: device_tracker.skidata_iphone
+  #   destination: zone.washington_university
+  #   region: 'US'
+
+  # - platform: waze_travel_time
+  #   name: Chris to St Clair
+  #   origin: device_tracker.skidata_iphone
+  #   destination: zone.st_clair
+  #   region: 'US'
+
+  # - platform: waze_travel_time
+  #   name: Chris to EZ Park
+  #   origin: device_tracker.skidata_iphone
+  #   destination: zone.ez_park
+  #   region: 'US'
+
+  # - platform: waze_travel_time
+  #   name: Chris to Skidata
+  #   origin: device_tracker.skidata_iphone
+  #   destination: zone.skidata_stl
+  #   region: 'US'
+
+  # - platform: waze_travel_time
+  #   name: Chris to home
+  #   origin: device_tracker.skidata_iphone
+  #   destination: zone.home
+  #   region: 'US'
+
+  - platform: waze_travel_time
+    name: Home to BJC
+    origin: zone.home
+    destination: zone.barnes_jewish_hospital
+    region: 'US'  
+
+  # - platform: waze_travel_time
+  #   name: Home to Wash U
+  #   origin: zone.home
+  #   destination: zone.washington_university
+  #   region: 'US'
+
+  # - platform: waze_travel_time
+  #   name: Home to St Clair
+  #   origin: zone.home
+  #   destination: zone.st_clair
+  #   region: 'US'
+
+  # - platform: waze_travel_time
+  #   name: Home to EZ Park
+  #   origin: zone.home
+  #   destination: zone.ez_park
+  #   region: 'US'
+
+  # Tracking entity in imperial unit
+  # - platform: waze_travel_time
+  #   origin: person.paulus
+  #   destination: "725 5th Ave, New York, NY 10022, USA"
+  #   region: 'US'
+  #   units: imperial    # 'metric' for Metric, 'imperial' for Imperial
+  #   vehicle_type: motorcycle  # vehicle type used for routing
+
+  # Avoiding toll, subscription
+  # - platform: waze_travel_time
+  #   name: Westerscheldetunnel
+  #   origin: 51.330436, 3.802043
+  #   destination: 51.445677, 3.749929
+  #   region: 'EU'
+  #   avoid_toll_roads: true
+  #   avoid_subscription_roads: true

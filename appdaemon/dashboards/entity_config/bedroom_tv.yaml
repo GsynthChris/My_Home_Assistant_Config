@@ -1,0 +1,156 @@
+###########################################################################################################
+###################################          Bedroom TV Controls         ##################################
+###########################################################################################################
+bedtvpower:
+  widget_type: script
+  title: TV Power
+  entity: script.bedroomtv
+  title_style: "color: #ff0000;text-shadow: 0px 0px 5px #003300;"
+  icon_style_inactive: "margin-top: -10px; font-size: 40px; color: #ff0000;text-shadow: 0px 0px 5px #800000;"
+  icon_style_active: "margin-top: -10px; font-size: 40px; color: #ff0000;text-shadow: 0px 0px 5px #800000;"
+  icon_on: fa-tv
+  icon_off: fa-tv
+
+bedtvmenu:
+  widget_type: script
+  title: Menu
+  entity: script.bedtvmenu
+  title_style: "color: #ff0000;text-shadow: 0px 0px 5px #003300;"
+  icon_style_inactive: "margin-top: -10px; font-size: 40px; color: #ff0000;text-shadow: 0px 0px 5px #800000;"
+  icon_style_active: "margin-top: -10px; font-size: 40px; color: #ff8080;text-shadow: 0px 0px 5px #800000;"
+  icon_on: fa-bars
+  icon_off: fa-bars
+
+bedtvinput:
+  widget_type: script
+  title: Input
+  entity: script.bedtvinput
+  title_style: "color: #ff0000;text-shadow: 0px 0px 5px #003300;"
+  icon_style_inactive: "margin-top: -10px; font-size: 40px; color: #ff0000;text-shadow: 0px 0px 5px #800000;"
+  icon_style_active: "margin-top: -10px; font-size: 40px; color: #ff8080;text-shadow: 0px 0px 5px #800000;"
+  icon_on: mdi-video-input-component
+  icon_off: mdi-video-input-component
+
+bedtvselect:
+  widget_type: script
+  title: OK/Select
+  entity: script.bedtvselect
+  title_style: "color: #ff0000;text-shadow: 0px 0px 5px #003300;"
+  icon_style_inactive: "margin-top: -10px; font-size: 40px; color: #ff0000;text-shadow: 0px 0px 5px #800000;"
+  icon_style_active: "margin-top: -10px; font-size: 40px; color: #ff8080;text-shadow: 0px 0px 5px #800000;"
+  icon_on: mdi-death-star mdi-spin
+  icon_off: mdi-death-star mdi-spin
+
+bedtvup:
+  widget_type: script
+  title: UP
+  entity: script.bedtvup
+  title_style: "color: #ff0000;text-shadow: 0px 0px 5px #003300;"
+  icon_style_inactive: "margin-top: -10px; font-size: 40px; color: #ff0000;text-shadow: 0px 0px 5px #800000;"
+  icon_style_active: "margin-top: -10px; font-size: 40px; color: #ff8080;text-shadow: 0px 0px 5px #800000;"
+  icon_on: fa-arrow-up
+  icon_off: fa-arrow-up
+
+bedtvdown:
+  widget_type: script
+  title: DOWN
+  entity: script.bedvoldown
+  title_style: "color: #ff0000;text-shadow: 0px 0px 5px #003300;"
+  icon_style_inactive: "margin-top: -10px; font-size: 40px; color: #ff0000;text-shadow: 0px 0px 5px #800000;"
+  icon_style_active: "margin-top: -10px; font-size: 40px; color: #ff8080;text-shadow: 0px 0px 5px #800000;"
+  icon_on: fa-arrow-down
+  icon_off: fa-arrow-down
+
+bedtvleft:
+  widget_type: script
+  title: LEFT
+  entity: script.bedtvleft
+  title_style: "color: #ff0000;text-shadow: 0px 0px 5px #003300;"
+  icon_style_inactive: "margin-top: -10px; font-size: 40px; color: #ff0000;text-shadow: 0px 0px 5px #800000;"
+  icon_style_active: "margin-top: -10px; font-size: 40px; color: #ff8080;text-shadow: 0px 0px 5px #800000;"
+  icon_on: fa-arrow-left
+  icon_off: fa-arrow-left
+
+bedtvright:
+  widget_type: script
+  title: RIGHT
+  entity: script.bedtvright
+  title_style: "color: #ff0000;text-shadow: 0px 0px 5px #003300;"
+  icon_style_inactive: "margin-top: -10px; font-size: 40px; color: #ff0000;text-shadow: 0px 0px 5px #800000;"
+  icon_style_active: "margin-top: -10px; font-size: 40px; color: #ff8080;text-shadow: 0px 0px 5px #800000;"
+  icon_on: fa-arrow-right
+  icon_off: fa-arrow-right
+
+bedtvaudiofix:
+  widget_type: script
+  title: Fix TV Audio
+  entity: script.bedtvaudiofix
+  title_style: "color: #ff0000;text-shadow: 0px 0px 5px #003300;"
+  icon_style_inactive: "margin-top: -10px; font-size: 40px; color: #ff0000;text-shadow: 0px 0px 5px #800000;"
+  icon_style_active: "margin-top: -10px; font-size: 40px; color: #ff8080;text-shadow: 0px 0px 5px #800000;"
+  icon_on: mdi-auto-fix mdi-spin
+  icon_off: mdi-auto-fix
+
+###########################################################################################################
+###################################          Bedroom Sound Bar           ##################################
+###########################################################################################################
+
+soundbarpower:
+  widget_type: script
+  title: Soundbar Power
+  entity: script.bedsoundbar
+  title_style: "color: #ff00aa;text-shadow: 0px 0px 5px #660066;"
+  icon_style_inactive: "margin-top: -10px; font-size: 40px; color: #ff00aa;text-shadow: 0px 0px 5px #660066;"
+  icon_style_active: "margin-top: -10px; font-size: 40px; color: #6666ff;text-shadow: 0px 0px 5px #660066;"
+  icon_on: mdi-audio-video
+  icon_off: mdi-audio-video
+
+bedvolup:
+  widget_type: script
+  title: Volume Up
+  entity: script.bedvolup
+  title_style: "color: #ff00aa;text-shadow: 0px 0px 5px #660066;"
+  icon_style_inactive: "margin-top: -10px; font-size: 40px; color: #ff00aa;text-shadow: 0px 0px 5px #660066;"
+  icon_style_active: "margin-top: -10px; font-size: 40px; color: #6666ff;text-shadow: 0px 0px 5px #660066;"
+  icon_on: fa-volume-up
+  icon_off: fa-volume-up
+
+bedvoldown:
+  widget_type: script
+  title: Volume Down
+  entity: script.bedvoldown
+  title_style: "color: #ff00aa;text-shadow: 0px 0px 5px #660066;"
+  icon_style_inactive: "margin-top: -10px; font-size: 40px; color: #ff00aa;text-shadow: 0px 0px 5px #660066;"
+  icon_style_active: "margin-top: -10px; font-size: 40px; color: #6666ff;text-shadow: 0px 0px 5px #660066;"
+  icon_on: fa-volume-down
+  icon_off: fa-volume-down
+
+bedvolupplus:
+  widget_type: script
+  title: Volume Up x4
+  entity: script.bedvolupplus
+  title_style: "color: #ff00aa;text-shadow: 0px 0px 5px #660066;"
+  icon_style_inactive: "margin-top: -10px; font-size: 40px; color: #ff00aa;text-shadow: 0px 0px 5px #660066;"
+  icon_style_active: "margin-top: -10px; font-size: 40px; color: #6666ff;text-shadow: 0px 0px 5px #660066;"
+  icon_on: mdi-volume-plus
+  icon_off: mdi-volume-plus
+
+bedvoldownplus:
+  widget_type: script
+  title: Volume Down x4
+  entity: script.bedvoldownplus
+  title_style: "color: #ff00aa;text-shadow: 0px 0px 5px #660066;"
+  icon_style_inactive: "margin-top: -10px; font-size: 40px; color: #ff00aa;text-shadow: 0px 0px 5px #660066;"
+  icon_style_active: "margin-top: -10px; font-size: 40px; color: #6666ff;text-shadow: 0px 0px 5px #660066;"
+  icon_on: mdi-volume-minus
+  icon_off: mdi-volume-minus
+
+bedvolmute:
+  widget_type: script
+  title: Mute
+  entity: script.bedvolmute
+  title_style: "color: #ff00aa;text-shadow: 0px 0px 5px #660066;"
+  icon_style_inactive: "margin-top: -10px; font-size: 40px; color: #ff00aa;text-shadow: 0px 0px 5px #660066;"
+  icon_style_active: "margin-top: -10px; font-size: 40px; color: #6666ff;text-shadow: 0px 0px 5px #660066;"
+  icon_on: mdi-volume-off
+  icon_off: mdi-volume-off

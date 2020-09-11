@@ -1,0 +1,938 @@
+##################################################################################################
+#############################          Energy Sensors          ###################################
+##################################################################################################
+#############################          Computer Sensor          ##################################
+##################################################################################################
+  - platform: mqtt
+    name: "Computer Energy Total"
+    state_topic: "tele/computerpower/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Total"] }}'
+    unit_of_measurement: "kWh"
+    icon: mdi:desktop-tower-monitor
+    availability_topic: "tele/computerpower/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+
+  - platform: mqtt
+    name: "Computer Energy Today"
+    state_topic: "tele/computerpower/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Today"] }}'
+    unit_of_measurement: "kWh"
+    icon: mdi:desktop-tower-monitor
+    availability_topic: "tele/computerpower/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+
+  - platform: mqtt
+    name: "Computer Energy Yesterday"
+    state_topic: "tele/computerpower/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Yesterday"] }}'
+    unit_of_measurement: "kWh"
+    icon: mdi:desktop-tower-monitor
+    availability_topic: "tele/computerpower/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+
+  - platform: mqtt
+    name: "Computer Energy Period"
+    state_topic: "tele/computerpower/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Period"] }}'
+    unit_of_measurement: "Wh"
+    icon: mdi:desktop-tower-monitor
+    availability_topic: "tele/computerpower/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+
+  - platform: mqtt
+    name: "Computer Energy Power"
+    state_topic: "tele/computerpower/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Power"] }}'
+    unit_of_measurement: "Watts"
+    icon: mdi:desktop-tower-monitor
+    availability_topic: "tele/computerpower/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+
+  - platform: mqtt
+    name: "Computer Energy Current"
+    state_topic: "tele/computerpower/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Current"] }}'
+    unit_of_measurement: "Amps"
+    icon: mdi:desktop-tower-monitor
+    availability_topic: "tele/computerpower/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+
+  - platform: mqtt
+    name: "Computer Energy Voltage"
+    state_topic: "tele/computerpower/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Voltage"] }}'
+    unit_of_measurement: "Volts"
+    icon: mdi:desktop-tower-monitor
+    availability_topic: "tele/computerpower/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+
+##################################################################################################
+#############################         Coffee Pot Sensor         ##################################
+##################################################################################################
+  - platform: mqtt
+    name: "Coffee Pot Energy Total"
+    state_topic: "tele/coffeepot/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Total"] }}'
+    unit_of_measurement: "kWh"
+    icon: mdi:coffee-maker
+    availability_topic: "tele/coffeepot/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+
+  - platform: mqtt
+    name: "Coffee Pot Energy Today"
+    state_topic: "tele/coffeepot/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Today"] }}'
+    unit_of_measurement: "kWh"
+    icon: mdi:coffee-maker
+    availability_topic: "tele/coffeepot/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+
+  - platform: mqtt
+    name: "Coffee Pot Energy Yesterday"
+    state_topic: "tele/coffeepot/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Yesterday"] }}'
+    unit_of_measurement: "kWh"
+    icon: mdi:coffee-maker
+    availability_topic: "tele/coffeepot/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+
+  - platform: mqtt
+    name: "Coffee Pot Energy Period"
+    state_topic: "tele/coffeepot/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Period"] }}'
+    unit_of_measurement: "Wh"
+    icon: mdi:coffee-maker
+    availability_topic: "tele/coffeepot/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+
+  - platform: mqtt
+    name: "Coffee Pot Energy Power"
+    state_topic: "tele/coffeepot/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Power"] }}'
+    unit_of_measurement: "Watts"
+    icon: mdi:coffee-maker
+    availability_topic: "tele/coffeepot/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+
+  - platform: mqtt
+    name: "Coffee Pot Energy Current"
+    state_topic: "tele/coffeepot/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Current"] }}'
+    unit_of_measurement: "Amps"
+    icon: mdi:coffee-maker
+    availability_topic: "tele/coffeepot/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+
+  - platform: mqtt
+    name: "Coffee Pot Energy Voltage"
+    state_topic: "tele/coffeepot/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Voltage"] }}'
+    unit_of_measurement: "Volts"
+    icon: mdi:coffee-maker
+    availability_topic: "tele/coffeepot/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+
+##################################################################################################
+#############################           Bedroom Heater          ##################################
+##################################################################################################
+  - platform: mqtt
+    name: "Bedroom Heater Energy Total"
+    state_topic: "tele/bedroomheater/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Total"] }}'
+    unit_of_measurement: "kWh"
+    icon: mdi:radiator
+    availability_topic: "tele/bedroomheater/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+
+  - platform: mqtt
+    name: "Bedroom Heater Energy Today"
+    state_topic: "tele/bedroomheater/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Today"] }}'
+    unit_of_measurement: "kWh"
+    icon: mdi:radiator
+    availability_topic: "tele/bedroomheater/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+
+  - platform: mqtt
+    name: "Bedroom Heater Energy Yesterday"
+    state_topic: "tele/bedroomheater/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Yesterday"] }}'
+    unit_of_measurement: "kWh"
+    icon: mdi:radiator
+    availability_topic: "tele/bedroomheater/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+
+  - platform: mqtt
+    name: "Bedroom Heater Energy Period"
+    state_topic: "tele/bedroomheater/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Period"] }}'
+    unit_of_measurement: "Wh"
+    icon: mdi:radiator
+    availability_topic: "tele/bedroomheater/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+
+  - platform: mqtt
+    name: "Bedroom Heater Energy Power"
+    state_topic: "tele/bedroomheater/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Power"] }}'
+    unit_of_measurement: "Watts"
+    icon: mdi:radiator
+    availability_topic: "tele/bedroomheater/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+
+  - platform: mqtt
+    name: "Bedroom Heater Energy Current"
+    state_topic: "tele/bedroomheater/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Current"] }}'
+    unit_of_measurement: "Amps"
+    icon: mdi:radiator
+    availability_topic: "tele/bedroomheater/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+
+  - platform: mqtt
+    name: "Bedroom Heater Energy Voltage"
+    state_topic: "tele/bedroomheater/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Voltage"] }}'
+    unit_of_measurement: "Volts"
+    icon: mdi:radiator
+    availability_topic: "tele/bedroomheater/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+
+##################################################################################################
+#############################           Refrigerator           ##################################
+##################################################################################################
+  - platform: mqtt
+    name: "Refrigerator Energy Total"
+    state_topic: "tele/refrigerator/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Total"] }}'
+    unit_of_measurement: "kWh"
+    icon: mdi:fridge
+    availability_topic: "tele/refrigerator/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+
+  - platform: mqtt
+    name: "Refrigerator Energy Today"
+    state_topic: "tele/refrigerator/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Today"] }}'
+    unit_of_measurement: "kWh"
+    icon: mdi:fridge
+    availability_topic: "tele/refrigerator/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+
+  - platform: mqtt
+    name: "Refrigerator Energy Yesterday"
+    state_topic: "tele/refrigerator/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Yesterday"] }}'
+    unit_of_measurement: "kWh"
+    icon: mdi:fridge
+    availability_topic: "tele/refrigerator/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+
+  - platform: mqtt
+    name: "Refrigerator Energy Period"
+    state_topic: "tele/refrigerator/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Period"] }}'
+    unit_of_measurement: "Wh"
+    icon: mdi:fridge
+    availability_topic: "tele/refrigerator/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+
+  - platform: mqtt
+    name: "Refrigerator Energy Power"
+    state_topic: "tele/refrigerator/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Power"] }}'
+    unit_of_measurement: "Watts"
+    icon: mdi:fridge
+    availability_topic: "tele/refrigerator/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+
+  - platform: mqtt
+    name: "Refrigerator Energy Current"
+    state_topic: "tele/refrigerator/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Current"] }}'
+    unit_of_measurement: "Amps"
+    icon: mdi:fridge
+    availability_topic: "tele/refrigerator/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+
+  - platform: mqtt
+    name: "Refrigerator Energy Voltage"
+    state_topic: "tele/refrigerator/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Voltage"] }}'
+    unit_of_measurement: "Volts"
+    icon: mdi:fridge
+    availability_topic: "tele/refrigerator/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+
+##################################################################################################
+#############################          Studio Equipment         ##################################
+##################################################################################################
+  - platform: mqtt
+    name: "Studio Equipment Energy Total"
+    state_topic: "tele/studioequipment/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Total"] }}'
+    unit_of_measurement: "kWh"
+    icon: mdi:music-clef-treble
+    availability_topic: "tele/studioequipment/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+
+  - platform: mqtt
+    name: "Studio Equipment Energy Today"
+    state_topic: "tele/studioequipment/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Today"] }}'
+    unit_of_measurement: "kWh"
+    icon: mdi:music-clef-treble
+    availability_topic: "tele/studioequipment/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+
+  - platform: mqtt
+    name: "Studio Equipment Energy Yesterday"
+    state_topic: "tele/studioequipment/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Yesterday"] }}'
+    unit_of_measurement: "kWh"
+    icon: mdi:music-clef-treble
+    availability_topic: "tele/studioequipment/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+
+  - platform: mqtt
+    name: "Studio Equipment Energy Period"
+    state_topic: "tele/studioequipment/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Period"] }}'
+    unit_of_measurement: "Wh"
+    icon: mdi:music-clef-treble
+    availability_topic: "tele/studioequipment/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+
+  - platform: mqtt
+    name: "Studio Equipment Energy Power"
+    state_topic: "tele/studioequipment/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Power"] }}'
+    unit_of_measurement: "Watts"
+    icon: mdi:music-clef-treble
+    availability_topic: "tele/studioequipment/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+
+  - platform: mqtt
+    name: "Studio Equipment Energy Current"
+    state_topic: "tele/studioequipment/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Current"] }}'
+    unit_of_measurement: "Amps"
+    icon: mdi:music-clef-treble
+    availability_topic: "tele/studioequipment/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+
+  - platform: mqtt
+    name: "Studio Equipment Energy Voltage"
+    state_topic: "tele/studioequipment/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Voltage"] }}'
+    unit_of_measurement: "Volts"
+    icon: mdi:music-clef-treble
+    availability_topic: "tele/studioequipment/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+
+##################################################################################################
+#############################              Box Fan              ##################################
+##################################################################################################
+  - platform: mqtt
+    name: "Box Fan Energy Total"
+    state_topic: "tele/boxfan/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Total"] }}'
+    unit_of_measurement: "kWh"
+    icon: mdi:fan
+    availability_topic: "tele/boxfan/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+
+  - platform: mqtt
+    name: "Box Fan Energy Today"
+    state_topic: "tele/boxfan/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Today"] }}'
+    unit_of_measurement: "kWh"
+    icon: mdi:fan
+    availability_topic: "tele/boxfan/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+
+  - platform: mqtt
+    name: "Box Fan Energy Yesterday"
+    state_topic: "tele/boxfan/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Yesterday"] }}'
+    unit_of_measurement: "kWh"
+    icon: mdi:fan
+    availability_topic: "tele/boxfan/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+
+  - platform: mqtt
+    name: "Box Fan Energy Period"
+    state_topic: "tele/boxfan/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Period"] }}'
+    unit_of_measurement: "Wh"
+    icon: mdi:fan
+    availability_topic: "tele/boxfan/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+
+  - platform: mqtt
+    name: "Box Fan Energy Power"
+    state_topic: "tele/boxfan/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Power"] }}'
+    unit_of_measurement: "Watts"
+    icon: mdi:fan
+    availability_topic: "tele/boxfan/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+
+  - platform: mqtt
+    name: "Box Fan Energy Current"
+    state_topic: "tele/boxfan/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Current"] }}'
+    unit_of_measurement: "Amps"
+    icon: mdi:fan
+    availability_topic: "tele/boxfan/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+
+  - platform: mqtt
+    name: "Box Fan Energy Voltage"
+    state_topic: "tele/boxfan/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Voltage"] }}'
+    unit_of_measurement: "Volts"
+    icon: mdi:fan
+    availability_topic: "tele/boxfan/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+
+##################################################################################################
+#############################       Washing Machine Energy       #################################
+##################################################################################################
+
+  - platform: mqtt
+    name: "Washing Machine Energy Total"
+    state_topic: "tele/sonoffpow/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Total"] }}'
+    unit_of_measurement: "kWh"
+    icon: mdi:washing-machine
+    availability_topic: "tele/sonoffpow/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+
+  - platform: mqtt
+    name: "Washing Machine Energy Today"
+    state_topic: "tele/sonoffpow/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Today"] }}'
+    unit_of_measurement: "kWh"
+    icon: mdi:washing-machine
+    availability_topic: "tele/sonoffpow/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+
+  - platform: mqtt
+    name: "Washing Machine Energy Yesterday"
+    state_topic: "tele/sonoffpow/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Yesterday"] }}'
+    unit_of_measurement: "kWh"
+    icon: mdi:washing-machine
+    availability_topic: "tele/sonoffpow/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+
+  - platform: mqtt
+    name: "Washing Machine Energy Energy Period"
+    state_topic: "tele/sonoffpow/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Period"] }}'
+    unit_of_measurement: "Wh"
+    icon: mdi:washing-machine
+    availability_topic: "tele/sonoffpow/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+
+  - platform: mqtt
+    name: "Washing Machine Energy Energy Power"
+    state_topic: "tele/sonoffpow/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Power"] }}'
+    unit_of_measurement: "Watts"
+    icon: mdi:washing-machine
+    availability_topic: "tele/sonoffpow/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+
+  - platform: mqtt
+    name: "Washing Machine Energy Energy Current"
+    state_topic: "tele/sonoffpow/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Current"] }}'
+    unit_of_measurement: "Amps"
+    icon: mdi:washing-machine
+    availability_topic: "tele/sonoffpow/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+
+  - platform: mqtt
+    name: "Washing Machine Energy Energy Voltage"
+    state_topic: "tele/sonoffpow/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Voltage"] }}'
+    unit_of_measurement: "Volts"
+    icon: mdi:washing-machine
+    availability_topic: "tele/sonoffpow/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+
+
+##################################################################################################
+#############################        Livingroom TV Energy        #################################
+##################################################################################################
+
+  - platform: mqtt
+    name: "Livingroom TV Energy Total"
+    state_topic: "tele/livingroomtvenergy/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Total"] }}'
+    unit_of_measurement: "kWh"
+    icon: mdi:television-classic
+    availability_topic: "tele/livingroomtvenergy/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+
+  - platform: mqtt
+    name: "Livingroom TV Energy Today"
+    state_topic: "tele/livingroomtvenergy/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Today"] }}'
+    unit_of_measurement: "kWh"
+    icon: mdi:television-classic
+    availability_topic: "tele/livingroomtvenergy/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+
+  - platform: mqtt
+    name: "Livingroom TV Energy Yesterday"
+    state_topic: "tele/livingroomtvenergy/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Yesterday"] }}'
+    unit_of_measurement: "kWh"
+    icon: mdi:television-classic
+    availability_topic: "tele/livingroomtvenergy/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+
+  - platform: mqtt
+    name: "Livingroom TV Energy Energy Period"
+    state_topic: "tele/livingroomtvenergy/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Period"] }}'
+    unit_of_measurement: "Wh"
+    icon: mdi:television-classic
+    availability_topic: "tele/livingroomtvenergy/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+
+  - platform: mqtt
+    name: "Livingroom TV Energy Energy Power"
+    state_topic: "tele/livingroomtvenergy/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Power"] }}'
+    unit_of_measurement: "Watts"
+    icon: mdi:television-classic
+    availability_topic: "tele/livingroomtvenergy/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+
+  - platform: mqtt
+    name: "Livingroom TV Energy Energy Current"
+    state_topic: "tele/livingroomtvenergy/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Current"] }}'
+    unit_of_measurement: "Amps"
+    icon: mdi:television-classic
+    availability_topic: "tele/livingroomtvenergy/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+
+  - platform: mqtt
+    name: "Livingroom TV Energy Energy Voltage"
+    state_topic: "tele/livingroomtvenergy/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Voltage"] }}'
+    unit_of_measurement: "Volts"
+    icon: mdi:television-classic
+    availability_topic: "tele/livingroomtvenergy/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+
+
+##################################################################################################
+#############################          Bedroom TV Energy         #################################
+##################################################################################################
+
+  - platform: mqtt
+    name: "Bedroom TV Energy Total"
+    state_topic: "tele/bedroomtvenergy/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Total"] }}'
+    unit_of_measurement: "kWh"
+    icon: mdi:television-classic
+    availability_topic: "tele/bedroomtvenergy/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+
+  - platform: mqtt
+    name: "Bedroom TV Energy Today"
+    state_topic: "tele/bedroomtvenergy/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Today"] }}'
+    unit_of_measurement: "kWh"
+    icon: mdi:television-classic
+    availability_topic: "tele/bedroomtvenergy/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+
+  - platform: mqtt
+    name: "Bedroom TV Energy Yesterday"
+    state_topic: "tele/bedroomtvenergy/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Yesterday"] }}'
+    unit_of_measurement: "kWh"
+    icon: mdi:television-classic
+    availability_topic: "tele/bedroomtvenergy/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+
+  - platform: mqtt
+    name: "Bedroom TV Energy Energy Period"
+    state_topic: "tele/bedroomtvenergy/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Period"] }}'
+    unit_of_measurement: "Wh"
+    icon: mdi:television-classic
+    availability_topic: "tele/bedroomtvenergy/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+
+  - platform: mqtt
+    name: "Bedroom TV Energy Energy Power"
+    state_topic: "tele/bedroomtvenergy/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Power"] }}'
+    unit_of_measurement: "Watts"
+    icon: mdi:television-classic
+    availability_topic: "tele/bedroomtvenergy/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+
+  - platform: mqtt
+    name: "Bedroom TV Energy Energy Current"
+    state_topic: "tele/bedroomtvenergy/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Current"] }}'
+    unit_of_measurement: "Amps"
+    icon: mdi:television-classic
+    availability_topic: "tele/bedroomtvenergy/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+
+  - platform: mqtt
+    name: "Bedroom TV Energy Energy Voltage"
+    state_topic: "tele/bedroomtvenergy/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Voltage"] }}'
+    unit_of_measurement: "Volts"
+    icon: mdi:television-classic
+    availability_topic: "tele/bedroomtvenergy/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+
+
+##################################################################################################
+#############################          Window AC Energy          #################################
+##################################################################################################
+
+  - platform: mqtt
+    name: "Window AC Energy Total"
+    state_topic: "tele/windowacenergy/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Total"] }}'
+    unit_of_measurement: "kWh"
+    icon: mdi:air-conditioner
+    availability_topic: "tele/windowacenergy/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+
+  - platform: mqtt
+    name: "Window AC Energy Today"
+    state_topic: "tele/windowacenergy/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Today"] }}'
+    unit_of_measurement: "kWh"
+    icon: mdi:air-conditioner
+    availability_topic: "tele/windowacenergy/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+
+  - platform: mqtt
+    name: "Window AC Energy Yesterday"
+    state_topic: "tele/windowacenergy/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Yesterday"] }}'
+    unit_of_measurement: "kWh"
+    icon: mdi:air-conditioner
+    availability_topic: "tele/windowacenergy/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+
+  - platform: mqtt
+    name: "Window AC Energy Energy Period"
+    state_topic: "tele/windowacenergy/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Period"] }}'
+    unit_of_measurement: "Wh"
+    icon: mdi:air-conditioner
+    availability_topic: "tele/windowacenergy/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+
+  - platform: mqtt
+    name: "Window AC Energy Energy Power"
+    state_topic: "tele/windowacenergy/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Power"] }}'
+    unit_of_measurement: "Watts"
+    icon: mdi:air-conditioner
+    availability_topic: "tele/windowacenergy/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+
+  - platform: mqtt
+    name: "Window AC Energy Energy Current"
+    state_topic: "tele/windowacenergy/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Current"] }}'
+    unit_of_measurement: "Amps"
+    icon: mdi:air-conditioner
+    availability_topic: "tele/windowacenergy/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+
+  - platform: mqtt
+    name: "Window AC Energy Energy Voltage"
+    state_topic: "tele/windowacenergy/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Voltage"] }}'
+    unit_of_measurement: "Volts"
+    icon: mdi:air-conditioner
+    availability_topic: "tele/windowacenergy/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+
+
+##################################################################################################
+#############################         Server Rack Energy         #################################
+##################################################################################################
+
+  - platform: mqtt
+    name: "Server Rack Energy Total"
+    state_topic: "tele/serverrackenergy/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Total"] }}'
+    unit_of_measurement: "kWh"
+    icon: mdi:server
+    availability_topic: "tele/serverrackenergy/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+
+  - platform: mqtt
+    name: "Server Rack Energy Today"
+    state_topic: "tele/serverrackenergy/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Today"] }}'
+    unit_of_measurement: "kWh"
+    icon: mdi:server
+    availability_topic: "tele/serverrackenergy/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+
+  - platform: mqtt
+    name: "Server Rack Energy Yesterday"
+    state_topic: "tele/serverrackenergy/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Yesterday"] }}'
+    unit_of_measurement: "kWh"
+    icon: mdi:server
+    availability_topic: "tele/serverrackenergy/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+
+  - platform: mqtt
+    name: "Server Rack Energy Energy Period"
+    state_topic: "tele/serverrackenergy/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Period"] }}'
+    unit_of_measurement: "Wh"
+    icon: mdi:server
+    availability_topic: "tele/serverrackenergy/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+
+  - platform: mqtt
+    name: "Server Rack Energy Energy Power"
+    state_topic: "tele/serverrackenergy/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Power"] }}'
+    unit_of_measurement: "Watts"
+    icon: mdi:server
+    availability_topic: "tele/serverrackenergy/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+
+  - platform: mqtt
+    name: "Server Rack Energy Energy Current"
+    state_topic: "tele/serverrackenergy/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Current"] }}'
+    unit_of_measurement: "Amps"
+    icon: mdi:server
+    availability_topic: "tele/serverrackenergy/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+
+  - platform: mqtt
+    name: "Server Rack Energy Energy Voltage"
+    state_topic: "tele/serverrackenergy/SENSOR"
+    value_template: '{{ value_json["ENERGY"]["Voltage"] }}'
+    unit_of_measurement: "Volts"
+    icon: mdi:server
+    availability_topic: "tele/serverrackenergy/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+
+##################################################################################################
+#########################           Water Heater Energy            ###############################
+##################################################################################################
+  # - platform: mqtt
+  #   name: "Water Heater Energy Total"
+  #   state_topic: "tele/waterheaterenergy/SENSOR"
+  #   value_template: '{{ value_json["ENERGY"]["Total"] }}'
+  #   unit_of_measurement: "kWh"
+  #   icon: mdi:water-boiler
+  #   availability_topic: "tele/waterheaterenergy/LWT"
+  #   payload_available: "Online"
+  #   payload_not_available: "Offline"
+
+  # - platform: mqtt
+  #   name: "Water Heater Energy Today"
+  #   state_topic: "tele/waterheaterenergy/SENSOR"
+  #   value_template: '{{ value_json["ENERGY"]["Today"] }}'
+  #   unit_of_measurement: "kWh"
+  #   icon: mdi:water-boiler
+  #   availability_topic: "tele/waterheaterenergy/LWT"
+  #   payload_available: "Online"
+  #   payload_not_available: "Offline"
+
+  # - platform: mqtt
+  #   name: "Water Heater Energy Yesterday"
+  #   state_topic: "tele/waterheaterenergy/SENSOR"
+  #   value_template: '{{ value_json["ENERGY"]["Yesterday"] }}'
+  #   unit_of_measurement: "kWh"
+  #   icon: mdi:water-boiler
+  #   availability_topic: "tele/waterheaterenergy/LWT"
+  #   payload_available: "Online"
+  #   payload_not_available: "Offline"
+
+  # - platform: mqtt
+  #   name: "Water Heater Energy Period"
+  #   state_topic: "tele/waterheaterenergy/SENSOR"
+  #   value_template: '{{ value_json["ENERGY"]["Period"] }}'
+  #   unit_of_measurement: "Wh"
+  #   icon: mdi:water-boiler
+  #   availability_topic: "tele/waterheaterenergy/LWT"
+  #   payload_available: "Online"
+  #   payload_not_available: "Offline"
+
+  # - platform: mqtt
+  #   name: "Water Heater Energy Power"
+  #   state_topic: "tele/waterheaterenergy/SENSOR"
+  #   value_template: '{{ value_json["ENERGY"]["Power"] }}'
+  #   unit_of_measurement: "Watts"
+  #   icon: mdi:water-boiler
+  #   availability_topic: "tele/waterheaterenergy/LWT"
+  #   payload_available: "Online"
+  #   payload_not_available: "Offline"
+
+  # - platform: mqtt
+  #   name: "Water Heater Energy Current"
+  #   state_topic: "tele/waterheaterenergy/SENSOR"
+  #   value_template: '{{ value_json["ENERGY"]["Current"] }}'
+  #   unit_of_measurement: "Amps"
+  #   icon: mdi:water-boiler
+  #   availability_topic: "tele/waterheaterenergy/LWT"
+  #   payload_available: "Online"
+  #   payload_not_available: "Offline"
+
+  # - platform: mqtt
+  #   name: "Water Heater Energy Voltage"
+  #   state_topic: "tele/waterheaterenergy/SENSOR"
+  #   value_template: '{{ value_json["ENERGY"]["Voltage"] }}'
+  #   unit_of_measurement: "Volts"
+  #   icon: mdi:water-boiler
+  #   availability_topic: "tele/waterheaterenergy/LWT"
+  #   payload_available: "Online"
+  #   payload_not_available: "Offline"
+
+##################################################################################
+###### Dryer Power Sensors ######
+##################################################################################
+  
+  # - platform: mqtt
+  #   name: "Dryer energy today"
+  #   state_topic: "tele/dryer/SENSOR"
+  #   value_template: '{{ value_json.ENERGY.Today }}'
+  #   unit_of_measurement: "kWh"
+  # - platform: mqtt
+  #   name: "Dryer energy yesterday"
+  #   state_topic: "tele/dryer/SENSOR"
+  #   value_template: '{{ value_json.ENERGY.Yesterday }}'
+  #   unit_of_measurement: "kWh"
+  # - platform: mqtt
+  #   name: "Dryer Voltage"
+  #   state_topic: "tele/dryer/SENSOR"
+  #   value_template: '{{ value_json.ENERGY.Voltage }}'
+  #   unit_of_measurement: "W"
+  # - platform: mqtt
+  #   name: "Dryer Instant Power"
+  #   state_topic: "tele/dryer/SENSOR"
+  #   value_template: '{{ value_json.ENERGY.Power }}'
+  #   unit_of_measurement: W
+  # - platform: template
+  #   sensors:
+  #     dryer_offpeak_cost:
+  #       friendly_name: Dryer Offpeak Cost
+  #       value_template: '{{ (states.sensor.dryer_daily_energy_offpeak.state | float * 0.08) | round(3)}}'
+  #       unit_of_measurement: '$'
+  #     dryer_peak_cost:
+  #       friendly_name: Dryer Peak Cost
+  #       value_template: '{{ (states.sensor.dryer_daily_energy_peak.state | float * 0.14) | round(3)}}'
+  #       unit_of_measurement: '$'
+  #     dryer_24_hour_cost:
+  #       friendly_name: Dryer Cost (Today)
+  #       value_template: '{{ (states.sensor.dryer_peak_cost.state | float) + (states.sensor.dryer_offpeak_cost.state | float) | round(3) }}'
+  #       unit_of_measurement: '$'
+  #     dryer_monthly_offpeak_cost:
+  #       friendly_name: Dryer Monthly Offpeak Cost
+  #       value_template: '{{ (states.sensor.dryer_monthly_energy_offpeak.state | float * 0.08) | round(3)}}'
+  #       unit_of_measurement: '$'
+  #     dryer_monthly_peak_cost:
+  #       friendly_name: Dryer Monthly Peak Cost
+  #       value_template: '{{ (states.sensor.dryer_monthly_energy_peak.state | float * 0.14) | round(3)}}'
+  #       unit_of_measurement: '$'
+  #     dryer_monthly_cost:
+  #       friendly_name: Dryer Cost (Last Month)
+  #       value_template: '{{ (states.sensor.dryer_monthly_peak_cost.state | float) + (states.sensor.dryer_monthly_offpeak_cost.state | float) | round(3) }}'
+  #       unit_of_measurement: '$'
+

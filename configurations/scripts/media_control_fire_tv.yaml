@@ -1,0 +1,69 @@
+firetvpower:
+  sequence:
+    - service: androidtv.adb_command
+      data:
+        entity_id: media_player.livingroom_fire_tv
+        command: "POWER"
+    
+firetvsleep:
+  sequence:
+    - service: androidtv.adb_command
+      data:
+        entity_id: media_player.livingroom_fire_tv
+        command: "SLEEP"
+    
+firetvhome:
+  sequence:
+    - service: androidtv.adb_command
+      data:
+        entity_id: media_player.livingroom_fire_tv
+        command: "HOME"
+    
+firetvup:
+  sequence:
+    - service: androidtv.adb_command
+      data:
+        entity_id: media_player.livingroom_fire_tv
+        command: "UP"
+    
+firetvdown:
+  sequence:
+    - service: androidtv.adb_command
+      data:
+        entity_id: media_player.livingroom_fire_tv
+        command: "DOWN"
+    
+firetvleft:
+  sequence:
+    - service: androidtv.adb_command
+      data:
+        entity_id: media_player.livingroom_fire_tv
+        command: "LEFT"
+    
+firetvright:
+  sequence:
+    - service: androidtv.adb_command
+      data:
+        entity_id: media_player.livingroom_fire_tv
+        command: "RIGHT"
+    
+firetvcenter:
+  sequence:
+    - service: androidtv.adb_command
+      data:
+        entity_id: media_player.livingroom_fire_tv
+        command: "CENTER"
+    
+firetvback:
+  sequence:
+    - service: androidtv.adb_command
+      data:
+        entity_id: media_player.livingroom_fire_tv
+        command: "BACK"
+    
+firetvmenu:
+  sequence:
+    - service: androidtv.adb_command
+      data:
+        entity_id: media_player.livingroom_fire_tv
+        command: "MENU"

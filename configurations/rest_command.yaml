@@ -1,0 +1,20 @@
+  xbox_server_auth:
+    url: !secret xboxserverreauth
+  # url: "http://IPOFYOURHASSIOSERVER:5557/auth/load"
+  xbox_control:
+    url: !secret xboxrestcommand
+  # url: "http://IPOFYOURHASSIOSERVER:5557/device/YOURDEVICEID/{{ command }}"
+  # wled_effects:
+  #   url: "http://kitchen_wled/win&{{ states('input_select.wled_effects') }}"
+  # wled_palettes:
+  #   url: "http://kitchen_wled/win&{{ states('input_select.wled_palettes') }}"
+  wled_speed:
+    url: "http://kitchen_wled/win&SX={{ states('input_number.wled_speed') }}"
+  wled_intensity:
+    url: "http://kitchen_wled/win&IX={{ states('input_number.wled_intensity') }}"
+  wled_brightness:
+    url: "http://kitchen_wled/win&A={{ states('input_number.wled_brightness') }}"
+  wled_effect_name:
+    url: "http://kitchen_wled/win&{{ effect_name }}"
+  wled_palette_name:
+    url: "http://kitchen_wled/win&{{ palette_name }}"

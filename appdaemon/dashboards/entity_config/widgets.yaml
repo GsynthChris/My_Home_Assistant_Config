@@ -1,0 +1,390 @@
+###########################################################################################################
+######################################             Climate            #####################################
+###########################################################################################################
+
+housethermostat:
+  widget_type: climate
+  entity: climate.air_conditioner
+  title: House Thermostat
+  title2: Current Temp
+  title_style: "font-size: 130%;color: #3366ff;text-shadow: 0px 0px 5px #000066;"
+  title2_style: "font-size: 100%;color: #3366ff;text-shadow: 0px 0px 5px #000066;"
+  level_style: "margin-top: -5px; font-size: 180%;font-weight: bold;color: #3366ff;text-shadow: 0px 0px 5px #000066;" # Current Temp Size
+  level2_style: "font-size: 100%;color: #3366ff;text-shadow: 0px 0px 5px #000066;" # Target Temp Size
+  level_up_style: "font-size: 130%;color: #00ff00;text-shadow: 0px 0px 5px #003300;"
+  level_down_style: "font-size: 130%;color: #ff0000;text-shadow: 0px 0px 5px #330000;"
+  units: '&deg;F'
+  step: 1
+  precision: 0
+
+bedroomheat:
+  widget_type: climate
+  entity: climate.bedroom_ac
+  title: Bedroom AC
+  title2: Current Temp
+  title_style: "font-size: 130%;color: #3366ff;text-shadow: 0px 0px 5px #000066;"
+  title2_style: "font-size: 100%;color: #3366ff;text-shadow: 0px 0px 5px #000066;"
+  level_style: "margin-top: -5px; font-size: 180%;font-weight: bold;color: #3366ff;text-shadow: 0px 0px 5px #000066;" # Current Temp Size
+  level2_style: "font-size: 100%;color: #3366ff;text-shadow: 0px 0px 5px #000066;" # Target Temp Size
+  level_up_style: "font-size: 130%;color: #00ff00;text-shadow: 0px 0px 5px #003300;"
+  level_down_style: "font-size: 130%;color: #ff0000;text-shadow: 0px 0px 5px #330000;"
+  units: '&deg;F'
+  step: 1
+  precision: 0
+
+###########################################################################################
+######################                 Custom Widgets                ######################
+###########################################################################################
+
+# widget_style
+# main_style
+# unit_style
+# sub_style
+# title_style
+weather:
+  widget_type: weather
+  title: Weather Forecast
+  title_style: "font-size: 150%;color: #3366ff;text-shadow: 0px 0px 5px #000066;"
+  units: "&deg;F"
+  widget_style: "font-size: 90%;color: #9900cc;text-shadow: 0px 0px 5px #000066;" #Whole widget font size
+  main_style: "font-size: 90%;color: #00ff00;text-shadow: 0px 0px 5px #336600;" # Temp size
+  unit_style: "font-size: 90%;color: #3366ff;text-shadow: 0px 0px 5px #000066;" # F size
+  sub_style: "font-size: 90%;color: #3366ff;text-shadow: 0px 0px 5px #000066;" # Other data size
+  sub_unit_style: "font-size: 90%;color: #00ff00;text-shadow: 0px 0px 5px #000066;"
+  show_forecast: 1
+  prefer_icons: 1
+  forecast_title: Tomorrow
+  sensors:
+    icon: sensor.dark_sky_icon
+    temperature: sensor.dark_sky_temperature
+    apparent_temperature: sensor.dark_sky_apparent_temperature
+    humidity: sensor.dark_sky_humidity
+    precip_probability: sensor.dark_sky_precip_probability
+    precip_intensity: sensor.dark_sky_precip_intensity
+    precip_type: sensor.dark_sky_precip_0d
+    pressure: sensor.dark_sky_pressure
+    wind_speed: sensor.dark_sky_wind_speed
+    wind_bearing: sensor.dark_sky_wind_bearing
+    forecast_icon: sensor.dark_sky_icon_1d
+    forecast_temperature_min: sensor.dark_sky_overnight_low_temperature_1d
+    forecast_temperature_max: sensor.dark_sky_daytime_high_temperature_1d
+    forecast_precip_probability: sensor.dark_sky_precip_probability_1d
+    forecast_precip_type: sensor.dark_sky_precip_1d
+# myclock:
+#   widget_style: clock
+#   time_style: "font-size: 150%;color: #9900cc;text-shadow: 0px 0px 5px #ff00ff;"
+#   date_style: "font-size: 150%;color: #9900cc;text-shadow: 0px 0px 5px #ff00ff;"
+#   date_format_country: "us"
+#   date_format_options: 
+#     weekday: "short"
+#     day: "numeric"
+#     month: "numeric"
+jaxon_label:
+  widget_type: label
+  title: Jaxon's
+  title2: Controller
+  title_style: "margin-top: 0px; font-size: 40px; color: #ff0000;text-shadow: 0px 0px 5px #800000;"
+  title2_style: "margin-top: 20px; font-size: 40px; color: #ff0000;text-shadow: 0px 0px 5px #800000;"
+  # title_style: "text-align: left; font-size: 42px; vertical-align: center; margin-top: -20px"
+moon:
+  widget_type: sensor
+  title: Moon
+  title_style: "color: #3366ff"
+  use_hass_icon: 1
+  entity: sensor.moon
+
+camerafront:
+  widget_type: iframe
+  title: Front Yard
+  refresh: 3600
+  frame_style: ""
+  url_list:
+     - http://192.168.29.23:8085
+  # widget_type: generic
+  # still_image_url: 
+  # name: Front_Yard
+  # widget_type: camera
+  # entity_picture: http://192.168.29.23:8081
+  # stream: 'on'
+  # widget_type: camera
+  # entity: camera.front_yard
+  # base_url: http://192.168.29.5:8123
+  # refresh: 1
+  # stream: 'on'
+# camerafrontsml:
+#   widget_type: camera
+#   entity: camera.front_yard_sml
+#   base_url: http://192.168.29.5:8123
+#   stream: on
+
+cameranws:
+  widget_type: camera
+  entity: camera.ncr
+  base_url: http://192.168.29.5:8123
+  stream: 'on'
+
+bedmedia:
+  widget_type: media_player
+  entity: media_player.bedroom_tv
+  title: Bedroom TV
+  title_style: "font-size: 130%;color: #3366ff"
+
+
+chrisbattery:
+  widget_type: gauge
+  entity: sensor.battery_level_chris
+  title: Chris iPhone
+  title2: Battery Level
+  min: 0
+  max: 100
+  units: "%"
+  title_style: "font-size: 90%;color: #3366ff"
+  title2_style: "font-size: 80%;color: #3366ff"
+  low_color: ff0000
+  med_color: ffff00
+  high_color: 00ff00
+
+
+skidatabattery:
+  widget_type: gauge
+  entity: sensor.battery_level_skidata
+  title: Skidata iPhone
+  title2: Battery Level
+  min: 0
+  max: 100
+  units: "%"
+  title_style: "font-size: 80%;color: #3366ff"
+  title2_style: "font-size: 80%;color: #3366ff"
+  low_color: ff0000
+  med_color: ffff00
+  high_color: 00ff00
+###########################################################################################
+##################                      Temp Sensors                     ##################
+###########################################################################################
+
+outsidetemp:
+  widget_type: sensor
+  title: Oustide
+  title2: Temp
+  title_style: "font-size: 150%;color: #3366ff;text-shadow: 0px 0px 5px #000066;"
+  title2_style: "font-size: 150%;color: #3366ff;text-shadow: 0px 0px 5px #000066;"
+  value_style: "font-size: 225%;color: #3366ff;text-shadow: 0px 0px 5px #000066;"
+  unit_style: "font-size: 150%;color: #3366ff;text-shadow: 0px 0px 5px #000066;"
+  units: "&deg;F"
+  precision: 0
+  entity: sensor.dark_sky_temperature
+  sub_entity: sensor.dark_sky_icon
+
+
+housetemp:
+  widget_type: sensor
+  title: House
+  title2: Temp
+  title_style: "font-size: 150%;color: #3366ff;text-shadow: 0px 0px 5px #000066;"
+  title2_style: "font-size: 150%;color: #3366ff;text-shadow: 0px 0px 5px #000066;"
+  value_style: "font-size: 225%;color: #3366ff;text-shadow: 0px 0px 5px #000066;"
+  unit_style: "font-size: 150%;color: #3366ff;text-shadow: 0px 0px 5px #000066;"
+  units: "&deg;F"
+  precision: 0
+  entity: sensor.average_home_temp
+
+livroomtemp:
+  widget_type: sensor
+  title: Livingroom
+  title2: Temp
+  title_style: "font-size: 150%;color: #3366ff;text-shadow: 0px 0px 5px #000066;"
+  title2_style: "font-size: 150%;color: #3366ff;text-shadow: 0px 0px 5px #000066;"
+  value_style: "font-size: 225%;color: #3366ff;text-shadow: 0px 0px 5px #000066;"
+  unit_style: "font-size: 150%;color: #3366ff;text-shadow: 0px 0px 5px #000066;"
+  units: "&deg;F"
+  precision: 0
+  entity: sensor.livingroom_temp
+
+kitchentemp:
+  widget_type: sensor
+  title: Kitchen
+  title2: Temp
+  title_style: "font-size: 150%;color: #3366ff;text-shadow: 0px 0px 5px #000066;"
+  title2_style: "font-size: 150%;color: #3366ff;text-shadow: 0px 0px 5px #000066;"
+  value_style: "font-size: 225%;color: #3366ff;text-shadow: 0px 0px 5px #000066;"
+  unit_style: "font-size: 150%;color: #3366ff;text-shadow: 0px 0px 5px #000066;"
+  units: "&deg;F"
+  precision: 0
+  entity: sensor.kitchen_temp
+
+officeroomtemp:
+  widget_type: sensor
+  title: Office
+  title2: Temp
+  title_style: "font-size: 150%;color: #3366ff;text-shadow: 0px 0px 5px #000066;"
+  title2_style: "font-size: 150%;color: #3366ff;text-shadow: 0px 0px 5px #000066;"
+  value_style: "font-size: 225%;color: #3366ff;text-shadow: 0px 0px 5px #000066;"
+  unit_style: "font-size: 150%;color: #3366ff;text-shadow: 0px 0px 5px #000066;"
+  units: "&deg;F"
+  precision: 0
+  entity: sensor.office_temp
+
+mstbedtemp:
+  widget_type: sensor
+  title: Bedroom
+  title2: Temp
+  title_style: "font-size: 150%;color: #3366ff;text-shadow: 0px 0px 5px #000066;"
+  title2_style: "font-size: 150%;color: #3366ff;text-shadow: 0px 0px 5px #000066;"
+  value_style: "font-size: 225%;color: #3366ff;text-shadow: 0px 0px 5px #000066;"
+  unit_style: "font-size: 150%;color: #3366ff;text-shadow: 0px 0px 5px #000066;"
+  units: "&deg;F"
+  precision: 0
+  entity: sensor.average_mstbd_temp
+
+
+###########################################################################################
+##################               Presence and Motion Sensors             ##################
+###########################################################################################
+
+
+motiontoggle:
+  widget_type: switch
+  title: Motion Toggle
+  title2: ON/OFF
+  entity: group.upstairsmotion
+  icon_on: mdi-motion-sensor
+  icon_off: mdi-walk
+  icon_style_inactive: "margin-top: -10px; font-size: 40px; color: #004409"
+  icon_style_active: "margin-top: -10px; font-size: 40px; color: #00FF22"
+
+occupied:
+  widget_type: binary_sensor
+  title: Anybody Home?
+  entity: binary_sensor.people_home
+  icon_on: mdi-account-group
+  icon_off: mdi-home-outline
+
+kitmotion:
+  widget_type: binary_sensor
+  title: Kitchen Motion
+  entity: binary_sensor.kitchen_motion
+  icon_on: fa-running
+  icon_off: fa-walking
+
+bedmotion:
+  widget_type: binary_sensor
+  title: Motion Sensor
+  title2: Master Bedroom
+  entity: binary_sensor.master_bed_motion
+  icon_on: fa-running
+  icon_off: fa-walking
+
+offmotion:
+  widget_type: binary_sensor
+  title: Motion Sensor
+  title2: Office
+  entity: binary_sensor.office_motion
+  icon_on: fa-running
+  icon_off: fa-walking
+
+shopmotion:
+  widget_type: binary_sensor
+  title: Motion Sensor
+  title2: Shop
+  entity: binary_sensor.shop_motion
+  icon_on: fa-running
+  icon_off: fa-walking
+
+laumotion:
+  widget_type: binary_sensor
+  title: Motion Sensor
+  title2: Laundry Room
+  entity: binary_sensor.laundry_motion
+  icon_on: fa-running
+  icon_off: fa-walking
+
+###########################################################################################
+##################                     Device Tracker                    ##################
+###########################################################################################
+chris:
+  widget_type: device_tracker
+  title: Chris
+  device: chris_skidata_iphone
+  icon_on: mdi-arch
+  icon_off: mdi-car-estate
+  icon_style_active: "margin-top: -10px; font-size: 40px; color: #00ff00;text-shadow: 0px 0px 5px #00ff00;"
+  icon_style_inactive: "margin-top: -10px; font-size: 40px; color: #000BBB;text-shadow: 0px 0px 5px #000066;"
+# mike:
+#   widget_type: device_tracker
+#   title: Mike
+#   device: nmap_mike_phone
+#   icon_on: mdi-linux-mint
+#   icon_off: mdi-linux-mint
+# tb:
+#   widget_type: device_tracker
+#   title: TB
+#   device: nmap_tb_phone
+#   icon_on: fa-child
+#   icon_off: mdi-car-sports
+# miranda:
+#   widget_type: device_tracker
+#   title: Miranda
+#   device: nmap_miranda_iphone
+#   icon_on: fa-drum
+#   icon_off: fa-truck-pickup
+
+livrmcompshowcam:
+  widget_type: script
+  entity: script.frontcamtocinnabon
+  title: Show Front Cam
+  title2: on Livrm Computer
+  title_style: "color: #000BBB"
+  title2_style: "color: #000BBB"
+  icon_style_inactive: "margin-top: -10px; font-size: 40px; color: #000BBB"
+  icon_style_active: "margin-top: -10px; font-size: 40px; color: #ffff00"
+  icon_on: mdi-cctv
+  icon_off: mdi-cctv
+
+###########################################################################################
+##################                      Skin Buttons                     ##################
+###########################################################################################
+default:
+  title: Default
+  widget_type: navigate
+  dashboard: Bedroom
+  skin: default
+
+glassic:
+  title: Glassic
+  widget_type: navigate
+  dashboard: Bedroom
+  skin: glassic
+
+simplyred:
+  title: Simply Red
+  widget_type: navigate
+  dashboard: Bedroom
+  skin: simplyred
+
+zen:
+  title: Zen
+  widget_type: navigate
+  dashboard: Bedroom
+  skin: zen
+
+obsidian:
+  title: Obsidian
+  widget_type: navigate
+  dashboard: Bedroom
+  skin: obsidian
+
+
+###########################################################################################
+##################                      URL  Buttons                     ##################
+###########################################################################################
+reloadsmartglass:
+  title: Xbox
+  title2: Smartglass
+  widget_type: navigate
+  url: http://192.168.29.5:5557/device/FD00CFA257157C78/connect
+  icon_active: mdi-microsoft-xbox-controller-view
+  icon_inactive: mdi-microsoft-xbox-controller-view
+  icon_style_inactive: "margin-top: -10px; font-size: 40px; color: #004409"
+  icon_style_active: "margin-top: -10px; font-size: 40px; color: #00FF22"
+  title_style: "font-size: 100%;color: #3366ff;text-shadow: 0px 0px 5px #000066;"
+  title2_style: "font-size: 100%;color: #3366ff;text-shadow: 0px 0px 5px #000066;"

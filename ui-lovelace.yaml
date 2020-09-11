@@ -1,0 +1,1051 @@
+custom_header:
+  compact_mode: true
+key: lovelace
+# resources:
+#   - type: module
+#     url: /community_plugin/roku-card/roku-card.js
+#   - type: module
+#     url: /community_plugin/simple-thermostat/simple-thermostat.js
+#   - type: module
+#     url: /local/community_plugin/weather-card/weather-card.js
+#   - type: module
+#     url: /community_plugin/aftership-card/aftership-card.js
+#   - type: module
+#     url: /community_plugin/light-entity-row/light-entity-row.js
+#   - type: module
+#     url: /community_plugin/custom-header/custom-header.js
+#   - type: module
+#     url: /community_plugin/button-card/button-card.js
+title: Smart Ass Home
+version: 1
+views:
+  - badges: []
+    cards:
+      - camera_view: live
+        entity: camera.front_yard
+        type: picture-entity
+      - entities:
+          - entity: fan.kitchen_ceiling_fan
+          - entity: light.kitchen_ceiling_light
+          - entity: light.kitchen_wleds
+          - entity: light.kitchen_sink_light
+          - entity: light.under_cabinet_light
+          - entity: switch.keurig
+          - entity: switch.coffee_pot
+          - entity: input_select.wled_effects_kitchen
+          - entity: input_select.wled_palettes_kitchen
+        title: Kitchen
+        type: glance
+      - current: true
+        details: true
+        entity: weather.dark_sky_weather
+        forecast: true
+        type: 'custom:weather-card'
+      - entities:
+          - entity: fan.bedroom_ceiling_fan
+          - entity: light.bedroom_ceiling_light
+          - entity: light.dresser_light
+          - entity: light.closet_light
+          - entity: light.bedside_light
+          - entity: light.night_light
+          - entity: fan.box_fan
+          - entity: light.chris_tablet_light
+        title: Master Bedroom
+        type: glance
+      - entity: camera.ncr
+        name: 'National Weather Service Live Radar - St Louis, Missouri'
+        type: picture-entity
+      - entities:
+          - entity: device_tracker.lizz_iphone
+          - entity: device_tracker.chris_iphone
+          - entity: device_tracker.skidata_iphone
+        title: Where is Everybody?
+        type: glance
+      - entities:
+          - entity: light.outside_lights
+          - entity: light.back_door
+          - entity: light.livingroom_door_1
+          - entity: light.livingroom_door_2
+          - entity: light.bedroom_door
+        title: Outdoor Lights
+        type: glance
+      - entities:
+          - entity: switch.office_computer
+          - entity: switch.printer
+          - entity: script.frontcamtokububeast
+          - entity: sensor.office_temp
+          - entity: switch.tonbux_usb
+          - entity: light.office_ceiling_light
+          - entity: light.desk_lamp
+          - entity: light.floor_lamp
+          - entity: switch.computer_speakers
+          - entity: switch.computer_monitors
+        show_header_toggle: false
+        title: Office
+        type: glance
+      - entities:
+          - entity: light.stairs_light
+          - entity: light.theater
+          - entity: light.aquarium_light
+          - entity: light.studio_light
+          - entity: light.laundry_room
+          - entity: media_player.basement_alexa
+          - entity: input_boolean.music_time
+          - entity: script.studiotvpower
+          - entity: switch.studio_equipment
+        title: Basement
+        type: glance
+      - entities:
+          - entity: fan.livingroom_ceiling_fan
+          - entity: light.livingroom_ceiling_light
+          - entity: light.livingroom_lamp
+          - entity: light.hallway_light
+          - entity: switch.cinnabon_laptop
+        title: Living Room
+        type: glance
+      - entities:
+          - entity: input_text.group_alexa
+          - entity: input_number.alexa_volume
+          - entity: script.bedroom_alexa_speak
+          - entity: script.livingroom_alexa_speak
+          - entity: script.office_alexa_speak
+          - entity: script.basement_alexa_speak
+          - entity: script.zach_alexa_speak
+          - entity: script.group_alexa_speak
+          - entity: script.skidata_iphone_message
+          - entity: script.lizz_iphone_message
+          - entity: script.zach_iphone_message
+          - entity: script.alexa_set_volume
+          - entity: script.chris_iphone_message
+        show_header_toggle: false
+        title: Messaging Hub
+        type: entities
+      - entities:
+          - entity: light.wled_kitchen
+          - entity: input_select.wled_effects_names
+          - entity: input_select.wled_palettes_names
+          - entity: input_number.wled_speed
+          - entity: input_number.wled_brightness
+          - entity: input_number.wled_intensity
+          - entity: script.wled_speed_two
+        title: WLED
+        type: entities
+      - entity: media_player.bedroom_tv
+        type: media-control
+      - entity: media_player.livingroom_fire_tv
+        type: media-control
+    icon: 'mdi:home-assistant'
+    path: default_view
+    title: Home
+  - badges: []
+    cards:
+      - entity: climate.thermostat
+        icon: 'mdi:fireplace'
+        modes:
+          another_mode:
+            include: false
+          'off':
+            icon: 'mdi:whitewalker'
+            name: Make it Warm
+          'on':
+            icon: 'mdi:fire'
+            name: false
+          some_mode: false
+        sensors:
+          - entity: sensor.average_home_temp
+          - attribute: min_temp
+            name: Min temp
+        step_size: 1
+        type: 'custom:simple-thermostat'
+      - entity: climate.bedroom_heater
+        icon: 'mdi:bed-empty'
+        modes:
+          another_mode:
+            include: false
+          'off':
+            icon: 'mdi:whitewalker'
+            name: Make it Warm
+          'on':
+            icon: 'mdi:fire'
+            name: false
+          some_mode: false
+        sensors:
+          - entity: sensor.average_mstbd_temp
+          - attribute: min_temp
+            name: Min temp
+        step_size: 1
+        type: 'custom:simple-thermostat'
+      - entities:
+          - entity: sensor.average_home_temp
+            name: House
+          - entity: sensor.kitchen_temp
+            name: Kitchen
+          - entity: sensor.livingroom_temp
+            name: Livingroom
+          - entity: sensor.office_temp
+            name: Office
+          - entity: sensor.music_room_temp
+            name: Studio
+          - entity: sensor.average_mstbd_temp
+            name: MasterBed
+          - entity: sensor.master_bedroom_temp
+          - entity: sensor.master_bedroom_temp2
+        title: House Temperatures
+        type: glance
+    icon: 'mdi:fireplace'
+    title: Thermostats
+  - badges: []
+    cards:
+      - entity: weather.dark_sky_weather
+        name: Darksky
+        type: weather-forecast
+      - entities:
+          - entity: sensor.dark_sky_temperature
+          - entity: sensor.dark_sky_apparent_temperature
+          - entity: sensor.dark_sky_humidity
+          - entity: sensor.dark_sky_cloud_coverage
+          - entity: sensor.dark_sky_icon
+          - entity: sensor.dark_sky_precip
+          - entity: sensor.dark_sky_precip_intensity
+          - entity: sensor.dark_sky_precip_probability
+          - entity: sensor.dark_sky_pressure
+          - entity: sensor.dark_sky_summary
+          - entity: sensor.dark_sky_wind_bearing
+          - entity: sensor.dark_sky_wind_speed
+          - entity: weather.dark_sky_weather
+          - entity: sensor.moon_phases
+        show_name: false
+        title: Darksky Sensors
+        type: glance
+      - entities:
+          - entity: binary_sensor.doorbell_livingroom
+          - entity: binary_sensor.doorbell_backdoor
+          - entity: binary_sensor.doorbell_bedroom
+          - entity: binary_sensor.rf_test_button1
+          - entity: binary_sensor.rf_test_button2
+          - entity: binary_sensor.livingroom_motion
+        type: entities
+      - entities:
+          - entity: sensor.drzzs
+          - entity: sensor.the_hook_up
+          - entity: sensor.company_man
+          - entity: sensor.robert_reich
+          - entity: sensor.technology_connections
+          - entity: sensor.bruh_automation
+          - entity: sensor.superhousetv
+          - entity: sensor.digiblurdiy
+          - entity: sensor.trae_crowder
+        title: Youtubers
+        type: entities
+    icon: 'mdi:weather-snowy-heavy'
+    title: Sensors
+  - badges: []
+    cards:
+      - entities:
+          - entity: sensor.bedroom_heater_energy_today
+          - entity: sensor.bedroom_heater_energy_yesterday
+          - entity: sensor.bedroom_heater_energy_total
+          - entity: sensor.bedroom_heater_energy_period
+          - entity: sensor.bedroom_heater_energy_power
+          - entity: sensor.bedroom_heater_energy_current
+          - entity: sensor.bedroom_heater_energy_voltage
+        show_header_toggle: false
+        title: Radiator Energy Usage
+        type: entities
+      - entities:
+          - entity: sensor.washer_energy_today
+          - entity: sensor.washer_energy_yesterday
+          - entity: sensor.washer_energy_total
+          - entity: sensor.washer_energy_period
+          - entity: sensor.washer_energy_power
+          - entity: sensor.washer_energy_current
+          - entity: sensor.washer_energy_voltage
+        show_header_toggle: false
+        title: Washing Machine Energy Usage
+        type: entities
+      - entities:
+          - entity: sensor.computer_energy_today
+          - entity: sensor.computer_energy_yesterday
+          - entity: sensor.computer_energy_total
+          - entity: sensor.computer_energy_period
+          - entity: sensor.computer_energy_power
+          - entity: sensor.computer_energy_current
+          - entity: sensor.computer_energy_voltage
+        show_header_toggle: false
+        title: Computer Energy Usage
+        type: entities
+      - entities:
+          - entity: sensor.refrigerator_energy_today
+          - entity: sensor.refrigerator_energy_yesterday
+          - entity: sensor.refrigerator_energy_total
+          - entity: sensor.refrigerator_energy_period
+          - entity: sensor.refrigerator_energy_power
+          - entity: sensor.refrigerator_energy_current
+          - entity: sensor.refrigerator_energy_voltage
+        show_header_toggle: false
+        title: Refrigerator Energy Usage
+        type: entities
+      - entities:
+          - entity: sensor.computer_daily_cost
+          - entity: sensor.computer_monthly_cost
+          - entity: sensor.computer_monthly_kwh
+          - entity: sensor.refrigerator_daily_cost
+          - entity: sensor.refrigerator_monthly_cost
+          - entity: sensor.refrigerator_monthly_kwh
+          - entity: sensor.washer_daily_cost
+          - entity: sensor.washer_monthly_cost
+          - entity: sensor.washer_monthly_kwh
+          - entity: sensor.bedroom_heater_daily_cost
+          - entity: sensor.bedroom_heater_monthly_cost
+          - entity: sensor.bedroom_heater_monthly_kwh
+        show_header_toggle: false
+        title: Utility Meter Energy Cost
+        type: entities
+      - entities:
+          - entity: sensor.computer_daily_cost
+          - entity: sensor.computer_monthly_cost
+          - entity: sensor.computer_monthly_kwh
+        title: Computer Energy Costs
+        type: glance
+      - entities:
+          - entity: sensor.refrigerator_daily_cost
+          - entity: sensor.refrigerator_monthly_cost
+          - entity: sensor.refrigerator_monthly_kwh
+        title: Refrigerator Energy Costs
+        type: glance
+      - entities:
+          - entity: sensor.washer_daily_cost
+          - entity: sensor.washer_monthly_cost
+          - entity: sensor.washer_monthly_kwh
+          - entity: binary_sensor.washer_status
+          - entity: binary_sensor.dryer_status
+          - entity: sensor.dryer
+          - entity: sensor.dryer_current
+        show_icon: true
+        show_name: true
+        show_state: true
+        title: Washing Machine Energy Costs
+        type: glance
+      - entities:
+          - entity: sensor.bedroom_heater_daily_cost
+          - entity: sensor.bedroom_heater_monthly_cost
+          - entity: sensor.bedroom_heater_monthly_kwh
+        show_icon: true
+        title: Radiator Energy Costs
+        type: glance
+      - entities:
+          - switch.coffee_pot
+          - sensor.coffee_pot_energy_current
+          - sensor.coffee_pot_energy_period
+          - sensor.coffee_pot_energy_power
+          - sensor.coffee_pot_energy_today
+          - sensor.coffee_pot_energy_total
+          - sensor.coffee_pot_energy_voltage
+          - sensor.coffee_pot_energy_yesterday
+          - binary_sensor.coffee_pot_status
+        title: Coffee Pot Energy Usage
+        type: entities
+    icon: 'mdi:flash'
+    panel: false
+    path: power-meter
+    title: Power Meter
+  - badges: []
+    cards:
+      - aspect_ratio: 969
+        camera_image: camera.front_yard
+        camera_view: live
+        entity: camera.front_yard
+        type: picture-entity
+      - camera_image: camera.driveway
+        camera_view: live
+        entity: camera.driveway
+        type: picture-entity
+    icon: 'mdi:cctv'
+    title: Cameras
+  - badges: []
+    cards:
+      - entities:
+          - entity: media_player.cinnabon_kodi
+          - entity: script.kodi_remote_home
+          - entity: script.kodi_remote_back
+          - entity: script.kodi_remote_up
+          - entity: script.kodi_remote_left
+          - entity: script.kodi_remote_right
+          - entity: script.kodi_remote_down
+          - entity: script.kodi_remote_select
+          - entity: script.kodi_remote_playlist
+          - entity: script.kodi_remote_play_pause
+          - entity: script.kodi_remote_prev
+          - entity: script.kodi_remote_next
+          - entity: script.kodi_remote_stop
+        show_header_toggle: false
+        title: Kodi Test
+        type: entities
+      - entities:
+          - entity: automation.alexa_all_of_them_text_input
+          - entity: automation.bedroom_buttons_bedside_table
+          - entity: automation.bedroom_buttons_ceiling_fan
+          - entity: automation.bedroom_buttons_ceiling_light
+          - entity: automation.bedroom_buttons_ceiling_light_2
+          - entity: automation.bedroom_buttons_dresser_light
+          - entity: automation.bedroom_buttons_hold1_bedroom_off
+          - entity: automation.bedroom_buttons_hold2_kitchen_on
+          - entity: automation.bedroom_buttons_hold3_bedroom_on
+          - entity: automation.bedroom_buttons_hold4_kitchen_off
+          - entity: automation.doorbell_backdoor
+          - entity: automation.doorbell_bedroom
+          - entity: automation.doorbell_frontvideo
+          - entity: automation.doorbell_livingroom
+          - entity: automation.dryer_load_done
+          - entity: automation.dryer_load_done_notification_late_night
+          - entity: automation.dryer_load_started
+          - entity: automation.drzzs_is_live
+          - entity: automation.drzzs_posted_a_video_ifttt
+          - entity: automation.emergency_hvac_shutdown
+          - entity: automation.good_morning_lizz
+          - entity: automation.goodbye_zach
+          - entity: automation.holiday_animation_speed
+          - entity: automation.holiday_input_effect
+          - entity: automation.hvac_change_filter_notify
+          - entity: automation.hvac_change_filter_turn_off
+          - entity: automation.hvac_change_filter_turn_on
+          - entity: automation.hvac_no_one_home_away_mode_on
+          - entity: automation.hvac_somebody_home_chill_out
+          - entity: automation.kitchen_sink_button
+          - entity: automation.lights_out_nobody_s_home
+          - entity: automation.livingroom_lamp_timer
+          - entity: automation.livingroom_lamp_timer_off
+          - entity: automation.livingroom_roku_source_select
+          - entity: automation.lizz_near_home
+          - entity: automation.lizz_s_birthday
+          - entity: automation.new_leds_animation_speed
+          - entity: automation.new_leds_effect
+          - entity: automation.office_boolean_desk_button_off
+          - entity: automation.office_boolean_desk_button_on
+          - entity: automation.office_boolean_toggle_off
+          - entity: automation.office_boolean_toggle_on
+          - entity: automation.office_button_toggle
+          - entity: automation.office_pc_critical_battery
+          - entity: automation.office_pc_on_backup_power
+          - entity: automation.send_notification_when_sun_rises
+          - entity: automation.send_notification_when_sun_sets
+          - entity: automation.set_theme_at_startup
+          - entity: automation.start_homekit
+          - entity: automation.tasmota_state_on_ha_restart
+          - entity: automation.theme_input_select
+          - entity: automation.tonbux_boolean_toggle_off
+          - entity: automation.tonbux_boolean_toggle_on
+          - entity: automation.tonbux_button_toggle
+          - entity: automation.wake_up_off
+          - entity: automation.wake_up_on
+          - entity: automation.washer_load_done
+          - entity: automation.washer_load_started
+          - entity: automation.welcome_home_lizz
+          - entity: automation.welcome_home_zach
+          - entity: automation.xbox_one_source_select
+          - entity: automation.youtube_bruh_automation_video_posted_notify
+          - entity: automation.youtube_company_man_video_posted_notify
+          - entity: automation.youtube_digiblurdiy_video_posted_notify
+          - entity: automation.youtube_drzzs_video_posted_notify
+          - entity: automation.youtube_robert_reich_video_posted_notify
+          - entity: automation.youtube_superhousetv_video_posted_notify
+          - entity: automation.youtube_technology_connections_video_posted_notify
+          - entity: automation.youtube_the_hook_up_video_posted_notify
+          - entity: automation.youtube_trae_crowder_video_posted_notify
+          - entity: automation.bedroom_thermostat_box_fan_turn_off
+          - entity: automation.bedroom_thermostat_box_fan_turn_on
+        title: Automations
+        type: entities
+      - entities:
+          - entity: script.acstatus
+          - entity: script.alexa_intruder_alert
+          - entity: script.alexa_set_volume
+          - entity: script.app_alexa_speak
+          - entity: script.basement_alexa_speak
+          - entity: script.bedroom_alexa_speak
+          - entity: script.bedroomtv
+          - entity: script.bedsoundbar
+          - entity: script.bedtvaudiofix
+          - entity: script.bedtvdown
+          - entity: script.bedtvinput
+          - entity: script.bedtvleft
+          - entity: script.bedtvmenu
+          - entity: script.bedtvpower
+          - entity: script.bedtvright
+          - entity: script.bedtvselect
+          - entity: script.bedtvup
+          - entity: script.bedvoldown
+          - entity: script.bedvoldownplus
+          - entity: script.bedvolmute
+          - entity: script.bedvolup
+          - entity: script.bedvolupplus
+          - entity: script.doorbellbedroomchris
+          - entity: script.doorbellfrontchris
+          - entity: script.doorbellfrontchrisvideo
+          - entity: script.doorbellfrontsnapshot
+          - entity: script.doorbellfrontsnapshotarchive
+          - entity: script.group_alexa_speak
+          - entity: script.kenwoodpwr
+          - entity: script.kenwoodvoldown
+          - entity: script.kenwoodvolmute
+          - entity: script.kenwoodvolup
+          - entity: script.livingroom_alexa_speak
+          - entity: script.livtvdown
+          - entity: script.livtvinput
+          - entity: script.livtvleft
+          - entity: script.livtvmenu
+          - entity: script.livtvpwr
+          - entity: script.livtvright
+          - entity: script.livtvselect
+          - entity: script.livtvup
+          - entity: script.livvoldownplus
+          - entity: script.livvolupplus
+          - entity: script.lizz_iphone_message
+          - entity: script.office_alexa_speak
+          - entity: script.officechandown
+          - entity: script.officechanup
+          - entity: script.officemute
+          - entity: script.officetvdown
+          - entity: script.officetvinput
+          - entity: script.officetvleft
+          - entity: script.officetvmenu
+          - entity: script.officetvpwr
+          - entity: script.officetvright
+          - entity: script.officetvselect
+          - entity: script.officetvup
+          - entity: script.officevoldown
+          - entity: script.officevoldownplus
+          - entity: script.officevolup
+          - entity: script.officevolupplus
+          - entity: script.rokulivback
+          - entity: script.rokulivbackspace
+          - entity: script.rokulivchandown
+          - entity: script.rokulivchanup
+          - entity: script.rokulivdown
+          - entity: script.rokuliventer
+          - entity: script.rokulivforward
+          - entity: script.rokulivhome
+          - entity: script.rokulivinfo
+          - entity: script.rokulivleft
+          - entity: script.rokulivplay
+          - entity: script.rokulivpower
+          - entity: script.rokulivreplay
+          - entity: script.rokulivreverse
+          - entity: script.rokulivright
+          - entity: script.rokulivsearch
+          - entity: script.rokulivselect
+          - entity: script.rokulivup
+          - entity: script.shutdownkububeast
+          - entity: script.skidata_iphone_message
+          - entity: script.this_alexa_speak
+          - entity: script.xboxhbonow
+          - entity: script.xboxhulu
+          - entity: script.xboxnetflix
+          - entity: script.xboxnetflix2
+          - entity: script.xboxnetflix3
+          - entity: script.xboxplaypause
+          - entity: script.xboxpower
+          - entity: script.xboxprime
+          - entity: script.xboxskipback
+          - entity: script.xboxskipfwd
+          - entity: script.xboxvoldown
+          - entity: script.xboxvolmute
+          - entity: script.xboxvolup
+          - entity: script.xboxyoutube
+          - entity: script.zach_alexa_speak
+          - entity: script.zach_iphone_message
+        title: Scripts
+        type: entities
+      - entities:
+          - entity: sensor.average_home_temp
+          - entity: sensor.average_mstbd_temp
+          - entity: sensor.bruh_automation
+          - entity: sensor.chris_skidata_iphone_battery_level_2
+          - entity: sensor.chris_skidata_iphone_battery_state_2
+          - entity: sensor.chriss_iphone_6_plus_battery_level
+          - entity: sensor.chriss_iphone_6_plus_battery_state
+          - entity: sensor.company_man
+          - entity: sensor.computer_energy_current
+          - entity: sensor.computer_energy_period
+          - entity: sensor.computer_energy_power
+          - entity: sensor.computer_energy_today
+          - entity: sensor.computer_energy_total
+          - entity: sensor.computer_energy_voltage
+          - entity: sensor.computer_energy_yesterday
+          - entity: sensor.dark_sky_apparent_temperature
+          - entity: sensor.dark_sky_cloud_coverage
+          - entity: sensor.dark_sky_humidity
+          - entity: sensor.dark_sky_icon
+          - entity: sensor.dark_sky_precip
+          - entity: sensor.dark_sky_precip_intensity
+          - entity: sensor.dark_sky_precip_probability
+          - entity: sensor.dark_sky_pressure
+          - entity: sensor.dark_sky_summary
+          - entity: sensor.dark_sky_temperature
+          - entity: sensor.dark_sky_wind_bearing
+          - entity: sensor.dark_sky_wind_speed
+          - entity: sensor.digiblurdiy
+          - entity: sensor.dryer
+          - entity: sensor.dryer_current
+          - entity: sensor.drzzs
+          - entity: sensor.drzzslive
+          - entity: sensor.hacs
+          - entity: sensor.iphone_battery_level
+          - entity: sensor.iphone_battery_level_2
+          - entity: sensor.iphone_battery_state
+          - entity: sensor.iphone_battery_state_2
+          - entity: sensor.kitchen_humidity
+          - entity: sensor.kitchen_temp
+          - entity: sensor.livingroom_humidity
+          - entity: sensor.livingroom_temp
+          - entity: sensor.lizzs_iphone_6s_battery_level
+          - entity: sensor.lizzs_iphone_6s_battery_state
+          - entity: sensor.master_bedroom_humidity
+          - entity: sensor.master_bedroom_temp
+          - entity: sensor.moon
+          - entity: sensor.mstbd_humidity
+          - entity: sensor.mstbd_temp
+          - entity: sensor.music_room_humidity
+          - entity: sensor.music_room_temp
+          - entity: sensor.office_humidity
+          - entity: sensor.office_temp
+          - entity: sensor.robert_reich
+          - entity: sensor.superhousetv
+          - entity: sensor.technology_connections
+          - entity: sensor.the_hook_up
+          - entity: sensor.thermostatsetting
+          - entity: sensor.trae_crowder
+          - entity: sensor.washer_energy_current
+          - entity: sensor.washer_energy_period
+          - entity: sensor.washer_energy_power
+          - entity: sensor.washer_energy_today
+          - entity: sensor.washer_energy_total
+          - entity: sensor.washer_energy_voltage
+          - entity: sensor.washer_energy_yesterday
+          - entity: sun.sun
+        title: Sensors
+        type: entities
+      - entities:
+          - entity: automation.zach_near_home
+          - entity: binary_sensor.chrislizz_home
+          - entity: binary_sensor.doorbell_backdoor
+          - entity: binary_sensor.doorbell_bedroom
+          - entity: binary_sensor.doorbell_livingroom
+          - entity: binary_sensor.kitchen_motion
+          - entity: binary_sensor.laundry_motion
+          - entity: binary_sensor.livingroom_motion
+          - entity: binary_sensor.master_bed_motion
+          - entity: binary_sensor.office_multisensor
+          - entity: binary_sensor.office_on_off
+          - entity: binary_sensor.people_home
+          - entity: binary_sensor.remote_ui
+          - entity: binary_sensor.rf_test_button1
+          - entity: binary_sensor.rf_test_button2
+          - entity: binary_sensor.shop_motion
+          - entity: binary_sensor.shop_motion2
+          - entity: binary_sensor.theater_motion
+          - entity: binary_sensor.updater
+          - entity: binary_sensor.washer_status
+          - entity: binary_sensor.workday_sensor
+        title: Binary Sensors
+        type: entities
+      - entities:
+          - entity: group.all_automations
+          - entity: group.all_devices
+          - entity: group.all_fans
+          - entity: group.all_lights
+          - entity: group.all_scripts
+          - entity: group.all_switches
+          - entity: group.basement
+          - entity: group.default_view
+          - entity: group.kitchen
+          - entity: group.livingroom
+          - entity: group.masterbedroom
+          - entity: group.office
+          - entity: group.tonbux
+          - entity: group.upstairsmotion
+          - entity: group.weather
+        title: Groups
+        type: entities
+      - entities:
+          - light.49c05f74_83880868
+          - media_player.49c05f74_83880868
+          - sensor.49c05f74_83880868
+          - light.823402a2_deb0a680
+          - media_player.823402a2_deb0a680
+          - sensor.823402a2_deb0a680
+          - sensor.dark_sky_apparent_temperature_0h
+          - sensor.dark_sky_apparent_temperature_12h
+          - sensor.dark_sky_cloud_coverage_0d
+          - sensor.dark_sky_cloud_coverage_0h
+          - sensor.dark_sky_cloud_coverage_12h
+          - sensor.dark_sky_cloud_coverage_1d
+          - sensor.dark_sky_cloud_coverage_2d
+          - sensor.dark_sky_cloud_coverage_3d
+          - sensor.dark_sky_cloud_coverage_4d
+          - sensor.dark_sky_cloud_coverage_5d
+          - sensor.dark_sky_cloud_coverage_6d
+          - sensor.dark_sky_cloud_coverage_7d
+          - sensor.dark_sky_humidity_0d
+          - sensor.dark_sky_humidity_0h
+          - sensor.dark_sky_humidity_12h
+          - sensor.dark_sky_humidity_1d
+          - sensor.dark_sky_humidity_2d
+          - sensor.dark_sky_humidity_3d
+          - sensor.dark_sky_humidity_4d
+          - sensor.dark_sky_humidity_5d
+          - sensor.dark_sky_humidity_6d
+          - sensor.dark_sky_humidity_7d
+          - sensor.dark_sky_icon_0d
+          - sensor.dark_sky_icon_0h
+          - sensor.dark_sky_icon_12h
+          - sensor.dark_sky_icon_1d
+          - sensor.dark_sky_icon_2d
+          - sensor.dark_sky_icon_3d
+          - sensor.dark_sky_icon_4d
+          - sensor.dark_sky_icon_5d
+          - sensor.dark_sky_icon_6d
+          - sensor.dark_sky_icon_7d
+          - sensor.dark_sky_precip_0d
+          - sensor.dark_sky_precip_0h
+          - sensor.dark_sky_precip_12h
+          - sensor.dark_sky_precip_1d
+          - sensor.dark_sky_precip_2d
+          - sensor.dark_sky_precip_3d
+          - sensor.dark_sky_precip_4d
+          - sensor.dark_sky_precip_5d
+          - sensor.dark_sky_precip_6d
+          - sensor.dark_sky_precip_7d
+          - sensor.dark_sky_precip_intensity_0d
+          - sensor.dark_sky_precip_intensity_0h
+          - sensor.dark_sky_precip_intensity_12h
+          - sensor.dark_sky_precip_intensity_1d
+          - sensor.dark_sky_precip_intensity_2d
+          - sensor.dark_sky_precip_intensity_3d
+          - sensor.dark_sky_precip_intensity_4d
+          - sensor.dark_sky_precip_intensity_5d
+          - sensor.dark_sky_precip_intensity_6d
+          - sensor.dark_sky_precip_intensity_7d
+          - sensor.dark_sky_precip_probability_0d
+          - sensor.dark_sky_precip_probability_0h
+          - sensor.dark_sky_precip_probability_12h
+          - sensor.dark_sky_precip_probability_1d
+          - sensor.dark_sky_precip_probability_2d
+          - sensor.dark_sky_precip_probability_3d
+          - sensor.dark_sky_precip_probability_4d
+          - sensor.dark_sky_precip_probability_5d
+          - sensor.dark_sky_precip_probability_6d
+          - sensor.dark_sky_precip_probability_7d
+          - sensor.dark_sky_pressure_0d
+          - sensor.dark_sky_pressure_0h
+          - sensor.dark_sky_pressure_12h
+          - sensor.dark_sky_pressure_1d
+          - sensor.dark_sky_pressure_2d
+          - sensor.dark_sky_pressure_3d
+          - sensor.dark_sky_pressure_4d
+          - sensor.dark_sky_pressure_5d
+          - sensor.dark_sky_pressure_6d
+          - sensor.dark_sky_pressure_7d
+          - sensor.dark_sky_summary_0d
+          - sensor.dark_sky_summary_0h
+          - sensor.dark_sky_summary_12h
+          - sensor.dark_sky_summary_1d
+          - sensor.dark_sky_summary_2d
+          - sensor.dark_sky_summary_3d
+          - sensor.dark_sky_summary_4d
+          - sensor.dark_sky_summary_5d
+          - sensor.dark_sky_summary_6d
+          - sensor.dark_sky_summary_7d
+          - sensor.dark_sky_sunrise_0d
+          - sensor.dark_sky_sunrise_1d
+          - sensor.dark_sky_sunrise_2d
+          - sensor.dark_sky_sunrise_3d
+          - sensor.dark_sky_sunrise_4d
+          - sensor.dark_sky_sunrise_5d
+          - sensor.dark_sky_sunrise_6d
+          - sensor.dark_sky_sunrise_7d
+          - sensor.dark_sky_sunset_0d
+          - sensor.dark_sky_sunset_1d
+          - sensor.dark_sky_sunset_2d
+          - sensor.dark_sky_sunset_3d
+          - sensor.dark_sky_sunset_4d
+          - sensor.dark_sky_sunset_5d
+          - sensor.dark_sky_sunset_6d
+          - sensor.dark_sky_sunset_7d
+          - sensor.dark_sky_temperature_0h
+          - sensor.dark_sky_temperature_12h
+          - sensor.dark_sky_wind_bearing_0d
+          - sensor.dark_sky_wind_bearing_0h
+          - sensor.dark_sky_wind_bearing_12h
+          - sensor.dark_sky_wind_bearing_1d
+          - sensor.dark_sky_wind_bearing_2d
+          - sensor.dark_sky_wind_bearing_3d
+          - sensor.dark_sky_wind_bearing_4d
+          - sensor.dark_sky_wind_bearing_5d
+          - sensor.dark_sky_wind_bearing_6d
+          - sensor.dark_sky_wind_bearing_7d
+          - sensor.dark_sky_wind_speed_0d
+          - sensor.dark_sky_wind_speed_0h
+          - sensor.dark_sky_wind_speed_12h
+          - sensor.dark_sky_wind_speed_1d
+          - sensor.dark_sky_wind_speed_3d
+          - sensor.dark_sky_wind_speed_2d
+          - sensor.dark_sky_wind_speed_4d
+          - sensor.dark_sky_wind_speed_5d
+          - sensor.dark_sky_wind_speed_6d
+          - sensor.dark_sky_wind_speed_7d
+        title: DarkSky
+        type: entities
+      - entities:
+          - script.ariustek0
+          - script.ariustek1
+          - script.ariustek2
+          - script.ariustek3
+          - script.ariustek4
+          - script.ariustek5
+          - script.ariustek6
+          - script.ariustek7
+          - script.ariustek8
+          - script.ariustek9
+          - script.ariustekaudio
+          - script.ariustekauto
+          - script.ariustekav
+          - script.ariustekback
+          - script.ariustekblue
+          - script.ariustekchannelup
+          - script.ariustekchdown
+          - script.ariustekchup
+          - script.ariustekepg
+          - script.ariustekexit
+          - script.ariustekfastscan
+          - script.ariustekfav
+          - script.ariustekffwd
+          - script.ariustekgreen
+          - script.ariustekhdmi
+          - script.ariustekinfo
+          - script.ariustekmenu
+          - script.ariustekmenu2
+          - script.ariustekmute
+          - script.ariusteknext
+          - script.ariustekok
+          - script.ariustekpause
+          - script.ariustekpgdownexit
+          - script.ariustekpgupok
+          - script.ariustekplaypause
+          - script.ariustekred
+          - script.ariustekrewind
+          - script.ariusteksoundup
+          - script.ariustekpwr
+          - script.ariustekprev
+          - script.ariustekstop
+          - script.ariusteksource
+          - script.ariusteksubtitledown
+          - script.ariusteksv
+          - script.ariustektv
+          - script.ariustektvradio
+          - script.ariustektxt
+          - script.ariustekusb
+          - script.ariustekvga
+          - script.ariustekvoldownleft
+          - script.ariustekvolupright
+          - script.ariustekyellow
+          - script.ariustekypbpr
+        title: projector scripts
+        type: entities
+      - entities:
+          - media_player.xbox_one
+          - input_select.xboxonesource
+          - script.xbox_a
+          - script.xbox_b
+          - script.xbox_back
+          - script.xbox_channel_down
+          - script.xbox_channel_up
+          - script.xbox_clear
+          - script.xbox_dpad_down
+          - script.xbox_dpad_left
+          - script.xbox_dpad_right
+          - script.xbox_dpad_up
+          - script.xbox_enroll
+          - script.xbox_fast_forward
+          - script.xbox_left_shoulder
+          - script.xbox_left_thumbstick
+          - script.xbox_menu
+          - script.xbox_menu_media
+          - script.xbox_next_track
+          - script.xbox_nexus
+          - script.xbox_pause
+          - script.xbox_play
+          - script.xbox_play_pause
+          - script.xbox_prev_track
+          - script.xbox_record
+          - script.xbox_rewind
+          - script.xbox_right_shoulder
+          - script.xbox_right_thumbstick
+          - script.xbox_seek
+          - script.xbox_stop
+          - script.xbox_view
+          - script.xbox_view_media
+          - script.xbox_x
+          - script.xbox_y
+        title: Xbox Scripts
+        type: entities
+      - entities:
+          - input_text.basement_alexa
+          - input_text.bedroom_alexa
+          - input_text.livingroom_alexa
+          - input_text.office_alexa
+          - input_text.zach_alexa
+          - switch.basement_alexa_do_not_disturb_switch
+          - sensor.basement_alexa_next_alarm
+          - sensor.basement_alexa_next_reminder
+          - sensor.basement_alexa_next_timer
+          - switch.basement_alexa_repeat_switch
+          - switch.basement_alexa_shuffle_switch
+          - switch.bedroom_alexa_do_not_disturb_switch
+          - sensor.bedroom_alexa_next_alarm
+          - sensor.bedroom_alexa_next_reminder
+          - sensor.bedroom_alexa_next_timer
+          - switch.bedroom_alexa_repeat_switch
+          - switch.bedroom_alexa_shuffle_switch
+          - switch.christopher_s_alexa_apps_do_not_disturb_switch
+          - media_player.christopher_s_alexa_apps
+          - switch.christopher_s_alexa_apps_repeat_switch
+          - switch.christopher_s_alexa_apps_shuffle_switch
+          - switch.livingroom_alexa_do_not_disturb_switch
+          - sensor.livingroom_alexa_next_alarm
+          - sensor.livingroom_alexa_next_reminder
+          - sensor.livingroom_alexa_next_timer
+          - switch.livingroom_alexa_repeat_switch
+          - switch.livingroom_alexa_shuffle_switch
+          - media_player.office_alexa
+          - switch.office_alexa_do_not_disturb_switch
+          - sensor.office_alexa_next_alarm
+          - sensor.office_alexa_next_reminder
+          - sensor.office_alexa_next_timer
+          - switch.office_alexa_repeat_switch
+          - switch.office_alexa_shuffle_switch
+          - media_player.zach_alexa
+          - switch.zach_alexa_do_not_disturb_switch
+          - sensor.zach_alexa_next_alarm
+          - sensor.zach_alexa_next_reminder
+          - sensor.zach_alexa_next_timer
+          - switch.zach_alexa_repeat_switch
+          - switch.zach_alexa_shuffle_switch
+        title: Alexa Extra Shit
+        type: entities
+      - entities:
+          - automation.ac_temp_down_one
+          - automation.ac_temp_up_one
+          - automation.billy_go_poopy
+          - automation.brew_complete
+          - automation.brew_started
+          - automation.notification_test
+          - automation.music_time_button_on
+          - automation.music_time_button_off
+          - automation.finished_makin_some_fuckin_music
+          - automation.chewy_go_poopy
+          - automation.office_battlestation_turn_off
+          - automation.office_battlestation_turn_on
+          - automation.time_to_make_some_fuckin_music
+          - automation.turn_off_computer_when_chris_is_not_home
+          - automation.turn_on_computer_when_chris_is_home
+          - automation.wled_effect
+          - automation.wled_palette
+          - automation.yankee_candle_9_hour_timer
+          - automation.yankee_candle_safety_shutdown
+        title: Extra Automations
+        type: entities
+      - entities:
+          - binary_sensor.temp_down
+          - binary_sensor.temp_up
+          - device_tracker.office_computer
+          - group.all_remotes
+          - switch.everywhere_do_not_disturb_switch
+          - switch.everywhere_repeat_switch
+          - switch.everywhere_shuffle_switch
+          - switch.hvac_ac
+          - switch.hvac_filterled
+          - switch.hvac_furnace
+          - switch.this_device_do_not_disturb_switch_2
+          - switch.this_device_repeat_switch_2
+          - switch.this_device_shuffle_switch_2
+          - xbox_one.world
+        title: other crap
+        type: entities
+    icon: 'fas:sleigh'
+    title: Unused Automations and Sensors
+  - badges: []
+    cards:
+      - entities:
+          - sensor.activity_skidata
+          - sensor.bssid_skidata
+          - sensor.battery_level_skidata
+          - sensor.battery_state_skidata
+          - sensor.connection_type_skidata
+          - sensor.distance_skidata
+          - sensor.floors_ascended_skidata
+          - sensor.floors_descended_skidata
+          - sensor.geocoded_location_skidata
+          - sensor.last_update_trigger_skidata
+          - sensor.sim_1_skidata
+          - device_tracker.skidata_iphone
+          - sensor.ssid_skidata
+          - sensor.steps_skidata
+        title: SKIDATA iPhone
+        type: entities
+      - entities:
+          - sensor.activity_chris
+          - sensor.bssid_chris
+          - sensor.battery_level_chris
+          - sensor.battery_state_chris
+          - device_tracker.chris_iphone
+          - sensor.connection_type_chris
+          - sensor.distance_chris
+          - sensor.floors_ascended_chris
+          - sensor.floors_descended_chris
+          - sensor.geocoded_location_chris
+          - sensor.last_update_trigger_chris
+          - sensor.sim_1_chris
+          - sensor.ssid_chris
+          - sensor.steps_chris
+        title: Chris iPhone
+        type: entities
+      - columns: 4
+        entities:
+          - entity: sensor.home_to_bjc
+          - entity: sensor.home_to_wash_u
+          - entity: sensor.home_to_st_clair
+          - entity: sensor.home_to_ez_park
+          - entity: sensor.chris_to_bjc
+          - entity: sensor.chris_to_wash_u
+          - entity: sensor.chris_to_st_clair
+          - entity: sensor.chris_to_ez_park
+          - entity: sensor.chris_to_home
+          - entity: script.alexa_speak_travel
+        type: glance
+    icon: 'mdi:cellphone-iphone'
+    path: mobile-app
+    title: Mobile App
+  - badges: []
+    cards:
+      - entities:
+          - entity: script.xbox_nexus
+          - entity: script.xbox_dpad_up
+          - entity: script.xbox_back
+          - entity: script.xbox_rewind
+          - entity: script.xbox_fast_forward
+          - entity: script.xbox_dpad_left
+          - entity: script.xbox_a
+          - entity: script.xbox_dpad_right
+          - entity: script.xbox_play_pause
+          - entity: script.xbox_stop
+          - entity: script.xbox_left_shoulder
+          - entity: script.xbox_dpad_down
+          - entity: script.xbox_right_shoulder
+          - entity: script.xbox_prev_track
+          - entity: script.xbox_next_track
+        show_icon: true
+        type: entities
+    icon: 'mdi:remote-tv'
+    path: controllers
+    title: Controllers

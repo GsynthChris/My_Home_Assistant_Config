@@ -1,0 +1,32 @@
+  - platform: mqtt
+    name: "Kitchen Ceiling Fan"
+    command_topic: "cmnd/kitchenceiling/power1"
+    state_topic: "stat/kitchenceiling/POWER1"
+    qos: 2
+    payload_on: "ON"
+    payload_off: "OFF"
+    retain: yes
+  - platform: mqtt
+    name: "Bedroom Ceiling Fan"
+    command_topic: "cmnd/masterbedceiling/power2"
+    state_topic: "stat/masterbedceiling/POWER2"
+    qos: 2
+    payload_on: "ON"
+    payload_off: "OFF"
+    retain: yes
+  - platform: mqtt
+    name: "Livingroom Ceiling Fan"
+    command_topic: "cmnd/livingroomfan/power1"
+    state_topic: "stat/livingroomfan/POWER1"
+    qos: 2
+    payload_on: "ON"
+    payload_off: "OFF"
+    retain: yes
+  - platform: mqtt
+    name: "Box Fan"
+    command_topic: "cmnd/boxfan/power"
+    state_topic: "stat/boxfan/POWER"
+    qos: 2
+    payload_on: "ON"
+    payload_off: "OFF"
+    retain: yes

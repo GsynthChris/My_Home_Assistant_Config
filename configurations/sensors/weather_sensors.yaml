@@ -1,0 +1,74 @@
+##################################################################################################
+###########################          Weather Sensors          ####################################
+##################################################################################################
+  # - platform: openweathermap
+    # name: "Weather"
+    # api_key: !secret openweathermap
+    # forecast: no
+    # monitored_conditions:
+      # - weather
+      # - temperature
+      # - humidity
+      # - wind_speed
+      # - rain
+
+
+  - platform: darksky
+    name: Dark Sky
+    api_key: !secret darksky
+    forecast:
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+    hourly_forecast:
+      - 0
+      - 12
+    monitored_conditions:
+      - summary
+      - icon
+      - precip_type
+      - precip_intensity
+      - precip_probability
+      - precip_accumulation
+      - temperature
+      - apparent_temperature
+      - dew_point
+      - wind_speed
+      - wind_gust
+      - wind_bearing
+      - cloud_cover
+      - humidity
+      - pressure
+      - visibility #The average visibility.
+      - ozone #The columnar density of total atmospheric ozone at the given time in Dobson units.
+      - minutely_summary #A human-readable text summary for the next hour.
+      - hourly_summary #A human-readable text summary for the next two days.
+      - daily_summary #A human-readable text summary for the next week.
+      # - temperature_high #The daytime high temperature.
+      # - temperature_low #The overnight low temperature.
+      - temperature_high
+      - temperature_low
+      - apparent_temperature_high #The daytime high apparent temperature.
+      - apparent_temperature_low #The overnight low apparent temperature.
+      - precip_intensity_max #The maximum value of precip_intensity during a given day.
+      - uv_index #The UV index.
+      - moon_phase #The fractional part of the lunation number during the given day: a value of 0 corresponds to a new moon, 0.25 to a first quarter moon, 0.5 to a full moon, and 0.75 to a last quarter moon.
+      - sunrise_time #The time of when the sun will rise during a given day.
+      - sunset_time #The time of when the sun will set during a given day.
+      - nearest_storm_distance #The approximate distance to the nearest storm in miles.
+      - nearest_storm_bearing #The approximate direction of the nearest storm in degrees, with true north at 0° and progressing clockwise.
+      - alerts #Current severe weather advisories.
+      - sunrise_time
+      - sunset_time
+    units: us
+    scan_interval:
+        hours: 0
+        minutes: 30
+        seconds: 0
+
+

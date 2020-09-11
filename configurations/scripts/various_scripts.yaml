@@ -1,0 +1,226 @@
+acstatus:
+  sequence:
+    - service: notify.mobile_app_chris_skidata_iphone
+      data_template:
+        message: >
+          HVAC is set to {{ state_attr('climate.air_conditioner', 'temperature') }}.
+
+
+# browser_popup:
+#   sequence:
+#     - service: browser_mod.popup
+#       data:
+#         close_first: true
+#         deviceID: "77fdb619-ffc6d989"
+#         card:
+#           type: entities
+#           entities:
+#             - light.office_ceiling_light
+
+set_theme:
+  alias: Set Frontend Theme
+  sequence:
+    - service: frontend.set_theme
+      data_template:
+        entity_id: input_select.themeselecter
+        name: '{{states.input_select.themeselecter.state}}'
+
+update_mobile_app_location:
+  sequence:
+    service: notify.mobile_app_chris_skidata_iphone_7plus
+    data:
+      message: "request_location_update"
+#################################################################################################################
+#################################                  Browser Mod                    ###############################
+################################# https://github.com/thomasloven/hass-browser_mod ###############################
+#################################################################################################################
+#I need to come back to this and get it working LOL
+
+################################  set theme
+# service: browser_mod.command
+# service_data:
+#   command: set-theme
+#   theme: clear_light
+
+################################  navigate
+# youtube:
+#   sequence:
+#     - service: browser_mod.command
+#       service_data:
+#         command: navigate
+#         navigation_path: /lovelace/3
+#         deviceID:
+#           - 3a05fc35_9caa0925
+#           - 40747163_ddc33611
+# service: browser_mod.command
+# service_data:
+#   command: navigate
+#   navigation_path: /lovelace/1
+#   deviceID:
+#     - ded3b4dc-abedd098
+################################  more info
+# service: browser_mod.command
+# service_data:
+#   command: more-info
+#   entity_id: camera.front_door
+#   deviceID:
+#     - ded3b4dc-abedd098
+#     - dashboard
+
+################################  popup
+# service: browser_mod.command
+# service_data:
+#   command: popup
+#   title: Popup example
+#   card:
+#     type: entities
+#     entities:
+#       - light.bed_light
+#       - light.kitchen_lights
+#       - light.ceiling_lights
+#   deviceID:
+#     - this
+################################  Style for popup
+#   style:
+#     border-radius: 20px
+#     --ha-card-border-radius: 20px
+#     --ha-card-background: red
+
+################################  close popup
+# service: browser_mod.command
+# service_data:
+#   command: close-popup
+
+################################  black out
+# service: browser_mod.command
+# service_data:
+#   command: blackout
+
+################################  remove blackout
+# service: browser_mod.command
+# service_data:
+#   command: no-blackout
+
+
+
+#################################################################################################################
+#################################                EXPERIMENTAL                    ################################
+#################################################################################################################
+
+shutdownkububeast:
+  alias: Shutdown KuBuBeast
+  sequence:
+    - service: shell_command.shutdownkububeast
+thinmintscreenawake:
+  alias: Stop Thinmint Screensaver
+  sequence:
+    - service: shell_command.thinmintscreensaveroff
+
+shutdowncinnabon:
+  alias: Shutdown KuBuBeast
+  sequence:
+    - service: shell_command.shutdowncinnabon
+cinnabonscreenawake:
+  alias: Stop Thinmint Screensaver
+  sequence:
+    - service: shell_command.cinnabonscreensaveroff
+
+frontcamtocinnabon:
+  sequence:
+    - service: shell_command.cinnabonfrontcamvlc
+
+frontcamtokububeast:
+  sequence:
+    - service: shell_command.kububeastfrontcamvlc
+restartallsonoffs:
+  sequence:
+    - service: mqtt.publish
+      data:
+        topic: "cmnd/sonoffs/backlog"
+        payload: "restart 1"
+#################################################################################################################
+#################################               Unused for now                   ################################
+#################################################################################################################
+
+
+# lenovorpc:
+#   sequence:
+#   - service: hassio.addon_stdin
+#     data:
+#       addon: core_rpc_shutdown
+#       input: office-lenovo
+# acerrpc:
+#   sequence:
+#   - service: hassio.addon_stdin
+#     data:
+#       addon: core_rpc_shutdown
+#       input: acer-battlestation
+
+
+# lizz_iphone_message:
+#   alias: Lizz iPhone Message!
+#   sequence:
+#     - data:
+#         data:
+#           type: push
+#         message: '{{states.input_text.group_alexa.state}}'
+#       service: notify.mobile_app_lizzs_iphone_6s
+
+
+# doorbellfrontlizz:
+#     alias: "Doorbell Front Send Snap to Lizz"
+#     sequence:
+#     - service: notify.mobile_app_lizz_iphone
+#       data:
+#         title: "Doorbell: Front Door"
+#         message: "Somebody is at the Front Door"
+#         data:
+#           push:
+#             badge: 0
+#             category: 'frontvideolizz'
+#             sound: "US-EN-Alexa-Motion-At-Front-Door.wav"
+#           attachment:
+#             content-type: jpeg
+#             url: !secret frontyardsnapshoturl
+
+
+# doorbellfrontlizzvideo:
+#     alias: "Doorbell Front send video Lizz"
+#     sequence:
+#     - service: notify.mobile_app_lizz_iphone
+#       data:
+#         message: Front Door Live Video Stream!
+#         data:
+#           push:
+#             sound: "US-EN-Morgan-Freeman-Motion-Detected.wav"
+#             category: camera
+#           entity_id: camera.front_yard
+
+# doorbellbedroomlizz:
+#     alias: "Doorbell Bedroom Send Snap to Lizz"
+#     sequence:
+#     - service: notify.mobile_app_lizz_iphone
+#       data:
+#         title: "Doorbell: Bedroom Door"
+#         message: "Somebody is at the Bedroom Door"
+#         data:
+#           push:
+#             badge: 0
+#             category: 'frontvideolizz'
+#             sound: "US-EN-Alexa-Motion-At-Front-Door.wav"
+#           attachment:
+#             content-type: jpeg
+#             url: !secret drivewaysnapshoturl
+
+
+# doorbelldrivewaylizzvideo:
+#     alias: "Doorbell Front send video Lizz"
+#     sequence:
+#     - service: notify.mobile_app_lizz_iphone
+#       data:
+#         message: Bedroom Door Live Video Stream!
+#         data:
+#           push:
+#             sound: "US-EN-Morgan-Freeman-Motion-Detected.wav"
+#             category: camera
+#           entity_id: camera.driveway

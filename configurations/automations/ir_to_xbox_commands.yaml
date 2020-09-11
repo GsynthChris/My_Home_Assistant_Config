@@ -1,0 +1,316 @@
+###########################################################################################################
+##############################            IR Receive to Xbox Scripts            ###########################
+########################################################################################################### 
+###################     These automations translate IR codes from my old cable remote     #################
+###############           that trigger scripts that issue commands to my Xbox One           ###############
+###########################################################################################################
+
+
+  - alias: 'bedremote power'
+    initial_state: yes
+    trigger:
+      - platform: mqtt
+        topic: 'tele/mstbedmultisensor/RESULT'
+    condition:
+      condition: template
+      value_template: "{{ trigger.payload_json['IrReceived']['Data'] == 20486 }}"
+    action:
+      - service: script.xboxpower
+
+  - alias: 'bedremote select'
+    initial_state: yes
+    trigger:
+      - platform: mqtt
+        topic: 'tele/mstbedmultisensor/RESULT'
+    condition:
+      condition: template
+      value_template: "{{ trigger.payload_json['IrReceived']['Data'] == 34823 }}"
+    action:
+      - service: script.xbox_a
+
+  - alias: 'bedremote up'
+    initial_state: yes
+    trigger:
+      - platform: mqtt
+        topic: 'tele/mstbedmultisensor/RESULT'
+    condition:
+      condition: template
+      value_template: "{{ trigger.payload_json['IrReceived']['Data'] == 11273 }}"
+    action:
+      - service: script.xbox_dpad_up
+
+  - alias: 'bedremote down'
+    initial_state: yes
+    trigger:
+      - platform: mqtt
+        topic: 'tele/mstbedmultisensor/RESULT'
+    condition:
+      condition: template
+      value_template: "{{ trigger.payload_json['IrReceived']['Data'] == 44033 }}"
+    action:
+      - service: script.xbox_dpad_down
+
+  - alias: 'bedremote left'
+    initial_state: yes
+    trigger:
+      - platform: mqtt
+        topic: 'tele/mstbedmultisensor/RESULT'
+    condition:
+      condition: template
+      value_template: "{{ trigger.payload_json['IrReceived']['Data'] == 27662 }}"
+    action:
+      - service: script.xbox_dpad_left
+
+  - alias: 'bedremote right'
+    initial_state: yes
+    trigger:
+      - platform: mqtt
+        topic: 'tele/mstbedmultisensor/RESULT'
+    condition:
+      condition: template
+      value_template: "{{ trigger.payload_json['IrReceived']['Data'] == 60422 }}"
+    action:
+      - service: script.xbox_dpad_right
+
+  - alias: 'bedremote back'
+    initial_state: yes
+    trigger:
+      - platform: mqtt
+        topic: 'tele/mstbedmultisensor/RESULT'
+    condition:
+      condition: template
+      value_template: "{{ trigger.payload_json['IrReceived']['Data'] == 51203 }}"
+    action:
+      - service: script.xbox_b
+
+  - alias: 'bedremote menu'
+    initial_state: yes
+    trigger:
+      - platform: mqtt
+        topic: 'tele/mstbedmultisensor/RESULT'
+    condition:
+      condition: template
+      value_template: "{{ trigger.payload_json['IrReceived']['Data'] == 38918 }}"
+    action:
+      - service: script.xbox_nexus
+
+  - alias: 'bedremote play'
+    initial_state: yes
+    trigger:
+      - platform: mqtt
+        topic: 'tele/mstbedmultisensor/RESULT'
+    condition:
+      condition: template
+      value_template: "{{ trigger.payload_json['IrReceived']['Data'] == 55298 }}"
+    action:
+      - service: script.xbox_play
+
+  - alias: 'bedremote pause'
+    initial_state: yes
+    trigger:
+      - platform: mqtt
+        topic: 'tele/mstbedmultisensor/RESULT'
+    condition:
+      condition: template
+      value_template: "{{ trigger.payload_json['IrReceived']['Data'] == 63488 }}"
+    action:
+      - service: script.xbox_pause
+
+  - alias: 'bedremote rewind'
+    initial_state: yes
+    trigger:
+      - platform: mqtt
+        topic: 'tele/mstbedmultisensor/RESULT'
+    condition:
+      condition: template
+      value_template: "{{ trigger.payload_json['IrReceived']['Data'] == 30728 }}"
+    action:
+      - service: script.xbox_rewind
+
+  - alias: 'bedremote ffwd'
+    initial_state: yes
+    trigger:
+      - platform: mqtt
+        topic: 'tele/mstbedmultisensor/RESULT'
+    condition:
+      condition: template
+      value_template: "{{ trigger.payload_json['IrReceived']['Data'] == 47108 }}"
+    action:
+      - service: script.xbox_fast_forward
+
+  - alias: 'bedremote yellow'
+    initial_state: yes
+    trigger:
+      - platform: mqtt
+        topic: 'tele/mstbedmultisensor/RESULT'
+    condition:
+      condition: template
+      value_template: "{{ trigger.payload_json['IrReceived']['Data'] == 59393 }}"
+    action:
+      - service: script.xbox_y
+
+  - alias: 'bedremote blue'
+    initial_state: yes
+    trigger:
+      - platform: mqtt
+        topic: 'tele/mstbedmultisensor/RESULT'
+    condition:
+      condition: template
+      value_template: "{{ trigger.payload_json['IrReceived']['Data'] == 58382 }}"
+    action:
+      - service: script.xbox_x
+
+  - alias: 'bedremote red'
+    initial_state: yes
+    trigger:
+      - platform: mqtt
+        topic: 'tele/mstbedmultisensor/RESULT'
+    condition:
+      condition: template
+      value_template: "{{ trigger.payload_json['IrReceived']['Data'] == 5126 }}"
+    action:
+      - service: script.xbox_b
+
+  - alias: 'bedremote green'
+    initial_state: yes
+    trigger:
+      - platform: mqtt
+        topic: 'tele/mstbedmultisensor/RESULT'
+    condition:
+      condition: template
+      value_template: "{{ trigger.payload_json['IrReceived']['Data'] == 37898 }}"
+    action:
+      - service: script.xbox_a
+
+  - alias: 'bedremote day+'
+    initial_state: yes
+    trigger:
+      - platform: mqtt
+        topic: 'tele/mstbedmultisensor/RESULT'
+    condition:
+      condition: template
+      value_template: "{{ trigger.payload_json['IrReceived']['Data'] == 7178 }}"
+    action:
+      - service: script.xbox_right_thumbstick
+
+  - alias: 'bedremote day-'
+    initial_state: yes
+    trigger:
+      - platform: mqtt
+        topic: 'tele/mstbedmultisensor/RESULT'
+    condition:
+      condition: template
+      value_template: "{{ trigger.payload_json['IrReceived']['Data'] == 39938 }}"
+    action:
+      - service: script.xbox_left_thumbstick
+
+  - alias: 'bedremote page+'
+    initial_state: yes
+    trigger:
+      - platform: mqtt
+        topic: 'tele/mstbedmultisensor/RESULT'
+    condition:
+      condition: template
+      value_template: "{{ trigger.payload_json['IrReceived']['Data'] == 23564 }}"
+    action:
+      - service: script.xbox_left_shoulder
+
+  - alias: 'bedremote page-'
+    initial_state: yes
+    trigger:
+      - platform: mqtt
+        topic: 'tele/mstbedmultisensor/RESULT'
+    condition:
+      condition: template
+      value_template: "{{ trigger.payload_json['IrReceived']['Data'] == 56324 }}"
+    action:
+      - service: script.xbox_right_shoulder
+
+  - alias: 'bedremote live'
+    initial_state: yes
+    trigger:
+      - platform: mqtt
+        topic: 'tele/mstbedmultisensor/RESULT'
+    condition:
+      condition: template
+      value_template: "{{ trigger.payload_json['IrReceived']['Data'] == 31759 }}"
+    action:
+      - service: script.xbox_next_track
+
+  - alias: 'bedremote skipback'
+    initial_state: yes
+    trigger:
+      - platform: mqtt
+        topic: 'tele/mstbedmultisensor/RESULT'
+    condition:
+      condition: template
+      value_template: "{{ trigger.payload_json['IrReceived']['Data'] == 15368 }}"
+    action:
+      - service: script.xbox_prev_track
+
+  - alias: 'bedremote stop'
+    initial_state: yes
+    trigger:
+      - platform: mqtt
+        topic: 'tele/mstbedmultisensor/RESULT'
+    condition:
+      condition: template
+      value_template: "{{ trigger.payload_json['IrReceived']['Data'] == 14348 }}"
+    action:
+      - service: script.xbox_stop
+
+  - alias: 'bedremote record'
+    initial_state: yes
+    trigger:
+      - platform: mqtt
+        topic: 'tele/mstbedmultisensor/RESULT'
+    condition:
+      condition: template
+      value_template: "{{ trigger.payload_json['IrReceived']['Data'] == 35843 }}"
+    action:
+      - service: script.xbox_record
+
+
+
+
+  - alias: 'bedremote exit'
+    initial_state: yes
+    trigger:
+      - platform: mqtt
+        topic: 'tele/mstbedmultisensor/RESULT'
+    condition:
+      condition: template
+      value_template: "{{ trigger.payload_json['IrReceived']['Data'] == 63488 }}"
+    action:
+      - service: script.xbox_view
+  - alias: 'bedremote guide'
+    initial_state: yes
+    trigger:
+      - platform: mqtt
+        topic: 'tele/mstbedmultisensor/RESULT'
+    condition:
+      condition: template
+      value_template: "{{ trigger.payload_json['IrReceived']['Data'] == 3083 }}"
+    action:
+      - service: script.xbox_menu_media
+  - alias: 'bedremote info'
+    initial_state: yes
+    trigger:
+      - platform: mqtt
+        topic: 'tele/mstbedmultisensor/RESULT'
+    condition:
+      condition: template
+      value_template: "{{ trigger.payload_json['IrReceived']['Data'] == 52229 }}"
+    action:
+      - service: script.xbox_view_media
+  - alias: 'bedremote fav'
+    initial_state: yes
+    trigger:
+      - platform: mqtt
+        topic: 'tele/mstbedmultisensor/RESULT'
+    condition:
+      condition: template
+      value_template: "{{ trigger.payload_json['IrReceived']['Data'] == 43013 }}"
+    action:
+      - service: script.xbox_menu
+

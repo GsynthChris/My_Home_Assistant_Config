@@ -1,0 +1,340 @@
+###########################################################################################################
+#############################################      Office      ############################################
+###########################################################################################################
+  - platform: mqtt
+    name: "Floor Lamp"
+    command_topic: "cmnd/officelamp/power"
+    state_topic: "stat/officelamp/POWER"
+    qos: 2
+    payload_on: "ON"
+    payload_off: "OFF"
+    retain: no
+  - platform: mqtt
+    name: "Guest Bedroom Floor Lamp"
+    command_topic: "cmnd/guestbedlamp/power"
+    state_topic: "stat/guestbedlamp/POWER"
+    qos: 2
+    payload_on: "ON"
+    payload_off: "OFF"
+    retain: no
+  - platform: mqtt
+    name: "Desk Lamp"
+    command_topic: "cmnd/tonbux/POWER3"
+    state_topic: "stat/tonbux/POWER3"
+    qos: 1
+    payload_on: "ON"
+    payload_off: "OFF"
+    retain: no
+  - platform: mqtt
+    name: "Office Ceiling Light"
+    command_topic: "cmnd/officeceiling/power"
+    state_topic: "stat/officeceiling/POWER"
+    qos: 2
+    payload_on: "ON"
+    payload_off: "OFF"
+    retain: no
+###########################################################################################################
+############################################      Kitchen      ############################################
+###########################################################################################################    
+  - platform: mqtt
+    name: "Under Cabinet Light"
+    command_topic: "cmnd/undercabinet/power"
+    state_topic: "stat/undercabinet/POWER"
+    qos: 2
+    payload_on: "ON"
+    payload_off: "OFF"
+    retain: no
+  - platform: mqtt
+    name: "Kitchen Ceiling Light"
+    command_topic: "cmnd/kitchenceiling/power2"
+    state_topic: "stat/kitchenceiling/POWER2"
+    qos: 2
+    payload_on: "ON"
+    payload_off: "OFF"
+    retain: no
+  - platform: mqtt
+    name: "Kitchen Sink Light"
+    command_topic: "cmnd/kitchensink/power"
+    state_topic: "stat/kitchensink/POWER"
+    qos: 2
+    payload_on: "ON"
+    payload_off: "OFF"
+    retain: no
+
+###########################################################################################################
+#########################################      Master Bedroom      ########################################
+###########################################################################################################  
+  - platform: mqtt
+    name: "Bedside Light"
+    command_topic: "cmnd/bedsidelight/power"
+    state_topic: "stat/bedsidelight/POWER"
+    qos: 2
+    payload_on: "ON"
+    payload_off: "OFF"
+    retain: no
+
+  - platform: mqtt
+    name: "Chris undertable light"
+    command_topic: "cmnd/bedsidenightlight/power"
+    state_topic: "stat/bedsidenightlight/POWER"
+    qos: 2
+    payload_on: "ON"
+    payload_off: "OFF"
+    retain: no
+
+  - platform: mqtt
+    name: "Dresser Light"
+    command_topic: "cmnd/dresserlight/power"
+    state_topic: "stat/dresserlight/POWER"
+    qos: 2
+    payload_on: "ON"
+    payload_off: "OFF"
+    retain: no
+  - platform: mqtt
+    name: "Closet Light"
+    command_topic: "cmnd/closetlight/power"
+    state_topic: "stat/closetlight/POWER"
+    qos: 2
+    payload_on: "ON"
+    payload_off: "OFF"
+    retain: no
+  - platform: mqtt
+    name: "Bedroom Ceiling Light"
+    command_topic: "cmnd/masterbedceiling/power1"
+    state_topic: "stat/masterbedceiling/POWER1"
+    qos: 2
+    payload_on: "ON"
+    payload_off: "OFF"
+    retain: no
+
+  - platform: mqtt
+    name: "Night Light"
+    command_topic: "cmnd/bednightlight/power"
+    state_topic: "stat/bednightlight/POWER"
+    qos: 2
+    payload_on: "ON"
+    payload_off: "OFF"
+    retain: no
+
+
+###########################################################################################################
+#############################################      Livingroom      ########################################
+###########################################################################################################    
+  - platform: mqtt
+    name: "Hallway Light"
+    command_topic: "cmnd/hallway/power"
+    state_topic: "stat/hallway/POWER"
+    qos: 2
+    payload_on: "ON"
+    payload_off: "OFF"
+    retain: no
+  - platform: mqtt
+    name: "Livingroom Lamp"
+    command_topic: "cmnd/livingroomlamp/power"
+    state_topic: "stat/livingroomlamp/POWER"
+    qos: 2
+    payload_on: "ON"
+    payload_off: "OFF"
+    retain: no
+  - platform: mqtt
+    name: "Livingroom Ceiling Light"
+    command_topic: "cmnd/livingroomfan/power2"
+    state_topic: "stat/livingroomfan/POWER2"
+    qos: 2
+    payload_on: "ON"
+    payload_off: "OFF"
+    retain: no
+
+###########################################################################################################
+############################################      Basement      ###########################################
+###########################################################################################################
+  - platform: mqtt
+    name: "Bsmnt 1"
+    command_topic: "cmnd/theater1/power"
+    state_topic: "stat/theater1/POWER"
+    qos: 2
+    payload_on: "ON"
+    payload_off: "OFF"
+    retain: no
+  - platform: mqtt
+    name: "Bsmnt 2"
+    command_topic: "cmnd/theater2/power"
+    state_topic: "stat/theater2/POWER"
+    qos: 2
+    payload_on: "ON"
+    payload_off: "OFF"
+    retain: no
+#Combines the above 2 theater lights into one
+  - platform: group
+    name: Theater
+    entities:
+      - light.bsmnt_1
+      - light.bsmnt_2
+
+  - platform: mqtt
+    name: "Studio Light"
+    command_topic: "cmnd/shoplight/power"
+    state_topic: "stat/shoplight/POWER"
+    qos: 2
+    payload_on: "ON"
+    payload_off: "OFF"
+    retain: no
+  - platform: mqtt
+    name: "Stairs Light"
+    command_topic: "cmnd/stairs/power"
+    state_topic: "stat/stairs/POWER"
+    qos: 2
+    payload_on: "ON"
+    payload_off: "OFF"
+    retain: no
+  - platform: mqtt
+    name: "Laundry Room"
+    command_topic: "cmnd/laundry/power"
+    state_topic: "stat/laundry/POWER"
+    qos: 2
+    payload_on: "ON"
+    payload_off: "OFF"
+    retain: no
+
+  - platform: mqtt
+    name: "Aquarium Light"
+    command_topic: "cmnd/aquarium/POWER"
+    state_topic: "stat/aquarium/POWER"
+    qos: 1
+    payload_on: "ON"
+    payload_off: "OFF"
+    retain: no
+    optimistic: "false"
+
+  - platform: mqtt
+    name: "HVAC UVC Lamp"
+    command_topic: "cmnd/hvacuvclamp/power"
+    state_topic: "stat/livingroohvacuvclampmlamp/POWER"
+    qos: 2
+    payload_on: "ON"
+    payload_off: "OFF"
+    retain: no
+#################################################################################################################
+#################################                 Outside Lights                 ################################
+#################################################################################################################
+#Lights are ESPHome smart bulbs
+  - platform: group
+    name: Outside Lights
+    entities:
+      - light.livingroom_door_1
+      - light.livingroom_door_2
+      - light.bedroom_door
+      - light.back_door
+
+#################################################################################################################
+#################################                      WLED                      ################################
+#################################################################################################################
+  # - platform: mqtt
+  #   name: "Kitchen LEDs"
+  #   command_topic: "bruh/mqttstrip/setpower"
+  #   state_topic: "bruh/mqttstrip/setpowerpub"
+  #   rgb_state_topic: "bruh/mqttstrip/setcolorpub"
+  #   rgb_command_topic: "bruh/mqttstrip/setcolor"
+  #   brightness_state_topic: "bruh/mqttstrip/setbrightnesspub"
+  #   brightness_command_topic: "bruh/mqttstrip/setbrightness"
+  #   optimistic: no
+
+  # - platform: mqtt
+  #   name: "Zachs LEDs"
+  #   command_topic: "cmnd/zachleds/POWER"
+  #   state_topic: "stat/zachleds/POWER"
+  #   qos: 1
+  #   payload_on: "ON"
+  #   payload_off: "OFF"
+  #   retain: no
+  #   optimistic: "false"
+
+  - platform: mqtt
+    name: "Kitchen WLEDs"
+    command_topic: "wled/kitchen"
+    brightness_command_topic: "wled/kitchen"
+    rgb_command_topic: "wled/kitchen/col"
+    rgb_command_template: "{{ '#%02x%02x%02x' | format(blue, green, red)}}"
+    effect_command_topic : "wled/kitchen/api"
+    effect_list:
+    - "FX=0"
+    - "FX=1"
+    - "FX=2"
+    - "FX=3"
+    - "FX=4"
+    - "FX=5"
+    - "FX=6"
+    - "FX=7"
+    - "FX=8"
+    - "FX=9"
+    - "FX=10"
+    - "FX=11"
+    - "FX=12"
+    - "FX=13"
+    - "FX=14"
+    - "FX=15"
+    - "FX=16"
+    - "FX=17"
+    - "FX=18"
+    - "FX=19"
+    - "FX=20"
+    - "FX=21"
+    - "FX=22"
+    - "FX=23"
+    - "FX=24"
+    - "FX=25"
+    - "FX=26"
+    - "FX=27"
+    - "FX=28"
+    - "FX=29"
+    - "FX=30"
+    - "FX=31"
+    - "FX=32"
+    - "FX=33"
+    - "FX=34"
+    - "FX=35"
+    - "FX=36"
+    - "FX=37"
+    - "FX=38"
+    - "FX=39"
+    - "FX=40"
+    - "FX=41"
+    - "FX=42"
+    - "FX=43"
+    - "FX=44"
+    - "FX=45"
+    - "FX=46"
+    - "FX=47"
+    - "FX=48"
+    - "FX=49"
+    - "FX=50"
+    - "FX=51"
+    - "FX=52"
+    - "FX=53"
+    - "FX=54"
+    - "FX=55"
+    - "FX=56"
+    - "FX=57"
+    - "FX=58"
+    - "FX=59"
+    - "FX=60"
+    - "FX=61"
+    - "FX=62"
+    - "FX=63"
+    - "FX=64"
+    - "FX=65"
+    - "FX=66"
+    - "FX=67"
+    - "FX=68"
+    - "FX=69"
+    - "FX=70"
+    - "FX=71"
+    - "FX=72"
+    - "FX=73"
+    - "FX=74"
+    - "FX=75"
+    - "FX=76"
+    - "FX=77"
+    - "FX=78"
+    - "FX=79"
+    - "FX=80"

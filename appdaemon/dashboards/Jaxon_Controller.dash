@@ -1,4 +1,4 @@
-title: Bedroom Remote
+title: Jaxon_Controller
 widget_dimensions: [85, 85]
 widget_margins: [6, 6]
 columns: 4
@@ -15,15 +15,10 @@ layout:
   - include: entity_config/switches
   - include: entity_config/widgets
   - include: entity_config/xbox
-  - bedtvpower, xboxpower, bedvolup, bedvolupplus
-  - xboxnexus, xboxy, bedvoldown, bedvoldownplus
+  - bedtvpower, xboxpower, jaxon_label(2x1)
+  - xboxnexus, xboxy, bedvolup, bedvoldown
   - xboxx, xboxdpadup, xboxb, bedvolmute
-  - xboxdpadleft, xboxa, xboxdpadright, bedceilingfan
-  - xboxleftshoulder, xboxdpaddown, xboxrightshoulder, bedceilinglight
+  - xboxdpadleft, xboxa, xboxdpadright, bedceilinglight
+  - xboxleftshoulder, xboxdpaddown, xboxrightshoulder, closet
   - xboxrewind, xboxplaypause, xboxfastforward, dresser
-  - xboxprevtrack, xboxstop, xboxnexttrack, closet
-  - boxfan, bedside, bednightlight, nightlight
-  - housethermostat(2x1), bedroomheat(2x1)
-  - weather(5x2)
-#  - xboxselectsource(2x1) 
-#  - media_player.bedroom_tv(2x2)
+  - xboxprevtrack, xboxstop, xboxnexttrack, bedside

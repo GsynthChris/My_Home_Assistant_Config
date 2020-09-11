@@ -1,0 +1,205 @@
+##################################################################################################
+########################            Template Sensors           ###################################
+##################################################################################################
+
+  - platform: template
+    sensors:
+      # moon_phases:
+      #   entity_id: sensor.moon
+      #   friendly_name: 'Moon Phases'
+      #   value_template: '{{ states.sensor.moon.state }}'
+      #   icon_template: >-
+      #     {% if is_state('sensor.moon', 'new_moon') %}
+      #       mdi:moon-new
+      #     {% elif is_state('sensor.moon', 'waxing_crescent') %}
+      #       mdi:moon-waxing-crescent
+      #     {% elif is_state('sensor.moon', 'first_quarter') %}
+      #       mdi:moon-first-quarter
+      #     {% elif is_state('sensor.moon', 'waxing_gibbous') %}
+      #       mdi:moon-waxing-gibbous
+      #     {% elif is_state('sensor.moon', 'full_moon') %}
+      #       mdi:moon-full
+      #     {% elif is_state('sensor.moon', 'waning_gibbous') %}
+      #       mdi:moon-waning-gibbous
+      #     {% elif is_state('sensor.moon', 'last_quarter') %}
+      #       mdi:moon-last-quarter
+      #     {% elif is_state('sensor.moon', 'waning_crescent') %}
+      #       mdi:moon-waning-crescent
+      #     {% endif %}
+      thermostatsetting:
+        friendly_name: "House Thermostat Set Temp"
+        unit_of_measurement: "°F"
+        value_template: "{{ state_attr('climate.air_conditioner', 'temperature') }}"
+      # bedroomthermostatsetting:
+      #   friendly_name: "Bedroom Thermostat Set Temp"
+      #   unit_of_measurement: "°F"
+      #   value_template: "{{ state_attr('climate.bedroom_ac', 'temperature') }}"
+      # bedroomheatersetting:
+      #   friendly_name: "Bedroom Heater Set Temp"
+      #   unit_of_measurement: "°F"
+      #   value_template: "{{ state_attr('climate.bedroom_heater', 'temperature') }}"
+      drzzslive:
+        friendly_name: "Is DrZzs Live!?!?!"
+        value_template: "{{ state_attr('sensor.drzzs', 'live') }}"
+      window_ac_temp:
+        friendly_name: "Window AC Temp"
+        unit_of_measurement: "°F"
+        value_template: "{{ state_attr('climate.bedroom_ac', 'current_temperature') }}"
+
+
+#Computer Costs
+      computer_daily_cost:
+        friendly_name: Computer Daily Cost
+        value_template: '{{ (states.sensor.computer_daily_kwh.state | float * 0.0727) | round(2)}}'
+        unit_of_measurement: '$'
+      computer_monthly_cost:
+        friendly_name: Computer Monthly Cost
+        value_template: '{{ (states.sensor.computer_monthly_kwh.state | float * 0.0727) | round(2)}}'
+        unit_of_measurement: '$'
+      computer_yearly_cost:
+        friendly_name: Computer Yearly Cost
+        value_template: '{{ (states.sensor.computer_yearly_kwh.state | float * 0.0727) | round(2)}}'
+        unit_of_measurement: '$'
+#Bedroom Radiator Costs
+      bedroom_heater_daily_cost:
+        friendly_name: Radiator Daily Cost
+        value_template: '{{ (states.sensor.bedroom_heater_daily_kwh.state | float * 0.0727) | round(2)}}'
+        unit_of_measurement: '$'
+      bedroom_heater_monthly_cost:
+        friendly_name: Radiator Monthly Cost
+        value_template: '{{ (states.sensor.bedroom_heater_monthly_kwh.state | float * 0.0727) | round(2)}}'
+        unit_of_measurement: '$'
+      bedroom_heater_yearly_cost:
+        friendly_name: Radiator Yearly Cost
+        value_template: '{{ (states.sensor.bedroom_heater_yearly_kwh.state | float * 0.0727) | round(2)}}'
+        unit_of_measurement: '$'
+#Refrigerator Costs
+      refrigerator_daily_cost:
+        friendly_name: Refrigerator Daily Cost
+        value_template: '{{ (states.sensor.refrigerator_daily_kwh.state | float * 0.0727) | round(2)}}'
+        unit_of_measurement: '$'
+      refrigerator_monthly_cost:
+        friendly_name: Refrigerator Monthly Cost
+        value_template: '{{ (states.sensor.refrigerator_monthly_kwh.state | float * 0.0727) | round(2)}}'
+        unit_of_measurement: '$'
+      refrigerator_yearly_cost:
+        friendly_name: Refrigerator Yearly Cost
+        value_template: '{{ (states.sensor.refrigerator_yearly_kwh.state | float * 0.0727) | round(2)}}'
+        unit_of_measurement: '$'
+#Studio Equipment Costs
+      studio_equipment_energysensor_daily_cost:
+        friendly_name: Studio Equipment Daily Cost
+        value_template: '{{ (states.sensor.studio_equipment_energysensor_daily_kwh.state | float * 0.0727) | round(2)}}'
+        unit_of_measurement: '$'
+      studio_equipment_energysensor_monthly_cost:
+        friendly_name: Studio Equipment Monthly Cost
+        value_template: '{{ (states.sensor.studio_equipment_energysensor_monthly_kwh.state | float * 0.0727) | round(2)}}'
+        unit_of_measurement: '$'
+      studio_equipment_energysensor_yearly_cost:
+        friendly_name: Studio Equipment Yearly Cost
+        value_template: '{{ (states.sensor.studio_equipment_energysensor_yearly_kwh.state | float * 0.0727) | round(2)}}'
+        unit_of_measurement: '$'
+#Box Fan Costs
+      box_fan_energysensor_daily_cost:
+        friendly_name: Box Fan Daily Cost
+        value_template: '{{ (states.sensor.box_fan_energysensor_daily_kwh.state | float * 0.0727) | round(2)}}'
+        unit_of_measurement: '$'
+      box_fan_energysensor_monthly_cost:
+        friendly_name: Box Fan Monthly Cost
+        value_template: '{{ (states.sensor.box_fan_energysensor_monthly_kwh.state | float * 0.0727) | round(2)}}'
+        unit_of_measurement: '$'
+      box_fan_energysensor_yearly_cost:
+        friendly_name: Box Fan Yearly Cost
+        value_template: '{{ (states.sensor.box_fan_energysensor_yearly_kwh.state | float * 0.0727) | round(2)}}'
+        unit_of_measurement: '$'
+#Washing Machine Costs
+      washer_daily_cost:
+        friendly_name: Washing Machine Daily Cost
+        value_template: '{{ (states.sensor.washer_daily_kwh.state | float * 0.0727) | round(2)}}'
+        unit_of_measurement: '$'
+      washer_monthly_cost:
+        friendly_name: Washing Machine Monthly Cost
+        value_template: '{{ (states.sensor.washer_monthly_kwh.state | float * 0.0727) | round(2)}}'
+        unit_of_measurement: '$'
+      washer_yearly_cost:
+        friendly_name: Washing Machine Yearly Cost
+        value_template: '{{ (states.sensor.washer_yearly_kwh.state | float * 0.0727) | round(2)}}'
+        unit_of_measurement: '$'
+#Livingroom TV Costs
+      livrmenergysensor_daily_cost:
+        friendly_name: Livingroom TV Daily Cost
+        value_template: '{{ (states.sensor.livrmenergysensor_daily_kwh.state | float * 0.0727) | round(2)}}'
+        unit_of_measurement: '$'
+      livrmenergysensor_monthly_cost:
+        friendly_name: Livingroom TV Monthly Cost
+        value_template: '{{ (states.sensor.livrmenergysensor_monthly_kwh.state | float * 0.0727) | round(2)}}'
+        unit_of_measurement: '$'
+      livrmenergysensor_yearly_cost:
+        friendly_name: Livingroom TV Yearly Cost
+        value_template: '{{ (states.sensor.livrmenergysensor_yearly_kwh.state | float * 0.0727) | round(2)}}'
+        unit_of_measurement: '$'
+#Bedroom TV Costs
+      bedroom_tv_energysensor_daily_cost:
+        friendly_name: Bedroom TV Daily Cost
+        value_template: '{{ (states.sensor.bedroom_tv_energysensor_daily_kwh.state | float * 0.0727) | round(2)}}'
+        unit_of_measurement: '$'
+      bedroom_tv_energysensor_monthly_cost:
+        friendly_name: Bedroom TV Monthly Cost
+        value_template: '{{ (states.sensor.bedroom_tv_energysensor_monthly_kwh.state | float * 0.0727) | round(2)}}'
+        unit_of_measurement: '$'
+      bedroom_tv_energysensor_yearly_cost:
+        friendly_name: Bedroom TV Yearly Cost
+        value_template: '{{ (states.sensor.bedroom_tv_energysensor_yearly_kwh.state | float * 0.0727) | round(2)}}'
+        unit_of_measurement: '$'
+#Window AC Costs
+      window_ac_energysensor_daily_cost:
+        friendly_name: Window AC Daily Cost
+        value_template: '{{ (states.sensor.window_ac_energysensor_daily_kwh.state | float * 0.0727) | round(2)}}'
+        unit_of_measurement: '$'
+      window_ac_energysensor_monthly_cost:
+        friendly_name: Window AC Monthly Cost
+        value_template: '{{ (states.sensor.window_ac_energysensor_monthly_kwh.state | float * 0.0727) | round(2)}}'
+        unit_of_measurement: '$'
+      window_ac_energysensor_yearly_cost:
+        friendly_name: Window AC Yearly Cost
+        value_template: '{{ (states.sensor.window_ac_energysensor_yearly_kwh.state | float * 0.0727) | round(2)}}'
+        unit_of_measurement: '$'
+#Server Rack Costs
+      server_rack_energysensor_daily_cost:
+        friendly_name: Server Rack Daily Cost
+        value_template: '{{ (states.sensor.server_rack_energysensor_daily_kwh.state | float * 0.0727) | round(2)}}'
+        unit_of_measurement: '$'
+      server_rack_energysensor_monthly_cost:
+        friendly_name: Server Rack Monthly Cost
+        value_template: '{{ (states.sensor.server_rack_energysensor_monthly_kwh.state | float * 0.0727) | round(2)}}'
+        unit_of_measurement: '$'
+      server_rack_energysensor_yearly_cost:
+        friendly_name: Server Rack Yearly Cost
+        value_template: '{{ (states.sensor.server_rack_energysensor_yearly_kwh.state | float * 0.0727) | round(2)}}'
+        unit_of_measurement: '$'
+#Water Heater Costs
+      water_heater_energysensor_daily_cost:
+        friendly_name: Water Heater Daily Cost
+        value_template: '{{ (states.sensor.water_heater_energysensor_daily_kwh.state | float * 0.0727) | round(2)}}'
+        unit_of_measurement: '$'
+      water_heater_energysensor_monthly_cost:
+        friendly_name: Water Heater Monthly Cost
+        value_template: '{{ (states.sensor.water_heater_energysensor_monthly_kwh.state | float * 0.0727) | round(2)}}'
+        unit_of_measurement: '$'
+      water_heater_energysensor_yearly_cost:
+        friendly_name: Water Heater Yearly Cost
+        value_template: '{{ (states.sensor.water_heater_energysensor_yearly_kwh.state | float * 0.0727) | round(2)}}'
+        unit_of_measurement: '$'
+
+      # waze_sample_sensor:
+      #   value_template: >-
+      #      {%- if is_state("input_select.destination", "Home")  -%}
+      #        725 5th Ave, New York, NY 10022, USA
+      #      {%- elif is_state("input_select.destination", "Work")  -%}
+      #        767 5th Ave, New York, NY 10153, USA
+      #      {%- elif is_state("input_select.destination", "Parents")  -%}
+      #        178 Broadway, Brooklyn, NY 11211, USA
+      #      {%- else -%}
+      #        Unknown
+      #      {%- endif %}
+

@@ -1,0 +1,176 @@
+##########################################################################
+#################           Roku Remote            #######################
+##########################################################################
+rokulvpower:
+  widget_type: script
+  title: Roku Power
+  entity: script.rokulivpower
+  title_style: "color: #d580ff;text-shadow: 0px 0px 5px #660066;"
+  icon_style_inactive: "margin-top: -10px; font-size: 40px; color: #d580ff;text-shadow: 0px 0px 5px #660066;"
+  icon_style_active: "margin-top: -10px; font-size: 40px; color: #aa00ff;text-shadow: 0px 0px 5px #660066;"
+  icon_on: fa-robot
+  icon_off: fa-robot
+
+rokulvup:
+  widget_type: script
+  title: Up
+  entity: script.rokulivup
+  title_style: "color: #d580ff;text-shadow: 0px 0px 5px #660066;"
+  icon_style_inactive: "margin-top: -10px; font-size: 40px; color: #d580ff;text-shadow: 0px 0px 5px #660066;"
+  icon_style_active: "margin-top: -10px; font-size: 40px; color: #aa00ff;text-shadow: 0px 0px 5px #660066;"
+  icon_on: fa-arrow-up
+  icon_off: fa-arrow-up
+rokulvdown:
+  widget_type: script
+  title: Down
+  entity: script.rokulivdown
+  title_style: "color: #d580ff;text-shadow: 0px 0px 5px #660066;"
+  icon_style_inactive: "margin-top: -10px; font-size: 40px; color: #d580ff;text-shadow: 0px 0px 5px #660066;"
+  icon_style_active: "margin-top: -10px; font-size: 40px; color: #aa00ff;text-shadow: 0px 0px 5px #660066;"
+  icon_on: fa-arrow-down
+  icon_off: fa-arrow-down
+rokulvleft:
+  widget_type: script
+  title: Left
+  entity: script.rokulivleft
+  title_style: "color: #d580ff;text-shadow: 0px 0px 5px #660066;"
+  icon_style_inactive: "margin-top: -10px; font-size: 40px; color: #d580ff;text-shadow: 0px 0px 5px #660066;"
+  icon_style_active: "margin-top: -10px; font-size: 40px; color: #aa00ff;text-shadow: 0px 0px 5px #660066;"
+  icon_on: fa-arrow-left
+  icon_off: fa-arrow-left
+rokulvright:
+  widget_type: script
+  title: Right
+  entity: script.rokulivright
+  title_style: "color: #d580ff;text-shadow: 0px 0px 5px #660066;"
+  icon_style_inactive: "margin-top: -10px; font-size: 40px; color: #d580ff;text-shadow: 0px 0px 5px #660066;"
+  icon_style_active: "margin-top: -10px; font-size: 40px; color: #aa00ff;text-shadow: 0px 0px 5px #660066;"
+  icon_on: fa-arrow-right
+  icon_off: fa-arrow-right
+rokulvselect:
+  widget_type: script
+  title: Select
+  entity: script.rokulivselect
+  title_style: "color: #d580ff;text-shadow: 0px 0px 5px #660066;"
+  icon_style_inactive: "margin-top: -10px; font-size: 40px; color: #d580ff;text-shadow: 0px 0px 5px #660066;"
+  icon_style_active: "margin-top: -10px; font-size: 40px; color: #aa00ff;text-shadow: 0px 0px 5px #660066;"
+  icon_on: mdi-death-star mdi-spin
+  icon_off: mdi-death-star mdi-spin
+rokulvplay:
+  widget_type: script
+  title: Play
+  entity: script.rokulivplay
+  title_style: "color: #d580ff;text-shadow: 0px 0px 5px #660066;"
+  icon_style_inactive: "margin-top: -10px; font-size: 40px; color: #d580ff;text-shadow: 0px 0px 5px #660066;"
+  icon_style_active: "margin-top: -10px; font-size: 40px; color: #aa00ff;text-shadow: 0px 0px 5px #660066;"
+  icon_on: fa-play
+  icon_off: fa-play
+rokulvback:
+  widget_type: script
+  title: Back
+  entity: script.rokulivback
+  title_style: "color: #d580ff;text-shadow: 0px 0px 5px #660066;"
+  icon_style_inactive: "margin-top: -10px; font-size: 40px; color: #d580ff;text-shadow: 0px 0px 5px #660066;"
+  icon_style_active: "margin-top: -10px; font-size: 40px; color: #aa00ff;text-shadow: 0px 0px 5px #660066;"
+  icon_on: fa-reply-all
+  icon_off: fa-reply
+rokulvbackspace:
+  widget_type: script
+  title: Backspace
+  entity: script.rokulivbackspace
+  title_style: "color: #d580ff;text-shadow: 0px 0px 5px #660066;"
+  icon_style_inactive: "margin-top: -10px; font-size: 40px; color: #d580ff;text-shadow: 0px 0px 5px #660066;"
+  icon_style_active: "margin-top: -10px; font-size: 40px; color: #aa00ff;text-shadow: 0px 0px 5px #660066;"
+  icon_on: fa-backspace
+  icon_off: fa-backspace
+rokulventer:
+  widget_type: script
+  title: Enter
+  entity: script.rokuliventer
+  title_style: "color: #d580ff;text-shadow: 0px 0px 5px #660066;"
+  icon_style_inactive: "margin-top: -10px; font-size: 40px; color: #d580ff;text-shadow: 0px 0px 5px #660066;"
+  icon_style_active: "margin-top: -10px; font-size: 40px; color: #aa00ff;text-shadow: 0px 0px 5px #660066;"
+  icon_on: fa-check-square
+  icon_off: fa-check-square
+rokulvforward:
+  widget_type: script
+  title: Forward
+  entity: script.rokulivforward
+  title_style: "color: #d580ff;text-shadow: 0px 0px 5px #660066;"
+  icon_style_inactive: "margin-top: -10px; font-size: 40px; color: #d580ff;text-shadow: 0px 0px 5px #660066;"
+  icon_style_active: "margin-top: -10px; font-size: 40px; color: #aa00ff;text-shadow: 0px 0px 5px #660066;"
+  icon_on: fa-fast-forward
+  icon_off: fa-fast-forward
+rokulvreverse:
+  widget_type: script
+  title: Reverse
+  entity: script.rokulivreverse
+  title_style: "color: #d580ff;text-shadow: 0px 0px 5px #660066;"
+  icon_style_inactive: "margin-top: -10px; font-size: 40px; color: #d580ff;text-shadow: 0px 0px 5px #660066;"
+  icon_style_active: "margin-top: -10px; font-size: 40px; color: #aa00ff;text-shadow: 0px 0px 5px #660066;"
+  icon_on: fa-fast-backward
+  icon_off: fa-fast-backward
+rokulvinfo:
+  widget_type: script
+  title: Info
+  entity: script.rokulivinfo
+  title_style: "color: #d580ff;text-shadow: 0px 0px 5px #660066;"
+  icon_style_inactive: "margin-top: -10px; font-size: 40px; color: #d580ff;text-shadow: 0px 0px 5px #660066;"
+  icon_style_active: "margin-top: -10px; font-size: 40px; color: #aa00ff;text-shadow: 0px 0px 5px #660066;"
+  icon_on: mdi-information-variant
+  icon_off: mdi-information-variant
+rokulvchanup:
+  widget_type: script
+  title: Channel Up
+  entity: script.rokulivchanup
+  title_style: "color: #d580ff;text-shadow: 0px 0px 5px #660066;"
+  icon_style_inactive: "margin-top: -10px; font-size: 40px; color: #d580ff;text-shadow: 0px 0px 5px #660066;"
+  icon_style_active: "margin-top: -10px; font-size: 40px; color: #aa00ff;text-shadow: 0px 0px 5px #660066;"
+  icon_on: fa-angle-double-up
+  icon_off: fa-angle-double-up
+rokulvchandown:
+  widget_type: script
+  title: Channel Down
+  entity: script.rokulivchandown
+  title_style: "color: #d580ff;text-shadow: 0px 0px 5px #660066;"
+  icon_style_inactive: "margin-top: -10px; font-size: 40px; color: #d580ff;text-shadow: 0px 0px 5px #660066;"
+  icon_style_active: "margin-top: -10px; font-size: 40px; color: #aa00ff;text-shadow: 0px 0px 5px #660066;"
+  icon_on: fa-angle-double-down
+  icon_off: fa-angle-double-down
+rokulvreplay:
+  widget_type: script
+  title: Replay
+  entity: script.rokulivreplay
+  title_style: "color: #d580ff;text-shadow: 0px 0px 5px #660066;"
+  icon_style_inactive: "margin-top: -10px; font-size: 40px; color: #d580ff;text-shadow: 0px 0px 5px #660066;"
+  icon_style_active: "margin-top: -10px; font-size: 40px; color: #aa00ff;text-shadow: 0px 0px 5px #660066;"
+  icon_on: fa-sync fa-spin
+  icon_off: fa-sync
+rokulvsearch:
+  widget_type: script
+  title: Search
+  entity: script.rokulivsearch
+  title_style: "color: #d580ff;text-shadow: 0px 0px 5px #660066;"
+  icon_style_inactive: "margin-top: -10px; font-size: 40px; color: #d580ff;text-shadow: 0px 0px 5px #660066;"
+  icon_style_active: "margin-top: -10px; font-size: 40px; color: #aa00ff;text-shadow: 0px 0px 5px #660066;"
+  icon_on: mdi-search-web
+  icon_off: mdi-search-web
+rokulvhome:
+  widget_type: script
+  title: Home
+  entity: script.rokulivhome
+  title_style: "color: #d580ff;text-shadow: 0px 0px 5px #660066;"
+  icon_style_inactive: "margin-top: -10px; font-size: 40px; color: #d580ff;text-shadow: 0px 0px 5px #660066;"
+  icon_style_active: "margin-top: -10px; font-size: 40px; color: #aa00ff;text-shadow: 0px 0px 5px #660066;"
+  icon_on: mdi-home-assistant
+  icon_off: mdi-home-assistant
+
+rokulvselectsource:
+  widget_type: input_select
+  widget_style: "color: #d580ff"
+  select_style: "color: #d580ff"
+  title_style: "color: #d580ff;text-shadow: 0px 0px 5px #660066;"
+  icon_style_inactive: "margin-top: -10px; font-size: 40px; color: #d580ff;text-shadow: 0px 0px 5px #660066;"
+  icon_style_active: "margin-top: -10px; font-size: 40px; color: #aa00ff;text-shadow: 0px 0px 5px #660066;"
+  title: Roku Source
+  entity: input_select.rokulivsource

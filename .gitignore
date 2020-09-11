@@ -7,19 +7,22 @@
 !.gitignore
 !*.md
 !automations
+!configurations
 !custom_components
 !scripts
 !*.dash
 !dashboards
 !appdaemon
 !*.png
+!sensors
+!entity_config
+!images
 
 # Ignore folders.
 .storage
 .cloud
 .google.token
 backup
-esphome
 deps
 glances
 node-red
@@ -31,7 +34,6 @@ www
 appdaemon/roku_square_logo.png
 android
 custom_icons
-themes
 
 
 # Ensure these YAML files are ignored, otherwise your secret data/credentials will leak.

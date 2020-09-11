@@ -1,0 +1,80 @@
+  - platform: generic_thermostat                         #House Thermostat AC Mode
+    name: Air Conditioner
+    heater: switch.hvac_ac
+    target_sensor: sensor.average_home_temp
+    min_temp: 65
+    max_temp: 80
+    initial_hvac_mode: "cool"
+    min_cycle_duration:
+      minutes: 10
+    target_temp: 72
+    away_temp: 73
+    cold_tolerance: 0.5
+    hot_tolerance: 0.5
+    ac_mode: yes
+    keep_alive:
+      minutes: 5
+  # - platform: generic_thermostat                         #House Thermostat Furnace Mode
+  #   name: Furnace
+  #   heater: switch.hvac_furnace
+  #   target_sensor: sensor.average_home_temp
+  #   min_temp: 55
+  #   max_temp: 75
+  #   initial_hvac_mode: "off"
+  #   min_cycle_duration:
+  #     minutes: 10
+  #   target_temp: 66
+  #   away_temp: 60
+  #   cold_tolerance: 0.5
+  #   hot_tolerance: 0.5
+  #   ac_mode: no
+  #   keep_alive:
+  #     minutes: 5
+  - platform: generic_thermostat                         #Bedroom Heater
+    name: Bedroom Heater
+    heater: switch.bedroom_radiator
+    target_sensor: sensor.average_mstbd_temp
+    min_temp: 55
+    max_temp: 75
+    initial_hvac_mode: "off"
+    min_cycle_duration:
+      minutes: 10
+    target_temp: 70
+    away_temp: 60
+    cold_tolerance: 2
+    hot_tolerance: 2 
+    ac_mode: no
+    keep_alive:
+      minutes: 3
+  # - platform: generic_thermostat                         #Bedroom Thermostat
+  #   name: Bedroom Thermostat
+  #   heater: input_boolean.mstbdfans
+  #   target_sensor: sensor.average_mstbd_temp
+  #   min_temp: 60
+  #   max_temp: 80
+  #   initial_hvac_mode: "cool"
+  #   min_cycle_duration:
+  #     minutes: 10
+  #   target_temp: 72
+  #   away_temp: 78
+  #   cold_tolerance: 0.5
+  #   hot_tolerance: 0.5
+  #   ac_mode: yes
+  #   keep_alive:
+  #     minutes: 3
+  # - platform: generic_thermostat                         #House Air Conditioner
+  #   name: Air Conditioner
+  #   heater: switch.hvac_ac
+  #   target_sensor: sensor.average_home_temp
+  #   min_temp: 60
+  #   max_temp: 80
+  #   initial_hvac_mode: "off"
+  #   min_cycle_duration:
+  #     minutes: 10
+  #   target_temp: 74
+  #   away_temp: 80
+  #   cold_tolerance: 0.5
+  #   hot_tolerance: 0.5
+  #   ac_mode: yes
+  #   keep_alive:
+  #     minutes: 3

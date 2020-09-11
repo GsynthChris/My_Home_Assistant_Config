@@ -1,0 +1,79 @@
+  - platform: xboxone
+    device: !secret xbox
+    name: Xbox One
+    ip_address: 192.168.29.99
+    authentication: false
+  # - platform: androidtv
+  #   name: "Livingroom Fire TV"
+  #   host: 192.168.29.79
+  #   adb_server_ip: 192.168.29.5
+  #   adb_server_port: 5037
+  #   device_class: firetv
+  #   adbkey: "/config/android/adbkey"
+  #   # get_sources: false
+  - platform: kodi
+    host: 192.168.29.11
+    port: 8080
+    name: Cinnabon Kodi
+    username: !secret my_username
+    password: !secret my_password
+  - platform: universal
+    name: Bedroom TV
+    children:
+      - media_player.xbox_one
+    commands:
+      turn_on:
+        service: script.turn_on
+        data:
+          entity_id: script.bedroomtv
+      turn_off:
+        service: script.turn_off
+        data:
+          entity_id: script.bedroomtv
+      volume_up:
+        service: script.turn_on
+        data:
+          entity_id: script.bedvolup
+      volume_down:
+        service: script.turn_on
+        data:
+          entity_id: script.bedvoldown
+      volume_mute:
+        service: script.turn_on
+        data:
+          entity_id: script.bedvolmute
+    select_source:
+      service: media_player.select_source
+      data_template:
+        entity_id: media_player.xbox_one
+        source: '{{ source }}'
+  # - platform: universal
+  #   name: Livingroom TV
+  #   children:
+  #     - media_player.roku_livingroom
+  #   commands:
+  #     turn_on:
+  #       service: script.turn_on
+  #       data:
+  #         entity_id: script.livtvpwr
+  #     turn_off:
+  #       service: script.turn_off
+  #       data:
+  #         entity_id: script.livtvpwr
+  #     volume_up:
+  #       service: script.turn_on
+  #       data:
+  #         entity_id: script.kenwoodvolup
+  #     volume_down:
+  #       service: script.turn_on
+  #       data:
+  #         entity_id: script.kenwoodvoldown
+  #     volume_mute:
+  #       service: script.turn_on
+  #       data:
+  #         entity_id: script.kenwoodvolmute
+  #   select_source:
+  #     service: media_player.select_source
+  #     data_template:
+  #       entity_id: media_player.roku_livingroom
+  #       source: '{{ source }}'

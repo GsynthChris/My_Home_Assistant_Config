@@ -11,8 +11,8 @@ homeassistant:
   elevation: 836
   unit_system: "imperial"
   time_zone: "America/Chicago"
-  customize: !include customize.yaml
-  customize_domain: !include customize_domain.yaml
+  customize: !include configurations/customize.yaml
+  # customize_domain: !include configurations/customize_domain.yaml
   auth_providers:
     - type: homeassistant
     - type: legacy_api_password
@@ -24,44 +24,61 @@ api:
 map:
 sun:
 # logger:
-#   default: debug
+  # default: debug
 stream:
 config:
 history:
 logbook:
 zeroconf:
+discovery:
 mobile_app:
 wake_on_lan:
 conversation:
 system_health:
 custom_icons:
-zone: !include zones.yaml
-cloud: !include cloud.yaml
-light: !include lights.yaml
-group: !include groups.yaml
-switch: !include switch.yaml
-sensor: !include sensor.yaml
-homekit: !include homekit.yaml
-# influxdb: !include influxdb.yaml
-script: !include_dir_merge_named scripts/
-binary_sensor: !include binary_sensor.yaml
-shell_command: !include shell_command.yaml
-automation: !include_dir_merge_list automations/
+ios: !include configurations/ios.yaml
+fan: !include configurations/fan.yaml
+zone: !include configurations/zones.yaml
+cloud: !include configurations/cloud.yaml
+light: !include configurations/lights.yaml
+group: !include configurations/groups.yaml
+switch: !include configurations/switch.yaml
+climate: !include configurations/climate.yaml
+homekit: !include configurations/homekit.yaml
+# influxdb: !include configurations/influxdb.yaml
+rest_command: !include configurations/rest_command.yaml
+media_player: !include configurations/media_player.yaml
+input_text: !include configurations/input_text.yaml
+input_select: !include configurations/input_select.yaml
+input_number: !include configurations/input_number.yaml
+input_boolean: !include configurations/input_boolean.yaml
+utility_meter: !include configurations/utility_meter.yaml
+binary_sensor: !include configurations/binary_sensor.yaml
+shell_command: !include configurations/shell_command.yaml
+
+
+sensor: !include_dir_merge_list configurations/sensors/
+script: !include_dir_merge_named configurations/scripts/
+automation: !include_dir_merge_list configurations/automations/
+
+
 updater:
   include_used_components: yes
+
+
 frontend:
-  themes: !include themes.yaml
+  themes: !include_dir_merge_named configurations/themes/
   extra_html_url:
     - /local/hass-fontawesome-solid.html
     - /local/hass-fontawesome-regular.html
     - /local/hass-fontawesome-brands.html
-discovery:
-  # enable:
-  #   - homekit
 
-# hacs:
-#   token: !secret hacs_token
-# breaking_changes:
+
+weather:
+  - platform: darksky
+    api_key: !secret darksky
+    name: Dark Sky Weather
+
 
 mqtt:
   broker: 192.168.29.5
@@ -72,13 +89,11 @@ mqtt:
   username: !secret my_username
   password: !secret my_password
 
-#ifttt:
-#  key:
-#    ifttt1: !secret ifttt_api
-
 device_tracker:
-    # - platform: nmap_tracker
-    #   hosts: 192.168.29.4
+    - platform: nmap_tracker
+      hosts: 192.168.29.88-255
+      home_interval: 15
+
 
 panel_iframe:
   tasmoadmin:
@@ -91,165 +106,20 @@ panel_iframe:
     url: 'http://192.168.29.5:5050'
   servercontrol:
     title: 'Server Control'
-    icon: custom:steam
+    icon: 'mdi:server-security'
     url: 'http://192.168.29.5:8123/config/server_control'
-
-#################################################################################################################
-#################################                  Notifications                 ################################
-#################################################################################################################
-
-alexa_media:
-    accounts:
-      - email: !secret amazon_login
-        password: !secret amazon_password
-        url: "amazon.com"
-
-notify:
-  - platform: alexa_media
-    name: alexa_media
-
-ios:
-  push:
-    categories:
-      - name: Test
-        identifier: 'noderedtest'
-        actions:
-          - identifier: 'TEST'
-            title: 'Dont Forget to take your medicine'  #This is what will be on the button
-            activationMode: 'background'
-            authenticationRequired: no
-            destructive: no
-            behavior: 'default'
-      - name: Take Medicine
-        identifier: 'chrismedicine'
-        actions: 
-          - identifier: 'ALREADY_TAKEN'
-            title: 'Already Taken'
-            activationMode: 'background'
-            authenticationRequired: no
-            destructive: no
-            behavior: 'default'
-          - identifier: 'SNOOZE'
-            title: 'Snooze 5 Minutes'
-            activationMode: 'background'
-            authenticationRequired: no
-            destructive: no
-            behavior: 'default'
-          - identifier: 'REMIND_HOME'
-            title: 'Remind me when I get home'
-            activationMode: 'background'
-            authenticationRequired: no
-            destructive: no
-            behavior: 'default'
-      - name: Doorbell Send Chris Video
-        identifier: 'frontvideochris'
-        actions:
-          - identifier: 'FRONTVIDEOCHRIS'
-            title: 'Live Front Yard Video'
-            activationMode: 'background'
-            authenticationRequired: no
-            destructive: yes
-            behavior: 'default'
-          - identifier: 'DRIVEWAYVIDEOCHRIS'
-            title: 'Live Driveway Video'
-            activationMode: 'background'
-            authenticationRequired: no
-            destructive: yes
-            behavior: 'default'
-      - name: Doorbell Send Skidata Video
-        identifier: 'frontvideoskidata'
-        actions:
-          - identifier: 'FRONTVIDEOSKIDATA'
-            title: 'Live Front Yard Video'
-            activationMode: 'background'
-            authenticationRequired: no
-            destructive: yes
-            behavior: 'default'
-          - identifier: 'DRIVEWAYVIDEOSKIDATA'
-            title: 'Live Driveway Video'
-            activationMode: 'background'
-            authenticationRequired: no
-            destructive: yes
-            behavior: 'default'
-      - name: Doorbell Send Lizz Video
-        identifier: 'frontvideolizz'
-        actions:
-          - identifier: 'FRONTVIDEOLIZZ'
-            title: 'Live Front Yard Video'
-            activationMode: 'background'
-            authenticationRequired: no
-            destructive: yes
-            behavior: 'default'
-          - identifier: 'DRIVEWAYVIDEOLIZZ'
-            title: 'Live Driveway Video'
-            activationMode: 'background'
-            authenticationRequired: no
-            destructive: yes
-            behavior: 'default'
-      # - name: WelcomeHome
-      #   identifier: 'welcomehome'
-      #   actions: 
-      #   - identifier: 'LIVROOM'
-      #     title: 'Living Room Lights'
-      #     activationMode: 'background'
-      #     authenticationRequired: no
-      #     destructive: no
-      #     behavior: 'default'
-      #   - identifier: 'BEDROOM'
-      #     title: 'Bedroom Lights'
-      #     activationMode: 'background'
-      #     authenticationRequired: no
-      #     destructive: no
-      #     behavior: 'default'
-      #   - identifier: 'OUTSIDE'
-      #     title: 'Outside Lights'
-      #     activationMode: 'background'
-      #     authenticationRequired: no
-      #     destructive: no
-      #     behavior: 'default'
+  motioneye:
+    title: 'MotionEye'
+    icon: 'mdi:cctv'
+    url: 'http://192.168.29.23:8765'
 
 
-#################################################################################################################
-#################################                  Media Player                  ################################
-#################################################################################################################
 
-# browser_mod:
-#   devices:
-#     5650c4f5_ca9379d2:
-#       name: Office Firefox
-#     77fdb619_ffc6d989:
-#       name: Office Chrome
-
-
-rest_command:
-  xbox_control:
-    url: !secret xboxrestcommand
-#   url: "http://IPOFYOURHASSIOSERVER:5557/device/YOURDEVICEID/{{ command }}"
-  # wled_effects:
-  #   url: "http://192.168.29.31/win&{{ states('input_select.wled_effects') }}"
-  # wled_palettes:
-  #   url: "http://192.168.29.31/win&{{ states('input_select.wled_palettes') }}"
-  wled_speed:
-    url: "http://192.168.29.31/win&SX={{ states('input_number.wled_speed') }}"
-  wled_intensity:
-    url: "http://192.168.29.31/win&IX={{ states('input_number.wled_intensity') }}"
-  wled_brightness:
-    url: "http://192.168.29.31/win&A={{ states('input_number.wled_brightness') }}"
-  wled_effect_name:
-    url: "http://192.168.29.31/win&{{ effect_name }}"
-  wled_palette_name:
-    url: "http://192.168.29.31/win&{{ palette_name }}"
-# roku:
-  # - host: 192.168.29.77 #Livingroom
-  # - host: 192.168.29.14 #Theater
 
 camera:
   - platform: ffmpeg
     name: Front yard
     input: !secret frontyardcam
-  - platform: ffmpeg
-    name: Front yard Small
-    input: !secret frontyardcamsmall
   - platform: ffmpeg
     name: Driveway
     input: !secret drivewaycam
@@ -260,405 +130,55 @@ camera:
     style: Enhanced
     frames: 30
 
-media_player:
-  - platform: xboxone
-    device: !secret xbox
-    name: Xbox One
-    ip_address: 192.168.29.99
-  - platform: androidtv
-    name: Livingroom Fire TV
-    host: 192.168.29.79
-    adb_server_ip: 127.0.0.1
-    adb_server_port: 5037
-    device_class: firetv
-    adbkey: "/config/android/adbkey"
-    # get_sources: false
-  - platform: kodi
-    host: 192.168.29.11
-    port: 8080
-    name: Cinnabon Kodi
-    username: !secret my_username
-    password: !secret my_password
-  # - platform: universal
-  #   name: Bedroom TV
-  #   children:
-  #     - media_player.xbox_one
-  #   commands:
-  #     turn_on:
-  #       service: script.turn_on
-  #       data:
-  #         entity_id: script.bedroomtv
-  #     turn_off:
-  #       service: script.turn_off
-  #       data:
-  #         entity_id: script.bedroomtv
-  #     volume_up:
-  #       service: script.turn_on
-  #       data:
-  #         entity_id: script.bedvolup
-  #     volume_down:
-  #       service: script.turn_on
-  #       data:
-  #         entity_id: script.bedvoldown
-  #     volume_mute:
-  #       service: script.turn_on
-  #       data:
-  #         entity_id: script.bedvolmute
-  #   select_source:
-  #     service: media_player.select_source
-  #     data_template:
-  #       entity_id: media_player.xbox_one
-  #       source: '{{ source }}'
-  # - platform: universal
-  #   name: Livingroom TV
-  #   children:
-  #     - media_player.roku_livingroom
-  #   commands:
-  #     turn_on:
-  #       service: script.turn_on
-  #       data:
-  #         entity_id: script.livtvpwr
-  #     turn_off:
-  #       service: script.turn_off
-  #       data:
-  #         entity_id: script.livtvpwr
-  #     volume_up:
-  #       service: script.turn_on
-  #       data:
-  #         entity_id: script.kenwoodvolup
-  #     volume_down:
-  #       service: script.turn_on
-  #       data:
-  #         entity_id: script.kenwoodvoldown
-  #     volume_mute:
-  #       service: script.turn_on
-  #       data:
-  #         entity_id: script.kenwoodvolmute
-  #   select_source:
-  #     service: media_player.select_source
-  #     data_template:
-  #       entity_id: media_player.roku_livingroom
-  #       source: '{{ source }}'
-
-#################################################################################################################
-##########################           Input Boolean, Select, Number, and Text            #########################
-#################################################################################################################
-
-input_select: !include input_select.yaml
-
-input_boolean:
-  chrislizz_home:
-    name: Is Chris or Lizz Home
-    icon: mdi:account-group
-  chrismedicinereminder:
-    name: Chris Medicine Reminder
-    icon: mdi:pill
-  music_time:
-    name: Music Time
-    icon: mdi:music
-  office_toggle:
-    name: Office Toggle
-    icon: mdi:desktop-classic
-  kitchen_toggle:
-    name: Kitchen Toggle
-    icon: mdi:food-fork-drink
-  bedroom_toggle:
-    name: Bedroom Toggle
-    icon: mdi:bed-empty
-  # tonbux_toggle:
-  #   name: Tonbux Toggle
-  #   icon: mdi:format-line-style
-  drzzs_video:
-    name: DrZzs Posted a Video
-    icon: mdi:hospital-box
-  billy_go_poopy:
-    name: Billy Go Poopy
-    icon: mdi:emoticon-poop
-  chewy_go_poopy:
-    name: Chewy Go Poopy
-    icon: mdi:emoticon-poop
-  computer:
-    name: Office Computer
-    icon: mdi:monitor-dashboard
-  livingroom_guest:
-    name: Livingroom Guest
-  brew_tea:
-    name: Brew Some Tea
-    icon: mdi:tea
-  brew_coffee:
-    name: Brew Some Coffee
-    icon: mdi:coffee
-  bedroom_lights:
-    name: Mstbdlghts
-  mstbdfans:
-  kichnfans:
-
-input_number:
-  alexa_volume:
-    name: Alexa Volume
-    initial: 0.7
-    min: 0.1
-    max: 1.0
-    step: 0.1
-  wled_speed:
-    name: WLED Speed
-    min: 1
-    max: 255
-    step: 20
-    mode: slider
-  wled_intensity:
-    name: WLED Intensity
-    min: 1
-    max: 255
-    step: 20
-    mode: slider
-  wled_brightness:
-    name: WLED Brightness
-    min: 1
-    max: 255
-    step: 20
-    mode: slider
-
-input_text:
-  livingroom_alexa:
-    name: Alexa Living Room
-    initial: Hello World
-  bedroom_alexa:
-    name: Alexa Bedroom
-    initial: Hello World
-  office_alexa:
-    name: Alexa Office
-    initial: Hello World
-  zach_alexa:
-    name: Alexa Zach
-    initial: Hello World
-  basement_alexa:
-    name: Alexa Basement
-    initial: Hello World
-  # office_mycroft:
-  #   name: Office Mycroft
-  #   initial: Hello World
-  group_alexa:
-    name: 'What do you want to say?'
-    initial: Hello World
-
-
-#################################################################################################################
-#################################              Weather and Climate               ################################
-#################################################################################################################
-
-weather:
-  - platform: darksky
-    api_key: !secret darksky
-    name: Dark Sky Weather
-
-
-climate:
-  - platform: generic_thermostat                         #House Thermostat
-    name: Thermostat
-    heater: switch.hvac_furnace
-    target_sensor: sensor.average_home_temp
-    min_temp: 55
-    max_temp: 75
-    initial_hvac_mode: "heat"
-    min_cycle_duration:
-      minutes: 10
-    target_temp: 70
-    away_temp: 60
-    cold_tolerance: 2
-    hot_tolerance: 0.5
-    ac_mode: no
-    keep_alive:
-      minutes: 3
-  - platform: generic_thermostat                         #Bedroom Heater
-    name: Bedroom Heater
-    heater: switch.bedroom_radiator
-    target_sensor: sensor.average_mstbd_temp
-    min_temp: 55
-    max_temp: 75
-    initial_hvac_mode: "heat"
-    min_cycle_duration:
-      minutes: 10
-    target_temp: 70
-    away_temp: 60
-    cold_tolerance: 2
-    hot_tolerance: 2 
-    ac_mode: no
-    keep_alive:
-      minutes: 3
-  # - platform: generic_thermostat                         #Bedroom Thermostat
-  #   name: Bedroom Thermostat
-  #   heater: input_boolean.mstbdfans
-  #   target_sensor: sensor.average_mstbd_temp
-  #   min_temp: 60
-  #   max_temp: 80
-  #   initial_hvac_mode: "cool"
-  #   min_cycle_duration:
-  #     minutes: 10
-  #   target_temp: 72
-  #   away_temp: 78
-  #   cold_tolerance: 0.5
-  #   hot_tolerance: 0.5
-  #   ac_mode: yes
-  #   keep_alive:
-  #     minutes: 3
-  # - platform: generic_thermostat                         #House Air Conditioner
-  #   name: Air Conditioner
-  #   heater: switch.hvac_ac
-  #   target_sensor: sensor.average_home_temp
-  #   min_temp: 60
-  #   max_temp: 80
-  #   initial_hvac_mode: "off"
-  #   min_cycle_duration:
-  #     minutes: 10
-  #   target_temp: 74
-  #   away_temp: 80
-  #   cold_tolerance: 0.5
-  #   hot_tolerance: 0.5
-  #   ac_mode: yes
-  #   keep_alive:
-  #     minutes: 3
-
-
-fan:
-  - platform: mqtt
-    name: "Kitchen Ceiling Fan"
-    command_topic: "cmnd/kitchenceiling/power1"
-    state_topic: "stat/kitchenceiling/POWER1"
-    qos: 2
-    payload_on: "ON"
-    payload_off: "OFF"
-    retain: yes
-  - platform: mqtt
-    name: "Bedroom Ceiling Fan"
-    command_topic: "cmnd/masterbedceiling/power2"
-    state_topic: "stat/masterbedceiling/POWER2"
-    qos: 2
-    payload_on: "ON"
-    payload_off: "OFF"
-    retain: yes
-  - platform: mqtt
-    name: "Livingroom Ceiling Fan"
-    command_topic: "cmnd/livingroomfan/power1"
-    state_topic: "stat/livingroomfan/POWER1"
-    qos: 2
-    payload_on: "ON"
-    payload_off: "OFF"
-    retain: yes
-  - platform: mqtt
-    name: "Box Fan"
-    command_topic: "cmnd/boxfan/power"
-    state_topic: "stat/boxfan/POWER"
-    qos: 2
-    payload_on: "ON"
-    payload_off: "OFF"
-    retain: yes
 
 #################################################################################################################
 ###########################                Saving This Stuff for Later                 ##########################
 #################################################################################################################
 
-utility_meter:
-  computer_daily_kwh:
-    source: sensor.computer_energy_today
-    cycle: daily
-  computer_monthly_kwh:
-    source: sensor.computer_energy_today
-    cycle: monthly
-  computer_yearly_kwh:
-    source: sensor.computer_energy_today
-    cycle: yearly
-  washer_daily_kwh:
-    source: sensor.washer_energy_today
-    cycle: daily
-  washer_monthly_kwh:
-    source: sensor.washer_energy_today
-    cycle: monthly
-  washer_yearly_kwh:
-    source: sensor.washer_energy_today
-    cycle: yearly
-  bedroom_heater_daily_kwh:
-    source: sensor.bedroom_heater_energy_today
-    cycle: daily
-  bedroom_heater_monthly_kwh:
-    source: sensor.bedroom_heater_energy_today
-    cycle: monthly
-  bedroom_heater_yearly_kwh:
-    source: sensor.bedroom_heater_energy_today
-    cycle: yearly
-  refrigerator_daily_kwh:
-    source: sensor.refrigerator_energy_today
-    cycle: daily
-  refrigerator_monthly_kwh:
-    source: sensor.refrigerator_energy_today
-    cycle: monthly
-  refrigerator_yearly_kwh:
-    source: sensor.refrigerator_energy_today
-    cycle: yearly
-  livrmenergysensor_daily_kwh:
-    source: sensor.livrmenergysensor_energy_today
-    cycle: daily
-  livrmenergysensor_monthly_kwh:
-    source: sensor.livrmenergysensor_energy_today
-    cycle: monthly
-  livrmenergysensor_yearly_kwh:
-    source: sensor.livrmenergysensor_energy_today
-    cycle: yearly
 
-# utility_meter:
-#   dryer_daily_energy:
-#     source: sensor.dryer_energy_today
-#     cycle: daily
-#     tariffs:
-#     - peak
-#     - offpeak
-#   dryer_monthly_energy:
-#     source: sensor.dryer_energy_today
-#     cycle: monthly
-#     tariffs:
-#     - peak
-#     - offpeak
-  # automation:
-  # alias: dryer_tariff
-  # trigger:
-  #   - platform: time
-  #     at: '06:30:00'
-  #   - platform: time
-  #     at: '23:30:00'
-  # action:
-  #   - service: utility_meter.next_tariff
-  #     entity_id: utility_meter.dryer_daily_energy
-  #   - service: utility_meter.next_tariff
-  #     entity_id: utility_meter.dryer_monthly_energy
-# alert:
-  # ac_on_too_long:
-  #   name: HVAC AC on too long
-  #   entity_id: switch.hvac_ac
-  #   state: 'on'   # Optional, 'on' is the default value
-  #   repeat:
-  #     - 120
-  #     - 30
-  #     - 10
-  #     - 5
-  #   can_acknowledge: True  # Optional, default is True
-  #   skip_first: True  # Optional, false is the default
-  #   title: HVAC ALERT
-  #   message: The AC has been on for too long!    
-  #   done_message: AC has turned off
-  #   notifiers:
-  #     - ios_skidata_iphone_7_plus
-  # heat_on_too_long:
-  #   name: HVAC HEAT on too long
-  #   entity_id: switch.hvac_furnace
-  #   state: 'on'   # Optional, 'on' is the default value
-  #   repeat:
-  #     - 30
-  #     - 10
-  #     - 5
-  #   can_acknowledge: True  # Optional, default is True
-  #   skip_first: True  # Optional, false is the default
-  #   title: HVAC ALERT
-  #   message: The HEAT has been on for too long!    
-  #   done_message: HEAT has turned off
-  #   notifiers:
-  #     - ios_skidata_iphone_7_plus
+
+# hacs:
+#   token: !secret hacs_token
+# breaking_changes:
+
+  
+# lovelace:
+#   mode: yaml
+#   resources:
+#     - type: module
+#       url: /community_plugin/roku-card/roku-card.js
+#     - type: module
+#       url: /community_plugin/simple-thermostat/simple-thermostat.js
+#     - type: module
+#       url: /community_plugin/weather-card/weather-card.js
+#     - type: module
+#       url: /community_plugin/aftership-card/aftership-card.js
+#     - type: module
+#       url: /community_plugin/light-entity-row/light-entity-row.js
+#     - type: module
+#       url: /community_plugin/custom-header/custom-header.js
+#     - type: module
+#       url: /community_plugin/button-card/button-card.js
+
+
+#ifttt:
+#  key:
+#    ifttt1: !secret ifttt_api
+# alarm_control_panel:
+#   platform: alarmdotcom
+#   name: Skidata
+#   username: !secret alarmdotcomlogin
+#   password: !secret alarmdotcompasswd
+
+# browser_mod:
+#   devices:
+#     5650c4f5_ca9379d2:
+#       name: Office Firefox
+#     77fdb619_ffc6d989:
+#       name: Office Chrome
+
+
+
+# roku:
+  # - host: 192.168.29.77 #Livingroom
+  # - host: 192.168.29.14 #Theater

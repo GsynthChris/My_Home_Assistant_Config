@@ -1,0 +1,99 @@
+  computer_daily_kwh:
+    source: sensor.computer_energy_today
+    cycle: daily
+  computer_monthly_kwh:
+    source: sensor.computer_energy_today
+    cycle: monthly
+  computer_yearly_kwh:
+    source: sensor.computer_energy_today
+    cycle: yearly
+  bedroom_heater_daily_kwh:
+    source: sensor.bedroom_heater_energy_today
+    cycle: daily
+  bedroom_heater_monthly_kwh:
+    source: sensor.bedroom_heater_energy_today
+    cycle: monthly
+  bedroom_heater_yearly_kwh:
+    source: sensor.bedroom_heater_energy_today
+    cycle: yearly
+  refrigerator_daily_kwh:
+    source: sensor.refrigerator_energy_today
+    cycle: daily
+  refrigerator_monthly_kwh:
+    source: sensor.refrigerator_energy_today
+    cycle: monthly
+  refrigerator_yearly_kwh:
+    source: sensor.refrigerator_energy_today
+    cycle: yearly
+  studio_equipment_daily_kwh:
+    source: sensor.studio_equipment_energy_today
+    cycle: daily
+  studio_equipment_monthly_kwh:
+    source: sensor.studio_equipment_energy_today
+    cycle: monthly
+  studio_equipment_yearly_kwh:
+    source: sensor.studio_equipment_energy_today
+    cycle: yearly
+  box_fan_daily_kwh:
+    source: sensor.box_fan_energy_today
+    cycle: daily
+  box_fan_monthly_kwh:
+    source: sensor.box_fan_energy_today
+    cycle: monthly
+  box_fan_yearly_kwh:
+    source: sensor.box_fan_energy_today
+    cycle: yearly
+  washer_daily_kwh:
+    source: sensor.washing_machine_energy_today
+    cycle: daily
+  washer_monthly_kwh:
+    source: sensor.washing_machine_energy_today
+    cycle: monthly
+  washer_yearly_kwh:
+    source: sensor.washing_machine_energy_today
+    cycle: yearly
+  livrmenergysensor_daily_kwh:
+    source: sensor.livingroom_tv_energy_today
+    cycle: daily
+  livrmenergysensor_monthly_kwh:
+    source: sensor.livingroom_tv_energy_today
+    cycle: monthly
+  livrmenergysensor_yearly_kwh:
+    source: sensor.livingroom_tv_energy_today
+    cycle: yearly
+  bedroom_tv_energysensor_daily_kwh:
+    source: sensor.bedroom_tv_energy_today
+    cycle: daily
+  bedroom_tv_energysensor_monthly_kwh:
+    source: sensor.bedroom_tv_energy_today
+    cycle: monthly
+  bedroom_tv_energysensor_yearly_kwh:
+    source: sensor.bedroom_tv_energy_today
+    cycle: yearly
+  window_ac_energysensor_daily_kwh:
+    source: sensor.window_ac_energy_today
+    cycle: daily
+  window_ac_energysensor_monthly_kwh:
+    source: sensor.window_ac_energy_today
+    cycle: monthly
+  window_ac_energysensor_yearly_kwh:
+    source: sensor.window_ac_energy_today
+    cycle: yearly
+  server_rack_energysensor_daily_kwh:
+    source: sensor.server_rack_energy_today
+    cycle: daily
+  server_rack_energysensor_monthly_kwh:
+    source: sensor.server_rack_energy_today
+    cycle: monthly
+  server_rack_energysensor_yearly_kwh:
+    source: sensor.server_rack_energy_today
+    cycle: yearly
+  water_heater_energysensor_daily_kwh:
+    source: sensor.water_heater_energy_today
+    cycle: daily
+  water_heater_energysensor_monthly_kwh:
+    source: sensor.water_heater_energy_today
+    cycle: monthly
+  water_heater_energysensor_yearly_kwh:
+    source: sensor.water_heater_energy_today
+    cycle: yearly

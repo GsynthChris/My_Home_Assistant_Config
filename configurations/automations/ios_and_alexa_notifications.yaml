@@ -1,0 +1,337 @@
+#################################################################################################################
+#################################              Youtube Notifications             ################################
+#################################################################################################################
+##########################              WARNING: Strong language ahead!!!!             ##########################
+##########################             My Alexa and Siri cuss like sailors!            ##########################
+#################################################################################################################
+
+  - alias: 'DrZzs Posted a Video IFTTT'
+    initial_state: yes
+    trigger:
+      - platform: state
+        entity_id: input_boolean.drzzs_video
+        from: 'off'
+        to: 'on'
+    action:
+      - service: notify.mobile_app_chris_skidata_iphone
+        data:
+          title: "DrZzs!"
+          message: "Doctor zees has Posted a video!... Go watch that Shitt!"
+          data:
+            push:
+              sound: "US-EN-Morgan-Freeman-Turning-On-The-TV.wav"
+      - service: notify.alexa_media
+        data:
+          target:
+            - media_player.livingroom_alexa
+            - media_player.bedroom_alexa
+          data:
+            type: tts
+          message: "Doctor zees has Posted a video!... Go watch that Shitt!"
+      - delay: 00:00:15
+      - service: homeassistant.turn_off
+        entity_id: input_boolean.drzzs_video
+
+
+  - alias: 'DrZzs is LIVE!'
+    initial_state: yes
+    trigger:
+      - platform: state
+        entity_id: sensor.drzzs
+        from: 'false'
+        to: 'true'
+    action:
+      - service: notify.mobile_app_chris_skidata_iphone
+        data:
+          title: "DrZzs!"
+          message: "DrZzs has started a Live stream!!... Go watch that Shitt!"
+          data:
+            push:
+              sound: "US-EN-Morgan-Freeman-Turning-On-The-TV.wav"
+      - service: notify.alexa_media
+        data:
+          target:
+            - media_player.livingroom_alexa
+            - media_player.bedroom_alexa
+          data:
+            type: tts
+          message: "Doctor zees has started a Live stream!!!... Go watch that Shitt!"
+
+#################################################################################################################
+#############################              Office PC on UPS Notification             ############################
+#################################################################################################################
+############################              My Linux PC runs a BASH script              ###########################
+############################              when the power goes out and it              ###########################
+############################              switches to the backup battery              ###########################
+#################################################################################################################
+
+  - alias: 'Office PC on Backup power'
+    initial_state: yes
+    trigger:
+      - platform: mqtt
+        topic: officepc/state/battery
+        payload: onbattery
+    action:
+      - service: notify.mobile_app_chris_skidata_iphone
+        data:
+          title: 'URGENT ALERT!'
+          message: 'The Office PC is on Backup Power!'
+  - alias: 'Office PC Critical Battery'
+    initial_state: yes
+    trigger:
+      - platform: mqtt
+        topic: officepc/state/battery
+        payload: critbat
+    action:
+      - service: notify.mobile_app_chris_skidata_iphone
+        data:
+          title: 'URGENT ALERT!'
+          message: 'OFFICE PC BATTERY CRITICALLY LOW!'
+
+
+
+#################################################################################################################
+##########################                let the dogs out to go poopy!               ###########################
+#################################################################################################################
+
+  - alias: 'Billy go Poopy'
+    trigger:
+      - platform: state
+        entity_id: input_boolean.billy_go_poopy
+        from: 'off'
+        to: 'on'
+    action:
+      - service: notify.alexa_media
+        data:
+          target:
+            - media_player.livingroom_alexa
+            - media_player.bedroom_alexa
+          data:
+            type: tts
+          message: "billy... beelbeel... beelbeel do you gotta poop?... you gotta poop beel?... beelbeel go poopy!"
+      - delay: 00:10:00
+      - service: notify.alexa_media
+        data:
+          target:
+            - media_player.livingroom_alexa
+            - media_player.bedroom_alexa
+          data:
+            type: tts
+          message: "beelbeel is done going poopy!... let the beelbeelbeel inside!.. beelbeel want some cheese?... billy get a treat? whos a baby beelbeel?"
+      - service: homeassistant.turn_off
+        entity_id: input_boolean.billy_go_poopy
+
+  # - alias: 'Chewy go Poopy'
+  #   trigger:
+  #     - platform: state
+  #       entity_id: input_boolean.chewy_go_poopy
+  #       from: 'off'
+  #       to: 'on'
+  #   action:
+  #     - service: notify.alexa_media
+  #       data:
+  #         target:
+  #           - media_player.livingroom_alexa
+  #           - media_player.bedroom_alexa
+  #         data:
+  #           type: tts
+  #         message: "Chewy.. Chewsters gotta poopy... do you gotta poop?... you gotta poop chewy?... Chewsters go poopy!"
+  #     - delay: 00:10:00
+  #     - service: notify.alexa_media
+  #       data:
+  #         target:
+  #           - media_player.livingroom_alexa
+  #           - media_player.bedroom_alexa
+  #         data:
+  #           type: tts
+  #         message: "Chewsters is done going poopy!... let the chewy Chewsters inside!.. Chewsters want some cheese?... chewy get a treat?.. whos a baby Chewsters?"
+  #     - service: homeassistant.turn_off
+  #       entity_id: input_boolean.chewy_go_poopy
+
+
+  - alias: 'Internet ON alert'
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.internet_status
+        from: 'off'
+        to: 'on'
+    action:
+      - delay: 00:00:30
+      - service: notify.alexa_media
+        data:
+          target:
+            - media_player.livingroom_alexa
+            - media_player.bedroom_alexa
+            - media_player.office_alexa
+          data:
+            type: tts
+          message: "holy fukkin shitt... the internet is on! praise god and all the blessings of life... hail satan too!!!"
+      - service: notify.mobile_app_chriss_iphone_6_plus
+        data:
+          title: 'FUCK YEAH!!!'
+          message: 'THE INTERNET IS BACK ON!!!'
+      - service: notify.mobile_app_chris_skidata_iphone
+        data:
+          title: 'FUCK YEAH!!!'
+          message: 'THE INTERNET IS BACK ON!!!'
+  - alias: 'Internet OFF alert'
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.internet_status
+        from: 'on'
+        to: 'off'
+    action:
+      - delay: 00:00:30
+      - service: notify.alexa_media
+        data:
+          target:
+            - media_player.livingroom_alexa
+            - media_player.bedroom_alexa
+          data:
+            type: tts
+          message: "oh shitt... the internet is not responding! dear god,... why have you forsaken me!!!"
+      - service: notify.mobile_app_chriss_iphone_6_plus
+        data:
+          title: 'OH FUCK!!!'
+          message: 'THE INTERNET IS NOT RESPONDING!!!'
+      - service: notify.mobile_app_chris_skidata_iphone
+        data:
+          title: 'OH FUCK!!!'
+          message: 'THE INTERNET IS NOT RESPONDING!!!'
+
+#################################################################################################################
+################################           Take Trash out notifications          ################################
+#################################################################################################################
+
+  - alias: 'Take out trash on trash day'
+    trigger:
+      - platform: time
+        at: '06:45:00'
+    condition:
+      condition: or
+      conditions:
+        - condition: time
+          weekday:
+          - mon
+        - condition: time
+          weekday:
+          - thu
+    action:
+      - service: notify.alexa_media
+        data:
+          target:
+            - media_player.livingroom_alexa
+            - media_player.bedroom_alexa
+            - media_player.office_alexa
+          data:
+            type: tts
+          message: "Good Morning, today is trash day... please take the trash to the curb"
+      - service: notify.mobile_app_chriss_iphone_6_plus
+        data:
+          title: 'Trash day today'
+          message: 'Before leaving, take the trash to the curb'
+      - service: notify.mobile_app_chris_skidata_iphone
+        data:
+          title: 'Trash day today'
+          message: 'Before leaving, take the trash to the curb'
+
+  - alias: 'Take out trash night before'
+    trigger:
+      - platform: time
+        at: '22:00:00'
+    condition:
+      condition: or
+      conditions:
+        - condition: time
+          weekday:
+          - sun
+        - condition: time
+          weekday:
+          - wed
+    action:
+      - service: notify.alexa_media
+        data:
+          target:
+            - media_player.livingroom_alexa
+            - media_player.bedroom_alexa
+            - media_player.office_alexa
+          data:
+            type: tts
+          message: "Good Evening, tomorrow is trash day... please take the trash cans to the curb"
+      - service: notify.mobile_app_chriss_iphone_6_plus
+        data:
+          title: 'Trash day tomorrow'
+          message: 'Before bed, take the trash to the curb'
+      - service: notify.mobile_app_chris_skidata_iphone
+        data:
+          title: 'Trash day tomorrow'
+          message: 'Before bed, take the trash to the curb'
+#################################################################################################################
+################################                Test Notifications               ################################
+#################################################################################################################
+
+  # - alias: 'Notification Test'
+  #   trigger:
+  #     - platform: state
+  #       entity_id: light.dresser_light
+  #       from: 'off'
+  #       to: 'on'
+  #   action:
+      # - service: notify.alexa_media
+      #   data:
+      #     target: 
+      #       - media_player.alexa_apps
+      #     title: "My title for Echo show"
+      #     data:
+      #       type: push
+      #       method: all
+      #     message: "test"
+      # - service: notify.alexa_media
+      #   data:
+      #     target: 
+      #       - media_player.alexa_apps
+      #     type: announce 
+      #     message: "This is a weekly test of the announcing system."
+      # - service: notify.alexa_media
+      #   data:
+      #     target: 
+      #       - media_player.alexa_apps
+      #     data:
+      #       type: push
+      #     message: "push fukk ducky doo"
+      # - service: media_player.play_media
+      #   data: 
+      #     entity_id: media_player.bedroom_alexa
+      #     media_content_id: Alexa.Joke.Play
+      #     media_content_type: sequence
+      # - service: notify.mobile_app_lg_tablet
+        # data:
+        #   title: 'Livingroom Doorbell'
+        #   message: 'Somebody is at the door!'
+        # data:
+        #   message: "The garage has been left open"
+        #   data:
+        #     image: !secret frontyardsnapshoturl
+        #     actions:
+        #       - action: "close_garage" # The key you are sending for the event
+        #         title: "Close Garage Door" # The button title
+      # - service: notify.mobile_app_chris_skidata_iphone
+      #   data:
+      #     title: 'Livingroom Doorbell'
+      #     message: 'Somebody is at the door!'
+      # - service: notify.mobile_app_chris_skidata_iphone
+      #   data_template:
+      #     message: Test Notification.
+      #     data:
+      #       push:
+      #         sound: "laundry.wav"
+# C926EF13C54F4954A0BC88717D05203D alexa app serial number
+  # - alias: Close the garage when notification action is tapped
+  #   trigger:
+  #     platform: event
+  #     event_type: mobile_app_notification_action
+  #     event_data:
+  #       action: close_garage
+  #   action:
+  #     service: light.turn_off
+  #     entity_id: light.dresser_light

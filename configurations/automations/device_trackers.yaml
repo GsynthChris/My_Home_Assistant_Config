@@ -1,0 +1,377 @@
+#################################################################################################################
+#############################              Device Tracker Notifications             #############################
+#################################################################################################################
+############################                Nmap Tracker Notifications             ##############################
+#################################################################################################################
+
+  # - alias: 'TB Detected' 
+  #   initial_state: yes
+  #   trigger:
+  #     - platform: state
+  #       entity_id: device_tracker.nmap_tb_phone
+  #       from: 'not_home'
+  #       to: 'home'
+  #   action:
+  #     - service: notify.mobile_app_chris_skidata_iphone
+  #       data_template:
+  #         message: TB one found at {{ state_attr('device_tracker.nmap_samsung_one', 'ip') }}.
+  #         data:
+  #           push:
+  #             sound: "US-EN-Morgan-Freeman-Someone-Is-Arriving.wav"
+
+  # - alias: 'iphone one detected' 
+  #   initial_state: yes
+  #   trigger:
+  #     - platform: state
+  #       entity_id: device_tracker.nmap_mike_phone
+  #   action:
+  #     - service: notify.mobile_app_chris_skidata_iphone
+  #       data_template:
+  #         message: iPhone one found at {{ state_attr('device_tracker.nmap_iphone_one', 'ip') }}.
+  #         data:
+  #           push:
+  #             sound: "US-EN-Morgan-Freeman-Someone-Is-Arriving.wav"
+
+  - alias: 'Zach iphone detected' 
+    initial_state: yes
+    trigger:
+      - platform: state
+        entity_id: device_tracker.nmap_zach_iphone
+        from: 'not_home'
+        to: 'home'
+    action:
+      - service: notify.mobile_app_chris_skidata_iphone
+        data_template:
+          title: 'Zach at Home'
+          message: 'Zach is at the house!'
+          data:
+            push:
+              sound: "US-EN-Morgan-Freeman-Roommate-Is-Arriving.wav"
+
+  - alias: 'Bobby iphone detected' 
+    initial_state: yes
+    trigger:
+      - platform: state
+        entity_id: device_tracker.nmap_bobby_iphone
+        from: 'not_home'
+        to: 'home'
+    action:
+      - service: notify.mobile_app_chris_skidata_iphone
+        data_template:
+          title: 'Bobby at Home'
+          message: 'Bobby is at the house!'
+          data:
+            push:
+              sound: "US-EN-Morgan-Freeman-Roommate-Is-Arriving.wav"
+
+  - alias: 'Sandy iphone detected' 
+    initial_state: yes
+    trigger:
+      - platform: state
+        entity_id: device_tracker.nmap_sandy_iphone
+        from: 'not_home'
+        to: 'home'
+    action:
+      - service: notify.mobile_app_chris_skidata_iphone
+        data_template:
+          title: 'Sandy at Home'
+          message: 'Sandy is at the house!'
+          data:
+            push:
+              sound: "US-EN-Morgan-Freeman-Friend-Is-Arriving.wav"
+
+  - alias: 'Tiffany iphone detected' 
+    initial_state: yes
+    trigger:
+      - platform: state
+        entity_id: device_tracker.nmap_tiffany_iphone
+        from: 'not_home'
+        to: 'home'
+    action:
+      - service: notify.mobile_app_chris_skidata_iphone
+        data_template:
+          title: 'Tiffany at Home'
+          message: 'Tiffany is at the house!'
+          data:
+            push:
+              sound: "US-EN-Morgan-Freeman-Friend-Is-Arriving.wav"
+
+  - alias: 'Lizz iphone at House' 
+    initial_state: yes
+    trigger:
+      - platform: state
+        entity_id: device_tracker.nmap_lizz_iphone
+    action:
+      - service: notify.mobile_app_chris_skidata_iphone
+        data:
+          title: 'WIFE HOME!'
+          message: 'Lizz iPhone detected'
+          data:
+            push:
+              sound: "US-EN-Morgan-Freeman-Wife-Is-Arriving.wav"
+
+  - alias: 'Lizz pc at House' 
+    initial_state: yes
+    trigger:
+      - platform: state
+        entity_id: device_tracker.nmap_lizz_pc
+    action:
+      - service: notify.mobile_app_chris_skidata_iphone
+        data:
+          title: 'WIFE HOME!'
+          message: 'Lizz pc detected'
+          data:
+            push:
+              sound: "US-EN-Morgan-Freeman-Wife-Is-Arriving.wav"
+
+
+  - alias: 'Welcome Home Chris'
+    initial_state: yes
+    trigger:
+      - platform: state
+        entity_id: device_tracker.skidata_iphone
+        from: 'not_home'
+        to: 'home'
+    action:
+      - service: notify.mobile_app_chris_skidata_iphone
+        data:
+          title: 'Hey Chris!'
+          message: 'Welcome home'
+          data:
+            push:
+              sound: "US-EN-Morgan-Freeman-Welcome-Home.wav"
+
+  # - alias: 'Zach Near Home!!!'
+  #   initial_state: yes
+  #   trigger:
+  #     - platform: zone
+  #       event: enter
+  #       zone: zone.near_home
+  #       entity_id: device_tracker.zach_iphone
+  #   action:
+  #     - service: notify.mobile_app_chris_skidata_iphone
+  #       data:
+  #         title: 'Hey Chris!'
+  #         message: 'Zach is almost home'
+
+  # - alias: 'Goodbye Zach'
+  #   initial_state: yes
+  #   trigger:
+  #     - platform: state
+  #       entity_id: device_tracker.zach_iphone
+  #       from: 'home'
+  #       to: 'not_home'
+  #   action:
+  #     - service: notify.mobile_app_chris_skidata_iphone
+  #       data:
+  #         title: 'Hey Chris!'
+  #         message: 'Zach has left home'
+  #     - service: notify.mobile_app_zach_iphone
+  #       data:
+  #         title: 'BYE BYE Zach!'
+  #         message: 'SEE YOU LATER FUCKER!!!!!'
+
+  # - alias: 'Where is Zach' # I get way too many notifications from this
+  #   initial_state: yes
+  #   hide_entity: yes
+  #   trigger:
+  #     - platform: state
+  #       entity_id: device_tracker.zach_iphone
+  #   action:
+  #     - service: notify.mobile_app_chris_skidata_iphone
+  #       data_template:
+  #         message: >
+  #           {% if is_state('device_tracker.zach_iphone', 'home') %}
+  #             Zach is now home!!!
+  #           {% else %}
+  #             Zach is at {{ states('device_tracker.zach_iphone') }}.
+  #           {% endif %}
+
+  # - alias: fuckin with zach
+  #   trigger:
+  #     - platform: state
+  #       entity_id: device_tracker.zach_iphone
+  #       to: 'home'
+  #       for:
+  #         minutes: 7
+  #   action: 
+      # - service: notify.alexa_media
+      #   data:
+      #     target:
+      #       - media_player.livingroom_alexa
+      #       - media_player.bedroom_alexa
+      #       - media_player.office_alexa
+      #       - media_player.zach_alexa
+      #       - media_player.basement_alexa
+      #     data:
+      #       type: tts
+      #     message: "Welcome Home Zachary,... please say the password to disable the home security system... If the correct password is not said in 10 second the police will be notified... 10... 9... 8... 7... 6... 5... 4... 3... 2... 2 2 2 2... 3... 2... hahahahahahahahahaha fukker... i'm just fukking with you... you little bitsh"
+
+
+###################################################################################################
+########################                Presence Automations               ########################
+###################################################################################################
+
+
+  - alias: "Lights out, Nobody's home"
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.people_home
+        from: 'on'
+        to: 'off'
+        for:
+          minutes: 15
+    action:
+      - service: light.turn_off
+        data:
+          entity_id: group.all_lights
+      - service: notify.mobile_app_chris_skidata_iphone
+        data:
+          message: 'Nobody is home! Lights out!'
+   # - service: switch.turn_off
+     # entity_id: group.all_switches #dont forget the fridge is on POW!
+
+  # - alias: "Sombody almost home"
+  #   trigger:
+  #     - platform: state
+  #       entity_id: binary_sensor.people_home
+  #       from: 'off'
+  #       to: 'on'
+  #   action:
+  #     - service: light.turn_on
+  #       data:
+  #         entity_id: light.bedroom_door
+  #     - delay: 00:00:04
+  #     - service: light.turn_on
+  #       data:
+  #         entity_id: light.kitchen_ceiling_light
+  #     - delay: 00:00:02
+  #     - service: light.turn_on
+  #       data:
+  #         entity_id: light.kitchen_sink_light
+  #     - delay: 00:00:03
+  #     - service: light.turn_on
+  #       data:
+  #         entity_id: light.stairs_light
+  #     - delay: 00:00:04
+  #     - service: light.turn_on
+  #       data:
+  #         entity_id: light.livingroom_ceiling_light
+  #     - delay: 00:00:02
+  #     - service: light.turn_on
+  #       data:
+  #         entity_id: light.livingroom_lamp
+  #     - delay: 00:00:02
+  #     - service: light.turn_on
+  #       data:
+  #         entity_id: light.livingroom_door_1
+  #     - delay: 00:00:01
+  #     - service: light.turn_on
+  #       data:
+  #         entity_id: light.livingroom_door_2
+  #     - service: notify.mobile_app_chris_skidata_iphone
+  #       data:
+  #         title: "Flipping on the lights!"
+  #         message: "Somebody is almost home and since nobody else is home and its dark out I'll turn on the lights for you."
+
+  - alias: 'Turn on Computer when chris is home'
+    initial_state: yes
+    trigger:
+      - platform: state
+        entity_id: device_tracker.skidata_iphone
+        from: 'not_home'
+        to: 'home'
+    action:
+      - service: homeassistant.turn_on
+        entity_id: switch.office_computer
+      - service: notify.alexa_media
+        data:
+          target:
+            - media_player.livingroom_alexa
+            - media_player.bedroom_alexa
+            - media_player.office_alexa
+            - media_player.zach_alexa
+            - media_player.basement_alexa
+          data:
+            type: tts
+          message: "Activating battle station... please stand clear... weapons systems initializing... run for your lives!"
+      - delay: 00:00:05
+      - service: homeassistant.turn_on
+        entity_id: switch.office_speakers
+      - delay: 00:00:05
+      - service: homeassistant.turn_on
+        entity_id: switch.tonbux_usb
+      - delay: 00:00:05
+      - service: homeassistant.turn_on
+        entity_id: switch.office_monitors
+      - delay: 00:00:05
+      - service: notify.mobile_app_chris_skidata_iphone
+        data:
+          title: 'Battlestation Initialized'
+          message: 'Welcome home! Prepare to dominate the interwebs!'
+
+  - alias: 'Turn off Computer when chris is not home'
+    initial_state: yes
+    trigger:
+      - platform: state
+        entity_id: device_tracker.skidata_iphone
+        from: 'home'
+        to: 'not_home'
+    action:
+      - service: homeassistant.turn_off
+        entity_id: switch.office_computer
+      - service: notify.alexa_media
+        data:
+          target:
+            - media_player.livingroom_alexa
+            - media_player.bedroom_alexa
+            - media_player.office_alexa
+            - media_player.zach_alexa
+            - media_player.basement_alexa
+          data:
+            type: tts
+          message: "Deactivating battle station... powering down weapons systems... your life has been spared... for now"
+      - service: switch.turn_off
+        entity_id: switch.office_speakers
+      - delay: 00:00:05
+      - service: homeassistant.turn_off
+        entity_id: group.office
+      - delay: 00:00:05
+      - service: homeassistant.turn_off
+        entity_id: switch.tonbux_usb
+      - delay: 00:00:05
+      - service: homeassistant.turn_off
+        entity_id: switch.printer
+      - delay: 00:00:05
+      - service: homeassistant.turn_off
+        entity_id: switch.office_monitors
+      - service: notify.mobile_app_chris_skidata_iphone
+        data:
+          title: 'Battlestation Deactivating'
+          message: 'Have a great day, your battlestation has been shutdown. It patiently awaits your return.'
+
+  # - alias: 'Battlestation Activated'
+  #   initial_state: yes
+  #   hide_entity: yes
+  #   trigger:
+  #     - platform: state
+  #       entity_id: device_tracker.office_computer
+  #       from: 'off'
+  #       to: 'on'
+  #     - service: notify.mobile_app_chris_skidata_iphone
+  #       data:
+  #         title: 'Battlestation Activated'
+  #         message: 'Battlestation is Online!'
+
+  # - alias: 'Battlestation Deactivated'
+  #   initial_state: yes
+  #   hide_entity: yes
+  #   trigger:
+  #     - platform: state
+  #       entity_id: device_tracker.office_computer
+  #       from: 'on'
+  #       to: 'off'
+  #     - service: notify.mobile_app_chris_skidata_iphone
+  #       data:
+  #         title: 'Battlestation Deactivated'
+  #         message: 'Battlestation is Offline!'

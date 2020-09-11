@@ -1,0 +1,22 @@
+title: Sensors
+widget_dimensions: [85, 85]
+widget_margins: [5, 5]
+columns: 6
+global_parameters:
+    use_comma: 0
+    precision: 1
+    use_hass_icon: 0
+
+layout:
+  - include: entity_config/bedroom_tv
+  - include: entity_config/livingroom_tv
+  - include: entity_config/office_tv
+  - include: entity_config/roku
+  - include: entity_config/switches
+  - include: entity_config/widgets
+  - include: entity_config/xbox
+  - housethermostat(2x1), bedroomheat(2x1), weather(2x2)
+  - chrisbattery, skidatabattery
+  - moon, sun.sun
+  - sensor.dryer, sensor.dryer_current
+  - cameranws(4x4)

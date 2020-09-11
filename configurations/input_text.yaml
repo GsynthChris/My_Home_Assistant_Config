@@ -1,0 +1,21 @@
+  livingroom_alexa:
+    name: Alexa Living Room
+    initial: Hello World
+  bedroom_alexa:
+    name: Alexa Bedroom
+    initial: Hello World
+  office_alexa:
+    name: Alexa Office
+    initial: Hello World
+  zach_alexa:
+    name: Alexa Zach
+    initial: Hello World
+  basement_alexa:
+    name: Alexa Basement
+    initial: Hello World
+  # office_mycroft:
+  #   name: Office Mycroft
+  #   initial: Hello World
+  group_alexa:
+    name: 'What do you want to say?'
+    initial: Hello World

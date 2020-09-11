@@ -1,0 +1,147 @@
+###########################################################################################################
+##################################         Livingroom TV Controls         #################################
+###########################################################################################################
+
+livtvpower:
+  widget_type: script
+  title: TV Power
+  entity: script.livtvpwr
+  title_style: "color: #ff0000;text-shadow: 0px 0px 5px #003300;"
+  icon_style_inactive: "margin-top: -10px; font-size: 40px; color: #ff0000;text-shadow: 0px 0px 5px #800000;"
+  icon_style_active: "margin-top: -10px; font-size: 40px; color: #ff8080;text-shadow: 0px 0px 5px #800000;"
+  icon_on: fa-tv
+  icon_off: fa-tv
+
+livtvmenu:
+  widget_type: script
+  title: Menu
+  entity: script.livtvmenu
+  title_style: "color: #ff0000;text-shadow: 0px 0px 5px #003300;"
+  icon_style_inactive: "margin-top: -10px; font-size: 40px; color: #ff0000;text-shadow: 0px 0px 5px #800000;"
+  icon_style_active: "margin-top: -10px; font-size: 40px; color: #ff8080;text-shadow: 0px 0px 5px #800000;"
+  icon_on: fa-bars
+  icon_off: fa-bars
+
+livtvinput:
+  widget_type: script
+  title: Input
+  entity: script.livtvinput
+  title_style: "color: #ff0000;text-shadow: 0px 0px 5px #003300;"
+  icon_style_inactive: "margin-top: -10px; font-size: 40px; color: #ff0000;text-shadow: 0px 0px 5px #800000;"
+  icon_style_active: "margin-top: -10px; font-size: 40px; color: #ff8080;text-shadow: 0px 0px 5px #800000;"
+  icon_on: mdi-video-input-component
+  icon_off: mdi-video-input-component
+
+livtvselect:
+  widget_type: script
+  title: OK/Select
+  entity: script.livtvselect
+  title_style: "color: #ff0000;text-shadow: 0px 0px 5px #003300;"
+  icon_style_inactive: "margin-top: -10px; font-size: 40px; color: #ff0000;text-shadow: 0px 0px 5px #800000;"
+  icon_style_active: "margin-top: -10px; font-size: 40px; color: #ff8080;text-shadow: 0px 0px 5px #800000;"
+  icon_on: mdi-death-star mdi-spin
+  icon_off: mdi-death-star mdi-spin
+
+livtvup:
+  widget_type: script
+  title: UP
+  entity: script.livtvup
+  title_style: "color: #ff0000;text-shadow: 0px 0px 5px #003300;"
+  icon_style_inactive: "margin-top: -10px; font-size: 40px; color: #ff0000;text-shadow: 0px 0px 5px #800000;"
+  icon_style_active: "margin-top: -10px; font-size: 40px; color: #ff8080;text-shadow: 0px 0px 5px #800000;"
+  icon_on: fa-arrow-up
+  icon_off: fa-arrow-up
+
+livtvdown:
+  widget_type: script
+  title: DOWN
+  entity: script.livtvdown
+  title_style: "color: #ff0000;text-shadow: 0px 0px 5px #003300;"
+  icon_style_inactive: "margin-top: -10px; font-size: 40px; color: #ff0000;text-shadow: 0px 0px 5px #800000;"
+  icon_style_active: "margin-top: -10px; font-size: 40px; color: #ff8080;text-shadow: 0px 0px 5px #800000;"
+  icon_on: fa-arrow-down
+  icon_off: fa-arrow-down
+
+livtvleft:
+  widget_type: script
+  title: LEFT
+  entity: script.livtvleft
+  title_style: "color: #ff0000;text-shadow: 0px 0px 5px #003300;"
+  icon_style_inactive: "margin-top: -10px; font-size: 40px; color: #ff0000;text-shadow: 0px 0px 5px #800000;"
+  icon_style_active: "margin-top: -10px; font-size: 40px; color: #ff8080;text-shadow: 0px 0px 5px #800000;"
+  icon_on: fa-arrow-left
+  icon_off: fa-arrow-left
+
+livtvright:
+  widget_type: script
+  title: RIGHT
+  entity: script.livtvright
+  title_style: "color: #ff0000;text-shadow: 0px 0px 5px #003300;"
+  icon_style_inactive: "margin-top: -10px; font-size: 40px; color: #ff0000;text-shadow: 0px 0px 5px #800000;"
+  icon_style_active: "margin-top: -10px; font-size: 40px; color: #ff8080;text-shadow: 0px 0px 5px #800000;"
+  icon_on: fa-arrow-right
+  icon_off: fa-arrow-right
+
+###########################################################################################################
+###################################          Livingroom Sound            ##################################
+###########################################################################################################
+
+kenwoodpower:
+  widget_type: script
+  title: Surround Sound Power
+  entity: script.kenwoodpwr
+  title_style: "color: #0000ff;text-shadow: 0px 0px 5px #000066;"
+  icon_style_inactive: "margin-top: -10px; font-size: 40px; color: #0000ff;text-shadow: 0px 0px 5px #000066;"
+  icon_style_active: "margin-top: -10px; font-size: 40px; color: #6666ff;text-shadow: 0px 0px 5px #000066;"
+  icon_on: mdi-audio-video
+  icon_off: mdi-audio-video
+
+livvolup:
+  widget_type: script
+  title: Volume Up
+  entity: script.kenwoodvolup
+  title_style: "color: #0000ff;text-shadow: 0px 0px 5px #000066;"
+  icon_style_inactive: "margin-top: -10px; font-size: 40px; color: #0000ff;text-shadow: 0px 0px 5px #000066;"
+  icon_style_active: "margin-top: -10px; font-size: 40px; color: #6666ff;text-shadow: 0px 0px 5px #000066;"
+  icon_on: fa-volume-up
+  icon_off: fa-volume-up
+
+livvoldown:
+  widget_type: script
+  title: Volume Down
+  entity: script.kenwoodvoldown
+  title_style: "color: #0000ff;text-shadow: 0px 0px 5px #000066;"
+  icon_style_inactive: "margin-top: -10px; font-size: 40px; color: #0000ff;text-shadow: 0px 0px 5px #000066;"
+  icon_style_active: "margin-top: -10px; font-size: 40px; color: #6666ff;text-shadow: 0px 0px 5px #000066;"
+  icon_on: fa-volume-down
+  icon_off: fa-volume-down
+
+livvolupplus:
+  widget_type: script
+  title: Volume Up +8
+  entity: script.livvolupplus
+  title_style: "color: #0000ff;text-shadow: 0px 0px 5px #000066;"
+  icon_style_inactive: "margin-top: -10px; font-size: 40px; color: #0000ff;text-shadow: 0px 0px 5px #000066;"
+  icon_style_active: "margin-top: -10px; font-size: 40px; color: #6666ff;text-shadow: 0px 0px 5px #000066;"
+  icon_on: mdi-volume-plus
+  icon_off: mdi-volume-plus
+
+livvoldownplus:
+  widget_type: script
+  title: Volume Down -8
+  entity: script.livvoldownplus
+  title_style: "color: #0000ff;text-shadow: 0px 0px 5px #000066;"
+  icon_style_inactive: "margin-top: -10px; font-size: 40px; color: #0000ff;text-shadow: 0px 0px 5px #000066;"
+  icon_style_active: "margin-top: -10px; font-size: 40px; color: #6666ff;text-shadow: 0px 0px 5px #000066;"
+  icon_on: mdi-volume-minus
+  icon_off: mdi-volume-minus
+
+livvolmute:
+  widget_type: script
+  title: Mute
+  entity: script.kenwoodvolmute
+  title_style: "color: #0000ff;text-shadow: 0px 0px 5px #000066;"
+  icon_style_inactive: "margin-top: -10px; font-size: 40px; color: #0000ff;text-shadow: 0px 0px 5px #000066;"
+  icon_style_active: "margin-top: -10px; font-size: 40px; color: #6666ff;text-shadow: 0px 0px 5px #000066;"
+  icon_on: mdi-volume-off
+  icon_off: mdi-volume-off

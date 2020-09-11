@@ -1,0 +1,157 @@
+#################################################################################################################
+#################################           Doorbell Notifications               ################################
+#################################################################################################################
+#################################             Frontyard Doorbell                 ################################
+#################################################################################################################
+doorbellfrontsnapshot:
+    alias: "Doorbell Front Door take Snapshot"
+    sequence:
+    - service: camera.snapshot
+      data:
+        entity_id: camera.front_yard
+        filename: "/config/www/cam_captures/frontyard.jpeg"
+
+doorbellfrontsnapshotarchive:
+    alias: "Doorbell Front Door take Snapshot"
+    sequence:
+    - service: camera.snapshot
+      data:
+        entity_id: camera.front_yard
+        filename: "/config/www/cam_captures/Frontyard_{{ now ().year }}_{{ now ().month }}_{{ now ().day }}_{{ now ().hour }}_{{ now ().minute }}.jpeg"
+
+
+#Send Snapshot notification
+doorbellfrontchris:
+    alias: "Doorbell Front Send Snap to Chris"
+    sequence:
+    - service: notify.mobile_app_chris_skidata_iphone
+      data:
+        title: "Doorbell: Front Door"
+        message: "Somebody is at the Front Door"
+        data:
+          push:
+            badge: 0
+            category: 'frontvideochris'
+            sound: "US-EN-Alexa-Motion-At-Front-Door.wav"
+          attachment:
+            content-type: jpeg
+            url: !secret frontyardsnapshoturl
+
+doorbellfrontskidata:
+    alias: "Doorbell Front Send Snap to Skidata"
+    sequence:
+    - service: notify.mobile_app_chriss_iphone_6_plus
+      data:
+        title: "Doorbell: Front Door"
+        message: "Somebody is at the Front Door"
+        data:
+          push:
+            badge: 0
+            category: 'frontvideoskidata'
+            sound: "US-EN-Alexa-Motion-At-Front-Door.wav"
+          attachment:
+            content-type: jpeg
+            url: !secret frontyardsnapshoturl
+
+
+# Send Video Notification
+doorbellfrontchrisvideo:
+    alias: "Doorbell Front send video chris"
+    sequence:
+    - service: notify.mobile_app_chriss_iphone_6_plus
+      data:
+        message: Front Door Live Video Stream!
+        data:
+          push:
+            sound: "US-EN-Morgan-Freeman-Motion-Detected.wav"
+            category: camera
+          entity_id: camera.front_yard
+
+doorbellfrontskidatavideo:
+    alias: "Doorbell Front send video Skidata"
+    sequence:
+    - service: notify.mobile_app_chris_skidata_iphone
+      data:
+        message: Front Door Live Video Stream!
+        data:
+          push:
+            sound: "US-EN-Morgan-Freeman-Motion-Detected.wav"
+            category: camera
+          entity_id: camera.front_yard
+
+#################################################################################################################
+#################################              Bedroom Doorbell                  ################################
+#################################################################################################################
+doorbellbedroomsnapshot:
+    alias: "Doorbell Bedroom Door take Snapshot"
+    sequence:
+    - service: camera.snapshot
+      data:
+        entity_id: camera.driveway
+        filename: "/config/www/cam_captures/driveway.jpeg"
+
+doorbellbedroomsnapshotarchive:
+    alias: "Doorbell Bedroom Door take Snapshot"
+    sequence:
+    - service: camera.snapshot
+      data:
+        entity_id: camera.driveway
+        filename: "/config/www/cam_captures/Driveway_{{ now ().year }}_{{ now ().month }}_{{ now ().day }}_{{ now ().hour }}_{{ now ().minute }}.jpeg"
+
+doorbellbedroomchris:
+    alias: "Doorbell Bedroom Send Snap to Chris"
+    sequence:
+    - service: notify.mobile_app_chriss_iphone_6_plus
+      data:
+        title: "Doorbell: Bedroom Door"
+        message: "Somebody is at the Bedroom Door"
+        data:
+          push:
+            badge: 0
+            category: 'frontvideochris'
+            sound: "US-EN-Alexa-Motion-At-Front-Door.wav"
+          attachment:
+            content-type: jpeg
+            url: !secret drivewaysnapshoturl
+
+doorbellbedroomskidata:
+    alias: "Doorbell Bedroom Send Snap to Skidata"
+    sequence:
+    - service: notify.mobile_app_chris_skidata_iphone
+      data:
+        title: "Doorbell: Bedroom Door"
+        message: "Somebody is at the Bedroom Door"
+        data:
+          push:
+            badge: 0
+            category: 'frontvideoskidata'
+            sound: "US-EN-Alexa-Motion-At-Front-Door.wav"
+          attachment:
+            content-type: jpeg
+            url: !secret drivewaysnapshoturl
+
+
+#Send Video Notification
+doorbelldrivewaychrisvideo:
+    alias: "Doorbell Front send video chris"
+    sequence:
+    - service: notify.mobile_app_chriss_iphone_6_plus
+      data:
+        message: Bedroom Door Live Video Stream!
+        data:
+          push:
+            sound: "US-EN-Morgan-Freeman-Motion-Detected.wav"
+            category: camera
+          entity_id: camera.driveway
+
+doorbelldrivewayskidatavideo:
+    alias: "Doorbell Front send video Skidata"
+    sequence:
+    - service: notify.mobile_app_chris_skidata_iphone
+      data:
+        message: Bedroom Door Live Video Stream!
+        data:
+          push:
+            sound: "US-EN-Morgan-Freeman-Motion-Detected.wav"
+            category: camera
+          entity_id: camera.driveway

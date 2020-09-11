@@ -1,0 +1,81 @@
+
+##################################################################################################
+########################            Youtube Sensors            ###################################
+##################################################################################################
+
+  # - platform: youtube
+  #   channel_id: UC7G4tLa4Kt6A9e3hJ-HO8ng #DrZzs
+  # - platform: youtube
+  #   channel_id: UC5ZdPKE2ckcBhljTc2R_qNA #DigiBlur
+  # - platform: youtube
+  #   channel_id: UCQMyhrt92_8XM0KgZH6VnRg #CompanyMan
+  # - platform: youtube
+  #   channel_id: UCy0tKL1T7wFoYcxCe0xjN6Q #TechnologyConnections
+  # - platform: youtube
+  #   channel_id: UCuDv5p8E-evaRSh542hDV5g #Robert Reich
+  # - platform: youtube
+  #   channel_id: UC75HTMhqVZs0sPOMTMQqI9g #SuperHouseTV
+  # - platform: youtube
+  #   channel_id: UC2gyzKcHbYfqoXA5xbyGXtQ #The Hook Up
+  # - platform: youtube
+  #   channel_id: UCLecVrux63S6aYiErxdiy4w #BRUH
+  # - platform: youtube
+  #   channel_id: UCTHsQd-vRXK1bp4vpifl6yA #Trae Crowder
+
+  # - platform: imap_email_content
+  #   server: !secret cblive_imap
+  #   name: Bandcamp Notification
+  #   port: 993
+  #   username: !secret cblive_email
+  #   password: !secret cblive_passwd
+  #   senders:
+  #     - no-reply@bandcamp.com
+  #   value_template: >-
+  #     {% if 'Another $' in subject %}
+  #       money_made
+  #     {% elif 'Power Restored' in subject %}
+  #       power_on
+  #     {% endif %}
+
+  # - platform: imap_email_content
+  #   server: !secret cblive_imap
+  #   name: Test Imap Notification
+  #   port: 993
+  #   username: !secret cblive_email
+  #   password: !secret cblive_passwd
+  #   senders:
+  #     - christopher.brooks@skidata.com
+  #   value_template: >-
+  #     {% if 'GoodTest 12 &' in subject %}
+  #       the_test_worked
+  #     {% elif 'badtest' in subject %}
+  #       the_test_worked_again
+  #     {% endif %}
+
+  - platform: glances
+    host: 192.168.29.5
+    name: SmartFuckingHouse
+    resources:
+      - 'disk_use_percent'
+      - 'disk_free'
+      - 'memory_free'
+      - 'processor_load'
+
+  - platform: min_max
+    name: "Average home Temp"
+    type: "mean"
+    round_digits: 1
+    entity_ids:
+      - sensor.kitchen_temp
+      - sensor.office_temp
+      - sensor.livingroom_temp
+  - platform: min_max
+    name: "Average MstBd Temp"
+    type: "mean"
+    round_digits: 1
+    entity_ids:
+      - sensor.master_bedroom_temp
+      - sensor.master_bedroom_temp2
+      # - sensor.bedroom_ac_temp
+
+

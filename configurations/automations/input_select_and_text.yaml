@@ -1,0 +1,132 @@
+###########################################################################################################
+################################            Source Select Inputs              #############################
+########################################################################################################### 
+  - alias: Livingroom Roku Source Select
+    trigger:
+      - platform: state
+        entity_id: input_select.rokulivsource
+    action:
+      - service: media_player.select_source
+        data_template:
+          entity_id: media_player.livingroom_tv
+          source: '{{ trigger.to_state.state | string }}'
+
+  - alias: Xbox One Source Select
+    trigger:
+      - platform: state
+        entity_id: input_select.xboxonesource
+    action:
+      - service: media_player.select_source
+        data_template:
+          entity_id: media_player.xboxone
+          source: '{{ trigger.to_state.state | string }}'
+
+###########################################################################################################
+############################                 Alexa TTS Text Input              ############################
+###########################################################################################################
+
+
+  - alias: 'Alexa all of them text input'
+    trigger:
+      - platform: state
+        entity_id: input_text.alexa_group
+    action:
+      - service: notify.alexa_media
+        data:
+          target:
+            - media_player.livingroom_alexa
+            - media_player.bedroom_alexa
+          data:
+            type: tts
+          message: '{{ trigger.to_state.state | string }}'
+
+  # - alias: 'Alexa bedrm text input'
+  #   trigger:
+  #     - platform: state
+  #       entity_id: input_text.alexa_bedrm
+  #   action:
+  #     - service: media_player.alexa_tts
+  #       data_template:
+  #         entity_id: media_player.bedroom_alexa
+  #         message: '{{ trigger.to_state.state | string }}'
+  # - alias: 'Mycroft text input'
+  #   trigger:
+  #     - platform: state
+  #       entity_id: input_text.office_mycroft
+  #   action:
+  #     - service: notify.office_mycroft
+  #       data_template:
+  #         message: '{{ states.input_text.office_mycroft.state }}'
+  # - alias: 'Alexa battlestation text input'
+  #   trigger:
+  #     - platform: state
+  #       entity_id: input_text.alexa_battlestation
+  #   action:
+  #     - service: media_player.alexa_tts
+  #       data_template:
+  #         entity_id: media_player.battlestation_alexa
+  #         message: '{{ trigger.to_state.state | string }}'
+  # - alias: 'Alexa skidata text input'
+  #   trigger:
+  #     - platform: state
+  #       entity_id: input_text.alexa_skidata
+  #   action:
+  #     - service: media_player.alexa_tts
+  #       data_template:
+  #         entity_id: media_player.skidata_alexa
+  #         message: '{{ trigger.to_state.state | string }}'
+
+  # - alias: 'Alexa livingroom text input'
+  #   trigger:
+  #   - platform: state
+  #     entity_id: input_text.livingroom_alexa
+  #   action:
+  #     - service: script.livingroom_alexa_speak
+  # - alias: 'Alexa Bedroom text input'
+  #   trigger:
+  #   - platform: state
+  #     entity_id: input_text.bedroom_alexa
+  #   action:
+  #     - service: script.bedroom_alexa_speak
+  # - alias: 'Alexa Skidata text input'
+  #   trigger:
+  #   - platform: state
+  #     entity_id: input_text.skidata_alexa
+  #   action:
+  #     - service: script.skidata_alexa_speak
+  # - alias: 'Alexa Battlestation text input'
+  #   trigger:
+  #   - platform: state
+  #     entity_id: input_text.battlestation_alexa
+  #   action:
+  #     - service: script.battlestation_alexa_speak
+  # - alias: 'Alexa Office text input'
+  #   trigger:
+  #   - platform: state
+  #     entity_id: input_text.office_alexa
+  #   action:
+  #     - service: script.office_alexa_speak
+  # - alias: 'Alexa Group text input'
+  #   trigger:
+  #   - platform: state
+  #     entity_id: input_text.group_alexa
+  #   action:
+  #     - service: script.group_alexa_speak
+
+
+# alexanotifyttstest:
+#   sequence:
+#     - service: notify.alexa_media
+#       data:
+#         target:
+#           - media_player.livingroom_alexa
+#         data:
+#           type: tts
+#         message: "Hello World"
+#        - service: notify.alexa_media
+#          data:
+#            target:
+#              - media_player.livingroom_alexa
+#            data:
+#              type: tts
+#            message: "Hello World"

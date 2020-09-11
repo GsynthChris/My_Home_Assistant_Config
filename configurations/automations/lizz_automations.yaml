@@ -1,0 +1,116 @@
+  - alias: Good Morning Lizz
+    initial_state: yes
+    trigger:
+      platform: time
+      at: '10:00:00'
+    action:
+      - service: notify.mobile_app_lizzs_iphone_6s
+        data:
+          message: 'Good Morning Lizz, I Love You! -Chris'
+
+#################################################################################################################
+########################################              Lizz             ##########################################
+#################################################################################################################
+
+  # - alias: Lizz's Birthday # A once a year boost to the WAF factor
+  #   initial_state: yes
+  #   trigger:
+  #     - platform: time
+  #       at: '11:00:00'
+  #   condition:
+  #     condition: and
+  #     conditions:
+  #       - condition: template
+  #         value_template: '{{ now().month == 5 }}' # Change the number here to get whatever day of the month you want.
+  #       - condition: template
+  #         value_template: "{{ now().day == 4 }}" # Change the number here to get whatever day of the month you want.
+  #   action:
+  #     - service: notify.alexa_media
+  #       data:
+  #         target:
+  #           - media_player.livingroom_alexa
+  #           - media_player.bedroom_alexa
+  #           - media_player.office_alexa
+  #           # - media_player.zach_alexa
+  #           - media_player.basement_alexa
+  #         data:
+  #           type: tts
+  #         message: "Happy Birthday to you,... Happy Birthday to you,... Happy Birthday to elizabeth,...  Happy Birthday to you"
+  #     - service: notify.lizzs_iphone_6s
+  #       data:
+  #         title: "HAPPY FUCKING BIRTHDAY!!!!!!!!!!!!!!!"
+  #         message: "I LOVE YOU SO MUCH! Happy Birthday to the most wonderful woman I have ever met!"
+
+  # - alias: 'Where is Lizz' # I get way too many notifications from this
+  #   initial_state: yes
+  #   hide_entity: yes
+  #   trigger:
+  #     - platform: state
+  #       entity_id: device_tracker.lizz_iphone
+  #   action:
+  #     - service: notify.mobile_app_chris_skidata_iphone
+  #       data_template:
+  #         message: >
+  #           {% if is_state('device_tracker.lizz_iphone', 'home') %}
+  #             Your beautiful Wife is home!!!!!!!!
+  #           {% else %}
+  #             Lizz is at {{ states('device_tracker.lizz_iphone') }}.
+  #           {% endif %}
+
+  # - alias: 'Welcome Home Lizz!!!'
+  #   initial_state: yes
+  #   trigger:
+  #     - platform: zone
+  #       event: enter
+  #       zone: zone.home
+  #       entity_id: device_tracker.lizz_iphone
+  #   action:
+  #     - service: notify.mobile_app_chris_skidata_iphone
+  #       data:
+  #         title: 'Hey Chris!'
+  #         message: 'Your beautiful Wife is home!!!!!!!!'
+  #     - service: notify.alexa_media
+  #       data:
+  #         target:
+  #           - media_player.livingroom_alexa
+  #           - media_player.bedroom_alexa
+  #         data:
+  #           type: tts
+  #         message: "Oh my Goodness Chris!... Your sexy  wife is home!"
+      # - service: notify.mobile_app_lizzs_iphone_6s
+        # data:
+          # title: "Welcome Home LizzyPoo!"
+          # message: "I Love You! Swipe down!"
+          # data:
+            # push:
+              # badge: 0
+              # category: 'welcomehome'
+
+  # - alias: 'Doorbell FRONTVIDEO Lizz'
+  #   initial_state: true
+  #   hide_entity: true
+  #   trigger:
+  #     platform: event
+  #     event_type: ios.notification_action_fired
+  #     event_data:
+  #       actionName: FRONTVIDEOLIZZ
+  #   action:
+  #   - service: notify.mobile_app_lizz_iphone
+  #     data:
+  #       message: Front Door Live Video Stream!
+  #       data:
+  #         push:
+  #           sound: "US-EN-Morgan-Freeman-Motion-Detected.wav"
+  #           category: camera
+  #         entity_id: camera.front_yard
+
+  # - alias: 'Doorbell DRIVEWAYVIDEO Lizz'
+  #   initial_state: true
+  #   hide_entity: true
+  #   trigger:
+  #     platform: event
+  #     event_type: ios.notification_action_fired
+  #     event_data:
+  #       actionName: DRIVEWAYVIDEOLIZZ
+  #   action:
+  #     - service: script.doorbelldrivewaylizzvideo
